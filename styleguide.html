@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanCore Decon — Styleguide / DA (V2 · Soft Structuralism)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root{
+    --blue:#0B6BCB; --blue-dark:#0A56A6; --navy:#0A2540; --teal:#13B4A6;
+    --bg:#FFFFFF; --bg-alt:#F4F7FB; --bg-soft:#EEF3F9;
+    --ink:#1A2433; --ink-2:#5A6B82; --muted:#94A3B5;
+    --hair:rgba(10,37,64,.07);            /* hairline ring, jamais gris plat */
+    --r:24px; --r-lg:32px;
+    /* ombres ambiantes ultra-diffusées (Soft Structuralism) */
+    --amb:0 1px 2px rgba(10,37,64,.04), 0 12px 28px -8px rgba(10,37,64,.10);
+    --amb-lg:0 2px 6px rgba(10,37,64,.05), 0 30px 60px -22px rgba(11,107,203,.30);
+    --inset:inset 0 1px 1px rgba(255,255,255,.7);
+    --ease:cubic-bezier(.32,.72,0,1);
+    --ease2:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,h5{font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);line-height:1.1;letter-spacing:-.025em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  section{padding:120px 0;position:relative}
+  .bg-alt{background:var(--bg-alt)}
+
+  /* eyebrow pill */
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--hair);
+    box-shadow:var(--amb);border-radius:999px;padding:7px 14px;font-size:10px;font-weight:600;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+  .eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+  .sec-title{font-size:clamp(30px,4vw,46px);font-weight:700;margin:20px 0 16px}
+  .sec-sub{font-size:18px;color:var(--ink-2);max-width:60ch;margin-bottom:48px}
+
+  /* ---- Fluid Island nav (glass pill détachée) ---- */
+  .navwrap{position:sticky;top:0;z-index:60;padding:22px 0;pointer-events:none}
+  nav{pointer-events:auto;width:max-content;max-width:calc(100% - 40px);margin:0 auto;display:flex;align-items:center;gap:30px;
+    background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(160%);
+    border:1px solid rgba(255,255,255,.7);box-shadow:0 1px 2px rgba(10,37,64,.05),0 18px 40px -16px rgba(10,37,64,.22);
+    border-radius:999px;padding:10px 12px 10px 22px}
+  .logo{font-family:'Plus Jakarta Sans';font-weight:800;font-size:18px;color:var(--navy);display:flex;align-items:center;gap:8px}
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(19,180,166,.18)}
+  .navlinks{display:flex;gap:24px}
+  .navlinks a{position:relative;color:var(--ink);text-decoration:none;font-weight:500;font-size:14px}
+  .navlinks a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--blue);border-radius:2px;transition:width .35s var(--ease)}
+  .navlinks a:hover::after{width:100%}
+
+  /* ---- Button-in-button CTA ---- */
+  .btn{display:inline-flex;align-items:center;gap:12px;font-family:'Inter';font-weight:600;font-size:15px;
+    padding:12px 12px 12px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;text-decoration:none;
+    transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .4s;will-change:transform}
+  .btn .ic{width:32px;height:32px;border-radius:999px;display:flex;align-items:center;justify-content:center;
+    transition:transform .5s var(--ease),background .4s}
+  .btn .ic svg{width:16px;height:16px}
+  .btn:active{transform:scale(.975)}
+  .btn-primary{background:var(--blue);color:#fff;box-shadow:0 1px 1px rgba(0,0,0,.04),0 14px 30px -10px rgba(11,107,203,.55)}
+  .btn-primary .ic{background:rgba(255,255,255,.18)}
+  .btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 20px 40px -12px rgba(11,107,203,.6)}
+  .btn-primary:hover .ic{transform:translate(2px,-1px) scale(1.06)}
+  .btn-teal{background:var(--teal);color:#053b36;box-shadow:0 14px 30px -10px rgba(19,180,166,.55)}
+  .btn-teal .ic{background:rgba(255,255,255,.28)}
+  .btn-teal:hover{transform:translateY(-2px)}
+  .btn-teal:hover .ic{transform:translate(2px,-1px) scale(1.06)}
+  .btn-outline{background:rgba(255,255,255,.7);color:var(--navy);border-color:var(--hair);box-shadow:var(--amb);padding-left:22px}
+  .btn-outline .ic{background:var(--bg-soft)}
+  .btn-outline:hover{transform:translateY(-2px);color:var(--blue)}
+  .btn-outline:hover .ic{transform:translate(2px,-1px)}
+
+  /* ---- Hero ---- */
+  .hero{background:radial-gradient(900px 480px at 78% -8%,rgba(19,180,166,.16),transparent 62%),
+    radial-gradient(820px 460px at 5% 108%,rgba(11,107,203,.14),transparent 60%),
+    linear-gradient(180deg,#F4F7FB,#fff 70%);overflow:hidden;padding-top:48px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:60px;padding-bottom:110px}
+  .hero h1{font-size:clamp(40px,5.6vw,62px);font-weight:800;letter-spacing:-.035em}
+  .hero h1 .g{background:linear-gradient(120deg,var(--blue),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:19px;color:var(--ink-2);margin:24px 0 34px;max-width:46ch}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:14px;margin-top:42px;flex-wrap:wrap}
+  .stat{background:rgba(255,255,255,.6);border:1px solid var(--hair);box-shadow:var(--amb);border-radius:18px;padding:14px 18px}
+  .stat .n{font-family:'Plus Jakarta Sans';font-weight:800;font-size:24px;color:var(--navy);letter-spacing:-.02em}
+  .stat .l{font-size:12px;color:var(--muted);font-weight:500}
+
+  /* Double-bezel hero visual */
+  .bezel{background:rgba(10,37,64,.04);border:1px solid var(--hair);border-radius:var(--r-lg);padding:10px;box-shadow:var(--amb-lg)}
+  .bezel-core{border-radius:calc(var(--r-lg) - 10px);overflow:hidden;box-shadow:var(--inset)}
+  .hero-visual{aspect-ratio:4/3.2;background:
+    radial-gradient(120% 120% at 20% 10%,#13B4A6 0%,#0B6BCB 45%,#0A2540 100%);
+    position:relative;display:flex;align-items:center;justify-content:center;color:#fff}
+  .hero-visual .ph{display:flex;flex-direction:column;align-items:center;gap:12px;opacity:.95}
+  .hero-visual .ph svg{width:52px;height:52px;stroke-width:1.2}
+  .hero-visual .ph small{font-size:12px;letter-spacing:1.5px;opacity:.75}
+  .float-badge{position:absolute;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);color:var(--navy);
+    border-radius:14px;padding:11px 15px;box-shadow:var(--amb);font-size:13px;font-weight:600;display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.8)}
+  .float-badge svg{width:18px;height:18px;color:var(--teal);stroke-width:1.6}
+  .fb-1{top:24px;left:-18px}.fb-2{bottom:26px;right:-18px}
+
+  /* top urgency strip (fine, glass) */
+  .strip{background:var(--navy);color:#dce7f5;font-size:13px;font-weight:500;padding:10px 0}
+  .strip .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .strip a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+  .strip svg{width:15px;height:15px;stroke-width:1.6}
+  .strip .l{display:inline-flex;align-items:center;gap:7px;color:#9fc1ec}
+
+  /* swatches */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:16px}
+  .sw{border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--amb);border:1px solid var(--hair)}
+  .sw .c{height:96px}
+  .sw .m{padding:13px 15px}
+  .sw .m b{display:block;font-size:13px;color:var(--navy);font-family:'Plus Jakarta Sans';font-weight:600}
+  .sw .m code{font-size:12px;color:var(--muted)}
+
+  /* type scale */
+  .typecard{background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);border-radius:var(--r);padding:8px 30px}
+  .typerow{display:flex;align-items:baseline;gap:22px;padding:18px 0;border-bottom:1px solid var(--hair)}
+  .typerow:last-child{border:none}
+  .typerow .tag{font-size:12px;color:var(--muted);width:128px;flex:none}
+  .typerow .sz{font-size:12px;color:var(--blue);width:62px;flex:none;font-weight:600}
+
+  /* service double-bezel cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(264px,1fr));gap:20px}
+  .card-shell{background:rgba(10,37,64,.035);border:1px solid var(--hair);border-radius:var(--r);padding:7px;
+    transition:transform .55s var(--ease),box-shadow .55s var(--ease);will-change:transform}
+  .card{background:#fff;border-radius:calc(var(--r) - 7px);padding:26px;box-shadow:var(--inset);height:100%}
+  .card-shell:hover{transform:translateY(-6px);box-shadow:var(--amb-lg)}
+  .card .ico{width:52px;height:52px;border-radius:15px;background:linear-gradient(160deg,#EEF3F9,#fff);
+    border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+    transition:background .5s var(--ease),transform .5s var(--ease)}
+  .card .ico svg{width:24px;height:24px;color:var(--blue);stroke-width:1.5;transition:color .5s}
+  .card-shell:hover .ico{background:linear-gradient(160deg,#0B6BCB,#13B4A6)}
+  .card-shell:hover .ico svg{color:#fff}
+  .card h4{font-size:19px;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--ink-2)}
+  .card .more{margin-top:16px;font-size:13px;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:7px}
+  .card .more .ic{width:24px;height:24px;border-radius:999px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;transition:transform .5s var(--ease),background .4s}
+  .card .more svg{width:14px;height:14px;stroke-width:1.8}
+  .card-shell:hover .more .ic{transform:translateX(4px);background:#dbeafe}
+
+  /* trust chips */
+  .trust{display:flex;flex-wrap:wrap;gap:14px}
+  .chip{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);
+    border-radius:999px;padding:12px 20px;font-weight:600;font-size:14px;color:var(--navy);font-family:'Plus Jakarta Sans'}
+  .chip svg{width:18px;height:18px;color:var(--teal);stroke-width:1.6}
+
+  /* process — Z-axis-ish floating steps */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(176px,1fr));gap:18px}
+  .step{background:#fff;border:1px solid var(--hair);border-radius:22px;padding:26px;box-shadow:var(--amb)}
+  .step .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;color:#fff;
+    background:linear-gradient(150deg,var(--blue),var(--teal));width:38px;height:38px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 8px 18px -6px rgba(11,107,203,.5)}
+  .step h5{font-size:16px;margin-bottom:6px}
+  .step p{font-size:13px;color:var(--ink-2)}
+
+  /* faq */
+  .faq{max-width:800px}
+  .q{background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);border-radius:20px;margin-bottom:12px;overflow:hidden;transition:box-shadow .4s}
+  .q[open]{box-shadow:var(--amb-lg)}
+  .q summary{list-style:none;cursor:pointer;padding:22px 24px;font-weight:600;color:var(--navy);font-family:'Plus Jakarta Sans';
+    display:flex;justify-content:space-between;align-items:center;font-size:17px}
+  .q summary::-webkit-details-marker{display:none}
+  .q summary .ic{width:30px;height:30px;border-radius:999px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;transition:transform .45s var(--ease),background .4s}
+  .q summary svg{width:18px;height:18px;color:var(--blue);stroke-width:2}
+  .q[open] summary .ic{transform:rotate(45deg);background:#dbeafe}
+  .q .a{padding:0 24px 22px;color:var(--ink-2);font-size:15px}
+
+  /* reveal blur-up */
+  .reveal{opacity:0;transform:translateY(34px);filter:blur(8px);transition:opacity .9s var(--ease2),transform .9s var(--ease2),filter .9s var(--ease2)}
+  .reveal.in{opacity:1;transform:none;filter:blur(0)}
+
+  .footer{background:var(--navy);color:#aebfd4;padding:60px 0}
+  .footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px}
+  .footer b{color:#fff;font-family:'Plus Jakarta Sans';display:block;margin-bottom:6px}
+
+  @media(max-width:860px){
+    section{padding:80px 0}
+    .hero .wrap{grid-template-columns:1fr;gap:36px;padding-bottom:70px}
+    .navlinks{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;filter:none;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- URGENCY STRIP -->
+<div class="strip"><div class="wrap">
+  <span class="l"><i data-lucide="clock"></i> 24/7 Emergency Response · Los Angeles County</span>
+  <a href="#"><i data-lucide="phone"></i> (213) 705-8557 — Call now</a>
+</div></div>
+
+<!-- FLUID ISLAND NAV -->
+<div class="navwrap"><nav>
+  <div class="logo"><span class="dot"></span>CleanCore<span style="color:var(--blue)">Decon</span></div>
+  <div class="navlinks"><a>Home</a><a>Services</a><a>Why Us</a><a>About</a><a>Contact</a></div>
+  <a href="#" class="btn btn-primary">Call Now<span class="ic"><i data-lucide="phone-call"></i></span></a>
+</nav></div>
+
+<!-- HERO -->
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow"><span class="d"></span>Licensed · Bonded · Insured</span>
+    <h1 style="margin-top:22px">We bring <span class="g">peace of mind</span><br>& safety back to your space.</h1>
+    <p>Discreet, compassionate biohazard & extreme cleaning across Los Angeles. Certified crews, rapid response — we bill insurance directly.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-primary">Call (213) 705-8557<span class="ic"><i data-lucide="phone-call"></i></span></a>
+      <a href="#" class="btn btn-outline">Free Estimate<span class="ic"><i data-lucide="arrow-up-right"></i></span></a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="n">24/7</div><div class="l">Availability</div></div>
+      <div class="stat"><div class="n">&lt;60min</div><div class="l">Response time</div></div>
+      <div class="stat"><div class="n">IICRC</div><div class="l">Certified</div></div>
+    </div>
+  </div>
+  <div class="bezel"><div class="bezel-core"><div class="hero-visual">
+    <div class="ph"><i data-lucide="image"></i><small>PHOTO ÉQUIPE / EPP</small></div>
+    <div class="float-badge fb-1"><i data-lucide="shield-check"></i> Insured & Bonded</div>
+    <div class="float-badge fb-2"><i data-lucide="badge-check"></i> We bill insurance</div>
+  </div></div></div>
+</div></header>
+
+<!-- COLORS -->
+<section><div class="wrap reveal">
+  <span class="eyebrow"><span class="d"></span>01 — Palette</span>
+  <h2 class="sec-title">Couleurs · Light theme</h2>
+  <p class="sec-sub">Monochrome froide « clean / médicale ». CTA bleu/teal, pas de rouge. Ombres ambiantes diffuses, hairlines plutôt que bordures grises plates.</p>
+  <div class="swatches">
+    <div class="sw"><div class="c" style="background:#0B6BCB"></div><div class="m"><b>Clinical Blue</b><code>#0B6BCB</code></div></div>
+    <div class="sw"><div class="c" style="background:#0A2540"></div><div class="m"><b>Deep Navy</b><code>#0A2540</code></div></div>
+    <div class="sw"><div class="c" style="background:#13B4A6"></div><div class="m"><b>Teal</b><code>#13B4A6</code></div></div>
+    <div class="sw"><div class="c" style="background:#F4F7FB"></div><div class="m"><b>BG alt</b><code>#F4F7FB</code></div></div>
+    <div class="sw"><div class="c" style="background:#1A2433"></div><div class="m"><b>Ink</b><code>#1A2433</code></div></div>
+    <div class="sw"><div class="c" style="background:#5A6B82"></div><div class="m"><b>Ink 2</b><code>#5A6B82</code></div></div>
+    <div class="sw"><div class="c" style="background:#1FA971"></div><div class="m"><b>Success</b><code>#1FA971</code></div></div>
+    <div class="sw"><div class="c" style="background:linear-gradient(120deg,#0B6BCB,#13B4A6)"></div><div class="m"><b>Gradient accent</b><code>blue → teal</code></div></div>
+  </div>
+</div></section>
+
+<!-- TYPE -->
+<section class="bg-alt"><div class="wrap reveal">
+  <span class="eyebrow"><span class="d"></span>02 — Typographie</span>
+  <h2 class="sec-title">Plus Jakarta Sans + Inter</h2>
+  <p class="sec-sub">Jakarta (grotesk, titres) pour le caractère premium ; Inter (corps) pour la lisibilité maximale sur mobile en situation d'urgence.</p>
+  <div class="typecard">
+    <div class="typerow"><span class="tag">Display · Jakarta 800</span><span class="sz">56px</span><span style="font-family:'Plus Jakarta Sans';font-weight:800;font-size:42px;letter-spacing:-.03em;color:var(--navy)">Biohazard Cleanup</span></div>
+    <div class="typerow"><span class="tag">H1 · Jakarta 700</span><span class="sz">44px</span><span style="font-family:'Plus Jakarta Sans';font-weight:700;font-size:34px;color:var(--navy)">Crime Scene Cleanup</span></div>
+    <div class="typerow"><span class="tag">H2 · Jakarta 700</span><span class="sz">34px</span><span style="font-family:'Plus Jakarta Sans';font-weight:700;font-size:28px;color:var(--navy)">Why choose us</span></div>
+    <div class="typerow"><span class="tag">H3 · Jakarta 600</span><span class="sz">26px</span><span style="font-family:'Plus Jakarta Sans';font-weight:600;font-size:23px;color:var(--navy)">Our cleanup process</span></div>
+    <div class="typerow"><span class="tag">Body L · Inter 400</span><span class="sz">18px</span><span style="font-size:18px;color:var(--ink-2)">Discreet, compassionate crews available 24/7 across LA.</span></div>
+    <div class="typerow"><span class="tag">Body · Inter 400</span><span class="sz">16px</span><span style="font-size:16px;color:var(--ink-2)">We are licensed, certified and fully insured. We bill insurance directly.</span></div>
+    <div class="typerow"><span class="tag">Caption · Inter 600</span><span class="sz">12px</span><span style="font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)">Licensed · Bonded · Insured</span></div>
+  </div>
+</div></section>
+
+<!-- BUTTONS -->
+<section><div class="wrap reveal">
+  <span class="eyebrow"><span class="d"></span>03 — Boutons · button-in-button</span>
+  <h2 class="sec-title">Boutons & micro-physique</h2>
+  <p class="sec-sub">Icône encapsulée dans son propre cercle, qui se déplace en diagonale au survol (tension cinétique). Pression physique au clic.</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <a class="btn btn-primary">Call Now<span class="ic"><i data-lucide="phone-call"></i></span></a>
+    <a class="btn btn-teal">Free Estimate<span class="ic"><i data-lucide="arrow-up-right"></i></span></a>
+    <a class="btn btn-outline">Learn More<span class="ic"><i data-lucide="arrow-up-right"></i></span></a>
+  </div>
+</div></section>
+
+<!-- SERVICES -->
+<section class="bg-alt"><div class="wrap reveal">
+  <span class="eyebrow"><span class="d"></span>04 — Cartes service · double-bezel</span>
+  <h2 class="sec-title">Nos services</h2>
+  <p class="sec-sub">Architecture nichée (coque + cœur), icônes fines, élévation flottante au survol avec dégradé bleu→teal sur l'icône.</p>
+  <div class="grid">
+    <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="biohazard"></i></div><h4>Biohazard Cleanup</h4><p>Safe removal & decontamination of biohazardous materials.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
+    <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="droplet"></i></div><h4>Blood Cleanup</h4><p>Thorough, OSHA-compliant blood spill remediation.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
+    <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="shield-alert"></i></div><h4>Crime Scene Cleanup</h4><p>Discreet, compassionate restoration after a tragedy.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
+    <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="boxes"></i></div><h4>Hoarder Cleanup</h4><p>Respectful, judgment-free full property cleanout.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
+    <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="flask-conical"></i></div><h4>Drug Lab Cleanup</h4><p>Certified chemical decontamination & disposal.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
+    <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="wind"></i></div><h4>Odor Removal</h4><p>Complete molecular-level odor neutralization.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
+    <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="bug"></i></div><h4>Mold Remediation</h4><p>Inspection, containment & safe mold removal.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
+    <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="flame"></i></div><h4>Fire Damage Restoration</h4><p>Soot, smoke & structural cleanup after fire.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
+  </div>
+</div></section>
+
+<!-- TRUST -->
+<section><div class="wrap reveal">
+  <span class="eyebrow"><span class="d"></span>05 — Trust & certifications</span>
+  <h2 class="sec-title">Badges de confiance</h2>
+  <p class="sec-sub">Pills flottantes à hairline. Logos de certif réels (IICRC, BBB, OSHA, EPA) viendront en rangée monochrome → couleur au survol.</p>
+  <div class="trust">
+    <span class="chip"><i data-lucide="shield-check"></i> Licensed & Insured</span>
+    <span class="chip"><i data-lucide="award"></i> IICRC Certified</span>
+    <span class="chip"><i data-lucide="clock"></i> 24/7 Response</span>
+    <span class="chip"><i data-lucide="eye-off"></i> 100% Discreet</span>
+    <span class="chip"><i data-lucide="heart-handshake"></i> Compassionate Crews</span>
+    <span class="chip"><i data-lucide="badge-check"></i> We Bill Insurance</span>
+    <span class="chip"><i data-lucide="star"></i> 4.9 Google Rating</span>
+  </div>
+</div></section>
+
+<!-- PROCESS -->
+<section class="bg-alt"><div class="wrap reveal">
+  <span class="eyebrow"><span class="d"></span>06 — Infographie process</span>
+  <h2 class="sec-title">Comment ça se passe</h2>
+  <p class="sec-sub">Timeline en cartes flottantes. Les numéros se remplissent au scroll en version finale.</p>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h5>Call us</h5><p>One tap, 24/7. We answer immediately.</p></div>
+    <div class="step"><div class="num">2</div><h5>Free assessment</h5><p>On-site evaluation, no obligation.</p></div>
+    <div class="step"><div class="num">3</div><h5>Decontamination</h5><p>Certified removal & cleanup.</p></div>
+    <div class="step"><div class="num">4</div><h5>Disinfection</h5><p>Hospital-grade sanitization.</p></div>
+    <div class="step"><div class="num">5</div><h5>Verification</h5><p>Testing & quality check.</p></div>
+    <div class="step"><div class="num">6</div><h5>Restored</h5><p>Your space, safe again.</p></div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section><div class="wrap reveal">
+  <span class="eyebrow"><span class="d"></span>07 — Accordéon FAQ</span>
+  <h2 class="sec-title">Questions fréquentes</h2>
+  <div class="faq" style="margin-top:8px">
+    <details class="q" open><summary>Do you bill insurance directly?<span class="ic"><i data-lucide="plus"></i></span></summary><div class="a">Yes — we work with most homeowner and commercial insurance policies and bill them directly whenever possible.</div></details>
+    <details class="q"><summary>How fast can you arrive?<span class="ic"><i data-lucide="plus"></i></span></summary><div class="a">Our crews are on call 24/7 and typically arrive on-site in under 60 minutes across Los Angeles County.</div></details>
+    <details class="q"><summary>Is the service discreet?<span class="ic"><i data-lucide="plus"></i></span></summary><div class="a">Absolutely. Unmarked vehicles available, fully confidential, and handled with compassion.</div></details>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="wrap">
+  <div><b>CleanCore Decon</b>Biohazard & extreme cleaning · Los Angeles</div>
+  <div><b>24/7 Emergency</b>(213) 705-8557</div>
+  <div><b>Licensed · Bonded · Insured</b>IICRC Certified</div>
+</div></footer>
+
+<script>
+  lucide.createIcons();
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
