@@ -189,7 +189,36 @@
   .vstars svg{width:13px;height:13px;color:#F5A524;fill:#F5A524}
   .vinput{height:11px;border-radius:4px;background:#e7edf5;margin-top:6px}
 
-  @media(max-width:900px){.row-3,.row-2{grid-template-columns:1fr}}
+  .row-4{grid-template-columns:repeat(4,1fr)}
+  /* mini card-style previews */
+  .mc{background:#fff;border-radius:14px;padding:16px;width:100%}
+  .mc .ci{width:40px;height:40px;border-radius:11px;background:#F4F7FB;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+  .mc .ci svg{width:20px;height:20px;color:#0B6BCB}
+  .mc h5{font-family:'Plus Jakarta Sans';font-weight:700;font-size:14px;color:#0A2540}
+  .mc p{font-size:11px;color:#5A6B82;margin-top:2px}
+  .mc-flat{border:1px solid #E2E8F0}
+  .mc-shadow{box-shadow:0 14px 32px -18px rgba(10,37,64,.4)}
+  .mc-outline{border:2px solid #0A2540}
+  .mc-photo{padding:0;overflow:hidden;border:1px solid #E2E8F0}
+  .mc-photo .img{height:52px;background:#334155}
+  .mc-photo .bd{padding:14px}
+  /* photo-style thumbs */
+  .pthumb{height:84px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:600;text-align:center;padding:8px}
+  /* corner shapes */
+  .shape{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .shape .bx{width:56px;height:44px;background:#0B6BCB}
+  .shape .bt2{padding:9px 16px;background:#0A2540;color:#fff;font-size:12px;font-weight:600}
+  /* header-style minis */
+  .hd{background:#F4F7FB;border:1px solid #E2E8F0;border-radius:12px;padding:12px;height:84px;display:flex;align-items:center;justify-content:center}
+  .hd .barpill{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid #E2E8F0;box-shadow:0 8px 20px -12px rgba(10,37,64,.4);border-radius:999px;padding:7px 8px 7px 14px;width:90%}
+  .hd .barfull{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border-bottom:1px solid #E2E8F0;padding:9px 12px;width:100%;border-radius:8px}
+  .hd .barc{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%}
+  .hd .lg{font-family:'Plus Jakarta Sans';font-weight:800;font-size:12px;color:#0A2540}
+  .hd .ln{display:flex;gap:8px}.hd .ln span{width:22px;height:5px;border-radius:3px;background:#cdd9e8}
+  .hd .cta2{background:#0B6BCB;width:42px;height:16px;border-radius:999px}
+  /* tone of voice */
+  .tone{font-family:'Plus Jakarta Sans';font-weight:700;font-size:17px;color:#0A2540;line-height:1.22}
+  @media(max-width:900px){.row-3,.row-2,.row-4{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="lang-en">
@@ -253,6 +282,42 @@
           <h4 style="color:#1E293B">Peace of mind, restored.</h4>
           <p style="color:#5A6B82">24/7 biohazard cleanup in LA.</p>
           <span class="cta" style="background:#EA580C">Call now <span class="c"><i data-lucide="phone"></i></span></span>
+        </div>
+      </div>
+      <div class="opt">
+        <span class="pick">Option D</span>
+        <h3><span class="en">Navy &amp; Amber</span><span class="fr">Navy &amp; Ambre</span></h3>
+        <div class="desc"><span class="en">Warm, premium, established feel.</span><span class="fr">Chaleureux, premium, rassurant.</span></div>
+        <div class="pal"><span style="background:#F59E0B"></span><span style="background:#0A2540"></span><span style="background:#0E7490"></span><span style="background:#FBF6EF"></span></div>
+        <div class="mini" style="background:linear-gradient(160deg,#FBF6EF,#fff)">
+          <span class="eb" style="background:#FCEFD6;color:#B45309">Licensed · Insured</span>
+          <h4 style="color:#0A2540">Peace of mind, restored.</h4>
+          <p style="color:#5A6B82">24/7 biohazard cleanup in LA.</p>
+          <span class="cta" style="background:#F59E0B">Call now <span class="c"><i data-lucide="phone"></i></span></span>
+        </div>
+      </div>
+      <div class="opt">
+        <span class="pick">Option E</span>
+        <h3><span class="en">Emerald (medical)</span><span class="fr">Émeraude (médical)</span></h3>
+        <div class="desc"><span class="en">Deep, hygienic, hospital-grade.</span><span class="fr">Profond, hygiénique, qualité hôpital.</span></div>
+        <div class="pal"><span style="background:#059669"></span><span style="background:#0A2540"></span><span style="background:#0E7490"></span><span style="background:#ECFDF5"></span></div>
+        <div class="mini" style="background:linear-gradient(160deg,#ECFDF5,#fff)">
+          <span class="eb" style="background:#D1FAE5;color:#047857">Licensed · Insured</span>
+          <h4 style="color:#0A2540">Peace of mind, restored.</h4>
+          <p style="color:#5A6B82">24/7 biohazard cleanup in LA.</p>
+          <span class="cta" style="background:#059669">Call now <span class="c"><i data-lucide="phone"></i></span></span>
+        </div>
+      </div>
+      <div class="opt">
+        <span class="pick">Option F</span>
+        <h3><span class="en">Charcoal &amp; Red</span><span class="fr">Anthracite &amp; Rouge</span></h3>
+        <div class="desc"><span class="en">Classic emergency look — high alert.</span><span class="fr">Look « urgence » classique — alerte max.</span></div>
+        <div class="pal"><span style="background:#DC2626"></span><span style="background:#1F2937"></span><span style="background:#475569"></span><span style="background:#F8FAFC"></span></div>
+        <div class="mini" style="background:linear-gradient(160deg,#F8FAFC,#fff)">
+          <span class="eb" style="background:#FEE2E2;color:#B91C1C">Licensed · Insured</span>
+          <h4 style="color:#1F2937">Peace of mind, restored.</h4>
+          <p style="color:#5A6B82">24/7 biohazard cleanup in LA.</p>
+          <span class="cta" style="background:#DC2626">Call now <span class="c"><i data-lucide="phone"></i></span></span>
         </div>
       </div>
     </div>
@@ -539,6 +604,93 @@
 
       </div>
       <p style="font-size:12px;color:#9aa7b8;margin-top:14px"><span class="en">These are real, running animations — that’s the “Smooth” (Level B) feel.</span><span class="fr">Ce sont de vraies animations qui tournent — c’est le ressenti « Fluide » (Niveau B).</span></p>
+    </div>
+  </div>
+
+  <!-- STEP 8 — CARD STYLE -->
+  <div class="step">
+    <div class="snum"><span class="b">8</span><h2><span class="en">Card style</span><span class="fr">Style des cartes</span></h2></div>
+    <p class="ask"><b><span class="en">How should the service cards look?</span><span class="fr">À quoi doivent ressembler les cartes de service ?</span></b></p>
+    <div class="row row-2">
+      <div class="opt"><span class="pick"><span class="en">Option A · Flat</span><span class="fr">Option A · Plat</span></span>
+        <div class="mc mc-flat"><div class="ci"><i data-lucide="biohazard"></i></div><h5>Biohazard Cleanup</h5><p><span class="en">Thin border, no shadow.</span><span class="fr">Fine bordure, sans ombre.</span></p></div></div>
+      <div class="opt reco"><span class="pick"><span class="en">Option B · Soft shadow</span><span class="fr">Option B · Ombre douce</span></span>
+        <div class="mc mc-shadow"><div class="ci"><i data-lucide="biohazard"></i></div><h5>Biohazard Cleanup</h5><p><span class="en">Floating, premium feel.</span><span class="fr">Flottant, effet premium.</span></p></div></div>
+      <div class="opt"><span class="pick"><span class="en">Option C · Outlined</span><span class="fr">Option C · Contour marqué</span></span>
+        <div class="mc mc-outline"><div class="ci"><i data-lucide="biohazard"></i></div><h5>Biohazard Cleanup</h5><p><span class="en">Bold border, strong.</span><span class="fr">Bordure marquée, affirmé.</span></p></div></div>
+      <div class="opt"><span class="pick"><span class="en">Option D · Photo on top</span><span class="fr">Option D · Photo en haut</span></span>
+        <div class="mc mc-photo"><div class="img"></div><div class="bd"><h5>Biohazard Cleanup</h5><p><span class="en">Image header on each card.</span><span class="fr">Une image en haut de chaque carte.</span></p></div></div></div>
+    </div>
+  </div>
+
+  <!-- STEP 9 — PHOTO STYLE -->
+  <div class="step">
+    <div class="snum"><span class="b">9</span><h2><span class="en">Visuals style</span><span class="fr">Style des visuels</span></h2></div>
+    <p class="ask"><b><span class="en">What kind of visuals across the site?</span><span class="fr">Quel type de visuels sur le site ?</span></b> <span class="en">(For a new company, real photos build the most trust — but stock works too.)</span><span class="fr">(Pour une nouvelle boîte, les vraies photos rassurent le plus — mais le stock marche aussi.)</span></p>
+    <div class="row row-4">
+      <div class="opt reco"><span class="pick"><span class="en">Real photos</span><span class="fr">Vraies photos</span></span>
+        <div class="pthumb" style="background:#334155"><span class="en">REAL PHOTOGRAPHY</span><span class="fr">PHOTOGRAPHIE RÉELLE</span></div>
+        <p class="desc" style="margin-top:10px;min-height:0"><span class="en">Crew, gear, before/after.</span><span class="fr">Équipe, matériel, avant/après.</span></p></div>
+      <div class="opt"><span class="pick"><span class="en">Premium stock</span><span class="fr">Banque premium</span></span>
+        <div class="pthumb" style="background:#475569"><span class="en">STOCK PHOTOS</span><span class="fr">PHOTOS DE BANQUE</span></div>
+        <p class="desc" style="margin-top:10px;min-height:0"><span class="en">Curated, professional.</span><span class="fr">Triées, pro.</span></p></div>
+      <div class="opt"><span class="pick"><span class="en">Illustrations</span><span class="fr">Illustrations</span></span>
+        <div class="pthumb" style="background:#EAF4FF;color:#0B6BCB"><i data-lucide="pen-tool" style="width:26px;height:26px"></i></div>
+        <p class="desc" style="margin-top:10px;min-height:0"><span class="en">Soft line drawings.</span><span class="fr">Dessins au trait doux.</span></p></div>
+      <div class="opt"><span class="pick"><span class="en">Icon-led</span><span class="fr">Surtout icônes</span></span>
+        <div class="pthumb" style="background:#F4F7FB;color:#0B6BCB"><i data-lucide="shapes" style="width:26px;height:26px"></i></div>
+        <p class="desc" style="margin-top:10px;min-height:0"><span class="en">Few photos, more icons.</span><span class="fr">Peu de photos, plus d’icônes.</span></p></div>
+    </div>
+  </div>
+
+  <!-- STEP 10 — CORNERS -->
+  <div class="step">
+    <div class="snum"><span class="b">10</span><h2><span class="en">Corners &amp; shape</span><span class="fr">Angles &amp; forme</span></h2></div>
+    <p class="ask"><b><span class="en">Sharp or rounded?</span><span class="fr">Anguleux ou arrondi ?</span></b> <span class="en">Sets how strict vs friendly the site feels.</span><span class="fr">Définit un rendu plus strict ou plus doux.</span></p>
+    <div class="row row-3">
+      <div class="opt"><span class="pick"><span class="en">Option A · Sharp</span><span class="fr">Option A · Anguleux</span></span>
+        <div class="desc"><span class="en">Strict, technical, serious.</span><span class="fr">Strict, technique, sérieux.</span></div>
+        <div class="shape"><div class="bx" style="border-radius:2px"></div><div class="bt2" style="border-radius:2px">Call Now</div></div></div>
+      <div class="opt reco"><span class="pick"><span class="en">Option B · Rounded</span><span class="fr">Option B · Arrondi</span></span>
+        <div class="desc"><span class="en">Balanced, modern, friendly.</span><span class="fr">Équilibré, moderne, accueillant.</span></div>
+        <div class="shape"><div class="bx" style="border-radius:12px"></div><div class="bt2" style="border-radius:12px">Call Now</div></div></div>
+      <div class="opt"><span class="pick"><span class="en">Option C · Very rounded</span><span class="fr">Option C · Très arrondi</span></span>
+        <div class="desc"><span class="en">Soft, approachable, calm.</span><span class="fr">Doux, rassurant, calme.</span></div>
+        <div class="shape"><div class="bx" style="border-radius:22px"></div><div class="bt2" style="border-radius:999px">Call Now</div></div></div>
+    </div>
+  </div>
+
+  <!-- STEP 11 — HEADER -->
+  <div class="step">
+    <div class="snum"><span class="b">11</span><h2><span class="en">Header style</span><span class="fr">Style du header</span></h2></div>
+    <p class="ask"><b><span class="en">How should the top menu look?</span><span class="fr">À quoi doit ressembler le menu du haut ?</span></b></p>
+    <div class="row row-3">
+      <div class="opt reco"><span class="pick"><span class="en">Option A · Floating pill</span><span class="fr">Option A · Pill flottante</span></span>
+        <div class="desc"><span class="en">Modern, detached, premium.</span><span class="fr">Moderne, détachée, premium.</span></div>
+        <div class="hd"><div class="barpill"><span class="lg">CleanCore</span><span class="ln"><span></span><span></span><span></span></span><span class="cta2"></span></div></div></div>
+      <div class="opt"><span class="pick"><span class="en">Option B · Classic bar</span><span class="fr">Option B · Barre classique</span></span>
+        <div class="desc"><span class="en">Full-width, familiar, simple.</span><span class="fr">Pleine largeur, familière, simple.</span></div>
+        <div class="hd"><div class="barfull"><span class="lg">CleanCore</span><span class="ln"><span></span><span></span><span></span></span><span class="cta2"></span></div></div></div>
+      <div class="opt"><span class="pick"><span class="en">Option C · Centered logo</span><span class="fr">Option C · Logo centré</span></span>
+        <div class="desc"><span class="en">Logo middle, links under.</span><span class="fr">Logo au centre, liens dessous.</span></div>
+        <div class="hd"><div class="barc"><span class="lg">CleanCore</span><span class="ln"><span></span><span></span><span></span><span></span></span></div></div></div>
+    </div>
+  </div>
+
+  <!-- STEP 12 — TONE OF VOICE -->
+  <div class="step">
+    <div class="snum"><span class="b">12</span><h2><span class="en">Tone of voice (the words)</span><span class="fr">Ton de la rédaction (les mots)</span></h2></div>
+    <p class="ask"><b><span class="en">How should the site talk?</span><span class="fr">Comment le site doit-il parler ?</span></b> <span class="en">Same idea, written three ways — pick the voice.</span><span class="fr">Même idée, écrite de 3 façons — choisis la voix.</span></p>
+    <div class="row row-3">
+      <div class="opt"><span class="pick"><span class="en">Option A · Direct &amp; urgent</span><span class="fr">Option A · Direct &amp; urgent</span></span>
+        <div class="tone"><span class="en">“Biohazard emergency? We’re on-site in 60 minutes.”</span><span class="fr">« Urgence biohazard ? On est sur place en 60 minutes. »</span></div>
+        <p class="desc" style="margin-top:12px;min-height:0"><span class="en">Action-first, reassuring speed.</span><span class="fr">Orienté action, rapidité rassurante.</span></p></div>
+      <div class="opt reco"><span class="pick"><span class="en">Option B · Warm &amp; caring</span><span class="fr">Option B · Chaleureux &amp; humain</span></span>
+        <div class="tone"><span class="en">“When the unthinkable happens, we handle it — with care and discretion.”</span><span class="fr">« Quand l’impensable arrive, on s’en occupe — avec soin et discrétion. »</span></div>
+        <p class="desc" style="margin-top:12px;min-height:0"><span class="en">Compassionate, human.</span><span class="fr">Compatissant, humain.</span></p></div>
+      <div class="opt"><span class="pick"><span class="en">Option C · Clinical &amp; pro</span><span class="fr">Option C · Clinique &amp; pro</span></span>
+        <div class="tone"><span class="en">“Certified biohazard decontamination across Los Angeles.”</span><span class="fr">« Décontamination biohazard certifiée dans tout Los Angeles. »</span></div>
+        <p class="desc" style="margin-top:12px;min-height:0"><span class="en">Factual, expert, institutional.</span><span class="fr">Factuel, expert, institutionnel.</span></p></div>
     </div>
   </div>
 
