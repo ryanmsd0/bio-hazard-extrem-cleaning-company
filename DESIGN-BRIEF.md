@@ -13,17 +13,19 @@
 
 ---
 
-## 1. Palette de couleurs (Light theme) — ✅ VERROUILLÉ : CTA bleu/teal (pas de rouge)
+## 1. Palette de couleurs (Light theme) — ✅ VERROUILLÉ : **couleurs du logo (Bleu + Vert)**
+> Le client veut la DA aux couleurs de son logo CleanCore Decon (goutte bleue + feuille verte). Ceci remplace la piste bleu/teal précédente. Thème clair conservé.
 
-### Couleurs principales
+### Couleurs principales (extraites du logo)
 | Rôle | Nom | HEX | Usage |
 |---|---|---|---|
-| Brand primary | Clinical Blue | `#0B6BCB` | Liens, titres accent, icônes |
-| Brand deep | Deep Navy | `#0A2540` | Texte titres, header, footer |
-| Accent / clean | Teal | `#13B4A6` | Détails « propreté », hovers, check |
-| **CTA principal** | Clinical Blue | `#0B6BCB` | Bouton « Call Now », bandeau 24/7 |
-| CTA hover | Blue dark | `#0A56A6` | État hover du CTA |
-| CTA alt | Teal | `#13B4A6` | Variante CTA secondaire / accent |
+| Brand primary | Logo Blue | `#1288CE` | Liens, titres accent, icônes, **CTA « Call Now »** |
+| CTA hover | Blue dark | `#0C6AAB` | État hover du CTA |
+| Accent / clean | Logo Green | `#57B94A` | Détails « propreté/éco », hovers, checks, accent |
+| Accent deep | Green dark | `#3C9A34` | Hover vert / texte sur fond clair |
+| Brand deep | Deep Navy / near-black | `#0A2540` | Texte titres, header, footer (écho du noir du logo) |
+
+> Le logo combine **bleu (goutte) + vert (feuille)** sur fond noir. En light theme : blanc dominant, bleu = action, vert = accent « propre/nature », near-black = texte.
 
 ### Neutres (la base d'un thème clair)
 | Rôle | HEX |
@@ -38,8 +40,8 @@
 ### Feedback
 - Success `#1FA971` · Warning `#F5A524` · Info `#0B6BCB`
 
-> **Règle 60-30-10** : 60% blanc/gris clair, 30% navy/bleu, 10% teal (accents/hovers).
-> Palette monochrome froide « clean/médicale » → calme et rassurante. Le teal porte les accents.
+> **Règle 60-30-10** : 60% blanc/gris clair, 30% navy/bleu (logo), 10% vert (logo — accents/hovers/checks).
+> Bleu + vert issus du logo → « propre + nature/éco », lumineux et rassurant. Le vert porte les accents.
 
 ---
 
@@ -207,6 +209,6 @@ Header sticky + bandeau urgence · Bouton CTA call (primaire rouge) · Bouton se
 
 ### Décisions verrouillées ✅
 1. **Typo** : Plus Jakarta Sans (titres) + Inter (corps).
-2. **CTA** : bleu/teal (pas de rouge) — palette froide clean/médicale.
+2. **Couleurs** : **bleu + vert du logo** (`#1288CE` / `#57B94A`) — CTA bleu, accents verts, pas de rouge.
 3. **Photos** : banque d'images premium triée (remplaçables par shooting client plus tard).
 4. **Stack** : Next.js (App Router) + Tailwind, déploiement Vercel.
