@@ -210,5 +210,6 @@ Header sticky + bandeau urgence · Bouton CTA call (primaire rouge) · Bouton se
 ### Décisions verrouillées ✅
 1. **Typo** : Plus Jakarta Sans (titres) + Inter (corps).
 2. **Couleurs** : **bleu + vert du logo** (`#1288CE` / `#57B94A`) — CTA bleu, accents verts, pas de rouge.
+3. **Forme / style** : **carré, corporate & moderne** — angles droits (rayon ~2px), style institutionnel façon **info.gouv.fr (DSFR)**. Boutons rectangulaires, cartes plates à bordure fine, aplats. Pas de pills ni de coins arrondis.
 3. **Photos** : banque d'images premium triée (remplaçables par shooting client plus tard).
 4. **Stack** : Next.js (App Router) + Tailwind, déploiement Vercel.
