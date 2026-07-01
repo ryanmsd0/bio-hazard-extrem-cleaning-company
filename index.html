@@ -16,20 +16,17 @@
   .sub{font-size:17px;color:#5A6B82;margin:10px 0 0;max-width:64ch}
 
   /* top navbar */
-  .topnav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;gap:8px;padding:0 24px;height:56px}
-  .topnav .brand{display:flex;align-items:center;gap:9px;text-decoration:none}
-  .topnav .brand img{height:30px;width:auto;display:block}
-  .topnav .brand .wm{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;line-height:1;color:#0A2540;letter-spacing:.01em}
-  .topnav .brand .wm .c2{color:#57B94A}
-  .topnav .brand .wm .c3{color:#1288CE;font-weight:700;font-size:11px;letter-spacing:.2em;margin-left:6px}
-  .topnav .links{display:flex;gap:2px;margin-left:18px}
-  .topnav .links a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:13.5px;color:#5A6B82;text-decoration:none;padding:18px 14px;border-bottom:2px solid transparent}
-  .topnav .links a.active{color:#1288CE;border-bottom-color:#1288CE}
-  .topnav .links a:hover{color:#1288CE}
-  .topnav .lang{margin-left:auto;display:inline-flex;background:#F1F5F9;padding:3px}
-  .topnav .lang button{border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans';font-weight:700;font-size:12.5px;color:#5A6B82;padding:6px 13px}
-  .topnav .lang button.on{background:#0A2540;color:#fff}
-  @media(max-width:560px){.topnav .brand .wm{display:none}}
+  .topnav{position:sticky;top:0;z-index:100;background:#0A2540;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px;padding:0 24px;height:84px}
+  .topnav .brand{display:flex;align-items:center;text-decoration:none}
+  .topnav .brand img{height:62px;width:auto;display:block}
+  .topnav .links{display:flex;gap:6px;margin-left:22px}
+  .topnav .links a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:14px;color:#c3d1e2;text-decoration:none;padding:8px 14px;border-bottom:2px solid transparent}
+  .topnav .links a.active{color:#fff;border-bottom-color:#1288CE}
+  .topnav .links a:hover{color:#fff}
+  .topnav .lang{margin-left:auto;display:inline-flex;background:rgba(255,255,255,.1);padding:3px}
+  .topnav .lang button{border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans';font-weight:700;font-size:12.5px;color:#c3d1e2;padding:6px 13px}
+  .topnav .lang button.on{background:#1288CE;color:#fff}
+  @media(max-width:560px){.topnav{height:72px}.topnav .brand img{height:52px}.topnav .links{display:none}}
   /* language switch */
   .langbar{position:sticky;top:0;z-index:50;display:flex;justify-content:flex-end;padding:10px 0 0}
   .lang{display:inline-flex;background:#fff;border-radius:999px;padding:4px;box-shadow:0 1px 2px rgba(10,37,64,.06),0 10px 24px -14px rgba(10,37,64,.3)}
@@ -238,7 +235,7 @@
 </head>
 <body class="lang-en">
 <nav class="topnav">
-  <a class="brand" href="index.html"><img src="logo-icon.png" alt="CleanCore Decon"><span class="wm">CLEAN<span class="c2">CORE</span><span class="c3">DECON</span></span></a>
+  <a class="brand" href="index.html"><img src="logo-full.png" alt="CleanCore Decon"></a>
   <div class="links">
     <a href="index.html" class="active"><span class="en">Options board</span><span class="fr">Planche d’options</span></a>
     <a href="composant/"><span class="en">Components</span><span class="fr">Composants</span></a>
