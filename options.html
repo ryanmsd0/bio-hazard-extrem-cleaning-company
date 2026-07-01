@@ -15,6 +15,19 @@
   h1.t{font-family:'Plus Jakarta Sans';font-weight:800;font-size:38px;letter-spacing:-.03em;color:#0A2540}
   .sub{font-size:17px;color:#5A6B82;margin:10px 0 0;max-width:64ch}
 
+  /* top navbar */
+  .topnav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;gap:8px;padding:0 24px;height:56px}
+  .topnav .brand{font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;color:#0A2540;display:flex;align-items:center;gap:8px;text-decoration:none}
+  .topnav .brand .dot{width:9px;height:9px;background:#57B94A}
+  .topnav .brand span.g{color:#1288CE}
+  .topnav .links{display:flex;gap:2px;margin-left:18px}
+  .topnav .links a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:13.5px;color:#5A6B82;text-decoration:none;padding:18px 14px;border-bottom:2px solid transparent}
+  .topnav .links a.active{color:#1288CE;border-bottom-color:#1288CE}
+  .topnav .links a:hover{color:#1288CE}
+  .topnav .lang{margin-left:auto;display:inline-flex;background:#F1F5F9;padding:3px}
+  .topnav .lang button{border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans';font-weight:700;font-size:12.5px;color:#5A6B82;padding:6px 13px}
+  .topnav .lang button.on{background:#0A2540;color:#fff}
+  @media(max-width:560px){.topnav .brand span:not(.g):not(.dot){display:none}}
   /* language switch */
   .langbar{position:sticky;top:0;z-index:50;display:flex;justify-content:flex-end;padding:10px 0 0}
   .lang{display:inline-flex;background:#fff;border-radius:999px;padding:4px;box-shadow:0 1px 2px rgba(10,37,64,.06),0 10px 24px -14px rgba(10,37,64,.3)}
@@ -222,12 +235,18 @@
 </style>
 </head>
 <body class="lang-en">
-<div class="page">
-
-  <div class="langbar"><div class="lang">
+<nav class="topnav">
+  <a class="brand" href="options.html"><span class="dot"></span>CleanCore<span class="g">Decon</span></a>
+  <div class="links">
+    <a href="options.html" class="active"><span class="en">Options board</span><span class="fr">Planche d’options</span></a>
+    <a href="composant/"><span class="en">Components</span><span class="fr">Composants</span></a>
+  </div>
+  <div class="lang">
     <button id="btn-en" class="on" onclick="setLang('en')">EN</button>
     <button id="btn-fr" onclick="setLang('fr')">FR</button>
-  </div></div>
+  </div>
+</nav>
+<div class="page">
 
   <h1 class="t"><span class="en">Your new website — let’s pick the look together</span><span class="fr">Votre nouveau site — choisissons le style ensemble</span></h1>
   <p class="sub"><span class="en">A few simple choices. You don’t need to be a designer — just tell us what feels right.</span><span class="fr">Quelques choix simples. Pas besoin d’être designer — dis-nous juste ce qui te plaît.</span></p>

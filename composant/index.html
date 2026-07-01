@@ -26,6 +26,18 @@
   .lang{display:inline-flex;background:#fff;border-radius:2px;padding:4px;box-shadow:var(--amb)}
   .lang button{border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans';font-weight:700;font-size:13px;color:var(--ink2);padding:6px 14px;border-radius:2px}
   .lang button.on{background:var(--navy);color:#fff}
+  /* top navbar */
+  .topnav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;gap:8px;padding:0 24px;height:56px}
+  .topnav .brand{font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;color:#0A2540;display:flex;align-items:center;gap:8px;text-decoration:none}
+  .topnav .brand .dot{width:9px;height:9px;background:#57B94A}
+  .topnav .brand span.g{color:#1288CE}
+  .topnav .links{display:flex;gap:2px;margin-left:18px}
+  .topnav .links a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:13.5px;color:#5A6B82;text-decoration:none;padding:18px 14px;border-bottom:2px solid transparent}
+  .topnav .links a.active{color:#1288CE;border-bottom-color:#1288CE}
+  .topnav .links a:hover{color:#1288CE}
+  .topnav .lang{margin-left:auto;display:inline-flex;background:#F1F5F9;padding:3px;box-shadow:none}
+  .topnav .lang button{padding:6px 13px}
+  @media(max-width:560px){.topnav .brand span:not(.g):not(.dot){display:none}}
   .fr{display:none}body.lang-fr .fr{display:inline}body.lang-fr .en{display:none}
 
   .sec{margin-top:46px}
@@ -170,16 +182,23 @@
 </style>
 </head>
 <body class="lang-en">
+<nav class="topnav">
+  <a class="brand" href="../options.html"><span class="dot"></span>CleanCore<span class="g">Decon</span></a>
+  <div class="links">
+    <a href="../options.html"><span class="en">Options board</span><span class="fr">Planche d’options</span></a>
+    <a href="index.html" class="active"><span class="en">Components</span><span class="fr">Composants</span></a>
+  </div>
+  <div class="lang">
+    <button id="btn-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="btn-fr" onclick="setLang('fr')">FR</button>
+  </div>
+</nav>
 <div class="page">
 
   <div class="top">
     <div>
       <h1><span class="en">UI Components</span><span class="fr">Composants UI</span></h1>
       <p class="lead"><span class="en">The real building blocks of your site, fully styled and interactive. This is what every page is assembled from.</span><span class="fr">Les vraies briques de votre site, stylées et interactives. C’est avec ça qu’on assemble chaque page.</span></p>
-    </div>
-    <div class="nav">
-      <a href="../options.html">← <span class="en">Options board</span><span class="fr">Planche d’options</span></a>
-      <div class="lang"><button id="btn-en" class="on" onclick="setLang('en')">EN</button><button id="btn-fr" onclick="setLang('fr')">FR</button></div>
     </div>
   </div>
 
