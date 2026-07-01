@@ -6,7 +6,7 @@
 <title>Your Website — Choose What You Like</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Archivo:wght@600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Archivo:wght@600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
@@ -17,9 +17,11 @@
 
   /* top navbar */
   .topnav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;gap:8px;padding:0 24px;height:56px}
-  .topnav .brand{font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;color:#0A2540;display:flex;align-items:center;gap:8px;text-decoration:none}
-  .topnav .brand .dot{width:9px;height:9px;background:#57B94A}
-  .topnav .brand span.g{color:#1288CE}
+  .topnav .brand{display:flex;align-items:center;gap:9px;text-decoration:none}
+  .topnav .brand img{height:30px;width:auto;display:block}
+  .topnav .brand .wm{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;line-height:1;color:#0A2540;letter-spacing:.01em}
+  .topnav .brand .wm .c2{color:#57B94A}
+  .topnav .brand .wm .c3{color:#1288CE;font-weight:700;font-size:11px;letter-spacing:.2em;margin-left:6px}
   .topnav .links{display:flex;gap:2px;margin-left:18px}
   .topnav .links a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:13.5px;color:#5A6B82;text-decoration:none;padding:18px 14px;border-bottom:2px solid transparent}
   .topnav .links a.active{color:#1288CE;border-bottom-color:#1288CE}
@@ -27,7 +29,7 @@
   .topnav .lang{margin-left:auto;display:inline-flex;background:#F1F5F9;padding:3px}
   .topnav .lang button{border:none;background:none;cursor:pointer;font-family:'Plus Jakarta Sans';font-weight:700;font-size:12.5px;color:#5A6B82;padding:6px 13px}
   .topnav .lang button.on{background:#0A2540;color:#fff}
-  @media(max-width:560px){.topnav .brand span:not(.g):not(.dot){display:none}}
+  @media(max-width:560px){.topnav .brand .wm{display:none}}
   /* language switch */
   .langbar{position:sticky;top:0;z-index:50;display:flex;justify-content:flex-end;padding:10px 0 0}
   .lang{display:inline-flex;background:#fff;border-radius:999px;padding:4px;box-shadow:0 1px 2px rgba(10,37,64,.06),0 10px 24px -14px rgba(10,37,64,.3)}
@@ -236,7 +238,7 @@
 </head>
 <body class="lang-en">
 <nav class="topnav">
-  <a class="brand" href="index.html"><span class="dot"></span>CleanCore<span class="g">Decon</span></a>
+  <a class="brand" href="index.html"><img src="logo-icon.png" alt="CleanCore Decon"><span class="wm">CLEAN<span class="c2">CORE</span><span class="c3">DECON</span></span></a>
   <div class="links">
     <a href="index.html" class="active"><span class="en">Options board</span><span class="fr">Planche d’options</span></a>
     <a href="composant/"><span class="en">Components</span><span class="fr">Composants</span></a>
@@ -372,10 +374,10 @@
         <div class="meta"><span class="en">Strong &amp; impactful.</span><span class="fr">Fort &amp; impactant.</span></div>
       </div>
       <div class="typ">
-        <span class="pick"><span class="en">Option C · Warm</span><span class="fr">Option C · Chaleureux</span></span>
-        <div class="big" style="font-family:'Fraunces';font-weight:600">Biohazard<br>Cleanup</div>
+        <span class="pick"><span class="en">Option C · Logo font</span><span class="fr">Option C · Police du logo</span></span>
+        <div class="big" style="font-family:'Montserrat';font-weight:800;letter-spacing:-.01em">Biohazard<br>Cleanup</div>
         <div class="body">Discreet, compassionate crews available 24/7 across Los Angeles.</div>
-        <div class="meta"><span class="en">Human &amp; caring.</span><span class="fr">Humain &amp; bienveillant.</span></div>
+        <div class="meta"><span class="en">Matches your logo.</span><span class="fr">La police de votre logo.</span></div>
       </div>
     </div>
   </div>
