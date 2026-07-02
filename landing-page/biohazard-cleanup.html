@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biohazard Cleanup in Los Angeles · 24/7 · CleanCore Decon</title>
+<meta name="description" content="Certified biohazard cleanup across Los Angeles. Discreet, compassionate, licensed & insured. 24/7 emergency response. We bill your insurance.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root{--blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;--navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;--bg:#fff;--bg-alt:#F4F7FB;--bg-soft:#EEF3F9;--hair:#E2E8F0;--r:2px;
+    --amb:0 1px 2px rgba(10,37,64,.04),0 12px 26px -18px rgba(10,37,64,.25);--amb-lg:0 2px 6px rgba(10,37,64,.05),0 26px 50px -26px rgba(10,37,64,.4);--ease:cubic-bezier(.22,1,.36,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,h5{font-family:'Plus Jakarta Sans';color:var(--navy);line-height:1.12;letter-spacing:-.02em}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  section{padding:84px 0}
+  .bg-alt{background:var(--bg-alt)}
+  .eyebrow{display:inline-block;font-family:'Plus Jakarta Sans';font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  .sec-h{text-align:center;max-width:60ch;margin:0 auto 44px}
+  .sec-h h2{font-size:clamp(26px,3.8vw,38px);font-weight:800;margin:12px 0 12px}
+  .sec-h p{font-size:17px;color:var(--ink2)}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:none;border-radius:var(--r);transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .3s}
+  .btn .c{width:30px;height:30px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease)}
+  .btn .c svg{width:16px;height:16px}.btn:active{transform:scale(.98)}
+  .bp{background:var(--blue);color:#fff;padding:13px 13px 13px 22px;box-shadow:0 12px 24px -12px rgba(18,136,206,.6)}
+  .bp .c{background:rgba(255,255,255,.2)}.bp:hover{background:var(--blue-dark);transform:translateY(-2px)}.bp:hover .c{transform:translate(2px,-1px)}
+  .bg2{background:var(--green);color:#08340a;padding:13px 13px 13px 22px}.bg2 .c{background:rgba(255,255,255,.3)}.bg2:hover{transform:translateY(-2px)}
+  .bo-light{background:rgba(255,255,255,.1);color:#fff;padding:13px 22px;border:1.5px solid rgba(255,255,255,.35)}.bo-light:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+
+  /* resizable navbar */
+  .rnav-wrap{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 12px;pointer-events:none}
+  .rnav{pointer-events:auto;position:relative;display:flex;align-items:center;gap:14px;width:100%;max-width:1200px;padding:14px 22px;background:transparent;border:1px solid transparent;border-radius:6px;transition:max-width .45s var(--ease),background .4s,box-shadow .4s,padding .4s,margin-top .45s var(--ease),border-color .4s}
+  .rnav.scrolled{max-width:940px;margin-top:14px;background:rgba(9,24,40,.72);backdrop-filter:blur(14px) saturate(140%);border-color:rgba(255,255,255,.12);box-shadow:0 16px 46px -14px rgba(0,0,0,.6);padding:9px 14px}
+  .rnav .rlogo img{height:56px;width:auto;display:block;transition:height .45s var(--ease)}
+  .rnav.scrolled .rlogo img{height:42px}
+  .rnav .ritems{display:flex;align-items:center;gap:2px;margin:0 auto}
+  .rnav .ritems a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:14.5px;color:#cdd9e8;text-decoration:none;padding:9px 15px;border-radius:4px;transition:color .2s,background .2s}
+  .rnav .ritems a:hover,.rnav .ritems a.on{color:#fff;background:rgba(255,255,255,.12)}
+  .rnav .rcta{display:flex;align-items:center;gap:10px}
+  .rtel{color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;text-decoration:none;display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:4px;transition:background .2s}
+  .rtel svg{width:17px;height:17px;color:var(--green)}.rtel:hover{background:rgba(255,255,255,.1)}
+  .rest{background:var(--blue);color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:14.5px;text-decoration:none;padding:10px 18px;border-radius:4px;display:flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
+  .rest svg{width:16px;height:16px}.rest:hover{background:var(--blue-dark);transform:translateY(-1px)}
+  .rburger{display:none;margin-left:auto;width:42px;height:42px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+  .rburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+  .rburger.open span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+  .rburger.open span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+  .rmobile{pointer-events:auto;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);width:min(440px,calc(100vw - 24px));background:rgba(9,24,40,.97);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:6px;box-shadow:0 22px 54px -14px rgba(0,0,0,.65);padding:14px;display:none;flex-direction:column;gap:6px}
+  .rmobile.open{display:flex}
+  .rmobile a.mlink{color:#cdd9e8;text-decoration:none;font-family:'Plus Jakarta Sans';font-weight:600;font-size:15px;padding:12px 14px;border-radius:4px}
+  .rmobile a.mlink:hover{background:rgba(255,255,255,.08);color:#fff}
+  .rmobile .rtel,.rmobile .rest{justify-content:center;margin-top:4px}
+  @media(max-width:900px){.rnav .ritems,.rnav .rcta{display:none}.rnav .rburger{display:flex}.rnav{padding:9px 12px 9px 16px;background:rgba(9,24,40,.72);backdrop-filter:blur(14px);border-color:rgba(255,255,255,.12);margin-top:8px}.rnav .rlogo img{height:44px}}
+
+  /* breadcrumb */
+  .crumb{font-size:13px;color:#9fb5cd}.crumb a{color:#cfe0f2;text-decoration:none}.crumb a:hover{color:#fff}
+
+  /* hero (service) */
+  .shero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;padding:132px 0 70px}
+  .shero .photo{position:absolute;inset:0;background:#0a1a2b url('herosection2.png.jpeg') center/cover}
+  .shero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,28,.95) 0%,rgba(6,16,28,.82) 40%,rgba(6,16,28,.55) 100%),linear-gradient(180deg,rgba(6,16,28,.7) 0%,transparent 30%)}
+  .shero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+  @media(max-width:920px){.shero .wrap{grid-template-columns:1fr;gap:30px}}
+  .shero .eyebrow{color:#8fd0ff}
+  .shero h1{color:#fff;font-size:clamp(32px,4.6vw,50px);font-weight:800;letter-spacing:-.03em;margin:12px 0 16px}
+  .shero p.lead{font-size:18px;color:#cddcec;max-width:48ch;margin-bottom:26px}
+  .shero .trust{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px}
+  .shero .trust .t{display:flex;align-items:center;gap:8px;font-size:14px;color:#dbe6f2;font-weight:500}
+  .shero .trust .t svg{width:18px;height:18px;color:var(--green)}
+  /* hero form card */
+  .qcard{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--amb-lg);color:var(--ink)}
+  .qcard h3{font-size:19px;margin-bottom:3px}.qcard .sub{font-size:13px;color:var(--ink2);margin-bottom:14px}
+  .qcard label{display:block;font-size:12.5px;font-weight:600;color:var(--navy);margin:10px 0 4px}
+  .qcard input,.qcard select{width:100%;border:1px solid var(--hair);border-radius:var(--r);padding:11px 13px;font-family:inherit;font-size:14px;color:var(--ink);transition:border .2s,box-shadow .2s}
+  .qcard input:focus,.qcard select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(18,136,206,.14)}
+  .qcard .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .qcard .btn{width:100%;justify-content:center;margin-top:16px}
+  .qcard .fine{font-size:11.5px;color:var(--muted);text-align:center;margin-top:9px}
+
+  /* trust row */
+  .trow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);border-radius:var(--r);padding:11px 18px;font-weight:600;font-size:14px;color:var(--navy);font-family:'Plus Jakarta Sans'}
+  .chip svg{width:18px;height:18px;color:var(--green);stroke-width:1.8}
+
+  /* two col */
+  .two{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  @media(max-width:860px){.two{grid-template-columns:1fr;gap:30px}}
+  .two.rev>div:first-child{order:2}@media(max-width:860px){.two.rev>div:first-child{order:0}}
+  .imgblock{aspect-ratio:4/3;border-radius:var(--r);border:1px solid var(--hair);width:100%;object-fit:cover;display:block;box-shadow:var(--amb-lg)}
+  .checklist{list-style:none;margin-top:18px}
+  .checklist li{display:flex;gap:12px;align-items:flex-start;padding:8px 0;font-size:15px;color:var(--ink)}
+  .checklist li svg{width:20px;height:20px;color:var(--green);flex:none;margin-top:2px;stroke-width:2.4}
+
+  /* situations grid */
+  .sit{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;background:#fff;box-shadow:var(--amb);max-width:1000px;margin:0 auto}
+  @media(max-width:760px){.sit{grid-template-columns:1fr}}
+  .sit .it{padding:20px 22px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink);display:flex;gap:11px;align-items:flex-start;font-weight:500}
+  .sit .it svg{width:19px;height:19px;color:var(--blue);flex:none;margin-top:2px;stroke-width:1.9}
+
+  /* process timeline (scroll) */
+  .ptl{position:relative;max-width:720px;margin:0 auto}
+  .ptl .rail{position:absolute;left:24px;top:26px;bottom:26px;width:3px;background:var(--hair);border-radius:3px;overflow:hidden}
+  .ptl .rail .fill{position:absolute;left:0;top:0;width:100%;height:0;background:var(--blue);border-radius:3px}
+  .pstep{position:relative;padding-left:74px;padding-bottom:40px;opacity:.5;transition:opacity .4s var(--ease)}
+  .pstep:last-child{padding-bottom:0}.pstep.on{opacity:1}
+  .pnode{position:absolute;left:0;top:0;width:50px;height:50px;border-radius:var(--r);background:#fff;border:2px solid var(--hair);color:var(--muted);font-family:'Plus Jakarta Sans';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;z-index:1;transition:background .4s var(--ease),border-color .4s var(--ease),color .4s,transform .4s var(--ease),box-shadow .4s}
+  .pstep.on .pnode{background:var(--blue);border-color:var(--blue);color:#fff;transform:scale(1.06);box-shadow:0 10px 22px -6px rgba(18,136,206,.55)}
+  .pstep h5{font-size:17px;margin-bottom:4px;color:var(--ink2);transition:color .4s}.pstep.on h5{color:var(--navy)}
+  .pstep p{font-size:14px;color:var(--ink2);max-width:52ch}
+
+  /* included grid */
+  .inc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:800px){.inc{grid-template-columns:1fr}}
+  .inccard{background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:22px;box-shadow:var(--amb)}
+  .inccard .ic{width:44px;height:44px;border-radius:var(--r);background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+  .inccard .ic svg{width:22px;height:22px;color:var(--blue)}
+  .inccard h4{font-size:16px;margin-bottom:4px}.inccard p{font-size:13.5px;color:var(--ink2)}
+
+  /* bands */
+  .band{border-radius:var(--r);padding:34px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;box-shadow:var(--amb)}
+  .band.ins{background:#F0F9F3;border:1px solid #bfe6cd}.band.guar{background:var(--navy);color:#fff}
+  .band h3{font-size:23px}.band.guar h3{color:#fff}.band p{font-size:14.5px;color:var(--ink2);max-width:52ch}.band.guar p{color:#cddcec}
+  .band .bi{display:flex;align-items:center;gap:18px}
+  .band .ic{width:52px;height:52px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex:none}
+  .band.ins .ic{background:var(--green);color:#fff}.band.guar .ic{background:rgba(255,255,255,.14);color:#fff}
+  .band .ic svg{width:26px;height:26px}
+
+  /* why cards */
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:800px){.why{grid-template-columns:1fr}}
+  .whyc{background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:26px;box-shadow:var(--amb)}
+  .whyc .ic{width:50px;height:50px;border-radius:var(--r);background:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .whyc .ic svg{width:24px;height:24px;color:#fff}
+  .whyc h4{font-size:18px;margin-bottom:8px}.whyc p{font-size:14.5px;color:var(--ink2)}
+
+  /* areas + map */
+  .areawrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+  @media(max-width:800px){.areawrap{grid-template-columns:1fr}}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill2{background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);border-radius:var(--r);padding:9px 16px;font-size:13.5px;font-weight:600;color:var(--navy)}
+  .map{aspect-ratio:16/10;border-radius:var(--r);border:1px solid var(--hair);overflow:hidden;box-shadow:var(--amb)}
+  .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.15)}
+
+  /* faq */
+  .faq{max-width:800px;margin:0 auto}
+  .q{background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+  .q summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:600;color:var(--navy);font-family:'Plus Jakarta Sans';display:flex;justify-content:space-between;align-items:center;font-size:16px}
+  .q summary::-webkit-details-marker{display:none}
+  .q summary .c{width:28px;height:28px;border-radius:var(--r);background:var(--bg-soft);display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease)}
+  .q summary svg{width:17px;height:17px;color:var(--blue);stroke-width:2.4}
+  .q[open] summary .c{transform:rotate(45deg);background:#dbeafe}
+  .q .a{padding:0 20px 18px;color:var(--ink2);font-size:14.5px}
+
+  /* final cta */
+  .cta-final{background:var(--navy);color:#fff;border-radius:var(--r);padding:44px;text-align:center}
+  .cta-final h2{color:#fff;font-size:clamp(24px,3.4vw,34px);font-weight:800;margin-bottom:10px}
+  .cta-final p{color:#cddcec;font-size:16px;margin-bottom:22px}
+  .cta-final .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* footer */
+  footer{background:var(--navy);color:#aebfd4;padding:56px 0 30px}
+  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+  @media(max-width:800px){footer .cols{grid-template-columns:1fr 1fr}}@media(max-width:520px){footer .cols{grid-template-columns:1fr}}
+  footer img{height:58px;margin-bottom:12px}
+  footer b{color:#fff;font-family:'Plus Jakarta Sans';display:block;margin-bottom:10px;font-size:14px}
+  footer a{color:#aebfd4;text-decoration:none;display:block;padding:4px 0;font-size:14px}footer a:hover{color:#fff}
+  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  /* floating call */
+  .callcard{position:fixed;right:20px;bottom:20px;z-index:95;display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:var(--r);box-shadow:0 18px 44px -12px rgba(10,37,64,.45);padding:13px 20px 13px 13px;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .callcard:hover{transform:translateY(-3px)}
+  .callcard .ph{width:48px;height:48px;border-radius:var(--r);background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;flex:none}
+  .callcard .ph svg{width:23px;height:23px}
+  .callcard .lbl{font-family:'Plus Jakarta Sans';font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-dark)}
+  .callcard .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:20px;color:var(--navy)}
+  .callcard .sub{font-size:11px;color:var(--ink2)}
+  @media(max-width:520px){.callcard{right:12px;bottom:12px;left:12px;justify-content:center;padding:12px}.callcard .sub{display:none}}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal,.pstep{opacity:1;transform:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- resizable navbar -->
+<div class="rnav-wrap">
+  <nav class="rnav" id="rnav">
+    <a class="rlogo" href="index.html"><img src="../logo-full.png" alt="CleanCore Decon"></a>
+    <div class="ritems">
+      <a href="index.html#services" class="on">Services</a>
+      <a href="index.html#why">Why Us</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#areas">Areas</a>
+      <a href="#quote">Contact</a>
+    </div>
+    <div class="rcta">
+      <a class="rtel" href="tel:+12137058557"><i data-lucide="phone-call"></i> (213) 705-8557</a>
+      <a class="rest" href="#quote">Get a free estimate <i data-lucide="arrow-right"></i></a>
+    </div>
+    <button class="rburger" id="rburger" aria-label="Toggle menu"><span></span><span></span></button>
+  </nav>
+  <div class="rmobile" id="rmobile">
+    <a class="mlink" href="index.html#services">Services</a>
+    <a class="mlink" href="index.html#why">Why Us</a>
+    <a class="mlink" href="index.html#process">Process</a>
+    <a class="mlink" href="index.html#areas">Areas</a>
+    <a class="mlink" href="#quote">Contact</a>
+    <a class="rtel" href="tel:+12137058557"><i data-lucide="phone-call"></i> (213) 705-8557</a>
+    <a class="rest" href="#quote">Get a free estimate <i data-lucide="arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="shero" id="top">
+  <div class="photo"></div>
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="index.html">Home</a> › <a href="index.html#services">Services</a> › Biohazard Cleanup</div>
+      <span class="eyebrow" style="margin-top:12px">Licensed · Bonded · Insured</span>
+      <h1>Biohazard Cleanup in Los Angeles</h1>
+      <p class="lead">Safe, discreet removal and decontamination of biohazardous materials. Certified crews on call 24/7. We bill your insurance directly.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn bp" href="tel:+12137058557">Call (213) 705-8557 <span class="c"><i data-lucide="phone-call"></i></span></a>
+        <a class="btn bo-light" href="#quote">Get a free estimate</a>
+      </div>
+      <div class="trust">
+        <span class="t"><i data-lucide="clock"></i> Available 24/7</span>
+        <span class="t"><i data-lucide="timer"></i> On-site in under 60 min</span>
+        <span class="t"><i data-lucide="award"></i> IICRC certified</span>
+      </div>
+    </div>
+    <form class="qcard" id="quote" onsubmit="return false">
+      <h3>Get a free estimate</h3>
+      <div class="sub">Call for an immediate response, or send your details.</div>
+      <div class="two">
+        <div><label>Full name</label><input placeholder="Your name"></div>
+        <div><label>Phone</label><input placeholder="(213) 000-0000"></div>
+      </div>
+      <label>Zip code</label><input placeholder="90001">
+      <label>Add a photo of the situation (optional)</label>
+      <input type="file" accept="image/*">
+      <button class="btn bp">Request my free estimate <span class="c"><i data-lucide="arrow-right"></i></span></button>
+      <div class="fine">For emergencies, calling is the fastest way to reach us.</div>
+    </form>
+  </div>
+</section>
+
+<!-- TRUST ROW -->
+<section style="padding:34px 0" class="bg-alt"><div class="wrap reveal">
+  <div class="trow">
+    <span class="chip"><i data-lucide="shield-check"></i> Licensed &amp; Insured</span>
+    <span class="chip"><i data-lucide="award"></i> IICRC Certified</span>
+    <span class="chip"><i data-lucide="shield"></i> OSHA Compliant</span>
+    <span class="chip"><i data-lucide="eye-off"></i> 100% Discreet</span>
+    <span class="chip"><i data-lucide="file-check"></i> We Bill Insurance</span>
+  </div>
+</div></section>
+
+<!-- WHAT IT IS -->
+<section><div class="wrap reveal"><div class="two">
+  <div>
+    <span class="eyebrow">What it is</span>
+    <h2 style="font-size:clamp(24px,3.2vw,34px);font-weight:800;margin:12px 0 8px">What is biohazard cleanup, and when do you need it?</h2>
+    <p style="font-size:16px;color:var(--ink2)">Biohazard cleanup is the safe removal, cleaning and disposal of materials that can carry disease or harm your health, such as blood, bodily fluids, or contaminated waste. It is not a job for regular cleaning: it requires certified training, protective equipment and regulated disposal.</p>
+    <p style="font-size:16px;color:var(--ink2);margin-top:12px">Our crews handle the entire scene with care and discretion, so you and your family never have to face it alone.</p>
+    <div style="margin-top:20px"><a class="btn bp" href="tel:+12137058557">Talk to us now <span class="c"><i data-lucide="phone-call"></i></span></a></div>
+  </div>
+  <img class="imgblock" src="section2.png" alt="Certified technician performing biohazard cleanup in a home">
+</div></div></section>
+
+<!-- SITUATIONS -->
+<section class="bg-alt"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">When to call us</span><h2>Do you recognize one of these situations?</h2><p>If any of these sound familiar, we can help right now, with compassion and full discretion.</p></div>
+  <div class="sit">
+    <div class="it"><i data-lucide="check"></i> An accident or injury involving blood</div>
+    <div class="it"><i data-lucide="check"></i> An unattended death or decomposition</div>
+    <div class="it"><i data-lucide="check"></i> Bodily fluids or medical waste</div>
+    <div class="it"><i data-lucide="check"></i> Infectious disease contamination</div>
+    <div class="it"><i data-lucide="check"></i> Sewage or contaminated water</div>
+    <div class="it"><i data-lucide="check"></i> Any scene with biohazardous materials</div>
+  </div>
+</div></section>
+
+<!-- PROCESS -->
+<section id="process"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">How it works</span><h2>Our biohazard cleanup process</h2></div>
+  <div class="ptl" id="ptl">
+    <div class="rail"><div class="fill" id="ptlfill"></div></div>
+    <div class="pstep"><div class="pnode">1</div><h5>Call &amp; dispatch</h5><p>One call, 24/7. We listen and send a certified crew immediately.</p></div>
+    <div class="pstep"><div class="pnode">2</div><h5>Assessment &amp; containment</h5><p>We evaluate the scene and secure the area to keep everyone safe.</p></div>
+    <div class="pstep"><div class="pnode">3</div><h5>Removal &amp; disposal</h5><p>Biohazard materials are removed and disposed of as regulated waste.</p></div>
+    <div class="pstep"><div class="pnode">4</div><h5>Cleaning &amp; disinfection</h5><p>Deep cleaning and hospital-grade disinfection of all affected surfaces.</p></div>
+    <div class="pstep"><div class="pnode">5</div><h5>Odor &amp; air treatment</h5><p>We neutralize odors and treat the air so the space feels fresh again.</p></div>
+    <div class="pstep"><div class="pnode">6</div><h5>Verification &amp; restoration</h5><p>Final testing and restoration. Your space is safe and livable again.</p></div>
+  </div>
+</div></section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="bg-alt"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">What's included</span><h2>Everything handled, start to finish</h2></div>
+  <div class="inc">
+    <div class="inccard"><div class="ic"><i data-lucide="clipboard-check"></i></div><h4>Assessment &amp; containment</h4><p>Full scene evaluation and a safe containment plan.</p></div>
+    <div class="inccard"><div class="ic"><i data-lucide="biohazard"></i></div><h4>Regulated waste disposal</h4><p>Removal and legal disposal of all biohazard materials.</p></div>
+    <div class="inccard"><div class="ic"><i data-lucide="sparkles"></i></div><h4>Deep cleaning</h4><p>Thorough cleaning of every affected surface and item.</p></div>
+    <div class="inccard"><div class="ic"><i data-lucide="shield-check"></i></div><h4>Hospital-grade disinfection</h4><p>EPA-registered disinfectants for total decontamination.</p></div>
+    <div class="inccard"><div class="ic"><i data-lucide="wind"></i></div><h4>Odor &amp; air treatment</h4><p>Molecular odor neutralization and air purification.</p></div>
+    <div class="inccard"><div class="ic"><i data-lucide="home"></i></div><h4>Restoration</h4><p>We return your space to a safe, livable condition.</p></div>
+  </div>
+</div></section>
+
+<!-- INSURANCE + GUARANTEE -->
+<section><div class="wrap reveal">
+  <div class="band guar" style="margin-bottom:18px">
+    <div class="bi"><span class="ic"><i data-lucide="shield-check"></i></span><div><h3>100% satisfaction guarantee</h3><p>We are not done until your space is fully safe again. Guaranteed.</p></div></div>
+    <a class="btn bp" href="tel:+12137058557">Call now <span class="c"><i data-lucide="phone-call"></i></span></a>
+  </div>
+  <div class="band ins">
+    <div class="bi"><span class="ic"><i data-lucide="file-check"></i></span><div><h3>We bill your insurance</h3><p>Most homeowner &amp; commercial policies accepted, often with no out-of-pocket cost to you.</p></div></div>
+    <a class="btn bg2" href="#quote">Get a free estimate <span class="c"><i data-lucide="arrow-right"></i></span></a>
+  </div>
+</div></section>
+
+<!-- WHY US -->
+<section class="bg-alt" id="why"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">Why choose us</span><h2>Fast, discreet, and genuinely compassionate</h2></div>
+  <div class="why">
+    <div class="whyc"><div class="ic"><i data-lucide="timer"></i></div><h4>Rapid 24/7 response</h4><p>We answer day or night and are typically on-site in under 60 minutes across LA County.</p></div>
+    <div class="whyc"><div class="ic"><i data-lucide="eye-off"></i></div><h4>Discreet &amp; compassionate</h4><p>Unmarked vehicles, full confidentiality, and crews trained to treat every situation with dignity.</p></div>
+    <div class="whyc"><div class="ic"><i data-lucide="shield-check"></i></div><h4>Certified &amp; insured</h4><p>Licensed, bonded and IICRC-certified. We follow OSHA &amp; EPA standards, and we bill your insurance.</p></div>
+  </div>
+</div></section>
+
+<!-- AREAS -->
+<section id="areas"><div class="wrap reveal">
+  <div class="sec-h"><h2>Biohazard cleanup across Los Angeles</h2></div>
+  <div class="areawrap">
+    <div class="pills">
+      <span class="pill2">Los Angeles</span><span class="pill2">Burbank</span><span class="pill2">Glendale</span><span class="pill2">Pasadena</span><span class="pill2">Inglewood</span><span class="pill2">Hollywood</span><span class="pill2">Santa Monica</span><span class="pill2">Long Beach</span><span class="pill2">Beverly Hills</span><span class="pill2">Culver City</span>
+    </div>
+    <div class="map"><iframe src="https://www.google.com/maps?q=Los+Angeles,+CA&z=9&output=embed" loading="lazy" title="Biohazard cleanup service area — Los Angeles"></iframe></div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="bg-alt"><div class="wrap reveal">
+  <div class="sec-h"><h2>Biohazard cleanup: your questions answered</h2></div>
+  <div class="faq">
+    <details class="q" open><summary>Is biohazard cleanup covered by insurance? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">In most cases yes. We work with most homeowner and commercial insurance policies and bill them directly whenever possible, often with no out-of-pocket cost to you.</div></details>
+    <details class="q"><summary>How quickly can you respond? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">Our crews are on call 24/7 and typically arrive on-site in under 60 minutes across Los Angeles County.</div></details>
+    <details class="q"><summary>Should I clean a biohazard myself? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">No. Biohazards can carry serious health risks and require certified training, protective equipment and regulated disposal. Please call us and stay away from the area.</div></details>
+    <details class="q"><summary>Will the service be discreet? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">Absolutely. Unmarked vehicles are available, everything is fully confidential, and our crews work with compassion and dignity.</div></details>
+    <details class="q"><summary>Are your technicians certified? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">Yes. We are licensed, bonded and IICRC-certified, and we follow OSHA and EPA standards on every job.</div></details>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section><div class="wrap reveal">
+  <div class="cta-final">
+    <h2>Need biohazard cleanup now?</h2>
+    <p>We are ready 24/7. Call for an immediate response, or request a free estimate.</p>
+    <div class="btns">
+      <a class="btn bp" href="tel:+12137058557" style="font-size:17px;padding:15px 15px 15px 24px">Call (213) 705-8557 <span class="c"><i data-lucide="phone-call"></i></span></a>
+      <a class="btn bg2" href="#quote">Get a free estimate <span class="c"><i data-lucide="arrow-right"></i></span></a>
+    </div>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="cols">
+    <div><img src="../logo-full.png" alt="CleanCore Decon"><p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7.</p></div>
+    <div><b>Services</b><a href="#">Biohazard Cleanup</a><a href="#">Crime Scene Cleanup</a><a href="#">Hoarder Cleanup</a><a href="#">Water &amp; Fire Damage</a></div>
+    <div><b>Company</b><a href="index.html#why">Why Choose Us</a><a href="index.html#process">Our Process</a><a href="index.html#areas">Service Areas</a><a href="#quote">Contact</a></div>
+    <div><b>24/7 Emergency</b><a href="tel:+12137058557" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(213) 705-8557</a><a>Los Angeles County, CA</a><a>Licensed · Bonded · Insured</a></div>
+  </div>
+  <div class="bottom"><span>© 2026 CleanCore Decon. All rights reserved.</span><span>IICRC Certified · OSHA &amp; EPA compliant</span></div>
+</div></footer>
+
+<a class="callcard" href="tel:+12137058557" aria-label="Call 24/7 emergency line">
+  <span class="ph"><i data-lucide="phone-call"></i></span>
+  <span><span class="lbl">24/7 Emergency</span><br><span class="num">(213) 705-8557</span><br><span class="sub">Tap to call · Los Angeles</span></span>
+</a>
+
+<script>
+  lucide.createIcons();
+  const rnav=document.getElementById('rnav');
+  window.addEventListener('scroll',()=>{if(rnav)rnav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+  const rb=document.getElementById('rburger'), rm=document.getElementById('rmobile');
+  if(rb&&rm){rb.addEventListener('click',()=>{const o=rm.classList.toggle('open');rb.classList.toggle('open',o);});rm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{rm.classList.remove('open');rb.classList.remove('open');}));}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  (function(){const ptl=document.getElementById('ptl'),fill=document.getElementById('ptlfill');if(!ptl||!fill)return;const steps=[...ptl.querySelectorAll('.pstep')];
+    function upd(){const rect=ptl.getBoundingClientRect(),vh=window.innerHeight,line=vh*0.55;let p=(line-rect.top)/rect.height;p=Math.max(0,Math.min(1,p));fill.style.height=(p*100)+'%';steps.forEach(st=>{const n=st.querySelector('.pnode').getBoundingClientRect();st.classList.toggle('on',(n.top+n.height/2)<=line);});}
+    window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();})();
+</script>
+</body>
+</html>
