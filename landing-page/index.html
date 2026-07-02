@@ -164,28 +164,20 @@
   .whyc h4{font-size:19px;margin-bottom:8px}.whyc p{font-size:14.5px;color:var(--ink2)}
 
   /* process */
-  /* process timeline */
-  .timeline{display:grid;grid-template-columns:repeat(6,1fr);margin-top:8px}
-  .tstep{position:relative;padding:0 10px;text-align:center}
-  .tstep::before{content:"";position:absolute;top:23px;left:-50%;width:100%;height:2px;background:var(--hair);z-index:0}
-  .tstep:first-child::before{display:none}
-  .tnode{position:relative;z-index:1;width:48px;height:48px;border-radius:var(--r);background:var(--blue);color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 8px 18px -6px rgba(18,136,206,.5)}
-  .tstep h5{font-size:15px;margin-bottom:5px;color:var(--navy)}
-  .tstep p{font-size:13px;color:var(--ink2);max-width:22ch;margin:0 auto}
-  .timeline .tstep{opacity:0;transform:translateY(16px)}
-  .timeline.in .tstep{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease)}
-  .timeline.in .tstep:nth-child(1){transition-delay:.04s}
-  .timeline.in .tstep:nth-child(2){transition-delay:.11s}
-  .timeline.in .tstep:nth-child(3){transition-delay:.18s}
-  .timeline.in .tstep:nth-child(4){transition-delay:.25s}
-  .timeline.in .tstep:nth-child(5){transition-delay:.32s}
-  .timeline.in .tstep:nth-child(6){transition-delay:.39s}
-  @media(max-width:900px){
-    .timeline{grid-template-columns:repeat(3,1fr);row-gap:34px}
-    .tstep::before{display:none}
-  }
-  @media(max-width:560px){.timeline{grid-template-columns:1fr;row-gap:26px}}
-  @media(prefers-reduced-motion:reduce){.tstep{opacity:1;transform:none}}
+  /* process — vertical scroll-progress timeline */
+  .ptl{position:relative;max-width:720px;margin:0 auto}
+  .ptl .rail{position:absolute;left:24px;top:26px;bottom:26px;width:3px;background:var(--hair);border-radius:3px;overflow:hidden}
+  .ptl .rail .fill{position:absolute;left:0;top:0;width:100%;height:0;background:var(--blue);border-radius:3px}
+  .pstep{position:relative;padding-left:74px;padding-bottom:42px;opacity:.5;transition:opacity .4s var(--ease)}
+  .pstep:last-child{padding-bottom:0}
+  .pstep.on{opacity:1}
+  .pnode{position:absolute;left:0;top:0;width:50px;height:50px;border-radius:var(--r);background:#fff;border:2px solid var(--hair);color:var(--muted);font-family:'Plus Jakarta Sans';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;z-index:1;
+    transition:background .4s var(--ease),border-color .4s var(--ease),color .4s,transform .4s var(--ease),box-shadow .4s}
+  .pstep.on .pnode{background:var(--blue);border-color:var(--blue);color:#fff;transform:scale(1.06);box-shadow:0 10px 22px -6px rgba(18,136,206,.55)}
+  .pstep h5{font-size:17px;margin-bottom:4px;color:var(--ink2);transition:color .4s}
+  .pstep.on h5{color:var(--navy)}
+  .pstep p{font-size:14px;color:var(--ink2);max-width:52ch}
+  @media(prefers-reduced-motion:reduce){.pstep{opacity:1}}
 
   /* areas */
   .areawrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
@@ -396,13 +388,14 @@
 <!-- PROCESS -->
 <section class="bg-alt" id="process"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">How it works</span><h2>With you from the first call to the final check</h2><p>A clear, proven process, so you always know exactly what happens next.</p></div>
-  <div class="timeline reveal">
-    <div class="tstep"><div class="tnode">1</div><h5>Call us</h5><p>One call, 24/7. We listen and dispatch a crew immediately.</p></div>
-    <div class="tstep"><div class="tnode">2</div><h5>Free assessment</h5><p>On-site evaluation and a clear plan, no obligation.</p></div>
-    <div class="tstep"><div class="tnode">3</div><h5>Containment</h5><p>We secure the area to keep everyone safe.</p></div>
-    <div class="tstep"><div class="tnode">4</div><h5>Decontamination</h5><p>Certified removal, cleaning and disposal of all hazards.</p></div>
-    <div class="tstep"><div class="tnode">5</div><h5>Disinfection</h5><p>Hospital-grade sanitizing and odor neutralization.</p></div>
-    <div class="tstep"><div class="tnode">6</div><h5>Restored</h5><p>Final verification. Your space is safe again.</p></div>
+  <div class="ptl" id="ptl">
+    <div class="rail"><div class="fill" id="ptlfill"></div></div>
+    <div class="pstep"><div class="pnode">1</div><h5>Call us</h5><p>One call, 24/7. We listen and dispatch a crew immediately.</p></div>
+    <div class="pstep"><div class="pnode">2</div><h5>Free assessment</h5><p>On-site evaluation and a clear plan, no obligation.</p></div>
+    <div class="pstep"><div class="pnode">3</div><h5>Containment</h5><p>We secure the area to keep everyone safe.</p></div>
+    <div class="pstep"><div class="pnode">4</div><h5>Decontamination</h5><p>Certified removal, cleaning and disposal of all hazards.</p></div>
+    <div class="pstep"><div class="pnode">5</div><h5>Disinfection</h5><p>Hospital-grade sanitizing and odor neutralization.</p></div>
+    <div class="pstep"><div class="pnode">6</div><h5>Restored</h5><p>Final verification. Your space is safe again.</p></div>
   </div>
 </div></section>
 
@@ -536,6 +529,19 @@
   function countUp(el){const to=+el.dataset.to;let s=null;function step(t){if(!s)s=t;const p=Math.min((t-s)/1100,1);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
   const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}}),{threshold:.6});
   document.querySelectorAll('.cnt').forEach(el=>cio.observe(el));
+  // process — scroll-progress timeline
+  (function(){
+    const ptl=document.getElementById('ptl'), fill=document.getElementById('ptlfill');
+    if(!ptl||!fill) return;
+    const steps=[...ptl.querySelectorAll('.pstep')];
+    function upd(){
+      const rect=ptl.getBoundingClientRect(), vh=window.innerHeight, line=vh*0.55;
+      let p=(line-rect.top)/rect.height; p=Math.max(0,Math.min(1,p));
+      fill.style.height=(p*100)+'%';
+      steps.forEach(st=>{ const n=st.querySelector('.pnode').getBoundingClientRect(); st.classList.toggle('on',(n.top+n.height/2)<=line); });
+    }
+    window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); upd();
+  })();
 </script>
 </body>
 </html>
