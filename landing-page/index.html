@@ -8,9 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Leaflet is lazy-loaded only when the service-area map nears the viewport (see bottom script) -->
+<script defer src="https://unpkg.com/lucide@latest"></script>
 <style>
   :root{
     --blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;
@@ -91,19 +90,45 @@
 
   /* hero — big photo */
   .hero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;min-height:100dvh;display:flex;align-items:center}
-  .hero .photo{position:absolute;inset:0;background:#0a1a2b url('herosection2.png.jpeg') center/cover}
+  .hero .photo{position:absolute;inset:0;background-color:#0a1a2b;background-position:center;background-size:cover;background-repeat:no-repeat;
+    background-image:url('herosection2.png.jpeg');
+    background-image:-webkit-image-set(url('herosection2.webp') type('image/webp'), url('herosection2.png.jpeg') type('image/jpeg'));
+    background-image:image-set(url('herosection2.webp') type('image/webp'), url('herosection2.png.jpeg') type('image/jpeg'));
+    transform:scale(1.07);animation:heroZoom 20s var(--ease) forwards}
+  @keyframes heroZoom{to{transform:scale(1)}}
   .hero .photo::after{content:"";position:absolute;inset:0;background:
-    linear-gradient(90deg, rgba(6,16,28,.93) 0%, rgba(6,16,28,.75) 32%, rgba(6,16,28,.4) 64%, rgba(6,16,28,.24) 100%),
-    linear-gradient(180deg, rgba(6,16,28,.5) 0%, transparent 26%, transparent 74%, rgba(6,16,28,.55) 100%)}
+    linear-gradient(90deg, rgba(6,16,28,.94) 0%, rgba(6,16,28,.78) 34%, rgba(6,16,28,.42) 66%, rgba(6,16,28,.22) 100%),
+    linear-gradient(180deg, rgba(6,16,28,.55) 0%, transparent 24%, transparent 70%, rgba(6,16,28,.72) 100%)}
+  /* fine film grain for depth */
+  .hero .grain{position:absolute;inset:0;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   .hero .wrap{position:relative;padding:56px 24px;width:100%}
-  .hero .inner{max-width:660px}
-  .hero .eyebrow{color:#8fd0ff}
-  .hero h1{color:#fff;font-size:clamp(34px,5.4vw,58px);font-weight:800;letter-spacing:-.03em;margin:16px 0 18px}
-  .hero p.lead{font-size:19px;color:#cddcec;max-width:52ch;margin-bottom:30px}
-  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero .trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px}
-  .hero .trust .t{display:flex;align-items:center;gap:9px;font-size:14px;color:#dbe6f2;font-weight:500}
-  .hero .trust .t svg{width:18px;height:18px;color:var(--green)}
+  .hero .inner{max-width:680px}
+  /* live status pill */
+  .hero .status{display:inline-flex;align-items:center;gap:9px;max-width:100%;padding:8px 15px 8px 12px;border-radius:100px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px) saturate(140%);
+    font-family:'Plus Jakarta Sans';font-size:12.5px;font-weight:600;color:#e8f2fb;white-space:nowrap}
+  .hero .status b{color:#fff;font-weight:700}
+  .hero .status .tail{color:#c3d5e6}
+  @media(max-width:560px){.hero .status .tail{display:none}}
+  .hero .status .live{position:relative;width:8px;height:8px;border-radius:50%;background:var(--green);flex:none}
+  .hero .status .live::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--green);animation:lapulse 2s ease-out infinite}
+  .hero .kw{display:block;margin-top:16px;font-family:'Plus Jakarta Sans';font-size:12.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#8fd0ff}
+  .hero h1{color:#fff;font-size:clamp(34px,5.4vw,60px);font-weight:800;letter-spacing:-.03em;margin:10px 0 18px;text-wrap:balance}
+  .hero p.lead{font-size:19px;color:#cddcec;max-width:52ch;margin-bottom:26px;text-wrap:pretty}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero .cta-note{margin-top:16px;font-size:14px;line-height:1.5;color:#bcd0e4;max-width:46ch}
+  .hero .cta-note svg{display:inline-block;width:16px;height:16px;vertical-align:-3px;margin-right:8px;color:var(--green)}
+  .hero .cta-note b{color:#fff;font-weight:700}
+  .hero .trust{display:flex;gap:13px 26px;flex-wrap:wrap;margin-top:32px;padding-top:28px;border-top:1px solid rgba(255,255,255,.13)}
+  .hero .trust .t{display:flex;align-items:center;gap:9px;font-size:13.5px;color:#dbe6f2;font-weight:500}
+  .hero .trust .t svg{width:17px;height:17px;color:var(--green);flex:none}
+  /* staggered entrance on load */
+  .hero .anim{opacity:0;transform:translateY(22px);animation:heroUp .9s var(--ease) forwards}
+  .hero .d1{animation-delay:.08s}.hero .d2{animation-delay:.16s}.hero .d3{animation-delay:.26s}
+  .hero .d4{animation-delay:.36s}.hero .d5{animation-delay:.46s}.hero .d6{animation-delay:.56s}.hero .d7{animation-delay:.66s}
+  @keyframes heroUp{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.hero .anim{animation:none;opacity:1;transform:none}.hero .photo{animation:none;transform:none}}
 
   /* certifications */
   .certrow{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
@@ -305,13 +330,22 @@
 <!-- HERO (Option B — big photo) -->
 <section class="hero" id="top" style="padding:0">
   <div class="photo"></div>
+  <div class="grain"></div>
   <div class="wrap"><div class="inner">
-    <span class="eyebrow">Licensed · Bonded · Insured</span>
-    <h1>We bring peace of mind &amp; safety back to your space.</h1>
-    <p class="lead">Discreet, compassionate biohazard &amp; extreme cleaning across Los Angeles. Certified crews, available 24/7. We bill your insurance directly.</p>
-    <div class="cta">
+    <span class="status anim d1"><span class="live"></span> <b>24/7 emergency response</b><span class="tail"> · crews on call in LA right now</span></span>
+    <span class="kw anim d2">Biohazard, Crime Scene &amp; Trauma Cleanup · Los Angeles</span>
+    <h1 class="anim d3">We bring peace of mind &amp; safety back to your space.</h1>
+    <p class="lead anim d4">Discreet, compassionate biohazard &amp; extreme cleaning across Los Angeles. Certified crews, available 24/7. We bill your insurance directly.</p>
+    <div class="cta anim d5">
       <a class="btn bp" href="tel:+12137058557">Call (213) 705-8557 <span class="c"><i data-lucide="phone-call"></i></span></a>
       <a class="btn bo-light" href="#contact">Get a free estimate</a>
+    </div>
+    <p class="cta-note anim d6"><i data-lucide="phone-call"></i> Call now — a <b>real specialist answers 24/7</b>, day or night. Never an answering machine.</p>
+    <div class="trust anim d7">
+      <span class="t"><i data-lucide="clock"></i> On-site in under 60 min</span>
+      <span class="t"><i data-lucide="shield-check"></i> Licensed, bonded &amp; insured</span>
+      <span class="t"><i data-lucide="receipt-text"></i> We bill your insurance</span>
+      <span class="t"><i data-lucide="eye-off"></i> Discreet, unmarked vehicles</span>
     </div>
   </div></div>
 </section>
@@ -519,7 +553,8 @@
 </a>
 
 <script>
-  lucide.createIcons();
+  // lucide is deferred — render icons once it's available
+  if(window.lucide){lucide.createIcons();}else{window.addEventListener('DOMContentLoaded',()=>window.lucide&&lucide.createIcons());}
   // resizable navbar: compact into floating bar on scroll
   const rnav=document.getElementById('rnav');
   window.addEventListener('scroll',()=>{ if(rnav) rnav.classList.toggle('scrolled', window.scrollY>60); },{passive:true});
@@ -549,9 +584,19 @@
     }
     window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); upd();
   })();
-  // service-area map (Leaflet + CARTO light, brand markers)
+  // service-area map — lazy-load Leaflet only when the map nears the viewport
   (function(){
-    const el=document.getElementById('lamap'); if(!el||typeof L==='undefined') return;
+    const el=document.getElementById('lamap'); if(!el) return;
+    let loaded=false;
+    function loadLeaflet(){
+      if(loaded) return; loaded=true;
+      const css=document.createElement('link'); css.rel='stylesheet'; css.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; document.head.appendChild(css);
+      const js=document.createElement('script'); js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; js.onload=initMap; document.head.appendChild(js);
+    }
+    const mo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){loadLeaflet(); mo.disconnect();}});},{rootMargin:'400px'});
+    mo.observe(el);
+    function initMap(){
+    if(typeof L==='undefined') return;
     const map=L.map('lamap',{scrollWheelZoom:false,attributionControl:true}).setView([34.02,-118.28],9);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'© OpenStreetMap · © CARTO'}).addTo(map);
     const cities=[['Los Angeles',34.0522,-118.2437,1],['Burbank',34.1808,-118.3090,0],['Glendale',34.1425,-118.2551,0],['Pasadena',34.1478,-118.1445,0],['Inglewood',33.9617,-118.3531,0],['Hollywood',34.0928,-118.3287,0],['Santa Monica',34.0195,-118.4912,0],['Long Beach',33.7701,-118.1937,0],['Beverly Hills',34.0736,-118.4004,0],['Culver City',34.0211,-118.3965,0]];
@@ -561,6 +606,7 @@
     });
     setTimeout(function(){map.invalidateSize();},250);
     window.addEventListener('resize',function(){map.invalidateSize();});
+    }
   })();
 </script>
 </body>
