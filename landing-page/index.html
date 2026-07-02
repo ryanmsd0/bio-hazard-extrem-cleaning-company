@@ -186,9 +186,24 @@
   footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   /* floating call (mobile) */
-  .fab{position:fixed;right:16px;bottom:16px;z-index:90;display:none;align-items:center;gap:9px;background:var(--blue);color:#fff;font-weight:700;padding:14px 20px;border-radius:var(--r);box-shadow:0 14px 30px -8px rgba(18,136,206,.7);text-decoration:none}
-  .fab svg{width:20px;height:20px}
-  @media(max-width:900px){.fab{display:inline-flex}}
+  /* floating 24/7 call card (fixed, always visible) */
+  .callcard{position:fixed;right:20px;bottom:20px;z-index:95;display:flex;align-items:center;gap:14px;
+    background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:var(--r);
+    box-shadow:0 18px 44px -12px rgba(10,37,64,.45);padding:13px 20px 13px 13px;text-decoration:none;
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .callcard:hover{transform:translateY(-3px);box-shadow:0 26px 54px -12px rgba(10,37,64,.55)}
+  .callcard .ph{width:48px;height:48px;border-radius:var(--r);background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;flex:none}
+  .callcard .ph svg{width:23px;height:23px;position:relative;z-index:1}
+  .callcard .ph::after{content:"";position:absolute;inset:0;border:2px solid var(--green);border-radius:var(--r);animation:cpulse 2s ease-out infinite}
+  @keyframes cpulse{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.55)}}
+  .callcard .txt{display:flex;flex-direction:column;line-height:1.16}
+  .callcard .lbl{font-family:'Plus Jakarta Sans';font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-dark);display:flex;align-items:center;gap:5px}
+  .callcard .lbl .dotpulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.4s ease-in-out infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  .callcard .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:20px;color:var(--navy);letter-spacing:-.01em}
+  .callcard .sub{font-size:11px;color:var(--ink2)}
+  @media(max-width:520px){.callcard{right:12px;bottom:12px;left:12px;justify-content:center;padding:12px}.callcard .sub{display:none}}
+  @media(prefers-reduced-motion:reduce){.callcard .ph::after,.callcard .lbl .dotpulse{animation:none}}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
@@ -420,7 +435,14 @@
   </div>
 </div></footer>
 
-<a class="fab" href="tel:+12137058557"><i data-lucide="phone-call"></i> Call 24/7</a>
+<a class="callcard" href="tel:+12137058557" aria-label="Call 24/7 emergency line (213) 705-8557">
+  <span class="ph"><i data-lucide="phone-call"></i></span>
+  <span class="txt">
+    <span class="lbl"><span class="dotpulse"></span>24/7 Emergency</span>
+    <span class="num">(213) 705-8557</span>
+    <span class="sub">Tap to call · Los Angeles</span>
+  </span>
+</a>
 
 <script>
   lucide.createIcons();
