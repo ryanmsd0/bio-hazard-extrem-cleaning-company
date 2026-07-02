@@ -138,6 +138,22 @@
   .scard .more{margin-top:12px;font-size:12.5px;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
   .scard .more svg{width:14px;height:14px;transition:transform .4s var(--ease)}
   .scard:hover .more svg{transform:translateX(4px)}
+  /* service categories */
+  .svc-group{margin-top:40px}
+  .svc-group:first-of-type{margin-top:0}
+  .svc-cat{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+  .svc-cat .n{font-family:'Plus Jakarta Sans';font-weight:800;font-size:12px;color:#fff;background:var(--navy);min-width:30px;height:30px;padding:0 8px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;letter-spacing:.02em}
+  .svc-cat h3{font-family:'Plus Jakarta Sans';font-weight:700;font-size:18px;color:var(--navy);white-space:nowrap}
+  .svc-cat .line{flex:1;height:1px;background:var(--hair)}
+  .svc-cat .count{font-size:12.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+  /* staggered card reveal within a group */
+  .svc-group .scard{opacity:0;transform:translateY(18px)}
+  .svc-group.in .scard{opacity:1;transform:none;transition:opacity .55s var(--ease),transform .55s var(--ease),box-shadow .45s var(--ease),border-color .3s}
+  .svc-group.in .scard:nth-child(1){transition-delay:.04s}
+  .svc-group.in .scard:nth-child(2){transition-delay:.12s}
+  .svc-group.in .scard:nth-child(3){transition-delay:.2s}
+  .svc-group.in .scard:nth-child(4){transition-delay:.28s}
+  @media(prefers-reduced-motion:reduce){.svc-group .scard{opacity:1;transform:none}}
 
   /* why cards */
   .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -316,21 +332,37 @@
 </div></div></section>
 
 <!-- SERVICES -->
-<section class="bg-alt" id="services"><div class="wrap reveal">
-  <div class="sec-h"><span class="eyebrow">Our services</span><h2>Specialized cleaning for the hardest moments</h2><p>Twelve dedicated services across Los Angeles, each handled with the same care and certification.</p></div>
-  <div class="grid">
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="biohazard"></i></div><h4>Biohazard Cleanup</h4><p>Safe removal &amp; decontamination of biohazardous materials.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="droplet"></i></div><h4>Blood Cleanup</h4><p>Thorough, OSHA-compliant blood spill remediation.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="shield-alert"></i></div><h4>Crime Scene Cleanup</h4><p>Discreet, compassionate restoration after a tragedy.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="heart-handshake"></i></div><h4>Suicide Cleanup</h4><p>Respectful, careful remediation with the utmost dignity.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="house"></i></div><h4>Unattended Death Cleanup</h4><p>Complete, safe cleanup and odor removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="boxes"></i></div><h4>Hoarder Cleanup</h4><p>Judgment-free, full property cleanout &amp; sanitizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="bug"></i></div><h4>Rodent Biohazard Cleanup</h4><p>Droppings removal, decontamination &amp; deodorizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="flask-conical"></i></div><h4>Drug Lab Cleanup</h4><p>Certified chemical decontamination &amp; disposal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="wind"></i></div><h4>Odor Removal</h4><p>Complete molecular-level odor neutralization.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="scan-search"></i></div><h4>Mold Remediation</h4><p>Inspection, containment &amp; safe mold removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="waves"></i></div><h4>Water Damage Restoration</h4><p>Extraction, drying &amp; full structural restoration.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-    <a class="scard" href="#contact"><div class="ico"><i data-lucide="flame"></i></div><h4>Fire Damage Restoration</h4><p>Soot, smoke &amp; structural cleanup after a fire.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+<section class="bg-alt" id="services"><div class="wrap">
+  <div class="sec-h reveal"><span class="eyebrow">Our services</span><h2>Specialized cleaning for the hardest moments</h2><p>Twelve dedicated services across Los Angeles, each handled with the same care and certification.</p></div>
+
+  <div class="svc-group reveal">
+    <div class="svc-cat"><span class="n">01</span><h3>Biohazard &amp; Trauma</h3><span class="line"></span><span class="count">4 services</span></div>
+    <div class="grid">
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="biohazard"></i></div><h4>Biohazard Cleanup</h4><p>Safe removal &amp; decontamination of biohazardous materials.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="droplet"></i></div><h4>Blood Cleanup</h4><p>Thorough, OSHA-compliant blood spill remediation.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="shield-alert"></i></div><h4>Crime Scene Cleanup</h4><p>Discreet, compassionate restoration after a tragedy.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="heart-handshake"></i></div><h4>Suicide Cleanup</h4><p>Respectful, careful remediation with the utmost dignity.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    </div>
+  </div>
+
+  <div class="svc-group reveal">
+    <div class="svc-cat"><span class="n">02</span><h3>Specialty Cleanup</h3><span class="line"></span><span class="count">4 services</span></div>
+    <div class="grid">
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="house"></i></div><h4>Unattended Death Cleanup</h4><p>Complete, safe cleanup and odor removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="boxes"></i></div><h4>Hoarder Cleanup</h4><p>Judgment-free, full property cleanout &amp; sanitizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="bug"></i></div><h4>Rodent Biohazard Cleanup</h4><p>Droppings removal, decontamination &amp; deodorizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="flask-conical"></i></div><h4>Drug Lab Cleanup</h4><p>Certified chemical decontamination &amp; disposal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    </div>
+  </div>
+
+  <div class="svc-group reveal">
+    <div class="svc-cat"><span class="n">03</span><h3>Restoration &amp; Damage</h3><span class="line"></span><span class="count">4 services</span></div>
+    <div class="grid">
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="wind"></i></div><h4>Odor Removal</h4><p>Complete molecular-level odor neutralization.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="scan-search"></i></div><h4>Mold Remediation</h4><p>Inspection, containment &amp; safe mold removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="waves"></i></div><h4>Water Damage Restoration</h4><p>Extraction, drying &amp; full structural restoration.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+      <a class="scard" href="#contact"><div class="ico"><i data-lucide="flame"></i></div><h4>Fire Damage Restoration</h4><p>Soot, smoke &amp; structural cleanup after a fire.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    </div>
   </div>
 </div></section>
 
