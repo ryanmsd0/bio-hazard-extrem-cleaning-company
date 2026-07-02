@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanCore Decon — Biohazard & Extreme Cleaning · Los Angeles 24/7</title>
+<meta name="description" content="Discreet, compassionate biohazard, crime scene & extreme cleaning across Los Angeles. Licensed, bonded & insured. 24/7 emergency response — we bill your insurance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root{
+    --blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;
+    --navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;
+    --bg:#fff;--bg-alt:#F4F7FB;--bg-soft:#EEF3F9;--hair:#E2E8F0;
+    --r:2px;
+    --amb:0 1px 2px rgba(10,37,64,.04),0 12px 26px -18px rgba(10,37,64,.25);
+    --amb-lg:0 2px 6px rgba(10,37,64,.05),0 26px 50px -26px rgba(10,37,64,.4);
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,h5{font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);line-height:1.12;letter-spacing:-.02em}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  section{padding:84px 0}
+  .bg-alt{background:var(--bg-alt)}
+  .eyebrow{display:inline-block;font-family:'Plus Jakarta Sans';font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  .sec-h{text-align:center;max-width:60ch;margin:0 auto 44px}
+  .sec-h h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin:12px 0 12px}
+  .sec-h p{font-size:17px;color:var(--ink2)}
+
+  /* buttons (from component library) */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:none;border-radius:var(--r);
+    transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .3s}
+  .btn .c{width:30px;height:30px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease)}
+  .btn .c svg{width:16px;height:16px}.btn:active{transform:scale(.98)}
+  .bp{background:var(--blue);color:#fff;padding:13px 13px 13px 22px;box-shadow:0 12px 24px -12px rgba(18,136,206,.6)}
+  .bp .c{background:rgba(255,255,255,.2)}.bp:hover{background:var(--blue-dark);transform:translateY(-2px)}.bp:hover .c{transform:translate(2px,-1px)}
+  .bg2{background:var(--green);color:#08340a;padding:13px 13px 13px 22px}.bg2 .c{background:rgba(255,255,255,.3)}.bg2:hover{transform:translateY(-2px)}
+  .bo{background:#fff;color:var(--navy);padding:13px 22px;border:1.5px solid var(--hair);box-shadow:var(--amb)}.bo:hover{color:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
+  .bo-light{background:rgba(255,255,255,.1);color:#fff;padding:13px 22px;border:1.5px solid rgba(255,255,255,.35)}.bo-light:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+
+  /* urgency strip */
+  .ustrip{background:#06182b;color:#cfe0f2;font-size:13.5px;font-weight:500}
+  .ustrip .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:9px 24px}
+  .ustrip a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:7px;font-weight:600}
+  .ustrip svg{width:15px;height:15px}
+
+  /* header */
+  header.nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
+  header.nav .wrap{display:flex;align-items:center;gap:12px;height:80px}
+  header.nav .logo img{height:58px;width:auto;display:block}
+  header.nav .menu{display:flex;gap:4px;margin-left:24px}
+  header.nav .menu a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:14.5px;color:#c3d1e2;text-decoration:none;padding:8px 13px;border-radius:var(--r)}
+  header.nav .menu a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  header.nav .hcta{margin-left:auto;display:flex;gap:10px;align-items:center}
+  header.nav .tel{color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:17px;text-decoration:none;display:flex;align-items:center;gap:8px}
+  header.nav .tel svg{width:18px;height:18px;color:var(--green)}
+  @media(max-width:900px){header.nav .menu{display:none}header.nav .tel span{display:none}}
+
+  /* hero — big photo */
+  .hero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b}
+  .hero .photo{position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 78% 8%, rgba(18,136,206,.28), transparent 55%),
+      radial-gradient(80% 70% at 8% 100%, rgba(87,185,74,.20), transparent 55%),
+      linear-gradient(180deg,#0b1f33 0%, #0a1a2b 55%, #071624 100%);
+  }
+  .hero .photo::after{content:"";position:absolute;inset:0;background:
+    repeating-linear-gradient(115deg, rgba(255,255,255,.03) 0 2px, transparent 2px 9px);opacity:.5}
+  .hero .ph-badge{position:absolute;bottom:16px;right:18px;font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase}
+  .hero .wrap{position:relative;padding:96px 24px 104px}
+  .hero .inner{max-width:660px}
+  .hero .eyebrow{color:#8fd0ff}
+  .hero h1{color:#fff;font-size:clamp(34px,5.4vw,58px);font-weight:800;letter-spacing:-.03em;margin:16px 0 18px}
+  .hero p.lead{font-size:19px;color:#cddcec;max-width:52ch;margin-bottom:30px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .trust{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px}
+  .hero .trust .t{display:flex;align-items:center;gap:9px;font-size:14px;color:#dbe6f2;font-weight:500}
+  .hero .trust .t svg{width:18px;height:18px;color:var(--green)}
+
+  /* certifications */
+  .certrow{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .cert{flex:1;min-width:150px;max-width:210px;height:70px;background:#fff;border:1px solid var(--hair);border-radius:var(--r);display:flex;align-items:center;justify-content:center;gap:9px;font-family:'Plus Jakarta Sans';font-weight:800;color:#8595a8;box-shadow:var(--amb)}
+  .cert svg{width:20px;height:20px;color:var(--blue)}
+
+  /* two-col */
+  .two{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  @media(max-width:860px){.two{grid-template-columns:1fr;gap:32px}}
+  .checklist{list-style:none;margin-top:20px}
+  .checklist li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;font-size:15.5px;color:var(--ink)}
+  .checklist li svg{width:20px;height:20px;color:var(--green);flex:none;margin-top:2px;stroke-width:2.4}
+  .imgblock{aspect-ratio:4/3.2;border-radius:var(--r);border:1px solid var(--hair);
+    background:radial-gradient(90% 90% at 70% 10%, rgba(18,136,206,.14), transparent 60%), linear-gradient(160deg,#12314c,#0a1c2e);
+    display:flex;align-items:flex-end;padding:16px;color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.08em;text-transform:uppercase;box-shadow:var(--amb-lg)}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+  @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:18px;text-align:center;box-shadow:var(--amb)}
+  .stat .n{font-family:'Plus Jakarta Sans';font-weight:800;font-size:26px;color:var(--navy)}
+  .stat .l{font-size:12.5px;color:var(--muted);font-weight:500}
+
+  /* services grid */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+  .scard{background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:22px;box-shadow:var(--amb);text-decoration:none;display:block;
+    transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s}
+  .scard:hover{transform:translateY(-5px);box-shadow:var(--amb-lg);border-color:#bcd7ee}
+  .scard .ico{width:48px;height:48px;border-radius:var(--r);background:var(--bg-soft);border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;margin-bottom:14px;transition:background .4s}
+  .scard .ico svg{width:23px;height:23px;color:var(--blue);stroke-width:1.6;transition:color .4s}
+  .scard:hover .ico{background:var(--blue)}.scard:hover .ico svg{color:#fff}
+  .scard h4{font-size:16.5px;margin-bottom:5px}
+  .scard p{font-size:13px;color:var(--ink2)}
+  .scard .more{margin-top:12px;font-size:12.5px;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+  .scard .more svg{width:14px;height:14px;transition:transform .4s var(--ease)}
+  .scard:hover .more svg{transform:translateX(4px)}
+
+  /* why cards */
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:800px){.why{grid-template-columns:1fr}}
+  .whyc{background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:28px;box-shadow:var(--amb)}
+  .whyc .ic{width:50px;height:50px;border-radius:var(--r);background:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .whyc .ic svg{width:24px;height:24px;color:#fff}
+  .whyc h4{font-size:19px;margin-bottom:8px}.whyc p{font-size:14.5px;color:var(--ink2)}
+
+  /* process */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:800px){.steps{grid-template-columns:1fr}}
+  .step{background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:24px;box-shadow:var(--amb)}
+  .step .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:14px;color:#fff;background:var(--blue);width:36px;height:36px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .step h5{font-size:16px;margin-bottom:5px}.step p{font-size:14px;color:var(--ink2)}
+
+  /* areas */
+  .areawrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+  @media(max-width:800px){.areawrap{grid-template-columns:1fr}}
+  .pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pill2{background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);border-radius:var(--r);padding:9px 16px;font-size:13.5px;font-weight:600;color:var(--navy)}
+  .map{aspect-ratio:16/10;border-radius:var(--r);background:var(--bg-soft);border:1px solid var(--hair);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .map>svg{width:46px;height:46px;color:var(--blue);opacity:.45}
+  .map .pin{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(87,185,74,.22)}
+
+  /* bands */
+  .band{border-radius:var(--r);padding:34px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between}
+  .band.ins{background:#F0F9F3;border:1px solid #bfe6cd}
+  .band.guar{background:var(--navy);color:#fff}
+  .band h3{font-size:24px}.band.guar h3{color:#fff}.band p{font-size:15px;color:var(--ink2);max-width:52ch}.band.guar p{color:#cddcec}
+  .band .bi{display:flex;align-items:center;gap:18px}
+  .band .ic{width:52px;height:52px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex:none}
+  .band.ins .ic{background:var(--green);color:#fff}.band.guar .ic{background:rgba(255,255,255,.14);color:#fff}
+  .band .ic svg{width:26px;height:26px}
+
+  /* promise / reviews empty */
+  .revcard{background:#fff;border:1px dashed #b9c9dc;border-radius:var(--r);padding:30px;text-align:center;box-shadow:var(--amb);max-width:640px;margin:0 auto}
+  .revcard .stars{display:flex;gap:5px;justify-content:center;margin-bottom:12px}.revcard .stars svg{width:22px;height:22px;color:#cbd5e1;fill:#cbd5e1}
+  .revcard h3{font-size:20px;margin-bottom:8px}.revcard p{font-size:14.5px;color:var(--ink2)}
+
+  /* faq */
+  .faq{max-width:800px;margin:0 auto}
+  .q{background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+  .q summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:600;color:var(--navy);font-family:'Plus Jakarta Sans';display:flex;justify-content:space-between;align-items:center;font-size:16px}
+  .q summary::-webkit-details-marker{display:none}
+  .q summary .c{width:28px;height:28px;border-radius:var(--r);background:var(--bg-soft);display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease)}
+  .q summary svg{width:17px;height:17px;color:var(--blue);stroke-width:2.4}
+  .q[open] summary .c{transform:rotate(45deg);background:#dbeafe}
+  .q .a{padding:0 20px 18px;color:var(--ink2);font-size:14.5px}
+
+  /* quote form */
+  .quote{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+  @media(max-width:860px){.quote{grid-template-columns:1fr}}
+  .form{background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:28px;box-shadow:var(--amb-lg)}
+  .form .two-in{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .form label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin:12px 0 5px}
+  .form input,.form select{width:100%;border:1px solid var(--hair);border-radius:var(--r);padding:12px 14px;font-family:inherit;font-size:14px;color:var(--ink);background:#fff;transition:border .2s,box-shadow .2s}
+  .form input:focus,.form select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(18,136,206,.14)}
+  .form .upload{border:1.5px dashed #c3d3e6;border-radius:var(--r);padding:15px;text-align:center;color:var(--ink2);font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-top:5px}
+  .form .upload svg{width:18px;height:18px;color:var(--blue)}
+
+  /* footer */
+  footer{background:var(--navy);color:#aebfd4;padding:56px 0 30px}
+  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+  @media(max-width:800px){footer .cols{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){footer .cols{grid-template-columns:1fr}}
+  footer img{height:58px;margin-bottom:12px}
+  footer b{color:#fff;font-family:'Plus Jakarta Sans';display:block;margin-bottom:10px;font-size:14px}
+  footer a{color:#aebfd4;text-decoration:none;display:block;padding:4px 0;font-size:14px}
+  footer a:hover{color:#fff}
+  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  /* floating call (mobile) */
+  .fab{position:fixed;right:16px;bottom:16px;z-index:90;display:none;align-items:center;gap:9px;background:var(--blue);color:#fff;font-weight:700;padding:14px 20px;border-radius:var(--r);box-shadow:0 14px 30px -8px rgba(18,136,206,.7);text-decoration:none}
+  .fab svg{width:20px;height:20px}
+  @media(max-width:900px){.fab{display:inline-flex}}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{transition:none!important}}
+
+  /* tools ribbon (internal only) */
+  .toolbar{background:#06182b;color:#8fb2d6;font-size:12px;text-align:center;padding:6px 24px}
+  .toolbar a{color:#8fd0ff;font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- internal navigation back to tools (remove for production) -->
+<div class="toolbar">Preview · <a href="../index.html">Options board</a> · <a href="../composant/">Components</a> · <span style="color:#cfe0f2">Landing page</span></div>
+
+<!-- urgency strip -->
+<div class="ustrip"><div class="wrap">
+  <span style="display:inline-flex;align-items:center;gap:7px"><i data-lucide="clock"></i> 24/7 Emergency Response · Los Angeles County</span>
+  <a href="tel:+12137058557"><i data-lucide="phone"></i> (213) 705-8557 — Call now</a>
+</div></div>
+
+<!-- header -->
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top"><img src="../logo-full.png" alt="CleanCore Decon"></a>
+  <nav class="menu">
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#process">Process</a>
+    <a href="#areas">Areas</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hcta">
+    <a class="tel" href="tel:+12137058557"><i data-lucide="phone-call"></i><span>(213) 705-8557</span></a>
+    <a class="btn bp" href="#contact">Free Estimate <span class="c"><i data-lucide="arrow-right"></i></span></a>
+  </div>
+</div></header>
+
+<!-- HERO (Option B — big photo) -->
+<section class="hero" id="top" style="padding:0">
+  <div class="photo"></div>
+  <span class="ph-badge">Replace with real crew / EPP photo</span>
+  <div class="wrap"><div class="inner">
+    <span class="eyebrow">Licensed · Bonded · Insured</span>
+    <h1>We bring peace of mind &amp; safety back to your space.</h1>
+    <p class="lead">Discreet, compassionate biohazard &amp; extreme cleaning across Los Angeles. Certified crews on call 24/7 — and we bill your insurance directly.</p>
+    <div class="cta">
+      <a class="btn bp" href="tel:+12137058557">Call (213) 705-8557 <span class="c"><i data-lucide="phone-call"></i></span></a>
+      <a class="btn bo-light" href="#contact">Get a free estimate</a>
+    </div>
+    <div class="trust">
+      <span class="t"><i data-lucide="clock"></i> Available 24/7</span>
+      <span class="t"><i data-lucide="timer"></i> On-site in under 60 min</span>
+      <span class="t"><i data-lucide="award"></i> IICRC certified</span>
+    </div>
+  </div></div>
+</section>
+
+<!-- certifications -->
+<section style="padding:40px 0" class="bg-alt"><div class="wrap reveal">
+  <div class="certrow">
+    <div class="cert"><i data-lucide="award"></i> IICRC</div>
+    <div class="cert"><i data-lucide="shield"></i> OSHA</div>
+    <div class="cert"><i data-lucide="badge-check"></i> BBB A+</div>
+    <div class="cert"><i data-lucide="leaf"></i> EPA</div>
+    <div class="cert"><i data-lucide="circle-check-big"></i> Bonded</div>
+  </div>
+</div></section>
+
+<!-- WHAT YOU GET -->
+<section><div class="wrap reveal"><div class="two">
+  <div>
+    <span class="eyebrow">Why homeowners &amp; businesses call us</span>
+    <h2 style="font-size:clamp(26px,3.6vw,38px);font-weight:800;margin:12px 0 6px">We don’t just clean — we restore your space, and your calm.</h2>
+    <p style="font-size:16px;color:var(--ink2)">When something difficult happens, you shouldn’t have to handle it alone. Our certified crews arrive fast, work discreetly, and treat your home like our own family’s.</p>
+    <ul class="checklist">
+      <li><i data-lucide="check"></i> On-site in under 60 minutes, day or night</li>
+      <li><i data-lucide="check"></i> Discreet, unmarked vehicles available</li>
+      <li><i data-lucide="check"></i> Licensed, bonded &amp; fully insured crews</li>
+      <li><i data-lucide="check"></i> We bill your insurance directly — often no out-of-pocket cost</li>
+      <li><i data-lucide="check"></i> Compassionate, judgment-free service</li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><div class="n"><span class="cnt" data-to="24">0</span>/7</div><div class="l">Availability</div></div>
+      <div class="stat"><div class="n">&lt;<span class="cnt" data-to="60">0</span></div><div class="l">Min response</div></div>
+      <div class="stat"><div class="n"><span class="cnt" data-to="100">0</span>%</div><div class="l">Discreet</div></div>
+      <div class="stat"><div class="n">IICRC</div><div class="l">Certified</div></div>
+    </div>
+  </div>
+  <div class="imgblock">Photo — crew in PPE / restored room</div>
+</div></div></section>
+
+<!-- SERVICES -->
+<section class="bg-alt" id="services"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">Our services</span><h2>Specialized cleaning for the hardest moments</h2><p>Twelve dedicated services across Los Angeles — each handled with the same care and certification.</p></div>
+  <div class="grid">
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="biohazard"></i></div><h4>Biohazard Cleanup</h4><p>Safe removal &amp; decontamination of biohazardous materials.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="droplet"></i></div><h4>Blood Cleanup</h4><p>Thorough, OSHA-compliant blood spill remediation.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="shield-alert"></i></div><h4>Crime Scene Cleanup</h4><p>Discreet, compassionate restoration after a tragedy.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="heart-handshake"></i></div><h4>Suicide Cleanup</h4><p>Respectful, careful remediation with the utmost dignity.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="house"></i></div><h4>Unattended Death Cleanup</h4><p>Complete, safe cleanup and odor removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="boxes"></i></div><h4>Hoarder Cleanup</h4><p>Judgment-free, full property cleanout &amp; sanitizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="bug"></i></div><h4>Rodent Biohazard Cleanup</h4><p>Droppings removal, decontamination &amp; deodorizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="flask-conical"></i></div><h4>Drug Lab Cleanup</h4><p>Certified chemical decontamination &amp; disposal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="wind"></i></div><h4>Odor Removal</h4><p>Complete molecular-level odor neutralization.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="scan-search"></i></div><h4>Mold Remediation</h4><p>Inspection, containment &amp; safe mold removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="waves"></i></div><h4>Water Damage Restoration</h4><p>Extraction, drying &amp; full structural restoration.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+    <a class="scard" href="#contact"><div class="ico"><i data-lucide="flame"></i></div><h4>Fire Damage Restoration</h4><p>Soot, smoke &amp; structural cleanup after a fire.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+  </div>
+</div></section>
+
+<!-- WHY US -->
+<section id="why"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">Why choose us</span><h2>Fast, discreet, and genuinely compassionate</h2></div>
+  <div class="why">
+    <div class="whyc"><div class="ic"><i data-lucide="timer"></i></div><h4>Rapid 24/7 response</h4><p>We answer the phone day or night and are typically on-site in under 60 minutes across LA County.</p></div>
+    <div class="whyc"><div class="ic"><i data-lucide="eye-off"></i></div><h4>Discreet &amp; compassionate</h4><p>Unmarked vehicles, full confidentiality, and crews trained to treat every situation with dignity.</p></div>
+    <div class="whyc"><div class="ic"><i data-lucide="shield-check"></i></div><h4>Certified &amp; insured</h4><p>Licensed, bonded and IICRC-certified. We follow OSHA &amp; EPA standards, and we bill your insurance.</p></div>
+  </div>
+</div></section>
+
+<!-- PROCESS -->
+<section class="bg-alt" id="process"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">How it works</span><h2>With you from the first call to the final check</h2></div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h5>Call us</h5><p>One call, 24/7. We listen and dispatch a crew immediately.</p></div>
+    <div class="step"><div class="num">2</div><h5>Free assessment</h5><p>On-site evaluation and a clear plan — no obligation.</p></div>
+    <div class="step"><div class="num">3</div><h5>Containment</h5><p>We secure the area to keep everyone safe.</p></div>
+    <div class="step"><div class="num">4</div><h5>Decontamination</h5><p>Certified removal, cleaning and disposal of all hazards.</p></div>
+    <div class="step"><div class="num">5</div><h5>Disinfection</h5><p>Hospital-grade sanitizing and odor neutralization.</p></div>
+    <div class="step"><div class="num">6</div><h5>Restored</h5><p>Final verification — your space is safe again.</p></div>
+  </div>
+</div></section>
+
+<!-- AREAS -->
+<section id="areas"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">Service areas</span><h2>Serving Los Angeles &amp; surrounding areas</h2></div>
+  <div class="areawrap">
+    <div class="pills">
+      <span class="pill2">Los Angeles</span><span class="pill2">Burbank</span><span class="pill2">Glendale</span><span class="pill2">Pasadena</span><span class="pill2">Inglewood</span><span class="pill2">Hollywood</span><span class="pill2">Santa Monica</span><span class="pill2">Long Beach</span><span class="pill2">Beverly Hills</span><span class="pill2">Culver City</span>
+    </div>
+    <div class="map"><i data-lucide="map"></i>
+      <span class="pin" style="top:38%;left:44%"></span><span class="pin" style="top:55%;left:60%"></span><span class="pin" style="top:30%;left:66%"></span><span class="pin" style="top:62%;left:36%"></span>
+    </div>
+  </div>
+</div></section>
+
+<!-- PROMISE + INSURANCE -->
+<section class="bg-alt"><div class="wrap reveal">
+  <div class="band guar" style="margin-bottom:18px">
+    <div class="bi"><span class="ic"><i data-lucide="shield-check"></i></span><div><h3>Our promise to you</h3><p>We’re a local team built on care and certified standards. We’re not done until your space is safe again — guaranteed.</p></div></div>
+    <a class="btn bp" href="tel:+12137058557">Call now <span class="c"><i data-lucide="phone-call"></i></span></a>
+  </div>
+  <div class="band ins">
+    <div class="bi"><span class="ic"><i data-lucide="file-check"></i></span><div><h3>We bill your insurance</h3><p>Most homeowner &amp; commercial policies accepted — often with no out-of-pocket cost to you.</p></div></div>
+    <a class="btn bg2" href="#contact">Get a free estimate <span class="c"><i data-lucide="arrow-right"></i></span></a>
+  </div>
+</div></section>
+
+<!-- REVIEWS (new business) -->
+<section><div class="wrap reveal">
+  <div class="revcard">
+    <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+    <h3>Be our first review</h3>
+    <p>We’re a new local team, and every family we help matters to us. After we’ve taken care of your situation, we’d be honored by your feedback.</p>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="bg-alt"><div class="wrap reveal">
+  <div class="sec-h"><span class="eyebrow">Questions &amp; answers</span><h2>What people ask us most</h2></div>
+  <div class="faq">
+    <details class="q" open><summary>Do you bill insurance directly? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">Yes. We work with most homeowner and commercial insurance policies and bill them directly whenever possible — often with no out-of-pocket cost to you.</div></details>
+    <details class="q"><summary>How fast can you arrive? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">Our crews are on call 24/7 and typically arrive on-site in under 60 minutes across Los Angeles County.</div></details>
+    <details class="q"><summary>Is the service discreet? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">Absolutely. Unmarked vehicles are available, everything is kept fully confidential, and our crews are trained to work with compassion and dignity.</div></details>
+    <details class="q"><summary>Are your technicians certified? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">Yes — we are licensed, bonded and IICRC-certified, and we follow OSHA and EPA standards on every job.</div></details>
+    <details class="q"><summary>What areas do you serve? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">We serve Los Angeles and surrounding areas including Burbank, Glendale, Pasadena, Inglewood, Hollywood, Santa Monica and more.</div></details>
+  </div>
+</div></section>
+
+<!-- CONTACT / QUOTE -->
+<section id="contact"><div class="wrap reveal"><div class="quote">
+  <div>
+    <span class="eyebrow">Get help now</span>
+    <h2 style="font-size:clamp(26px,3.6vw,36px);font-weight:800;margin:12px 0 10px">Free estimate — we’re ready 24/7</h2>
+    <p style="font-size:16px;color:var(--ink2);margin-bottom:22px">Call for an immediate response, or send a few details and a photo — we’ll get right back to you.</p>
+    <a class="btn bp" href="tel:+12137058557" style="font-size:17px;padding:15px 15px 15px 24px">Call (213) 705-8557 <span class="c"><i data-lucide="phone-call"></i></span></a>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px">
+      <span style="display:flex;align-items:center;gap:10px;color:var(--ink);font-size:14.5px"><i data-lucide="clock" style="width:18px;height:18px;color:var(--green)"></i> 24/7 emergency response</span>
+      <span style="display:flex;align-items:center;gap:10px;color:var(--ink);font-size:14.5px"><i data-lucide="map-pin" style="width:18px;height:18px;color:var(--green)"></i> Los Angeles County &amp; surrounding areas</span>
+      <span style="display:flex;align-items:center;gap:10px;color:var(--ink);font-size:14.5px"><i data-lucide="file-check" style="width:18px;height:18px;color:var(--green)"></i> We bill your insurance directly</span>
+    </div>
+  </div>
+  <form class="form" onsubmit="return false">
+    <div class="two-in">
+      <div><label>Full name</label><input placeholder="Your name"></div>
+      <div><label>Phone</label><input placeholder="(213) 000-0000"></div>
+    </div>
+    <div class="two-in">
+      <div><label>Zip code</label><input placeholder="90001"></div>
+      <div><label>Service needed</label><select><option>Biohazard Cleanup</option><option>Blood Cleanup</option><option>Crime Scene Cleanup</option><option>Suicide Cleanup</option><option>Unattended Death Cleanup</option><option>Hoarder Cleanup</option><option>Rodent Biohazard Cleanup</option><option>Drug Lab Cleanup</option><option>Odor Removal</option><option>Mold Remediation</option><option>Water Damage Restoration</option><option>Fire Damage Restoration</option></select></div>
+    </div>
+    <label>Add a photo of the situation (optional)</label>
+    <div class="upload"><i data-lucide="image-up"></i> Tap to upload a photo</div>
+    <div style="margin-top:18px"><button class="btn bp" style="width:100%;justify-content:center">Request my free estimate <span class="c"><i data-lucide="arrow-right"></i></span></button></div>
+    <p style="font-size:12px;color:var(--muted);margin-top:10px;text-align:center">For emergencies, please call — it’s the fastest way to reach us.</p>
+  </form>
+</div></div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <img src="../logo-full.png" alt="CleanCore Decon">
+      <p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7.</p>
+    </div>
+    <div>
+      <b>Services</b>
+      <a href="#services">Biohazard Cleanup</a><a href="#services">Crime Scene Cleanup</a><a href="#services">Hoarder Cleanup</a><a href="#services">Water &amp; Fire Damage</a><a href="#services">Mold Remediation</a>
+    </div>
+    <div>
+      <b>Company</b>
+      <a href="#why">Why Choose Us</a><a href="#process">Our Process</a><a href="#areas">Service Areas</a><a href="#contact">Contact</a>
+    </div>
+    <div>
+      <b>24/7 Emergency</b>
+      <a href="tel:+12137058557" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(213) 705-8557</a>
+      <a>Los Angeles County, CA</a>
+      <a>Licensed · Bonded · Insured</a>
+    </div>
+  </div>
+  <div class="bottom">
+    <span>© 2026 CleanCore Decon. All rights reserved.</span>
+    <span>IICRC Certified · OSHA &amp; EPA compliant</span>
+  </div>
+</div></footer>
+
+<a class="fab" href="tel:+12137058557"><i data-lucide="phone-call"></i> Call 24/7</a>
+
+<script>
+  lucide.createIcons();
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // count up
+  function countUp(el){const to=+el.dataset.to;let s=null;function step(t){if(!s)s=t;const p=Math.min((t-s)/1100,1);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}}),{threshold:.6});
+  document.querySelectorAll('.cnt').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>
