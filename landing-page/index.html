@@ -63,9 +63,10 @@
 
   /* hero — big photo */
   .hero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;min-height:100dvh;display:flex;align-items:center}
-  .hero .photo{position:absolute;inset:0;background:linear-gradient(180deg,#0e2337 0%,#0a1a2b 55%,#06141f 100%)}
-  .hero .photo::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 85% at 50% -10%, transparent 42%, rgba(0,0,0,.5))}
-  .hero .ph-badge{position:absolute;bottom:16px;right:18px;font-size:11px;color:rgba(255,255,255,.28);letter-spacing:.08em;text-transform:uppercase}
+  .hero .photo{position:absolute;inset:0;background:#0a1a2b url('herosection.png') 60% 52%/cover}
+  .hero .photo::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(90deg, rgba(7,18,30,.95) 0%, rgba(7,18,30,.82) 34%, rgba(7,18,30,.45) 68%, rgba(7,18,30,.32) 100%),
+    linear-gradient(180deg, rgba(7,18,30,.98) 0%, rgba(7,18,30,.85) 12%, rgba(7,18,30,.35) 26%, transparent 40%, transparent 74%, rgba(7,18,30,.6) 100%)}
   .hero .wrap{position:relative;padding:56px 24px;width:100%}
   .hero .inner{max-width:660px}
   .hero .eyebrow{color:#8fd0ff}
@@ -240,7 +241,6 @@
 <!-- HERO (Option B — big photo) -->
 <section class="hero" id="top" style="padding:0">
   <div class="photo"></div>
-  <span class="ph-badge">Replace with real crew / EPP photo</span>
   <div class="wrap"><div class="inner">
     <span class="eyebrow">Licensed · Bonded · Insured</span>
     <h1>We bring peace of mind &amp; safety back to your space.</h1>
