@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
   :root{
@@ -184,8 +186,16 @@
   @media(max-width:800px){.areawrap{grid-template-columns:1fr}}
   .pills{display:flex;gap:10px;flex-wrap:wrap}
   .pill2{background:#fff;border:1px solid var(--hair);box-shadow:var(--amb);border-radius:var(--r);padding:9px 16px;font-size:13.5px;font-weight:600;color:var(--navy)}
-  .map{aspect-ratio:16/10;border-radius:var(--r);background:var(--bg-soft);border:1px solid var(--hair);overflow:hidden;box-shadow:var(--amb)}
-  .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.15)}
+  .map{aspect-ratio:16/10;border-radius:var(--r);background:#eef3f9;border:1px solid var(--hair);overflow:hidden;box-shadow:var(--amb)}
+  .map .leaflet-container{width:100%;height:100%;background:#eef3f9;font-family:'Inter',sans-serif}
+  .lapin{display:block;width:16px;height:16px;border-radius:50%;background:var(--blue);border:2.5px solid #fff;box-shadow:0 2px 6px rgba(10,37,64,.45)}
+  .lapin.hub{background:var(--green);position:relative}
+  .lapin.hub::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--green);animation:lapulse 2s ease-out infinite}
+  @keyframes lapulse{0%{transform:scale(.55);opacity:.75}100%{transform:scale(2.3);opacity:0}}
+  .latip{background:var(--navy);color:#fff;border:none;border-radius:var(--r);font-family:'Plus Jakarta Sans';font-weight:700;font-size:12px;box-shadow:var(--amb);padding:4px 9px}
+  .latip::before{display:none}
+  .leaflet-control-attribution{font-size:9px;background:rgba(255,255,255,.7)}
+  .leaflet-bar a{color:var(--navy)}
 
   /* bands */
   .band{border-radius:var(--r);padding:34px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between}
@@ -405,7 +415,7 @@
     <div class="pills">
       <span class="pill2">Los Angeles</span><span class="pill2">Burbank</span><span class="pill2">Glendale</span><span class="pill2">Pasadena</span><span class="pill2">Inglewood</span><span class="pill2">Hollywood</span><span class="pill2">Santa Monica</span><span class="pill2">Long Beach</span><span class="pill2">Beverly Hills</span><span class="pill2">Culver City</span>
     </div>
-    <div class="map"><iframe src="https://www.google.com/maps?q=Los+Angeles,+CA&z=9&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="CleanCore Decon service area — Los Angeles County"></iframe></div>
+    <div class="map" id="lamap" aria-label="CleanCore Decon service area map — Los Angeles"></div>
   </div>
 </div></section>
 
@@ -538,6 +548,19 @@
       steps.forEach(st=>{ const n=st.querySelector('.pnode').getBoundingClientRect(); st.classList.toggle('on',(n.top+n.height/2)<=line); });
     }
     window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); upd();
+  })();
+  // service-area map (Leaflet + CARTO light, brand markers)
+  (function(){
+    const el=document.getElementById('lamap'); if(!el||typeof L==='undefined') return;
+    const map=L.map('lamap',{scrollWheelZoom:false,attributionControl:true}).setView([34.02,-118.28],9);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'© OpenStreetMap · © CARTO'}).addTo(map);
+    const cities=[['Los Angeles',34.0522,-118.2437,1],['Burbank',34.1808,-118.3090,0],['Glendale',34.1425,-118.2551,0],['Pasadena',34.1478,-118.1445,0],['Inglewood',33.9617,-118.3531,0],['Hollywood',34.0928,-118.3287,0],['Santa Monica',34.0195,-118.4912,0],['Long Beach',33.7701,-118.1937,0],['Beverly Hills',34.0736,-118.4004,0],['Culver City',34.0211,-118.3965,0]];
+    cities.forEach(function(c){
+      const m=L.marker([c[1],c[2]],{icon:L.divIcon({html:'<span class="lapin '+(c[3]?'hub':'')+'"></span>',className:'',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map);
+      m.bindTooltip(c[0],{direction:'top',offset:[0,-8],className:'latip',permanent:!!c[3]});
+    });
+    setTimeout(function(){map.invalidateSize();},250);
+    window.addEventListener('resize',function(){map.invalidateSize();});
   })();
 </script>
 </body>
