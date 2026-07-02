@@ -62,11 +62,11 @@
   @media(max-width:900px){header.nav .menu{display:none}header.nav .tel span{display:none}}
 
   /* hero — big photo */
-  .hero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b}
+  .hero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;min-height:100dvh;display:flex;align-items:center}
   .hero .photo{position:absolute;inset:0;background:linear-gradient(180deg,#0e2337 0%,#0a1a2b 55%,#06141f 100%)}
   .hero .photo::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 85% at 50% -10%, transparent 42%, rgba(0,0,0,.5))}
   .hero .ph-badge{position:absolute;bottom:16px;right:18px;font-size:11px;color:rgba(255,255,255,.28);letter-spacing:.08em;text-transform:uppercase}
-  .hero .wrap{position:relative;padding:96px 24px 104px}
+  .hero .wrap{position:relative;padding:56px 24px;width:100%}
   .hero .inner{max-width:660px}
   .hero .eyebrow{color:#8fd0ff}
   .hero h1{color:#fff;font-size:clamp(34px,5.4vw,58px);font-weight:800;letter-spacing:-.03em;margin:16px 0 18px}
@@ -424,6 +424,14 @@
 
 <script>
   lucide.createIcons();
+  // full-screen hero: fill the viewport minus the bars above it
+  function sizeHero(){
+    const hero=document.querySelector('.hero'); if(!hero) return;
+    let above=0;
+    ['.toolbar','.ustrip','header.nav'].forEach(s=>{const el=document.querySelector(s); if(el) above+=el.offsetHeight;});
+    hero.style.minHeight=Math.max(420,(window.innerHeight-above))+'px';
+  }
+  window.addEventListener('resize',sizeHero); window.addEventListener('load',sizeHero); sizeHero();
   // reveal
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
