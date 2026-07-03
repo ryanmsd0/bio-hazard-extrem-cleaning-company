@@ -202,23 +202,27 @@
   .ptl{position:relative;max-width:900px;margin:0 auto;padding:12px 0}
   .ptl .rail{position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--hair);transform:translateX(-50%);border-radius:3px;overflow:hidden}
   .ptl .rail .fill{position:absolute;left:0;top:0;width:100%;height:0;background:var(--blue);border-radius:3px}
-  .prow{position:relative;display:grid;grid-template-columns:1fr 66px 1fr;align-items:center;min-height:150px}
-  .pnode{grid-column:2;justify-self:center;width:54px;height:54px;border-radius:50%;background:#fff;border:2px solid var(--hair);color:var(--muted);font-family:'Plus Jakarta Sans';font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;z-index:2;
+  /* fixed row height + absolutely-centred card => nodes are perfectly equidistant */
+  .prow{position:relative;height:150px}
+  .pnode{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#fff;border:2px solid var(--hair);color:var(--muted);font-family:'Plus Jakarta Sans';font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;z-index:2;
     transition:background .45s var(--ease),border-color .45s var(--ease),color .45s,transform .45s var(--ease),box-shadow .45s}
-  .pcard{background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:18px 20px;box-shadow:var(--amb);opacity:0;transition:opacity .55s var(--ease),transform .55s var(--ease)}
+  .pcard{position:absolute;top:50%;width:calc(50% - 60px);background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:16px 20px;box-shadow:var(--amb);opacity:0;transition:opacity .55s var(--ease),transform .55s var(--ease)}
   .pcard h5{font-size:17px;margin-bottom:4px;color:var(--navy)}
   .pcard p{font-size:14px;color:var(--ink2)}
-  .prow.left .pcard{grid-column:1;text-align:right;transform:translateX(-34px)}
-  .prow.right .pcard{grid-column:3;text-align:left;transform:translateX(34px)}
-  .prow.in .pcard{opacity:1;transform:none}
-  .prow.in .pnode{background:var(--blue);border-color:var(--blue);color:#fff;transform:scale(1.08);box-shadow:0 12px 24px -6px rgba(18,136,206,.55)}
+  .prow.left .pcard{right:calc(50% + 42px);text-align:right;transform:translate(-30px,-50%)}
+  .prow.right .pcard{left:calc(50% + 42px);text-align:left;transform:translate(30px,-50%)}
+  .prow.in .pcard{opacity:1;transform:translate(0,-50%)}
+  .prow.in .pnode{background:var(--blue);border-color:var(--blue);color:#fff;transform:translate(-50%,-50%) scale(1.08);box-shadow:0 12px 24px -6px rgba(18,136,206,.55)}
   @media(max-width:640px){
     .ptl .rail{left:22px}
-    .prow{grid-template-columns:44px 1fr;min-height:120px}
-    .pnode{grid-column:1;width:44px;height:44px;font-size:15px}
-    .prow.left .pcard,.prow.right .pcard{grid-column:2;text-align:left;transform:translateX(24px);margin-left:14px}
+    .prow{height:auto;padding:0 0 30px 60px}
+    .pnode{left:22px;top:0;transform:translate(-50%,0)}
+    .prow.in .pnode{transform:translate(-50%,0) scale(1.08)}
+    .pcard{position:static;width:auto;text-align:left!important}
+    .prow.left .pcard,.prow.right .pcard{text-align:left;transform:translateX(24px)}
+    .prow.in .pcard{transform:none}
   }
-  @media(prefers-reduced-motion:reduce){.pcard{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.pcard{opacity:1;transform:translate(0,-50%)}}
 
   /* areas */
   .areawrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
@@ -592,9 +596,9 @@
       const fillPx=p*ptl.clientHeight;               // how far the blue line has travelled down the timeline
       if(fill) fill.style.height=fillPx+'px';
       rows.forEach(function(r){
-        const node=r.querySelector('.pnode');
-        const center=r.offsetTop + node.offsetTop + node.offsetHeight/2;   // node centre, relative to the timeline
-        r.classList.toggle('in', fillPx >= center);   // reveal only once the line reaches the number
+        const nr=r.querySelector('.pnode').getBoundingClientRect();
+        const center=(nr.top-rect.top)+nr.height/2;   // node centre, measured from the timeline top
+        r.classList.toggle('in', fillPx >= center);   // reveal only once the blue line reaches the number
       });
     }
     window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); upd();
