@@ -34,9 +34,9 @@
   .sec-h p{font-size:17px;color:var(--ink2)}
 
   /* buttons (from component library) */
-  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:none;border-radius:9px;
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:none;border-radius:999px;
     transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .3s}
-  .btn .c{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease)}
+  .btn .c{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease)}
   .btn .c svg{width:16px;height:16px}.btn:active{transform:scale(.98)}
   .bp{background:var(--blue);color:#fff;padding:13px 13px 13px 22px;box-shadow:0 12px 24px -12px rgba(18,136,206,.6)}
   .bp .c{background:rgba(255,255,255,.2)}.bp:hover{background:var(--blue-dark);transform:translateY(-2px)}.bp:hover .c{transform:translate(2px,-1px)}
@@ -54,20 +54,20 @@
   /* resizable navbar (Aceternity-style) */
   .rnav-wrap{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 12px;pointer-events:none}
   .rnav{pointer-events:auto;position:relative;display:flex;align-items:center;gap:14px;width:100%;max-width:1200px;
-    padding:14px 22px;margin-top:0;background:transparent;border:1px solid transparent;border-radius:6px;
+    padding:14px 22px;margin-top:0;background:transparent;border:1px solid transparent;border-radius:999px;
     transition:max-width .45s var(--ease),background .4s,box-shadow .4s,padding .4s,margin-top .45s var(--ease),border-color .4s}
   .rnav.scrolled{max-width:940px;margin-top:14px;background:rgba(9,24,40,.72);backdrop-filter:blur(14px) saturate(140%);
     border-color:rgba(255,255,255,.12);box-shadow:0 16px 46px -14px rgba(0,0,0,.6);padding:9px 14px}
-  .rnav .rlogo img{height:56px;width:auto;display:block;transition:height .45s var(--ease)}
-  .rnav.scrolled .rlogo img{height:42px}
+  .rnav .rlogo img{height:66px;width:auto;display:block;transition:height .45s var(--ease)}
+  .rnav.scrolled .rlogo img{height:50px}
   .rnav .ritems{display:flex;align-items:center;gap:2px;margin:0 auto}
-  .rnav .ritems a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:14.5px;color:#cdd9e8;text-decoration:none;padding:9px 15px;border-radius:4px;transition:color .2s,background .2s}
+  .rnav .ritems a{font-family:'Plus Jakarta Sans';font-weight:600;font-size:14.5px;color:#cdd9e8;text-decoration:none;padding:9px 15px;border-radius:999px;transition:color .2s,background .2s}
   .rnav .ritems a:hover{color:#fff;background:rgba(255,255,255,.12)}
   .rnav .rcta{display:flex;align-items:center;gap:10px}
-  .rtel{color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;text-decoration:none;display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:4px;transition:background .2s}
+  .rtel{color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;text-decoration:none;display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;transition:background .2s}
   .rtel svg{width:17px;height:17px;color:var(--green)}
   .rtel:hover{background:rgba(255,255,255,.1)}
-  .rest{background:var(--blue);color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:14.5px;text-decoration:none;padding:10px 18px;border-radius:4px;display:flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
+  .rest{background:var(--blue);color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:14.5px;text-decoration:none;padding:10px 18px;border-radius:999px;display:flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
   .rest svg{width:16px;height:16px}
   .rest:hover{background:var(--blue-dark);transform:translateY(-1px)}
   .rnav .rburger{display:none;margin-left:auto;width:42px;height:42px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px}
@@ -78,14 +78,14 @@
     background:rgba(9,24,40,.97);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:6px;
     box-shadow:0 22px 54px -14px rgba(0,0,0,.65);padding:14px;display:none;flex-direction:column;gap:6px}
   .rmobile.open{display:flex}
-  .rmobile a.mlink{color:#cdd9e8;text-decoration:none;font-family:'Plus Jakarta Sans';font-weight:600;font-size:15px;padding:12px 14px;border-radius:4px}
+  .rmobile a.mlink{color:#cdd9e8;text-decoration:none;font-family:'Plus Jakarta Sans';font-weight:600;font-size:15px;padding:12px 14px;border-radius:999px}
   .rmobile a.mlink:hover{background:rgba(255,255,255,.08);color:#fff}
   .rmobile .rtel,.rmobile .rest{justify-content:center;margin-top:4px}
   @media(max-width:900px){
     .rnav .ritems,.rnav .rcta{display:none}
     .rnav .rburger{display:flex}
     .rnav{padding:9px 12px 9px 16px;background:rgba(9,24,40,.72);backdrop-filter:blur(14px);border-color:rgba(255,255,255,.12);margin-top:8px}
-    .rnav .rlogo img{height:44px}
+    .rnav .rlogo img{height:52px}
   }
 
   /* hero — big photo */
@@ -97,13 +97,13 @@
     transform:scale(1.07);animation:heroZoom 20s var(--ease) forwards}
   @keyframes heroZoom{to{transform:scale(1)}}
   .hero .photo::after{content:"";position:absolute;inset:0;background:
-    radial-gradient(105% 78% at 50% 42%, rgba(6,16,28,.58) 0%, rgba(6,16,28,.24) 58%, rgba(6,16,28,0) 100%),
-    linear-gradient(180deg, rgba(6,16,28,.7) 0%, rgba(6,16,28,.4) 38%, rgba(6,16,28,.46) 64%, rgba(6,16,28,.86) 100%)}
+    linear-gradient(90deg, rgba(6,16,28,.46) 0%, rgba(6,16,28,.36) 34%, rgba(6,16,28,.2) 64%, rgba(6,16,28,.08) 100%),
+    linear-gradient(180deg, rgba(6,16,28,.25) 0%, transparent 28%, transparent 72%, rgba(6,16,28,.25) 100%)}
   /* fine film grain for depth */
   .hero .grain{position:absolute;inset:0;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-  .hero .wrap{position:relative;padding:56px 24px;width:100%}
-  .hero .inner{max-width:960px;margin:0 auto;text-align:center}
+  .hero .wrap{position:relative;width:100%;max-width:none;margin:0;padding:60px clamp(24px,5vw,76px)}
+  .hero .inner{max-width:800px;margin:0;text-align:left}
   /* live status pill */
   .hero .status{display:inline-flex;align-items:center;gap:9px;max-width:100%;padding:8px 15px 8px 12px;border-radius:100px;
     background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px) saturate(140%);
@@ -115,8 +115,8 @@
   .hero .status .live::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--green);animation:lapulse 2s ease-out infinite}
   .hero .kw{display:block;margin-top:16px;font-family:'Plus Jakarta Sans';font-size:12.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#8fd0ff}
   .hero h1{color:#fff;font-size:clamp(38px,6.2vw,76px);font-weight:800;letter-spacing:-.032em;margin:12px 0 20px;text-wrap:balance}
-  .hero p.lead{font-size:21px;color:#cddcec;max-width:60ch;margin:0 auto 30px;text-wrap:pretty}
-  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+  .hero p.lead{font-size:21px;color:#cddcec;max-width:54ch;margin:0 0 30px;text-wrap:pretty}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .hero .cta-note{margin-top:16px;font-size:14px;line-height:1.5;color:#bcd0e4;max-width:46ch}
   .hero .cta-note svg{display:inline-block;width:16px;height:16px;vertical-align:-3px;margin-right:8px;color:var(--green)}
   .hero .cta-note b{color:#fff;font-weight:700}
@@ -124,10 +124,10 @@
   .hero .trust .t{display:flex;align-items:center;gap:9px;font-size:13.5px;color:#dbe6f2;font-weight:500}
   .hero .trust .t svg{width:17px;height:17px;color:var(--green);flex:none}
   /* certification strip — fills the lower-left, credibility above the fold */
-  .hero .hcerts{display:flex;align-items:center;justify-content:center;gap:11px;flex-wrap:wrap;margin-top:30px}
+  .hero .hcerts{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-top:30px}
   .hero .hcerts .cl{font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#8ba6c2;margin-right:1px}
-  .hero .hcerts .chip{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:46px;padding:0 15px;background:rgba(255,255,255,.94);
-    border-radius:5px;box-shadow:0 10px 24px -12px rgba(0,0,0,.55);font-family:'Plus Jakarta Sans';font-weight:800;font-size:12.5px;color:#5a6b82}
+  .hero .hcerts .chip{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:46px;padding:0 15px;background:#fff;
+    border-radius:5px;box-shadow:0 10px 24px -12px rgba(0,0,0,.5);font-family:'Plus Jakarta Sans';font-weight:800;font-size:12.5px;color:#5a6b82}
   .hero .hcerts .chip img{width:auto;display:block}
   @media(max-width:560px){.hero .hcerts{gap:9px}.hero .hcerts .cl{width:100%;margin-bottom:2px}.hero .hcerts .chip{height:42px;padding:0 13px}}
   /* staggered entrance on load */
@@ -237,7 +237,8 @@
   @keyframes lapulse{0%{transform:scale(.55);opacity:.75}100%{transform:scale(2.3);opacity:0}}
   .latip{background:var(--navy);color:#fff;border:none;border-radius:var(--r);font-family:'Plus Jakarta Sans';font-weight:700;font-size:12px;box-shadow:var(--amb);padding:4px 9px}
   .latip::before{display:none}
-  .leaflet-control-attribution{font-size:9px;background:rgba(255,255,255,.7)}
+  .leaflet-control-attribution{font-size:8px;line-height:1.4;background:transparent;color:#aeb9c7;padding:0 5px;box-shadow:none;opacity:.75}
+  .leaflet-control-attribution a{color:#9aa8ba;text-decoration:none}
   .leaflet-bar a{color:var(--navy)}
 
   /* bands */
@@ -290,19 +291,19 @@
   /* floating call (mobile) */
   /* floating 24/7 call card (fixed, always visible) */
   .callcard{position:fixed;right:20px;bottom:20px;z-index:95;display:flex;align-items:center;gap:14px;
-    background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:12px;
-    box-shadow:0 18px 44px -12px rgba(10,37,64,.45);padding:13px 20px 13px 13px;text-decoration:none;
+    background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:999px;
+    box-shadow:0 16px 40px -14px rgba(10,37,64,.42);padding:9px 20px 9px 10px;text-decoration:none;
     transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
   .callcard:hover{transform:translateY(-3px);box-shadow:0 26px 54px -12px rgba(10,37,64,.55)}
-  .callcard .ph{width:48px;height:48px;border-radius:9px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;flex:none}
-  .callcard .ph svg{width:23px;height:23px;position:relative;z-index:1}
-  .callcard .ph::after{content:"";position:absolute;inset:0;border:2px solid var(--green);border-radius:9px;animation:cpulse 2s ease-out infinite}
+  .callcard .ph{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;flex:none}
+  .callcard .ph svg{width:19px;height:19px;position:relative;z-index:1}
+  .callcard .ph::after{content:"";position:absolute;inset:0;border:2px solid var(--green);border-radius:50%;animation:cpulse 2s ease-out infinite}
   @keyframes cpulse{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.55)}}
   .callcard .txt{display:flex;flex-direction:column;line-height:1.16}
   .callcard .lbl{font-family:'Plus Jakarta Sans';font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-dark);display:flex;align-items:center;gap:5px}
   .callcard .lbl .dotpulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.4s ease-in-out infinite}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-  .callcard .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:20px;color:var(--navy);letter-spacing:-.01em}
+  .callcard .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:18px;color:var(--navy);letter-spacing:-.01em}
   .callcard .sub{font-size:11px;color:var(--ink2)}
   @media(max-width:520px){.callcard{right:12px;bottom:12px;left:12px;justify-content:center;padding:12px}.callcard .sub{display:none}}
   @media(prefers-reduced-motion:reduce){.callcard .ph::after,.callcard .lbl .dotpulse{animation:none}}
@@ -329,7 +330,7 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="rcta">
-      <a class="rtel" href="tel:+12137058557"><i data-lucide="phone-call"></i> (213) 705-8557</a>
+      <a class="rtel" href="tel:+15625686032"><i data-lucide="phone-call"></i> (562) 568-6032</a>
       <a class="rest" href="#contact">Get a free estimate <i data-lucide="arrow-right"></i></a>
     </div>
     <button class="rburger" id="rburger" aria-label="Toggle menu"><span></span><span></span></button>
@@ -340,7 +341,7 @@
     <a class="mlink" href="#process">Process</a>
     <a class="mlink" href="#areas">Areas</a>
     <a class="mlink" href="#contact">Contact</a>
-    <a class="rtel" href="tel:+12137058557"><i data-lucide="phone-call"></i> (213) 705-8557</a>
+    <a class="rtel" href="tel:+15625686032"><i data-lucide="phone-call"></i> (562) 568-6032</a>
     <a class="rest" href="#contact">Get a free estimate <i data-lucide="arrow-right"></i></a>
   </div>
 </div>
@@ -350,14 +351,13 @@
   <div class="photo"></div>
   <div class="grain"></div>
   <div class="wrap"><div class="inner">
-    <span class="status anim d1"><span class="live"></span> <b>24/7 emergency response</b><span class="tail"> · crews on call in LA right now</span></span>
-    <h1 class="anim d2">We bring peace of mind &amp; safety back to your space.</h1>
-    <p class="lead anim d3">Discreet, compassionate biohazard, crime scene &amp; extreme cleaning across Los Angeles. Certified crews, available 24/7. We bill your insurance directly.</p>
-    <div class="cta anim d4">
-      <a class="btn bp" href="tel:+12137058557">Call (213) 705-8557 <span class="c"><i data-lucide="phone-call"></i></span></a>
+    <h1 class="anim d1">We bring peace of mind &amp; safety back to your space.</h1>
+    <p class="lead anim d2">Discreet, compassionate biohazard, crime scene &amp; extreme cleaning across Los Angeles. Certified crews, available 24/7. We bill your insurance directly.</p>
+    <div class="cta anim d3">
+      <a class="btn bp" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
       <a class="btn bo-light" href="#contact">Get a free estimate</a>
     </div>
-    <div class="hcerts anim d5">
+    <div class="hcerts anim d4">
       <span class="cl">Certified &amp; accredited</span>
       <span class="chip"><img src="IICRC-logo-grey.webp" alt="IICRC Certified" style="height:24px"></span>
       <span class="chip"><img src="caa-logo-grey.png" alt="California Apartment Association member" style="height:36px"></span>
@@ -464,7 +464,7 @@
 <section class="bg-alt"><div class="wrap reveal">
   <div class="band guar" style="margin-bottom:18px">
     <div class="bi"><span class="ic"><i data-lucide="shield-check"></i></span><div><h3>Our promise to you</h3><p>We’re a local team built on care and certified standards. We’re not done until your space is safe again. Guaranteed.</p></div></div>
-    <a class="btn bp" href="tel:+12137058557">Call now <span class="c"><i data-lucide="phone-call"></i></span></a>
+    <a class="btn bp" href="tel:+15625686032">Call now <span class="c"><i data-lucide="phone-call"></i></span></a>
   </div>
   <div class="band ins">
     <div class="bi"><span class="ic"><i data-lucide="file-check"></i></span><div><h3>We bill your insurance</h3><p>Most homeowner &amp; commercial policies accepted, often with no out-of-pocket cost to you.</p></div></div>
@@ -499,7 +499,7 @@
     <span class="eyebrow">Get help now</span>
     <h2 style="font-size:clamp(26px,3.6vw,36px);font-weight:800;margin:12px 0 10px">Free estimate. We’re ready 24/7.</h2>
     <p style="font-size:16px;color:var(--ink2);margin-bottom:22px">Call for an immediate response, or send a few details and a photo, and we’ll get right back to you.</p>
-    <a class="btn bp" href="tel:+12137058557" style="font-size:17px;padding:15px 15px 15px 24px">Call (213) 705-8557 <span class="c"><i data-lucide="phone-call"></i></span></a>
+    <a class="btn bp" href="tel:+15625686032" style="font-size:17px;padding:15px 15px 15px 24px">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
     <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px">
       <span style="display:flex;align-items:center;gap:10px;color:var(--ink);font-size:14.5px"><i data-lucide="clock" style="width:18px;height:18px;color:var(--green)"></i> 24/7 emergency response</span>
       <span style="display:flex;align-items:center;gap:10px;color:var(--ink);font-size:14.5px"><i data-lucide="map-pin" style="width:18px;height:18px;color:var(--green)"></i> Los Angeles County &amp; surrounding areas</span>
@@ -539,7 +539,7 @@
     </div>
     <div>
       <b>24/7 Emergency</b>
-      <a href="tel:+12137058557" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(213) 705-8557</a>
+      <a href="tel:+15625686032" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(562) 568-6032</a>
       <a>Los Angeles County, CA</a>
       <a>Licensed · Bonded · Insured</a>
     </div>
@@ -550,11 +550,11 @@
   </div>
 </div></footer>
 
-<a class="callcard" href="tel:+12137058557" aria-label="Call 24/7 emergency line (213) 705-8557">
+<a class="callcard" href="tel:+15625686032" aria-label="Call 24/7 emergency line (562) 568-6032">
   <span class="ph"><i data-lucide="phone-call"></i></span>
   <span class="txt">
     <span class="lbl"><span class="dotpulse"></span>24/7 Emergency</span>
-    <span class="num">(213) 705-8557</span>
+    <span class="num">(562) 568-6032</span>
     <span class="sub">Tap to call · Los Angeles</span>
   </span>
 </a>
@@ -618,6 +618,7 @@
     if(typeof L==='undefined') return;
     const map=L.map('lamap',{scrollWheelZoom:false,attributionControl:true}).setView([34.02,-118.28],9);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'© OpenStreetMap · © CARTO'}).addTo(map);
+    map.attributionControl.setPrefix(false); // drop the Leaflet flag/prefix, keep required OSM/CARTO credit
     const cities=[['Los Angeles',34.0522,-118.2437,1],['Burbank',34.1808,-118.3090,0],['Glendale',34.1425,-118.2551,0],['Pasadena',34.1478,-118.1445,0],['Inglewood',33.9617,-118.3531,0],['Hollywood',34.0928,-118.3287,0],['Santa Monica',34.0195,-118.4912,0],['Long Beach',33.7701,-118.1937,0],['Beverly Hills',34.0736,-118.4004,0],['Culver City',34.0211,-118.3965,0]];
     cities.forEach(function(c){
       const m=L.marker([c[1],c[2]],{icon:L.divIcon({html:'<span class="lapin '+(c[3]?'hub':'')+'"></span>',className:'',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map);
