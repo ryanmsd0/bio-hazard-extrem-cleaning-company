@@ -84,6 +84,16 @@
   .qcard .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .qcard .btn{width:100%;justify-content:center;margin-top:16px}
   .qcard .fine{font-size:11.5px;color:var(--muted);text-align:center;margin-top:9px}
+  /* custom file upload */
+  .upload{display:flex;align-items:center;gap:12px;border:1.5px dashed #c3d3e6;border-radius:var(--r);padding:11px 13px;cursor:pointer;transition:border-color .2s,background .2s;background:#fff}
+  .upload:hover{border-color:var(--blue);background:#f6fafe}
+  .upload .up-ico{width:38px;height:38px;border-radius:var(--r);background:var(--bg-soft);display:flex;align-items:center;justify-content:center;flex:none;transition:background .2s}
+  .upload .up-ico svg{width:19px;height:19px;color:var(--blue);transition:color .2s}
+  .upload .up-txt{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+  .upload .up-txt b{font-family:'Plus Jakarta Sans';font-weight:700;font-size:13.5px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .upload .up-txt small{font-size:11.5px;color:var(--muted)}
+  .upload.has-file{border-style:solid;border-color:var(--green);background:#f2fbf4}
+  .upload.has-file .up-ico{background:var(--green)}.upload.has-file .up-ico svg{color:#fff}
 
   /* trust row */
   .trow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
@@ -254,7 +264,7 @@
       </div>
       <label>Zip code</label><input placeholder="90001">
       <label>Add a photo of the situation (optional)</label>
-      <input type="file" accept="image/*">
+      <label class="upload"><input type="file" accept="image/*" hidden><span class="up-ico"><i data-lucide="image-up"></i></span><span class="up-txt"><b>Upload a photo</b><small>JPG or PNG, optional</small></span></label>
       <button class="btn bp">Request my free estimate <span class="c"><i data-lucide="arrow-right"></i></span></button>
       <div class="fine">For emergencies, calling is the fastest way to reach us.</div>
     </form>
@@ -399,6 +409,13 @@
 
 <script>
   lucide.createIcons();
+  document.querySelectorAll('.upload input[type=file]').forEach(function(inp){
+    inp.addEventListener('change',function(){
+      const lbl=inp.closest('.upload'), b=lbl.querySelector('.up-txt b'), s=lbl.querySelector('.up-txt small');
+      if(inp.files&&inp.files.length){lbl.classList.add('has-file');b.textContent=inp.files[0].name;s.textContent='Photo added, tap to change';}
+      else{lbl.classList.remove('has-file');b.textContent='Upload a photo';s.textContent='JPG or PNG, optional';}
+    });
+  });
   const rnav=document.getElementById('rnav');
   window.addEventListener('scroll',()=>{if(rnav)rnav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
   const rb=document.getElementById('rburger'), rm=document.getElementById('rmobile');
