@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process B — Scrollytelling sticky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script defer src="https://unpkg.com/lucide@1.23.0/dist/umd/lucide.min.js" integrity="sha384-ouAVEJVCMsf8Svzn+BwqbaBhxBEA0xgeVBhHnxmWd+Wqyv18yhWCQwGegFD/OHLq" crossorigin="anonymous"></script>
+<style>
+  :root{--blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;--navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;
+    --bg:#fff;--bg-alt:#F4F7FB;--bg-soft:#EEF3F9;--hair:#E2E8F0;--rc:14px;--rs:10px;--ease:cubic-bezier(.22,1,.36,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h2,h3{font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);line-height:1.15;letter-spacing:-.02em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .mockbar{background:var(--navy);color:#cddcec;font-size:13px;padding:10px 0}
+  .mockbar .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .mockbar b{color:#fff;font-family:'Plus Jakarta Sans'}
+  .mockbar a{color:#8fd0ff;text-decoration:none;font-weight:600;padding:3px 10px;border:1px solid rgba(255,255,255,.2);border-radius:100px}
+  .mockbar a.on{background:rgba(143,208,255,.15)}
+  .note{padding:36px 0 0;text-align:center;color:var(--ink2);font-size:14.5px}
+
+  /* SECTION — sticky scroll story */
+  .story{padding:84px 0 110px;background:var(--bg-alt);margin-top:40px}
+  .eyebrow{display:inline-block;font-family:'Plus Jakarta Sans';font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  .sgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+  .spane{position:sticky;top:90px}
+  .spane h2{font-size:clamp(28px,3.6vw,38px);font-weight:800;margin:12px 0 10px}
+  .spane>p{color:var(--ink2);font-size:16px;max-width:40ch;margin-bottom:28px}
+  .snav{display:flex;flex-direction:column;gap:4px;border-left:2px solid var(--hair)}
+  .snav a{display:flex;align-items:baseline;gap:12px;padding:10px 0 10px 18px;text-decoration:none;margin-left:-2px;border-left:2px solid transparent;
+    transition:border-color .3s,padding-left .35s var(--ease)}
+  .snav .n{font-family:'Plus Jakarta Sans';font-weight:800;font-size:12.5px;color:var(--muted);transition:color .3s}
+  .snav .t{font-family:'Plus Jakarta Sans';font-weight:700;font-size:16px;color:var(--ink2);transition:color .3s}
+  .snav a.on{border-left-color:var(--blue);padding-left:24px}
+  .snav a.on .n{color:var(--blue)}
+  .snav a.on .t{color:var(--navy)}
+  .ssteps{display:flex;flex-direction:column;gap:22px}
+  .sstep{background:#fff;border:1px solid var(--hair);border-radius:16px;padding:34px;min-height:300px;box-shadow:0 2px 8px rgba(10,37,64,.05);
+    display:flex;flex-direction:column;justify-content:center;transition:border-color .4s,box-shadow .5s var(--ease),opacity .4s}
+  .sstep.dim{opacity:.45}
+  .sstep.on{border-color:#a9cdea;box-shadow:0 22px 46px -18px rgba(18,136,206,.3)}
+  .sstep .ic{width:52px;height:52px;border-radius:var(--rs);background:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .sstep .ic svg{width:24px;height:24px;color:#fff}
+  .sstep .when{display:inline-block;font-family:'Plus Jakarta Sans';font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+  .sstep h3{font-size:22px;margin-bottom:8px}
+  .sstep p{font-size:15px;color:var(--ink2);max-width:52ch}
+  @media(max-width:880px){
+    .sgrid{grid-template-columns:1fr;gap:26px}
+    .spane{position:static}
+    .snav{display:none}
+    .sstep{min-height:0;padding:26px}
+    .sstep.dim{opacity:1}
+  }
+</style>
+</head>
+<body>
+
+<div class="mockbar"><div class="wrap">
+  <b>Section process — variante B : scrollytelling sticky</b>
+  <a href="../index.html#process">0 · Timeline actuelle</a>
+  <a href="process-columns.html">A · Colonnes</a>
+  <a class="on" href="process-scrollstory.html">B · Scrollytelling</a>
+  <a href="process-chat.html">C · Conversation</a>
+  <a href="timeline-24h.html">D · Next 24 hours</a>
+  <a href="process-stepper.html">E · Stepper</a>
+  <a href="process-ticket.html">F · Fiche d'intervention</a>
+  <a href="process-accordion.html">G · Accordéon</a>
+</div></div>
+<p class="note">Scrolle : le titre reste fixe à gauche, le sommaire s'allume au fil des étapes qui défilent à droite.</p>
+
+<!-- THE SECTION -->
+<section class="story"><div class="wrap">
+  <div class="sgrid">
+    <div class="spane">
+      <span class="eyebrow">How it works</span>
+      <h2>With you from the first call to the final check</h2>
+      <p>Four clear steps, so you always know exactly what happens next.</p>
+      <nav class="snav" id="snav">
+        <a href="#s1" class="on"><span class="n">01</span><span class="t">Call us</span></a>
+        <a href="#s2"><span class="n">02</span><span class="t">Free on-site assessment</span></a>
+        <a href="#s3"><span class="n">03</span><span class="t">Containment &amp; decontamination</span></a>
+        <a href="#s4"><span class="n">04</span><span class="t">Restored &amp; verified</span></a>
+      </nav>
+    </div>
+    <div class="ssteps" id="ssteps">
+      <div class="sstep on" id="s1">
+        <span class="ic"><i data-lucide="phone-call"></i></span>
+        <span class="when">Right now · 24/7</span>
+        <h3>Call us</h3>
+        <p>A real person answers, day or night — not a machine. We listen, ask a few questions, and dispatch a certified crew immediately.</p>
+      </div>
+      <div class="sstep dim" id="s2">
+        <span class="ic"><i data-lucide="clipboard-check"></i></span>
+        <span class="when">Within 60 minutes</span>
+        <h3>Free on-site assessment</h3>
+        <p>We evaluate the situation and give you a clear written plan, with everything explained in plain words. No obligation, no pressure.</p>
+      </div>
+      <div class="sstep dim" id="s3">
+        <span class="ic"><i data-lucide="shield-check"></i></span>
+        <span class="when">Same day</span>
+        <h3>Containment &amp; decontamination</h3>
+        <p>We secure the area to keep everyone safe, then perform certified removal, hospital-grade disinfection and complete odor neutralization.</p>
+      </div>
+      <div class="sstep dim" id="s4">
+        <span class="ic"><i data-lucide="badge-check"></i></span>
+        <span class="when">Before we leave</span>
+        <h3>Restored &amp; verified</h3>
+        <p>Final verification of every surface, insurance paperwork handled for you. Your space is safe again — guaranteed.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<script>
+  if(window.lucide){lucide.createIcons();}else{window.addEventListener('DOMContentLoaded',()=>window.lucide&&lucide.createIcons());}
+  const steps=[...document.querySelectorAll('.sstep')], links=[...document.querySelectorAll('.snav a')];
+  function setActive(idx){
+    steps.forEach((s,i)=>{s.classList.toggle('on',i===idx);s.classList.toggle('dim',i!==idx);});
+    links.forEach((l,i)=>l.classList.toggle('on',i===idx));
+  }
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting) setActive(steps.indexOf(e.target));});
+  },{rootMargin:'-40% 0px -40% 0px'});
+  steps.forEach(s=>obs.observe(s));
+  links.forEach((l,i)=>l.addEventListener('click',ev=>{ev.preventDefault();steps[i].scrollIntoView({behavior:'smooth',block:'center'});}));
+</script>
+</body>
+</html>

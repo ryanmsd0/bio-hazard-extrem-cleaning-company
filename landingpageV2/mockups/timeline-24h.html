@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup 2/3 — Your next 24 hours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script defer src="https://unpkg.com/lucide@1.23.0/dist/umd/lucide.min.js" integrity="sha384-ouAVEJVCMsf8Svzn+BwqbaBhxBEA0xgeVBhHnxmWd+Wqyv18yhWCQwGegFD/OHLq" crossorigin="anonymous"></script>
+<style>
+  :root{--blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;--navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;
+    --bg:#fff;--bg-alt:#F4F7FB;--hair:#E2E8F0;--rc:14px;--ease:cubic-bezier(.22,1,.36,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;line-height:1.15;letter-spacing:-.02em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:none;border-radius:999px;transition:transform .4s var(--ease),background .3s}
+  .btn .c{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.2)}
+  .btn .c svg{width:16px;height:16px}
+  .bp{background:var(--blue);color:#fff;padding:13px 13px 13px 22px;box-shadow:0 12px 24px -12px rgba(18,136,206,.6)}
+  .bp:hover{background:var(--blue-dark);transform:translateY(-2px)}
+
+  .mockbar{background:var(--navy);color:#cddcec;font-size:13px;padding:10px 0}
+  .mockbar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .mockbar b{color:#fff;font-family:'Plus Jakarta Sans'}
+  .mockbar a{color:#8fd0ff;text-decoration:none;font-weight:600;padding:3px 10px;border:1px solid rgba(255,255,255,.2);border-radius:100px}
+  .mockbar a.on{background:rgba(143,208,255,.15)}
+
+  .intro{padding:64px 0 40px;text-align:center}
+  .intro h1{color:var(--navy);font-size:clamp(26px,3.6vw,38px);max-width:24ch;margin:0 auto 10px}
+  .intro p{color:var(--ink2);max-width:62ch;margin:0 auto;font-size:16px}
+  .filler{padding:26px 0 64px;text-align:center;color:var(--muted);font-size:14px}
+
+  /* THE COMPONENT — next 24 hours timeline (dark band) */
+  .t24{position:relative;background:var(--navy);color:#cddcec;padding:92px 0 96px;overflow:hidden}
+  .t24::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(700px 300px at 10% 0%,rgba(18,136,206,.22),transparent 60%),
+    radial-gradient(600px 300px at 90% 100%,rgba(87,185,74,.12),transparent 60%)}
+  .t24 .wrap{position:relative}
+  .t24 .eyebrow{display:inline-block;font-family:'Plus Jakarta Sans';font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fd0ff}
+  .t24 h2{color:#fff;font-size:clamp(28px,4vw,40px);font-weight:800;margin:10px 0 8px}
+  .t24 .sub{color:#9db4cc;font-size:16px;max-width:56ch;margin-bottom:58px}
+  .steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+  .steps .line{position:absolute;top:7px;left:2%;right:2%;height:2px;background:rgba(255,255,255,.14);border-radius:2px;overflow:hidden}
+  .steps .line .fill{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--green));transition:width 2.6s var(--ease)}
+  .t24.in .steps .line .fill{width:100%}
+  .step{position:relative;padding-top:34px}
+  .step .dot{position:absolute;top:0;left:0;width:16px;height:16px;border-radius:50%;background:#0f3457;border:2px solid rgba(255,255,255,.3);transition:background .4s,border-color .4s,box-shadow .4s}
+  .t24.in .step .dot{background:var(--green);border-color:#fff;box-shadow:0 0 0 5px rgba(87,185,74,.22)}
+  .step .when{font-family:'Plus Jakarta Sans';font-weight:800;font-size:clamp(20px,2.2vw,27px);color:#8fd0ff;letter-spacing:-.02em;line-height:1.1}
+  .step h3{color:#fff;font-size:15.5px;margin:8px 0 5px}
+  .step p{font-size:13px;color:#9db4cc;line-height:1.55}
+  .step{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .t24.in .step{opacity:1;transform:none}
+  .t24.in .step:nth-child(2){transition-delay:.15s}.t24.in .step:nth-child(3){transition-delay:.55s}
+  .t24.in .step:nth-child(4){transition-delay:.95s}.t24.in .step:nth-child(5){transition-delay:1.35s}.t24.in .step:nth-child(6){transition-delay:1.75s}
+  .t24 .cta{margin-top:54px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .t24 .cta .note{font-size:13.5px;color:#9db4cc}
+  @media(max-width:860px){
+    .steps{grid-template-columns:1fr;gap:0}
+    .steps .line{top:2%;bottom:2%;left:7px;right:auto;width:2px;height:auto}
+    .steps .line .fill{width:100%;height:0;transition:height 2.6s var(--ease)}
+    .t24.in .steps .line .fill{height:100%;width:100%}
+    .step{padding:0 0 34px 40px}
+    .step .dot{top:4px}
+  }
+  @media(prefers-reduced-motion:reduce){.step,.t24.in .step{opacity:1;transform:none;transition:none}.steps .line .fill{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="mockbar"><div class="wrap">
+  <b>Maquette 2/3 — "Your next 24 hours"</b>
+  <a href="sticky-card.html">1 · Sticky card</a>
+  <a class="on" href="timeline-24h.html">2 · Next 24 hours</a>
+  <a href="situation-checker.html">3 · Situation checker</a>
+</div></div>
+
+<div class="intro"><div class="wrap">
+  <h1>Contexte : section d'une page service</h1>
+  <p>La timeline remplace le process générique sur les pages service. Elle projette le visiteur anxieux dans les prochaines 24 heures, heure par heure. Scrolle jusqu'à la section sombre pour voir l'animation.</p>
+</div></div>
+<div class="filler">— contenu de la page service au-dessus (when to call us, situations, etc.) —</div>
+
+<!-- THE COMPONENT -->
+<section class="t24" id="t24"><div class="wrap">
+  <span class="eyebrow">What happens after you call</span>
+  <h2>Your next 24 hours</h2>
+  <p class="sub">From the moment you call, everything is handled. Here's exactly how a biohazard cleanup unfolds — hour by hour.</p>
+  <div class="steps">
+    <span class="line"><span class="fill"></span></span>
+    <div class="step">
+      <span class="dot"></span>
+      <div class="when">Now</div>
+      <h3>You call us</h3>
+      <p>A real person answers — not a machine. We listen, ask a few questions, and dispatch immediately.</p>
+    </div>
+    <div class="step">
+      <span class="dot"></span>
+      <div class="when">+15 min</div>
+      <h3>Crew confirmed</h3>
+      <p>Your technician calls you back with a precise ETA and answers anything on your mind.</p>
+    </div>
+    <div class="step">
+      <span class="dot"></span>
+      <div class="when">+60 min</div>
+      <h3>On site</h3>
+      <p>Free assessment, written plan, and immediate containment of the affected area.</p>
+    </div>
+    <div class="step">
+      <span class="dot"></span>
+      <div class="when">+4 hrs</div>
+      <h3>Decontaminated</h3>
+      <p>Certified removal, hospital-grade disinfection and odor neutralization — verified.</p>
+    </div>
+    <div class="step">
+      <span class="dot"></span>
+      <div class="when">Tomorrow</div>
+      <h3>Back to normal</h3>
+      <p>Your space is safe again. Insurance paperwork filed — you never touched a form.</p>
+    </div>
+  </div>
+  <div class="cta">
+    <a class="btn bp" href="tel:+15625686032">Start now — call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
+    <span class="note">24/7 · Free assessment · We bill your insurance</span>
+  </div>
+</div></section>
+
+<div class="filler">— suite de la page service en dessous (assurance, FAQ, CTA) —</div>
+
+<script>
+  if(window.lucide){lucide.createIcons();}else{window.addEventListener('DOMContentLoaded',()=>window.lucide&&lucide.createIcons());}
+  const t=document.getElementById('t24');
+  new IntersectionObserver((es,io)=>es.forEach(e=>{if(e.isIntersecting){t.classList.add('in');io.disconnect();}}),{threshold:.35}).observe(t);
+</script>
+</body>
+</html>
