@@ -8,11 +8,11 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Biohazard & Extreme Cleaning Los Angeles — 24/7, On Site in 60 Min">
 <meta property="og:description" content="Discreet, compassionate biohazard & trauma cleanup. IICRC-certified crews, free estimates, insurance billed directly. Available 24/7 across LA County.">
-<meta property="og:image" content="../landing-page/herosection2.webp">
+<meta property="og:image" content="Alex_Landing.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="../landing-page/herosection2.webp" type="image/webp">
+<link rel="preload" as="image" href="Alex_Landing.jpg" type="image/jpeg">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- Leaflet is lazy-loaded only when the service-area map nears the viewport (see bottom script) -->
 <script defer src="https://unpkg.com/lucide@1.23.0/dist/umd/lucide.min.js" integrity="sha384-ouAVEJVCMsf8Svzn+BwqbaBhxBEA0xgeVBhHnxmWd+Wqyv18yhWCQwGegFD/OHLq" crossorigin="anonymous"></script>
@@ -127,9 +127,7 @@
   /* hero — big photo */
   .hero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;min-height:100dvh;display:flex;align-items:center}
   .hero .photo{position:absolute;inset:0;background-color:#0a1a2b;background-position:center;background-size:cover;background-repeat:no-repeat;
-    background-image:url('../landing-page/herosection2.png.jpeg');
-    background-image:-webkit-image-set(url('../landing-page/herosection2.webp') type('image/webp'), url('../landing-page/herosection2.png.jpeg') type('image/jpeg'));
-    background-image:image-set(url('../landing-page/herosection2.webp') type('image/webp'), url('../landing-page/herosection2.png.jpeg') type('image/jpeg'));
+    background-image:url('Alex_Landing.jpg');
     transform:scale(1.07);animation:heroZoom 20s var(--ease) forwards}
   @keyframes heroZoom{to{transform:scale(1)}}
   .hero .photo::after{content:"";position:absolute;inset:0;background:
@@ -138,19 +136,19 @@
   .hero .grain{position:absolute;inset:0;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   .hero .wrap{position:relative;width:100%;max-width:none;margin:0;padding:60px clamp(24px,5vw,76px)}
-  .hero .inner{max-width:900px;margin:0;text-align:left}
+  .hero .inner{max-width:800px;margin:0 auto;text-align:center}
   .hero .kw{display:block;font-family:'Plus Jakarta Sans';font-size:12.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#8fd0ff}
   .hero h1{color:#fff;font-size:clamp(34px,4.4vw,56px);font-weight:800;letter-spacing:-.032em;margin:14px 0 20px;text-wrap:balance}
   .hero h1 .hl{color:#8fd0ff}
-  .hero p.lead{font-size:20px;color:#cddcec;max-width:56ch;margin:0 0 30px;text-wrap:pretty}
-  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .hero .cta-note{margin-top:18px;font-size:14px;line-height:1.6;color:#cfe0f0;max-width:56ch;text-shadow:0 1px 8px rgba(6,16,28,.7)}
+  .hero p.lead{font-size:20px;color:#cddcec;max-width:52ch;margin:0 auto 30px;text-wrap:balance}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+  .hero .cta-note{margin:18px auto 0;font-size:14px;line-height:1.6;color:#cfe0f0;max-width:48ch;text-shadow:0 1px 8px rgba(6,16,28,.7)}
   .hero .cta-note a{white-space:nowrap}
   .hero .cta-note svg{display:inline-block;width:16px;height:16px;vertical-align:-3px;margin-right:7px;color:var(--green)}
   .hero .cta-note b{color:#fff;font-weight:700}
   .hero .cta-note a{color:#8fd0ff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
   /* certification strip — credibility above the fold */
-  .hero .hcerts{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-top:30px}
+  .hero .hcerts{display:flex;align-items:center;justify-content:center;gap:11px;flex-wrap:wrap;margin-top:30px}
   .hero .hcerts .cl{font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#b9d0e6;margin-right:1px;text-shadow:0 1px 8px rgba(6,16,28,.8)}
   .hero .hcerts .chip{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:46px;padding:0 15px;background:#fff;
     border-radius:5px;box-shadow:0 10px 24px -12px rgba(0,0,0,.5);font-family:'Plus Jakarta Sans';font-weight:800;font-size:12.5px;color:#5a6b82}
@@ -497,9 +495,9 @@
       </div>
       <div class="pcards">
         <a class="pc" href="../landing-page/biohazard-cleanup.html"><div class="ico"><i data-lucide="biohazard"></i></div><h4>Biohazard Cleanup</h4><p>Safe removal &amp; decontamination of biohazardous materials.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="droplet"></i></div><h4>Blood Cleanup</h4><p>Thorough, OSHA-compliant blood spill remediation.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="shield-alert"></i></div><h4>Crime Scene Cleanup</h4><p>Discreet, compassionate restoration after a tragedy.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="heart-handshake"></i></div><h4>Suicide Cleanup</h4><p>Respectful, careful remediation with the utmost dignity.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/blood-cleanup.html"><div class="ico"><i data-lucide="droplet"></i></div><h4>Blood Cleanup</h4><p>Thorough, OSHA-compliant blood spill remediation.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/crime-scene-cleanup.html"><div class="ico"><i data-lucide="shield-alert"></i></div><h4>Crime Scene Cleanup</h4><p>Discreet, compassionate restoration after a tragedy.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/suicide-cleanup.html"><div class="ico"><i data-lucide="heart-handshake"></i></div><h4>Suicide Cleanup</h4><p>Respectful, careful remediation with the utmost dignity.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
       </div>
     </div>
     <div class="panel" data-panel>
@@ -507,10 +505,10 @@
         <div class="cap"><span class="k">Homes &amp; properties</span><h3>Specialty Cleanup</h3></div>
       </div>
       <div class="pcards">
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="house"></i></div><h4>Unattended Death Cleanup</h4><p>Complete, safe cleanup and odor removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="boxes"></i></div><h4>Hoarder Cleanup</h4><p>Judgment-free, full property cleanout &amp; sanitizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="rat"></i></div><h4>Rodent Biohazard Cleanup</h4><p>Droppings removal, decontamination &amp; deodorizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="flask-conical"></i></div><h4>Drug Lab Cleanup</h4><p>Certified chemical decontamination &amp; disposal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/unattended-death-cleanup.html"><div class="ico"><i data-lucide="house"></i></div><h4>Unattended Death Cleanup</h4><p>Complete, safe cleanup and odor removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/hoarder-cleanup.html"><div class="ico"><i data-lucide="boxes"></i></div><h4>Hoarder Cleanup</h4><p>Judgment-free, full property cleanout &amp; sanitizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/rodent-biohazard-cleanup.html"><div class="ico"><i data-lucide="rat"></i></div><h4>Rodent Biohazard Cleanup</h4><p>Droppings removal, decontamination &amp; deodorizing.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/drug-lab-cleanup.html"><div class="ico"><i data-lucide="flask-conical"></i></div><h4>Drug Lab Cleanup</h4><p>Certified chemical decontamination &amp; disposal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
       </div>
     </div>
     <div class="panel" data-panel>
@@ -519,9 +517,9 @@
       </div>
       <div class="pcards">
         <a class="pc" href="../landing-page/fire-damage-restoration.html"><div class="ico"><i data-lucide="flame"></i></div><h4>Fire Damage Restoration</h4><p>Soot, smoke &amp; structural cleanup after a fire.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="waves"></i></div><h4>Water Damage Restoration</h4><p>Extraction, drying &amp; full structural restoration.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="scan-search"></i></div><h4>Mold Remediation</h4><p>Inspection, containment &amp; safe mold removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="#contact"><div class="ico"><i data-lucide="wind"></i></div><h4>Odor Removal</h4><p>Complete molecular-level odor neutralization.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/water-damage-restoration.html"><div class="ico"><i data-lucide="waves"></i></div><h4>Water Damage Restoration</h4><p>Extraction, drying &amp; full structural restoration.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/mold-remediation.html"><div class="ico"><i data-lucide="scan-search"></i></div><h4>Mold Remediation</h4><p>Inspection, containment &amp; safe mold removal.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="../landing-page/odor-removal.html"><div class="ico"><i data-lucide="wind"></i></div><h4>Odor Removal</h4><p>Complete molecular-level odor neutralization.</p><span class="more">Learn more <i data-lucide="arrow-right"></i></span></a>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CleanCore Decon — Styleguide / DA (V2 · Soft Structuralism)</title>
+<title>CleanCore Decon — Styleguide (V2 · Soft Structuralism)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     --ink:#1A2433; --ink-2:#5A6B82; --muted:#94A3B5;
     --hair:rgba(10,37,64,.07);            /* hairline ring, jamais gris plat */
     --r:24px; --r-lg:32px;
-    /* ombres ambiantes ultra-diffusées (Soft Structuralism) */
+    /* ultra-diffused ambient shadows (Soft Structuralism) */
     --amb:0 1px 2px rgba(10,37,64,.04), 0 12px 28px -8px rgba(10,37,64,.10);
     --amb-lg:0 2px 6px rgba(10,37,64,.05), 0 30px 60px -22px rgba(11,107,203,.30);
     --inset:inset 0 1px 1px rgba(255,255,255,.7);
@@ -38,7 +38,7 @@
   .sec-title{font-size:clamp(30px,4vw,46px);font-weight:700;margin:20px 0 16px}
   .sec-sub{font-size:18px;color:var(--ink-2);max-width:60ch;margin-bottom:48px}
 
-  /* ---- Fluid Island nav (glass pill détachée) ---- */
+  /* ---- Fluid Island nav (detached glass pill) ---- */
   .navwrap{position:sticky;top:0;z-index:60;padding:22px 0;pointer-events:none}
   nav{pointer-events:auto;width:max-content;max-width:calc(100% - 40px);margin:0 auto;display:flex;align-items:center;gap:30px;
     background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(160%);
@@ -225,8 +225,8 @@
 <!-- COLORS -->
 <section><div class="wrap reveal">
   <span class="eyebrow"><span class="d"></span>01 — Palette</span>
-  <h2 class="sec-title">Couleurs · Light theme</h2>
-  <p class="sec-sub">Monochrome froide « clean / médicale ». CTA bleu/teal, pas de rouge. Ombres ambiantes diffuses, hairlines plutôt que bordures grises plates.</p>
+  <h2 class="sec-title">Colors · Light theme</h2>
+  <p class="sec-sub">Cool monochrome, clean / medical. Blue/teal CTA, no red. Diffuse ambient shadows, hairlines rather than flat grey borders.</p>
   <div class="swatches">
     <div class="sw"><div class="c" style="background:#0B6BCB"></div><div class="m"><b>Clinical Blue</b><code>#0B6BCB</code></div></div>
     <div class="sw"><div class="c" style="background:#0A2540"></div><div class="m"><b>Deep Navy</b><code>#0A2540</code></div></div>
@@ -241,9 +241,9 @@
 
 <!-- TYPE -->
 <section class="bg-alt"><div class="wrap reveal">
-  <span class="eyebrow"><span class="d"></span>02 — Typographie</span>
+  <span class="eyebrow"><span class="d"></span>02 — Typography</span>
   <h2 class="sec-title">Plus Jakarta Sans + Inter</h2>
-  <p class="sec-sub">Jakarta (grotesk, titres) pour le caractère premium ; Inter (corps) pour la lisibilité maximale sur mobile en situation d'urgence.</p>
+  <p class="sec-sub">Jakarta (grotesk, headings) for premium character; Inter (body) for maximum legibility on mobile during an emergency.</p>
   <div class="typecard">
     <div class="typerow"><span class="tag">Display · Jakarta 800</span><span class="sz">56px</span><span style="font-family:'Plus Jakarta Sans';font-weight:800;font-size:42px;letter-spacing:-.03em;color:var(--navy)">Biohazard Cleanup</span></div>
     <div class="typerow"><span class="tag">H1 · Jakarta 700</span><span class="sz">44px</span><span style="font-family:'Plus Jakarta Sans';font-weight:700;font-size:34px;color:var(--navy)">Crime Scene Cleanup</span></div>
@@ -257,9 +257,9 @@
 
 <!-- BUTTONS -->
 <section><div class="wrap reveal">
-  <span class="eyebrow"><span class="d"></span>03 — Boutons · button-in-button</span>
-  <h2 class="sec-title">Boutons & micro-physique</h2>
-  <p class="sec-sub">Icône encapsulée dans son propre cercle, qui se déplace en diagonale au survol (tension cinétique). Pression physique au clic.</p>
+  <span class="eyebrow"><span class="d"></span>03 — Buttons · button-in-button</span>
+  <h2 class="sec-title">Buttons & micro-physics</h2>
+  <p class="sec-sub">An icon encapsulated in its own circle, moving diagonally on hover (kinetic tension). A physical press on click.</p>
   <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
     <a class="btn btn-primary">Call Now<span class="ic"><i data-lucide="phone-call"></i></span></a>
     <a class="btn btn-teal">Free Estimate<span class="ic"><i data-lucide="arrow-up-right"></i></span></a>
@@ -269,9 +269,9 @@
 
 <!-- SERVICES -->
 <section class="bg-alt"><div class="wrap reveal">
-  <span class="eyebrow"><span class="d"></span>04 — Cartes service · double-bezel</span>
-  <h2 class="sec-title">Nos services</h2>
-  <p class="sec-sub">Architecture nichée (coque + cœur), icônes fines, élévation flottante au survol avec dégradé bleu→teal sur l'icône.</p>
+  <span class="eyebrow"><span class="d"></span>04 — Service cards · double-bezel</span>
+  <h2 class="sec-title">Our services</h2>
+  <p class="sec-sub">Nested architecture (shell + core), thin icons, floating elevation on hover with a blue→teal gradient on the icon.</p>
   <div class="grid">
     <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="biohazard"></i></div><h4>Biohazard Cleanup</h4><p>Safe removal & decontamination of biohazardous materials.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
     <div class="card-shell"><div class="card"><div class="ico"><i data-lucide="droplet"></i></div><h4>Blood Cleanup</h4><p>Thorough, OSHA-compliant blood spill remediation.</p><span class="more">Learn more <span class="ic"><i data-lucide="arrow-right"></i></span></span></div></div>
@@ -287,8 +287,8 @@
 <!-- TRUST -->
 <section><div class="wrap reveal">
   <span class="eyebrow"><span class="d"></span>05 — Trust & certifications</span>
-  <h2 class="sec-title">Badges de confiance</h2>
-  <p class="sec-sub">Pills flottantes à hairline. Logos de certif réels (IICRC, BBB, OSHA, EPA) viendront en rangée monochrome → couleur au survol.</p>
+  <h2 class="sec-title">Trust badges</h2>
+  <p class="sec-sub">Floating hairline pills. Real certification logos (IICRC, BBB, OSHA, EPA) will appear in a monochrome row → color on hover.</p>
   <div class="trust">
     <span class="chip"><i data-lucide="shield-check"></i> Licensed & Insured</span>
     <span class="chip"><i data-lucide="award"></i> IICRC Certified</span>
@@ -302,9 +302,9 @@
 
 <!-- PROCESS -->
 <section class="bg-alt"><div class="wrap reveal">
-  <span class="eyebrow"><span class="d"></span>06 — Infographie process</span>
-  <h2 class="sec-title">Comment ça se passe</h2>
-  <p class="sec-sub">Timeline en cartes flottantes. Les numéros se remplissent au scroll en version finale.</p>
+  <span class="eyebrow"><span class="d"></span>06 — Process infographic</span>
+  <h2 class="sec-title">How it works</h2>
+  <p class="sec-sub">Timeline in floating cards. The numbers fill in on scroll in the final version.</p>
   <div class="steps">
     <div class="step"><div class="num">1</div><h5>Call us</h5><p>One tap, 24/7. We answer immediately.</p></div>
     <div class="step"><div class="num">2</div><h5>Free assessment</h5><p>On-site evaluation, no obligation.</p></div>
@@ -317,8 +317,8 @@
 
 <!-- FAQ -->
 <section><div class="wrap reveal">
-  <span class="eyebrow"><span class="d"></span>07 — Accordéon FAQ</span>
-  <h2 class="sec-title">Questions fréquentes</h2>
+  <span class="eyebrow"><span class="d"></span>07 — FAQ accordion</span>
+  <h2 class="sec-title">Frequently asked questions</h2>
   <div class="faq" style="margin-top:8px">
     <details class="q" open><summary>Do you bill insurance directly?<span class="ic"><i data-lucide="plus"></i></span></summary><div class="a">Yes — we work with most homeowner and commercial insurance policies and bill them directly whenever possible.</div></details>
     <details class="q"><summary>How fast can you arrive?<span class="ic"><i data-lucide="plus"></i></span></summary><div class="a">Our crews are on call 24/7 and typically arrive on-site in under 60 minutes across Los Angeles County.</div></details>
