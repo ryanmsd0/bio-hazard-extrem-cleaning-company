@@ -199,7 +199,7 @@
   .hero .hcerts .chip img{width:auto;display:block}
   .hero .hcerts .chip.txt{letter-spacing:.04em}
   .hero .hcerts .chip.txt svg{width:16px;height:16px;color:var(--green-dark)}
-  @media(max-width:640px){.hero .hcerts{position:static;margin-top:28px;max-width:none;gap:9px}.hero .hcerts .chip{height:42px;padding:0 13px}}
+  @media(max-width:640px){.hero .hcerts{position:static;margin:20px auto 0;padding:0 22px 40px;max-width:none;gap:9px;justify-content:center;width:100%}.hero .hcerts .chip{height:42px;padding:0 13px}}
   /* staggered entrance on load */
   .hero .anim{opacity:0;transform:translateY(22px);animation:heroUp .9s var(--ease) forwards}
   .hero .d1{animation-delay:.08s}.hero .d2{animation-delay:.16s}.hero .d3{animation-delay:.26s}
@@ -208,11 +208,14 @@
   @media(prefers-reduced-motion:reduce){.hero .anim{animation:none;opacity:1;transform:none}.hero .photo{animation:none;transform:none}}
   /* mobile: content is taller than the viewport — start below the fixed nav and let the section grow */
   @media(max-width:640px){
-    .hero{align-items:flex-start;min-height:0}
-    .hero .inner{transform:none}
-    .hero .wrap{padding:122px 24px 104px}
-    .hero h1{font-size:clamp(31px,8.6vw,36px)}
-    .hero p.lead{font-size:17px;margin-bottom:24px}
+    .hero{flex-direction:column;align-items:stretch;min-height:0}
+    .hero .wrap{padding:116px 22px 36px;display:block;width:100%}
+    .hero .inner{transform:none;width:100%;max-width:none;margin:0 auto}
+    .hero h1{font-size:clamp(32px,9vw,38px)}
+    .hero p.lead{font-size:16.5px;margin:0 auto 24px}
+    .hero .cta{justify-content:center}
+    .hero .cta .btn{flex:1 1 auto;justify-content:center;min-width:0}
+    .hero .cta-note{margin-left:auto;margin-right:auto}
   }
 
   /* two-col */
