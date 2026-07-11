@@ -177,13 +177,13 @@
   .hero .grain{position:absolute;inset:0;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   .hero .wrap{position:relative;width:100%;max-width:none;margin:0;padding:60px clamp(24px,5vw,76px)}
-  .hero .inner{max-width:800px;margin:0 auto;text-align:center;transform:translateY(-72px)}
+  .hero .inner{max-width:800px;margin:0 auto;text-align:center;transform:translateY(-112px)}
   .hero .kw{display:block;font-family:'Plus Jakarta Sans';font-size:12.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#8fd0ff}
   .hero h1{color:#fff;font-size:clamp(34px,4.4vw,56px);font-weight:800;letter-spacing:-.032em;margin:14px 0 20px;text-wrap:balance}
   .hero h1 .hl{color:#8fd0ff}
   .hero p.lead{font-size:20px;color:#cddcec;max-width:52ch;margin:0 auto 30px;text-wrap:balance}
   .hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
-  .hero .cta-note{margin:18px auto 0;font-size:14px;line-height:1.6;color:#cfe0f0;max-width:48ch;text-shadow:0 1px 8px rgba(6,16,28,.7)}
+  .hero .cta-note{margin:22px auto 0;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-size:14px;line-height:1.5;color:#cfe0f0;text-shadow:0 1px 8px rgba(6,16,28,.7)}.hero .cta-note .assur{display:inline-flex;align-items:center;gap:7px;font-weight:500}.hero .cta-note .assur svg{width:16px;height:16px;color:var(--green)}.hero .cta-note a.photo-link{display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans';font-weight:700;font-size:13.5px;color:#fff;text-decoration:none;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.26);border-radius:100px;padding:9px 16px;backdrop-filter:blur(6px);transition:background .25s,border-color .25s,transform .25s var(--ease),box-shadow .25s var(--ease)}.hero .cta-note a.photo-link:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.45);transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}.hero .cta-note a.photo-link svg{width:16px;height:16px;color:#fff;margin-right:0}
   .hero .cta-note a{white-space:nowrap}
   .hero .cta-note svg{display:inline-block;width:16px;height:16px;vertical-align:-3px;margin-right:7px;color:var(--green)}
   .hero .cta-note b{color:#fff;font-weight:700}
@@ -208,7 +208,7 @@
   /* mobile: content is taller than the viewport — start below the fixed nav and let the section grow */
   @media(max-width:640px){
     .hero{flex-direction:column;align-items:stretch;min-height:0}
-    .hero .wrap{padding:116px 22px 36px;display:block;width:100%}
+    .hero .wrap{padding:98px 22px 40px;display:block;width:100%}
     .hero .inner{transform:none;width:100%;max-width:none;margin:0 auto}
     .hero h1{font-size:clamp(32px,9vw,38px)}
     .hero p.lead{font-size:16.5px;margin:0 auto 24px}
@@ -662,12 +662,14 @@
   <div class="wrap"><div class="inner">
     <span class="kw anim d1">24/7 Emergency Response · Los Angeles County</span>
     <h1 class="anim d2">Biohazard &amp; extreme cleaning.<br><span class="hl">Response within 60 minutes.</span></h1>
-    <p class="lead anim d3">We bring peace of mind &amp; safety back to your space — discreet, compassionate, IICRC&#8209;certified crews, day or night. We handle your insurance claim.</p>
     <div class="cta anim d4">
       <a class="btn bp" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
       <a class="btn bo-light" href="#contact">Get a free estimate</a>
     </div>
-    <p class="cta-note anim d5"><i data-lucide="check"></i><b>Free on-site assessment</b>, no obligation. Prefer to text? <a href="sms:+15625686032">Send us a photo</a>.</p>
+    <div class="cta-note anim d5">
+      <span class="assur"><i data-lucide="check"></i> Free on-site assessment · no obligation</span>
+      <a class="photo-link" href="sms:+15625686032"><i data-lucide="camera"></i> Text us a photo</a>
+    </div>
   </div></div>
   <div class="hcerts anim d6">
     <span class="cl">Certified &amp; licensed</span>
