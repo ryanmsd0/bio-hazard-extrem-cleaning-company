@@ -563,7 +563,15 @@
   /* magic cards — certifications (cursor spotlight + gradient border) */
   .mcards{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:1120px;margin:0 auto}
   .mcard{position:relative;flex:1 1 300px;max-width:352px;border-radius:18px;background:var(--hair);padding:1.5px;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-  @media(max-width:560px){.mcard{flex-basis:100%;max-width:none}}
+  @media(max-width:560px){
+    .mcards{gap:12px}
+    .mcard{flex:1 1 calc(50% - 6px);max-width:none;min-width:0}
+    .mcard-in{padding:18px 12px;text-align:center}
+    .mcard .mic{width:42px;height:42px;border-radius:11px;margin:0 auto 12px}
+    .mcard .mic svg{width:20px;height:20px}
+    .mcard h4{font-size:13.5px;margin-bottom:5px}
+    .mcard p{font-size:11.5px;line-height:1.45}
+  }
   .mcard::before{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .4s var(--ease);background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),var(--blue),var(--green) 42%,transparent 72%);z-index:0}
   .mcard:hover{transform:translateY(-4px);box-shadow:0 20px 44px -16px rgba(10,37,64,.24)}
   .mcard:hover::before{opacity:1}
