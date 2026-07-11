@@ -258,7 +258,16 @@
   .pshot .cap .k{font-family:'Plus Jakarta Sans';font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8fd0ff}
   .pshot .cap h3{color:#fff;font-size:22px;margin-top:4px;text-shadow:0 1px 12px rgba(6,22,40,.5)}
   .pcards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media(max-width:560px){.pcards{grid-template-columns:1fr}}
+  @media(max-width:560px){
+    .panel.on{gap:16px}
+    .pshot{min-height:380px}
+    .pcards{grid-template-columns:1fr 1fr;gap:12px}
+    .pc{padding:14px 12px;text-align:center}
+    .pc-img{height:96px;margin-bottom:10px}
+    .pc h4{font-size:13px;margin-bottom:4px}
+    .pc p{font-size:11px;line-height:1.45}
+    .pc .more{justify-content:center}
+  }
   .pc{background:#fff;border:1px solid var(--hair);border-radius:var(--rc);padding:20px;text-decoration:none;display:block;
     box-shadow:0 2px 8px rgba(10,37,64,.05);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s}
   .pc:hover{transform:translateY(-3px);box-shadow:0 10px 28px -6px rgba(10,37,64,.16);border-color:#a9cdea}
@@ -579,13 +588,15 @@
   .cmp2-foot .dnote{font-size:13px;color:var(--muted);font-style:italic}
   @media(max-width:720px){
     .cmp2-head{display:none}
-    .cmp2-row{grid-template-columns:1fr;border-top:6px solid var(--bg-soft)}
-    .cmp2 .c-dim{background:#F7FAFD;padding:12px 20px;font-size:11.5px}
-    .cmp2 .c-us,.cmp2 .c-them{flex-wrap:wrap}
-    .cmp2 .c-us{box-shadow:none;border-top:1px solid #dbe9f7}
-    .cmp2 .c-us::before,.cmp2 .c-them::before{width:100%;font-family:'Plus Jakarta Sans';font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+    .cmp2-row{grid-template-columns:1fr 1fr;border-top:6px solid var(--bg-soft)}
+    .cmp2 .c-dim{grid-column:1 / -1;background:#F7FAFD;padding:11px 14px;font-size:11px;justify-content:center;text-align:center;letter-spacing:.06em}
+    .cmp2 .c-us,.cmp2 .c-them{flex-direction:column;align-items:center;text-align:center;gap:8px;padding:16px 12px;font-size:12.5px;line-height:1.45}
+    .cmp2 .c-us{box-shadow:none;border-right:1px solid var(--hair)}
+    .cmp2 .mk{margin-top:0}
+    .cmp2 .c-us::before,.cmp2 .c-them::before{width:100%;font-family:'Plus Jakarta Sans';font-weight:800;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
     .cmp2 .c-us::before{content:"CleanCore Decon";color:var(--blue-dark)}
     .cmp2 .c-them::before{content:"Uncertified cleaner";color:var(--muted)}
+    .cmp2-foot{padding:20px 14px}
   }
 </style>
 </head>
