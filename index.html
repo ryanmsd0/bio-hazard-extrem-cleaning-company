@@ -124,13 +124,11 @@
   .rnav .rburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
   .rnav .rburger.open span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
   .rnav .rburger.open span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
-  .rmobile{pointer-events:auto;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);width:min(440px,calc(100vw - 24px));
-    background:rgba(9,24,40,.97);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:6px;
-    box-shadow:0 22px 54px -14px rgba(0,0,0,.65);padding:14px;display:none;flex-direction:column;gap:6px}
-  .rmobile.open{display:flex}
-  .rmobile a.mlink{color:#cdd9e8;text-decoration:none;font-family:'Plus Jakarta Sans';font-weight:600;font-size:15px;padding:12px 14px;border-radius:999px}
-  .rmobile a.mlink:hover{background:rgba(255,255,255,.08);color:#fff}
-  .rmobile .rtel,.rmobile .rest{justify-content:center;margin-top:4px}
+  .rmobile{pointer-events:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-10px) scale(.97);width:min(440px,calc(100vw - 24px));background:rgba(9,24,40,.97);backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(255,255,255,.14);border-radius:20px;box-shadow:0 26px 60px -16px rgba(0,0,0,.7);padding:10px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s}
+  .rmobile.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)}
+  .rmobile a.mlink{color:#dce6f2;text-decoration:none;font-family:'Plus Jakarta Sans';font-weight:700;font-size:15.5px;padding:14px 16px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;transition:background .2s,color .2s,padding-left .2s}
+  .rmobile a.rmobile a.mlink:not(:last-child){border-bottom:1px solid rgba(255,255,255,.055)}.mlink:hover,.mlink:active{background:rgba(255,255,255,.09);color:#fff;padding-left:20px}
+  .rmobile .rtel,.rmobile .rest{justify-content:center;margin-top:8px;background:linear-gradient(135deg,var(--blue),var(--green-dark));border:none;color:#fff;padding:14px;border-radius:12px}
   @media(max-width:1100px){
     .rnav .ritems,.rnav .rcta{display:none}
     .rnav .rburger{display:flex}
@@ -518,7 +516,7 @@
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
   .callcard .num{font-family:'Plus Jakarta Sans';font-weight:800;font-size:18px;color:var(--navy);letter-spacing:-.01em}
   .callcard .sub{font-size:11px;color:var(--ink2)}
-  @media(max-width:520px){.callcard{right:12px;bottom:12px;left:12px;justify-content:center;padding:12px}.callcard .sub{display:none}}
+  @media(max-width:520px){.callcard{left:auto;right:16px;bottom:16px;padding:0;gap:0;background:transparent;border:none;border-left:none;box-shadow:none}.callcard .txt{display:none}.callcard .ph{width:60px;height:60px;box-shadow:0 14px 30px -8px rgba(18,136,206,.65)}.callcard .ph svg{width:24px;height:24px}}
   @media(prefers-reduced-motion:reduce){.callcard .ph::after,.callcard .lbl .dotpulse{animation:none}}
 
   /* reveal — directional scroll-in animations */
