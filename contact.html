@@ -54,6 +54,8 @@
 }
 </script>
 <style>
+  html,body{overflow-x:clip}
+
   :root{
     --blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;
     --navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;
@@ -454,7 +456,7 @@
   .form input,.form select{border-radius:8px}
   .form .two-in{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .form label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin:12px 0 5px}
-  .form input,.form select{width:100%;border:1px solid var(--hair);border-radius:var(--r);padding:12px 14px;font-family:inherit;font-size:14px;color:var(--ink);background:#fff;transition:border .2s,box-shadow .2s}
+  .form input,.form select{width:100%;border:1px solid var(--hair);border-radius:var(--r);padding:12px 14px;font-family:inherit;font-size:16px;color:var(--ink);background:#fff;transition:border .2s,box-shadow .2s}
   .form input:focus,.form select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(18,136,206,.14)}
   .form .upload{border:1.5px dashed #c3d3e6;border-radius:var(--r);padding:15px;text-align:center;color:var(--ink2);font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-top:5px}
   .form .upload svg{width:18px;height:18px;color:var(--blue)}

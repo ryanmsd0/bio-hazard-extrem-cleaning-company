@@ -48,6 +48,8 @@
   })();
 </script>
 <style>
+  html,body{overflow-x:clip}
+
   :root{--blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;--navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;--bg:#fff;--bg-alt:#F4F7FB;--bg-soft:#EEF3F9;--hair:#E2E8F0;--r:2px;--rc:14px;--rs:10px;
     --amb:0 1px 2px rgba(10,37,64,.04),0 12px 26px -18px rgba(10,37,64,.25);--amb-lg:0 2px 6px rgba(10,37,64,.05),0 26px 50px -26px rgba(10,37,64,.4);--ease:cubic-bezier(.22,1,.36,1)}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -142,7 +144,7 @@
   .qcard{background:#fff;border-radius:var(--rc);padding:24px;box-shadow:var(--amb-lg);color:var(--ink)}
   .qcard h3{font-size:19px;margin-bottom:3px}.qcard .sub{font-size:13px;color:var(--ink2);margin-bottom:14px}
   .qcard label{display:block;font-size:12.5px;font-weight:600;color:var(--navy);margin:10px 0 4px}
-  .qcard input,.qcard select{width:100%;border:1px solid var(--hair);border-radius:8px;padding:11px 13px;font-family:inherit;font-size:14px;color:var(--ink);transition:border .2s,box-shadow .2s}
+  .qcard input,.qcard select{width:100%;border:1px solid var(--hair);border-radius:8px;padding:11px 13px;font-family:inherit;font-size:16px;color:var(--ink);transition:border .2s,box-shadow .2s}
   .qcard input:focus,.qcard select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(18,136,206,.14)}
   .qcard .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .qcard .btn{width:100%;justify-content:center;margin-top:16px}
