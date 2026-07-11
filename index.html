@@ -107,8 +107,7 @@
     transition:max-width .45s var(--ease),background .4s,box-shadow .4s,padding .4s,margin-top .45s var(--ease),border-color .4s}
   .rnav.scrolled{max-width:980px;margin-top:14px;background:rgba(9,24,40,.72);backdrop-filter:blur(14px) saturate(140%);
     border-color:rgba(255,255,255,.12);box-shadow:0 16px 46px -14px rgba(0,0,0,.6);padding:9px 14px}
-  .rnav .rlogo img{height:58px;width:auto;display:block;transition:height .45s var(--ease),filter .4s;
-    filter:drop-shadow(0 0 1px rgba(255,255,255,.9)) drop-shadow(0 0 10px rgba(255,255,255,.5))}
+  .rnav .rlogo img{height:58px;width:auto;display:block;transition:height .45s var(--ease)}
   .rnav.scrolled .rlogo img{height:46px;filter:none}
   .rnav .ritems{display:flex;align-items:center;gap:2px;margin:0 auto}
   .rnav .ritems>a,.rnav .rlink{font-family:'Plus Jakarta Sans';font-weight:600;font-size:14.5px;color:#cdd9e8;text-decoration:none;padding:9px 11px;border-radius:999px;transition:color .2s,background .2s;display:inline-flex;align-items:center;cursor:pointer;white-space:nowrap}
@@ -117,6 +116,9 @@
   .rtel{color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;text-decoration:none;display:flex;align-items:center;gap:8px;padding:9px 11px;border:1px solid rgba(255,255,255,.28);border-radius:999px;white-space:nowrap;transition:background .2s}
   .rtel svg{width:17px;height:17px;color:var(--green)}
   .rtel:hover{background:rgba(255,255,255,.1)}
+  .rtel .rtel-num{white-space:nowrap;overflow:hidden;max-width:200px;transition:max-width .45s var(--ease),opacity .3s var(--ease)}
+  .rnav.scrolled .rtel{gap:0;padding:9px;border-radius:50%}
+  .rnav.scrolled .rtel .rtel-num{max-width:0;opacity:0}
   .rest{background:var(--blue);color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:14.5px;text-decoration:none;padding:10px 14px;border-radius:999px;display:flex;align-items:center;gap:8px;white-space:nowrap;transition:background .2s,transform .2s}
   .rest svg{width:16px;height:16px}
   .rest:hover{background:var(--blue-dark);transform:translateY(-1px)}
@@ -640,7 +642,7 @@
       <a href="contact.html">Contact</a>
     </div>
     <div class="rcta">
-      <a class="rtel" href="tel:+15625686032"><i data-lucide="phone-call"></i> (562) 568-6032</a>
+      <a class="rtel" href="tel:+15625686032"><i data-lucide="phone-call"></i><span class="rtel-num">(562) 568-6032</span></a>
       <a class="rest" href="#contact">Get a free estimate <i data-lucide="arrow-right"></i></a>
     </div>
     <button class="rburger" id="rburger" aria-label="Toggle menu"><span></span><span></span></button>
