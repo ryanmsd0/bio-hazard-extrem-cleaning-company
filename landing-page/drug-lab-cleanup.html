@@ -666,7 +666,7 @@
     served2.forEach(function(pp){pp.addEventListener('click',function(){selCounty(pp.getAttribute('data-name'));});});
     selCounty('Los Angeles');
   })();
-  (function(){var cv=document.getElementById('process'); if(!cv) return; var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){cv.classList.add('in');io.disconnect();}});},{rootMargin:'0px 0px -22% 0px',threshold:0}); io.observe(cv);})();
+  (function(){var cv=document.getElementById('process'); if(!cv) return; var t=cv.querySelector('.phone')||cv.querySelector('.chat')||cv; var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){cv.classList.add('in');io.disconnect();}});},{threshold:.3}); io.observe(t);})();
   document.querySelectorAll('.upload input[type=file]').forEach(function(inp){
     inp.addEventListener('change',function(){
       const lbl=inp.closest('.upload'), b=lbl.querySelector('.up-txt b'), s=lbl.querySelector('.up-txt small');

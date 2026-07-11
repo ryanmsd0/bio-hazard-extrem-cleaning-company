@@ -629,7 +629,7 @@
   if(rb&&rm){rb.addEventListener('click',()=>{const o=rm.classList.toggle('open');rb.classList.toggle('open',o);});rm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{rm.classList.remove('open');rb.classList.remove('open');}));}
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    (function(){var cv=document.getElementById('process'); if(!cv) return; var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){cv.classList.add('in');io.disconnect();}});},{rootMargin:'0px 0px -22% 0px',threshold:0}); io.observe(cv);})();
+    (function(){var cv=document.getElementById('process'); if(!cv) return; var t=cv.querySelector('.phone')||cv.querySelector('.chat')||cv; var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){cv.classList.add('in');io.disconnect();}});},{threshold:.3}); io.observe(t);})();
   // why showcase — before/after slider
   document.querySelectorAll('[data-ba]').forEach(function(frame){
     var before=frame.querySelector('.ba-before'), handle=frame.querySelector('.ba-handle'), down=false;
