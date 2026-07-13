@@ -163,9 +163,10 @@
     .rnav .rburger{display:flex}
     .rnav{padding:6px 12px 6px 18px;background:transparent;border-color:transparent;box-shadow:none;margin-top:4px;transition:background .35s var(--ease),backdrop-filter .35s var(--ease),border-color .35s,box-shadow .35s var(--ease),margin-top .35s var(--ease),padding .35s var(--ease)}
     .rnav.scrolled{width:auto;max-width:none;margin-left:auto;margin-top:6px;padding:0;gap:0;background:transparent;border-color:transparent;box-shadow:none;backdrop-filter:none}
-    .rnav.scrolled .rlogo{display:none}
-    .rnav.scrolled .rburger{width:52px;height:52px;margin-left:0;border-radius:50%;background:rgba(9,24,40,.92);backdrop-filter:blur(16px) saturate(150%);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 32px -8px rgba(0,0,0,.55);transition:background .3s,border-color .3s,box-shadow .3s,width .3s var(--ease),height .3s var(--ease)}
+    .rnav.scrolled .rlogo{opacity:0;max-width:0;pointer-events:none}
+    .rnav.scrolled .rburger{width:52px;height:52px;margin-left:0;border-radius:50%;background:rgba(9,24,40,.92);backdrop-filter:blur(16px) saturate(150%);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 32px -8px rgba(0,0,0,.55);transition:background .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease),width .4s var(--ease),height .4s var(--ease)}
     .rnav .rlogo img{height:38px}
+    .rnav .rlogo{max-width:240px;overflow:hidden;transition:opacity .4s var(--ease),max-width .45s var(--ease)}
   }
 
   /* hero — big photo */
