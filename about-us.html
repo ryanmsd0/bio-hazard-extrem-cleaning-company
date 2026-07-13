@@ -439,15 +439,21 @@
   .band .ic svg{width:26px;height:26px}
 
   /* founder note */
-  .founder{position:relative;background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:var(--rc);padding:38px 40px 32px;box-shadow:var(--amb-lg);max-width:720px;margin:0 auto}
-  .founder .qmark{position:absolute;top:26px;right:30px;width:34px;height:34px;color:#dbe7f3}
-  .founder blockquote{font-family:'Plus Jakarta Sans';font-size:clamp(17px,2vw,20px);font-weight:600;line-height:1.55;color:var(--navy);letter-spacing:-.01em;padding-right:48px}
-  @media(max-width:560px){.founder blockquote{padding-right:0}.founder .qmark{display:none}}
-  .founder .sig{display:flex;align-items:center;gap:14px;margin-top:24px}
-  .founder .sig .av{width:52px;height:52px;border-radius:50%;background:var(--navy);color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;flex:none}
-  .founder .sig .who b{display:block;font-family:'Plus Jakarta Sans';font-size:15px;color:var(--navy)}
-  .founder .sig .who span{font-size:13px;color:var(--ink2)}
-  @media(max-width:560px){.founder{padding:28px 24px 26px}}
+  .founder{display:grid;grid-template-columns:302px 1fr;max-width:880px;margin:0 auto;background:#fff;border:1px solid #eef1f6;border-radius:26px;overflow:hidden;box-shadow:0 2px 4px rgba(16,24,40,.03),0 44px 80px -44px rgba(10,37,64,.32)}
+  .founder .aside{position:relative;padding:48px 38px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:radial-gradient(135% 120% at 15% 0%,#16608f 0%,#0c2c48 55%,#081b30 100%)}
+  .founder .aside .g{position:absolute;top:-90px;left:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(87,185,74,.35),transparent 65%);filter:blur(14px);pointer-events:none}
+  .founder .aside .av{position:relative;width:80px;height:80px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--green),#79d0ff);margin-bottom:18px}
+  .founder .aside .av b{width:100%;height:100%;border-radius:50%;background:#0c2c48;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans';font-weight:800;font-size:30px}
+  .founder .aside .n{position:relative;display:flex;align-items:center;gap:7px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:19px;color:#fff}
+  .founder .aside .n .vf{width:18px;height:18px;fill:#5ec8ff;flex:none}
+  .founder .aside .role{position:relative;font-size:13.5px;color:#a9c3dc;margin-top:5px;line-height:1.45}
+  .founder .aside .cert{position:relative;margin-top:16px;align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:.03em;color:#dbe9f6;white-space:nowrap}
+  .founder .aside .cert svg{width:13px;height:13px;fill:var(--green);flex:none}
+  .founder .main{position:relative;padding:48px 50px;display:flex;flex-direction:column;justify-content:center}
+  .founder .main .qm{position:absolute;top:28px;right:40px;font-family:Georgia,'Times New Roman',serif;font-size:120px;line-height:1;color:var(--blue);opacity:.07;pointer-events:none;user-select:none}
+  .founder .main .eyebrow{font-family:'Plus Jakarta Sans';font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+  .founder .main blockquote{font-family:'Plus Jakarta Sans';font-size:clamp(19px,2vw,23px);line-height:1.52;font-weight:600;color:#182338;letter-spacing:-.015em}
+  @media(max-width:720px){.founder{grid-template-columns:1fr}.founder .aside{flex-direction:row;align-items:center;gap:18px;padding:28px 30px}.founder .aside .av{margin-bottom:0}.founder .aside .cert{display:none}.founder .main{padding:36px 28px}}
 
   /* faq */
   .faq{max-width:800px;margin:0 auto}
@@ -702,12 +708,18 @@
 
 <section id="about"><div class="wrap reveal">
   <div class="founder">
-    <i data-lucide="quote" class="qmark"></i>
-    <blockquote>“When something terrible happens in your home, the last thing you should have to worry about is who you can trust to make it safe again. I started CleanCore so every family in Los Angeles gets fast help, total discretion, and zero judgment — the way I’d want my own family treated.”</blockquote>
-    <div class="sig">
+    <div class="aside">
+      <div class="g"></div>
       <!-- TODO: replace the initials avatar with a real founder photo (Alex) — strongest trust signal for a new business -->
-      <span class="av">A</span>
-      <span class="who"><b>Alex — Founder, CleanCore Decon</b><span>IICRC-certified · Los Angeles</span></span>
+      <div class="av"><b>A</b></div>
+      <div class="n">Alex <svg class="vf" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.2.9 3 2.6 1.8-1.2 3 1.2 3-2.6 1.8-.9 3-3.2-.2L12 22l-2.4-2.1-3.2.2-.9-3L2.9 15l1.2-3-1.2-3 2.6-1.8.9-3 3.2.2z"/><path fill="#0c2c48" d="M10.6 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3-3 1.1 1.1z"/></svg></div>
+      <div class="role">Founder, CleanCore Decon · Los Angeles</div>
+      <span class="cert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.2.9 3 2.6 1.8-1.2 3 1.2 3-2.6 1.8-.9 3-3.2-.2L12 22l-2.4-2.1-3.2.2-.9-3L2.9 15l1.2-3-1.2-3 2.6-1.8.9-3 3.2.2z"/><path fill="#0c2c48" d="M10.6 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3-3 1.1 1.1z"/></svg> IICRC-CERTIFIED</span>
+    </div>
+    <div class="main">
+      <span class="qm" aria-hidden="true">&rdquo;</span>
+      <div class="eyebrow">A note from our founder</div>
+      <blockquote>&ldquo;When something terrible happens in your home, the last thing you should have to worry about is who you can trust to make it safe again. I started CleanCore so every family in Los Angeles gets fast help, total discretion, and zero judgment — the way I&rsquo;d want my own family treated.&rdquo;</blockquote>
     </div>
   </div>
 </div></section>
