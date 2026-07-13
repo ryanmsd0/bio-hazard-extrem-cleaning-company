@@ -134,8 +134,9 @@
   .rest svg{width:16px;height:16px}.rest:hover{background:var(--blue-dark);transform:translateY(-1px)}
   .rburger{display:none;margin-left:auto;width:42px;height:42px;border:none;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px}
   .rburger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
-  .rburger.open span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
-  .rburger.open span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+  .rburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .rburger.open span:nth-child(2){opacity:0}
+  .rburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .rmobile{pointer-events:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-10px) scale(.97);width:min(440px,calc(100vw - 24px));background:rgba(9,24,40,.97);backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(255,255,255,.14);border-radius:20px;box-shadow:0 26px 60px -16px rgba(0,0,0,.7);padding:10px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s}
   .rmobile.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)}
   .rmobile a.mlink{color:#dce6f2;text-decoration:none;font-family:'Plus Jakarta Sans';font-weight:700;font-size:15.5px;padding:14px 16px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;transition:background .2s,color .2s,padding-left .2s}
@@ -145,7 +146,9 @@
     .rnav .ritems,.rnav .rcta{display:none}
     .rnav .rburger{display:flex}
     .rnav{padding:6px 12px 6px 18px;background:transparent;border-color:transparent;box-shadow:none;margin-top:4px;transition:background .35s var(--ease),backdrop-filter .35s var(--ease),border-color .35s,box-shadow .35s var(--ease),margin-top .35s var(--ease),padding .35s var(--ease)}
-    .rnav.scrolled{max-width:none;margin-top:8px;padding:6px 12px 6px 18px;background:rgba(9,24,40,.82);backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 34px -14px rgba(0,0,0,.55)}
+    .rnav.scrolled{width:auto;max-width:none;margin-left:auto;margin-top:6px;padding:0;gap:0;background:transparent;border-color:transparent;box-shadow:none;backdrop-filter:none}
+    .rnav.scrolled .rlogo{display:none}
+    .rnav.scrolled .rburger{width:52px;height:52px;margin-left:0;border-radius:50%;background:rgba(9,24,40,.92);backdrop-filter:blur(16px) saturate(150%);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 32px -8px rgba(0,0,0,.55);transition:background .3s,border-color .3s,box-shadow .3s,width .3s var(--ease),height .3s var(--ease)}
     .rnav .rlogo img{height:38px}
   }
 
@@ -493,7 +496,7 @@
       <a class="rtel" href="tel:+15625686032"><i data-lucide="phone-call"></i><span class="rtel-num">(562) 568-6032</span></a>
       <a class="rest" href="#quote">Get a free estimate <i data-lucide="arrow-right"></i></a>
     </div>
-    <button class="rburger" id="rburger" aria-label="Toggle menu"><span></span><span></span></button>
+    <button class="rburger" id="rburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </nav>
   <div class="rmobile" id="rmobile">
     <a class="mlink" href="../index.html#services">Services</a>
