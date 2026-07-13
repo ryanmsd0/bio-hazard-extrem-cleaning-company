@@ -604,6 +604,12 @@
   #why .feat p{font-size:13px}
   #why .stats{margin-top:15px;padding-top:15px}
   #why .show-right .scta{margin-top:16px}
+  /* navbar logo swaps to logo.png when the bar floats (scrolled) */
+  .rnav .rlogo{position:relative;display:inline-flex;align-items:center}
+  .rnav .rlogo .l-top{transition:opacity .4s var(--ease),height .45s var(--ease)}
+  .rnav .rlogo .l-scr{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;pointer-events:none;transition:opacity .4s var(--ease),height .45s var(--ease)}
+  .rnav.scrolled .rlogo .l-top{opacity:0}
+  .rnav.scrolled .rlogo .l-scr{opacity:1;pointer-events:auto}
 </style>
 </head>
 <body>
@@ -611,7 +617,7 @@
 <!-- resizable navbar -->
 <div class="rnav-wrap">
   <nav class="rnav" id="rnav">
-    <a class="rlogo" href="index.html"><img src="logo-full.png" alt="CleanCore Decon"></a>
+    <a class="rlogo" href="index.html"><img class="l-top" src="logo-full.png" alt="CleanCore Decon"><img class="l-scr" src="logo.png" alt="CleanCore Decon"></a>
     <div class="ritems">
       <div class="rdrop">
         <a href="index.html#services" class="rlink">Services <i data-lucide="chevron-down" class="rchev"></i></a>

@@ -576,6 +576,12 @@
   .rsvc-ar{width:15px;height:15px;color:var(--green-dark);opacity:0;margin-left:auto;flex:none;transform:translateX(-5px);transition:opacity .25s,transform .25s var(--ease)}
   .rsvc:hover{background:rgba(87,185,74,.07);border-color:rgba(87,185,74,.5);box-shadow:0 0 0 1px rgba(87,185,74,.16),0 10px 24px -10px rgba(87,185,74,.4)}
   .rsvc:hover .rsvc-ar{opacity:1;transform:translateX(0)}
+  /* navbar logo swaps to logo.png when the bar floats (scrolled) */
+  .rnav .rlogo{position:relative;display:inline-flex;align-items:center}
+  .rnav .rlogo .l-top{transition:opacity .4s var(--ease),height .45s var(--ease)}
+  .rnav .rlogo .l-scr{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;pointer-events:none;transition:opacity .4s var(--ease),height .45s var(--ease)}
+  .rnav.scrolled .rlogo .l-top{opacity:0}
+  .rnav.scrolled .rlogo .l-scr{opacity:1;pointer-events:auto}
 </style>
 </head>
 <body>
@@ -583,7 +589,7 @@
 <!-- resizable navbar -->
 <div class="rnav-wrap">
   <nav class="rnav" id="rnav">
-    <a class="rlogo" href="index.html"><img src="logo-full.png" alt="CleanCore Decon"></a>
+    <a class="rlogo" href="index.html"><img class="l-top" src="logo-full.png" alt="CleanCore Decon"><img class="l-scr" src="logo.png" alt="CleanCore Decon"></a>
     <div class="ritems">
       <div class="rdrop">
         <a href="index.html#services" class="rlink">Services <i data-lucide="chevron-down" class="rchev"></i></a>
