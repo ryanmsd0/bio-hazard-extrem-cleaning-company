@@ -667,6 +667,13 @@
   .rnav .rlogo .l-scr{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;pointer-events:none;transition:opacity .4s var(--ease),height .45s var(--ease)}
   .rnav.scrolled .rlogo .l-top{opacity:0}
   .rnav.scrolled .rlogo .l-scr{opacity:1;pointer-events:auto}
+
+/* B3: touch feedback + neutralize sticky hover on touch devices (no hover-only info) */
+@media (hover: none){
+  .pc:hover,.rsvc:hover,.mcard:hover,.feat:hover,.card:hover,.qcard:hover,.au-mcard:hover,.au-cert:hover,.bento-item:hover,.bento .b:hover,.st:hover,.cmp:hover,.tab:hover,.slide:hover,.rmega-feature:hover{transform:none}
+}
+.pc:active,.rsvc:active,.mcard:active,.card:active,.qcard:active,.au-mcard:active,.au-cert:active,.tab:active,.cmp:active{transform:scale(.985);transition:transform 90ms ease-out}
+.btn:active,.bp:active,.bo:active,.bo-light:active,.rest:active,.rtel:active,.est:active,.more:active,.rlink:active{transform:scale(.97);transition:transform 80ms ease-out}
 </style>
 </head>
 <body>
