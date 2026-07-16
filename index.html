@@ -682,6 +682,14 @@
 .cmp2-head .c-us{box-shadow:inset 0 3px 0 var(--blue)}
 .cmp2 .c-them{background:#F4F6F9;color:var(--muted);font-size:13px}
 .cmp2 .c-them .mk.no{opacity:.6}
+
+/* D3: touch feel + accessibility */
+*{-webkit-tap-highlight-color:transparent}
+:target,[id]{scroll-margin-top:90px}
+:focus-visible{outline:2px solid var(--blue,#1288CE);outline-offset:2px}
+.rmega,.rmobile{overscroll-behavior:contain}
+.callcard{transition:opacity .3s ease,transform .3s ease}
+.callcard.cc-hide{opacity:0;pointer-events:none;transform:translateY(16px)}
 </style>
 </head>
 <body>
