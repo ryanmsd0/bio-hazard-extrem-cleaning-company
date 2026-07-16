@@ -694,6 +694,14 @@
 .rmega,.rmobile{overscroll-behavior:contain}
 .callcard{transition:opacity .3s ease,transform .3s ease}
 .callcard.cc-hide{opacity:0;pointer-events:none;transform:translateY(16px)}
+
+/* A9: all services visible, grouped by category (no tabs) */
+.svc-all{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:26px}
+.svc-col-h{font-family:'Plus Jakarta Sans';font-weight:800;font-size:13px;color:var(--navy);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;margin-bottom:16px;border-bottom:2px solid var(--hair)}
+.svc-col-h .ct{background:var(--bg-soft);color:var(--ink2);font-family:'Inter';font-weight:700;font-size:12px;padding:2px 10px;border-radius:100px;letter-spacing:0}
+.svc-col-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:1000px){.svc-all{grid-template-columns:1fr;gap:30px}}
+@media(max-width:520px){.svc-col-cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -783,42 +791,21 @@
 <section id="services"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Our services</span><h2>Our Specialized Biohazard Cleanup Services</h2><p>We provide certified biohazard cleanup, trauma scene cleanup, hoarding cleanup, odor removal, and environmental decontamination for residential, commercial, and government clients throughout Southern California.</p></div>
   <div class="reveal">
-    <div class="tabs">
-      <button class="tab on" data-p="0">Biohazard &amp; Trauma <span class="ct">4</span></button>
-      <button class="tab" data-p="1">Specialty Cleanup <span class="ct">4</span></button>
-      <button class="tab" data-p="2">Restoration &amp; Damage <span class="ct">3</span></button>
-    </div>
-    <div class="panel on" data-panel>
-      <div class="pshot"><img decode="async" src="img/cat-biohazard.jpg" alt="Technician in PPE decontaminating a wall" loading="lazy">
-        <div class="cap"><span class="k">Most requested</span><h3>Biohazard &amp; Trauma</h3></div>
-      </div>
-      <div class="pcards">
-        <a class="pc" href="landing-page/biohazard-cleanup.html"><div class="pc-img"><img decode="async" src="img/biohazard-before.jpg" alt="Biohazard Cleanup" loading="lazy"></div><h4>Biohazard Cleanup</h4><p>Safe removal &amp; decontamination of biohazardous materials.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
+    <div class="svc-all">
+      <div class="svc-col"><div class="svc-col-h">Biohazard &amp; Trauma <span class="ct">4</span></div>
+        <div class="svc-col-cards"><a class="pc" href="landing-page/biohazard-cleanup.html"><div class="pc-img"><img decode="async" src="img/biohazard-before.jpg" alt="Biohazard Cleanup" loading="lazy"></div><h4>Biohazard Cleanup</h4><p>Safe removal &amp; decontamination of biohazardous materials.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
         <a class="pc" href="landing-page/blood-cleanup.html"><div class="pc-img"><img decode="async" src="img/blood-before.jpg" alt="Blood Cleanup" loading="lazy"></div><h4>Blood Cleanup</h4><p>Thorough, professional blood spill remediation.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
         <a class="pc" href="landing-page/crime-scene-cleanup.html"><div class="pc-img"><img decode="async" src="img/crime-scene-before.jpg" alt="Crime Scene Cleanup" loading="lazy"></div><h4>Crime Scene Cleanup</h4><p>Discreet, compassionate restoration after a tragedy.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="landing-page/suicide-cleanup.html"><div class="pc-img"><img decode="async" src="img/suicide-before.jpg" alt="Suicide Cleanup" loading="lazy"></div><h4>Suicide Cleanup</h4><p>Respectful, careful remediation with the utmost dignity.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
-      </div>
-    </div>
-    <div class="panel" data-panel>
-      <div class="pshot"><img decode="async" src="img/cat-specialty.jpg" alt="Technician disinfecting a bright living room" loading="lazy">
-        <div class="cap"><span class="k">Homes &amp; properties</span><h3>Specialty Cleanup</h3></div>
-      </div>
-      <div class="pcards">
-        <a class="pc" href="landing-page/unattended-death-cleanup.html"><div class="pc-img"><img decode="async" src="img/unattended-death-before.jpg" alt="Unattended Death Cleanup" loading="lazy"></div><h4>Unattended Death Cleanup</h4><p>Complete, safe cleanup and odor removal.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="landing-page/suicide-cleanup.html"><div class="pc-img"><img decode="async" src="img/suicide-before.jpg" alt="Suicide Cleanup" loading="lazy"></div><h4>Suicide Cleanup</h4><p>Respectful, careful remediation with the utmost dignity.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a></div></div>
+      <div class="svc-col"><div class="svc-col-h">Specialty Cleanup <span class="ct">4</span></div>
+        <div class="svc-col-cards"><a class="pc" href="landing-page/unattended-death-cleanup.html"><div class="pc-img"><img decode="async" src="img/unattended-death-before.jpg" alt="Unattended Death Cleanup" loading="lazy"></div><h4>Unattended Death Cleanup</h4><p>Complete, safe cleanup and odor removal.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
         <a class="pc" href="landing-page/hoarder-cleanup.html"><div class="pc-img"><img decode="async" src="img/hoarder-before.jpg" alt="Hoarder Cleanup" loading="lazy"></div><h4>Hoarder Cleanup</h4><p>Judgment-free, full property cleanout &amp; sanitizing.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
         <a class="pc" href="landing-page/rodent-biohazard-cleanup.html"><div class="pc-img"><img decode="async" src="img/rodent-before.jpg" alt="Rodent Biohazard Cleanup" loading="lazy"></div><h4>Rodent Biohazard Cleanup</h4><p>Droppings removal, decontamination &amp; deodorizing.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="landing-page/drug-lab-cleanup.html"><div class="pc-img"><img decode="async" src="img/drug-lab-before.jpg" alt="Drug Lab Cleanup" loading="lazy"></div><h4>Drug Lab Cleanup</h4><p>Certified chemical decontamination &amp; disposal.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
-      </div>
-    </div>
-    <div class="panel" data-panel>
-      <div class="pshot"><img decode="async" src="img/cat-restoration.jpg" alt="Fire-damaged living room being restored" loading="lazy">
-        <div class="cap"><span class="k">Wildfire season</span><h3>Restoration &amp; Damage</h3></div>
-      </div>
-      <div class="pcards">
-        <a class="pc" href="landing-page/fire-damage-restoration.html"><div class="pc-img"><img decode="async" src="img/fire-before.jpg" alt="Fire Damage Restoration" loading="lazy"></div><h4>Fire Damage Restoration</h4><p>Soot, smoke &amp; structural cleanup after a fire.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
+        <a class="pc" href="landing-page/drug-lab-cleanup.html"><div class="pc-img"><img decode="async" src="img/drug-lab-before.jpg" alt="Drug Lab Cleanup" loading="lazy"></div><h4>Drug Lab Cleanup</h4><p>Certified chemical decontamination &amp; disposal.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a></div></div>
+      <div class="svc-col"><div class="svc-col-h">Restoration &amp; Damage <span class="ct">3</span></div>
+        <div class="svc-col-cards"><a class="pc" href="landing-page/fire-damage-restoration.html"><div class="pc-img"><img decode="async" src="img/fire-before.jpg" alt="Fire Damage Restoration" loading="lazy"></div><h4>Fire Damage Restoration</h4><p>Soot, smoke &amp; structural cleanup after a fire.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
         <a class="pc" href="landing-page/mold-remediation.html"><div class="pc-img"><img decode="async" src="img/mold-before.jpg" alt="Mold Remediation" loading="lazy"></div><h4>Mold Remediation</h4><p>Inspection, containment &amp; safe mold removal.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
-        <a class="pc" href="landing-page/odor-removal.html"><div class="pc-img"><img decode="async" src="img/odor-before.jpg" alt="Odor Removal" loading="lazy"></div><h4>Odor Removal</h4><p>Complete molecular-level odor neutralization.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a>
-      </div>
+        <a class="pc" href="landing-page/odor-removal.html"><div class="pc-img"><img decode="async" src="img/odor-before.jpg" alt="Odor Removal" loading="lazy"></div><h4>Odor Removal</h4><p>Complete molecular-level odor neutralization.</p><span class="more">View Service <i data-lucide="arrow-right"></i></span></a></div></div>
     </div>
   </div>
   <p style="text-align:center;margin-top:30px;font-size:15px;color:var(--ink2)">Not sure what your situation needs? <a href="tel:+15625686032" style="color:var(--blue);font-weight:700;text-decoration:none">Call us</a> — we’ll tell you honestly, for free.</p>
@@ -1144,12 +1131,6 @@
   // reveal
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // services tabs
-  const stabs=[...document.querySelectorAll('.tab')], spanels=[...document.querySelectorAll('[data-panel]')];
-  stabs.forEach(t=>t.addEventListener('click',()=>{
-    stabs.forEach(x=>x.classList.remove('on')); t.classList.add('on');
-    spanels.forEach((pn,i)=>pn.classList.toggle('on',i===+t.dataset.p));
-  }));
   // count up
   function countUp(el){const to=+el.dataset.to;let s=null;function step(t){if(!s)s=t;const p=Math.min((t-s)/1100,1);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
   const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}}),{threshold:.6});
