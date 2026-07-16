@@ -31,3 +31,11 @@ _experiments/
 areas-*.jpeg
 service-*.jpeg
 fire-*.jpeg
+
+# i18n pipeline working files (not part of the site)
+_sup_*.json
+_sup2_*.json
+_remaining.txt
+_build_apply.py
+_make_locale.py
+_verify_locale.py
