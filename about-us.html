@@ -983,10 +983,7 @@
     stabs.forEach(x=>x.classList.remove('on')); t.classList.add('on');
     spanels.forEach((pn,i)=>pn.classList.toggle('on',i===+t.dataset.p));
   }));
-  // count up
-  function countUp(el){const to=+el.dataset.to;let s=null;function step(t){if(!s)s=t;const p=Math.min((t-s)/1100,1);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
   const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}}),{threshold:.6});
-  document.querySelectorAll('.cnt').forEach(el=>cio.observe(el));
   // process — scroll-driven numbered timeline (per-step rail fill + reveal)
   (function(){
     const ptl=document.getElementById('ptl'); if(!ptl) return;
