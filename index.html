@@ -591,7 +591,7 @@
   .cmp-h h3{font-size:clamp(24px,3.2vw,32px);font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-bottom:10px}
   .cmp-h p{color:var(--ink2);font-size:16px}
   .cmp2{max-width:940px;margin:0 auto;border:1px solid var(--hair);border-radius:20px;background:#fff;box-shadow:0 18px 44px -26px rgba(10,37,64,.28);overflow:hidden}
-  .cmp2-head,.cmp2-row{display:grid;grid-template-columns:.74fr 1.34fr 1.34fr}
+  .cmp2-head,.cmp2-row{display:grid;grid-template-columns:.6fr 2fr .9fr}
   .cmp2-row{border-top:1px solid var(--hair)}
   .cmp2 .c-dim{padding:17px 22px;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center}
   .cmp2 .c-us,.cmp2 .c-them{padding:17px 22px;display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--ink2)}
@@ -674,6 +674,14 @@
 }
 .pc:active,.rsvc:active,.mcard:active,.card:active,.qcard:active,.au-mcard:active,.au-cert:active,.tab:active,.cmp:active{transform:scale(.985);transition:transform 90ms ease-out}
 .btn:active,.bp:active,.bo:active,.bo-light:active,.rest:active,.rtel:active,.est:active,.more:active,.rlink:active{transform:scale(.97);transition:transform 80ms ease-out}
+
+/* C4: comparison — CleanCore dominant & readable, uncertified de-emphasized */
+.cmp2 .c-dim{color:var(--ink)}
+.cmp2 .c-us{color:var(--ink)}
+.cmp2 .c-us b{color:var(--navy)}
+.cmp2-head .c-us{box-shadow:inset 0 3px 0 var(--blue)}
+.cmp2 .c-them{background:#F4F6F9;color:var(--muted);font-size:13px}
+.cmp2 .c-them .mk.no{opacity:.6}
 </style>
 </head>
 <body>
