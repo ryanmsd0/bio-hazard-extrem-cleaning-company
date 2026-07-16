@@ -680,12 +680,12 @@
 <!-- FOOTER -->
 <footer><div class="wrap">
   <div class="cols">
-    <div><img decode="async" src="../logo-full.png" alt="CleanCore Decon"><p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7.</p></div>
+    <div><img decode="async" src="../logo-full.png" alt="CleanCore Decon"><p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7, 365 days a year.</p></div>
     <div><b>Services</b><a href="#">Biohazard Cleanup</a><a href="#">Crime Scene Cleanup</a><a href="#">Hoarder Cleanup</a></div>
     <div><b>Company</b><a href="../why-choose-us.html">Why Choose Us</a><a href="../about-us.html">About Us</a><a href="../index.html#areas">Service Areas</a><a href="../contact.html">Contact</a></div>
     <div><b>24/7 Emergency</b><a href="tel:+15625686032" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(562) 568-6032</a><a>Los Angeles County, CA</a><a>Licensed · Bonded · Insured</a></div>
   </div>
-  <div class="bottom"><span>© 2026 CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</span><span>IICRC Certified · EPA compliant</span></div>
+  <div class="bottom"><span>© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</span><span><a href="/legal.html#privacy">Privacy</a> · <a href="/legal.html#terms">Terms</a> · <a href="/legal.html#accessibility">Accessibility</a></span><span>IICRC Certified · EPA compliant</span></div>
 </div></footer>
 
 <a class="callcard" href="tel:+15625686032" aria-label="Call 24/7 emergency line (562) 568-6032">
@@ -756,5 +756,6 @@
 <script>
 (function(){var ds=[].slice.call(document.querySelectorAll(".rdrop")),tm=new Map();ds.forEach(function(d){d.addEventListener("mouseenter",function(){ds.forEach(function(o){if(o!==d){clearTimeout(tm.get(o));o.classList.remove("ropen");}});clearTimeout(tm.get(d));d.classList.add("ropen");});d.addEventListener("mouseleave",function(){tm.set(d,setTimeout(function(){d.classList.remove("ropen");},220));});});})();
 </script>
+<script>document.querySelectorAll(".ccyr").forEach(function(e){e.textContent=(new Date()).getFullYear();});</script>
 </body>
 </html>

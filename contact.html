@@ -968,7 +968,7 @@
   <div class="cols">
     <div>
       <img decode="async" src="logo-full.png" alt="CleanCore Decon">
-      <p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7.</p>
+      <p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7, 365 days a year.</p>
     </div>
     <div>
       <b>Services</b>
@@ -987,8 +987,8 @@
     </div>
   </div>
   <div class="bottom">
-    <span>© 2026 CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</span>
-    <span>IICRC Certified · EPA compliant · Insured</span>
+    <span>© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</span>
+    <span><a href="/legal.html#privacy">Privacy</a> · <a href="/legal.html#terms">Terms</a> · <a href="/legal.html#accessibility">Accessibility</a></span><span>IICRC Certified · EPA compliant · Insured</span>
   </div>
 </div></footer>
 
@@ -1130,5 +1130,6 @@
 <script>
 (function(){var ds=[].slice.call(document.querySelectorAll(".rdrop")),tm=new Map();ds.forEach(function(d){d.addEventListener("mouseenter",function(){ds.forEach(function(o){if(o!==d){clearTimeout(tm.get(o));o.classList.remove("ropen");}});clearTimeout(tm.get(d));d.classList.add("ropen");});d.addEventListener("mouseleave",function(){tm.set(d,setTimeout(function(){d.classList.remove("ropen");},220));});});})();
 </script>
+<script>document.querySelectorAll(".ccyr").forEach(function(e){e.textContent=(new Date()).getFullYear();});</script>
 </body>
 </html>
