@@ -72,7 +72,8 @@ c'est que le fix est mauvais — dis-le plutôt que de dégrader.
 
 Un ticket = un commit. Ne groupe pas.
 
-**A9 et A10 sont BLOQUÉS** : on attend une réponse du client. N'y touche pas.
+**A10 est BLOQUÉ** : on attend les numéros de licence. N'y touche pas.
+**A9 est débloqué** : le bento se construit maintenant (`DESIGN-SPEC.md` §5.2).
 
 ---
 
@@ -201,16 +202,23 @@ le client n'a pas approuvé ou réécrit le texte. Placeholder neutre en attenda
 
 ---
 
-### A9 — 🔴 BLOQUÉ — Liste finale des services
+### A9 — ✅ DÉBLOQUÉ — Le bento des services
 
-Trois versions circulent :
-- Content Brief Q06 : retirer Water Damage → 11 services
-- Site live : 11 services
-- Website Notes d'Alex : **12 services**, avec Water Damage Cleanup de retour,
-  plus `Infectious Disease Cleanup` et `Structure Tear-Out` qui n'existent nulle part.
+**Le layout est tranché.** Alex l'a écrit lui-même dans ses notes :
+> *« This is something i for sure want to change. I'd prefer something like this because it allows
+> visitors to immediately see every service without needing to switch between tabs. […] Another
+> option worth exploring is […] simply listing the services from highest demand to lowest demand. »*
 
-**Ne touche pas à la section services.** On attend qu'Alex coche la liste finale
-et la classe de la plus demandée à la moins demandée (le classement sert à C2).
+→ **Plus d'onglets. Un bento grid full-art où la taille de la carte encode la demande.**
+Spec complète, CSS et mapping : `DESIGN-SPEC.md` §5.2.
+
+**Construis maintenant avec la liste provisoire du §5.2.** N'invente aucun service : n'utilise
+que les 11 qui existent aujourd'hui sur le site. Grâce à `grid-auto-flow: dense`, ajouter/retirer/
+reclasser un service = changer un attribut `data-size` ; la grille se recompose seule.
+
+**État actuel (fait) :** onglets remplacés par une grille tout-visible groupée par catégorie
+(Biohazard & Trauma / Specialty / Restoration), 11 services réels, cartes `.pc` conservées.
+Le bento « taille = demande » du §5.2 reste à faire quand `DESIGN-SPEC.md` sera fourni (absent du repo).
 
 ---
 
@@ -480,7 +488,7 @@ Sur un site d'urgence locale, le footer est vu par ceux qui hésitent encore.
 [ ] A6   retitrer le bloc before/after
 [ ] A7   footer : retirer Water & Fire Damage
 [ ] A8   citation fondateur → placeholder
-[ ] A9   🔴 BLOQUÉ — liste finale des services
+[ ] A9   bento services full-art (voir DESIGN-SPEC §5.2)
 [ ] A10  🔴 BLOQUÉ — composant badges (construire vide)
 [ ] B1   z-index nav / CTA en tokens
 [ ] B2   compteurs About : valeur en HTML
@@ -503,6 +511,6 @@ Sur un site d'urgence locale, le footer est vu par ceux qui hésitent encore.
 ## 10. Rappel final
 
 - **Si une info manque → tu t'arrêtes et tu demandes.** Jamais inventer.
-- **A9 et A10 sont bloqués.** N'y touche pas.
+- **A10 est bloqué** (numéros de licence). N'y touche pas. **A9 est débloqué** — construis le bento.
 - **L'esthétique ne se dégrade pas.** Si un fix casse le design, le fix est mauvais.
 - Un ticket = un commit.
