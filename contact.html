@@ -800,7 +800,7 @@
           </div>
           <div class="co-field">
             <label for="f-situation">Type of Situation <span class="req">*</span></label>
-            <select id="f-situation" name="situation" required>
+            <select id="f-situation" name="situation">
               <option value="" disabled selected>Select an option</option>
               <option>Biohazard Cleanup</option>
               <option>Crime Scene</option>
@@ -815,7 +815,7 @@
           </div>
           <div class="co-field">
             <label for="f-city">City / Area <span class="req">*</span></label>
-            <input id="f-city" name="city" placeholder="e.g. Los Angeles" autocomplete="address-level2" required>
+            <input id="f-city" name="city" placeholder="e.g. Los Angeles" autocomplete="address-level2">
           </div>
           <div class="co-field co-full">
             <label for="f-details">Brief Details</label>
@@ -823,6 +823,7 @@
           </div>
         </div>
         <button class="btn co-bg">Request Immediate Help <span class="c"><i data-lucide="arrow-right"></i></span></button>
+        <!-- C8: replace with "We call you back within X minutes" once Alex confirms X --><p style="text-align:center;margin:14px 0 0;font-size:13.5px;color:var(--ink2);font-weight:600">A real person calls you right back &mdash; 24/7.</p>
         <p class="co-fine">100% Confidential • No Obligation</p>
         <p style="text-align:center;margin-top:12px;font-size:13.5px"><a href="sms:+15625686032" style="display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-weight:600;text-decoration:none"><i data-lucide="camera"></i> Can&rsquo;t talk right now? Text us a photo.</a></p>
       </form>
