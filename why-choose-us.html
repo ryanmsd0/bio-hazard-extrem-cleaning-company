@@ -74,7 +74,7 @@
 <style>
   html,body{overflow-x:clip}
 
-  :root{
+  :root{--z-nav:100;--z-cta:90;--z-mega:120;--z-modal:200;
     --blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;
     --navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;
     --bg:#fff;--bg-alt:#F4F7FB;--bg-soft:#EEF3F9;--hair:#E2E8F0;
@@ -107,7 +107,7 @@
   .bo-light{background:rgba(255,255,255,.1);color:#fff;padding:13px 22px;border:1.5px solid rgba(255,255,255,.35)}.bo-light:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
 
   /* header — resizable navbar */
-  .rnav-wrap{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 12px;pointer-events:none}
+  .rnav-wrap{position:fixed;top:0;left:0;right:0;z-index:var(--z-nav);display:flex;justify-content:center;padding:0 12px;pointer-events:none}
   .rnav{pointer-events:auto;position:relative;display:flex;align-items:center;gap:9px;width:100%;max-width:1200px;
     padding:14px 22px;margin-top:0;background:transparent;border:1px solid transparent;border-radius:999px;
     transition:max-width .45s var(--ease),background .4s,box-shadow .4s,padding .4s,margin-top .45s var(--ease),border-color .4s}
@@ -121,7 +121,7 @@
   .rdrop{position:relative}
   .rdrop>.rlink .rchev{width:14px;height:14px;margin-left:3px;transition:transform .3s var(--ease);opacity:.7}
   .rdrop:hover>.rlink .rchev{transform:rotate(180deg)}
-  .rmega{position:absolute;left:50%;top:100%;transform:translateX(-50%) translateY(10px);padding-top:15px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .34s var(--ease),transform .34s var(--ease);z-index:120}
+  .rmega{position:absolute;left:50%;top:100%;transform:translateX(-50%) translateY(10px);padding-top:15px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .34s var(--ease),transform .34s var(--ease);z-index:var(--z-mega)}
   .rdrop:hover .rmega,.rmega:hover{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto}
   .rdrop:not(.rdrop-s)>.rmega{left:0;transform:translateY(6px);padding-top:8px}
   .rdrop:not(.rdrop-s):hover>.rmega,.rdrop:not(.rdrop-s)>.rmega:hover{transform:translateY(0)}
@@ -496,7 +496,7 @@
   footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   /* floating 24/7 call card (fixed, always visible) */
-  .callcard{position:fixed;right:20px;bottom:20px;z-index:95;display:flex;align-items:center;gap:14px;
+  .callcard{position:fixed;right:20px;bottom:20px;z-index:var(--z-cta);display:flex;align-items:center;gap:14px;
     background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:999px;
     box-shadow:0 16px 40px -14px rgba(10,37,64,.42);padding:9px 20px 9px 10px;text-decoration:none;
     transition:transform .3s var(--ease),box-shadow .3s var(--ease)}

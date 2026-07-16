@@ -34,7 +34,7 @@
 <style>
   html,body{overflow-x:clip}
 
-  :root{--blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;--navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;--bg:#fff;--bg-alt:#F4F7FB;--bg-soft:#EEF3F9;--hair:#E2E8F0;--r:2px;--rc:14px;--rs:10px;
+  :root{--z-nav:100;--z-cta:90;--z-mega:120;--z-modal:200;--blue:#1288CE;--blue-dark:#0C6AAB;--green:#57B94A;--green-dark:#3C9A34;--navy:#0A2540;--ink:#1A2433;--ink2:#5A6B82;--muted:#94A3B5;--bg:#fff;--bg-alt:#F4F7FB;--bg-soft:#EEF3F9;--hair:#E2E8F0;--r:2px;--rc:14px;--rs:10px;
     --amb:0 1px 2px rgba(10,37,64,.04),0 12px 26px -18px rgba(10,37,64,.25);--amb-lg:0 2px 6px rgba(10,37,64,.05),0 26px 50px -26px rgba(10,37,64,.4);--ease:cubic-bezier(.22,1,.36,1)}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -59,7 +59,7 @@
   .bo-light{background:rgba(255,255,255,.1);color:#fff;padding:13px 22px;border:1.5px solid rgba(255,255,255,.35)}.bo-light:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
 
   /* resizable navbar */
-  .rnav-wrap{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 12px;pointer-events:none}
+  .rnav-wrap{position:fixed;top:0;left:0;right:0;z-index:var(--z-nav);display:flex;justify-content:center;padding:0 12px;pointer-events:none}
   .rnav{pointer-events:auto;position:relative;display:flex;align-items:center;gap:9px;width:100%;max-width:1200px;padding:14px 22px;background:transparent;border:1px solid transparent;border-radius:999px;transition:max-width .45s var(--ease),background .4s,box-shadow .4s,padding .4s,margin-top .45s var(--ease),border-color .4s}
   .rnav.scrolled{max-width:980px;margin-top:14px;background:rgba(9,24,40,.72);backdrop-filter:blur(14px) saturate(140%);border-color:rgba(255,255,255,.12);box-shadow:0 16px 46px -14px rgba(0,0,0,.6);padding:9px 14px}
   .rnav .rlogo img{height:58px;width:auto;display:block;transition:height .45s var(--ease)}
@@ -70,7 +70,7 @@
   .rdrop{position:relative}
   .rdrop>.rlink .rchev{width:14px;height:14px;margin-left:3px;transition:transform .3s var(--ease);opacity:.7}
   .rdrop:hover>.rlink .rchev{transform:rotate(180deg)}
-  .rmega{position:absolute;left:50%;top:100%;transform:translateX(-50%) translateY(10px);padding-top:15px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .34s var(--ease),transform .34s var(--ease);z-index:120}
+  .rmega{position:absolute;left:50%;top:100%;transform:translateX(-50%) translateY(10px);padding-top:15px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .34s var(--ease),transform .34s var(--ease);z-index:var(--z-mega)}
   .rdrop:hover .rmega,.rmega:hover{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto}
   .rdrop:not(.rdrop-s)>.rmega{left:0;transform:translateY(6px);padding-top:8px}
   .rdrop:not(.rdrop-s):hover>.rmega,.rdrop:not(.rdrop-s)>.rmega:hover{transform:translateY(0)}
@@ -261,7 +261,7 @@
   footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   /* floating call */
-  .callcard{position:fixed;right:20px;bottom:20px;z-index:95;display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:999px;box-shadow:0 16px 40px -14px rgba(10,37,64,.42);padding:9px 20px 9px 10px;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .callcard{position:fixed;right:20px;bottom:20px;z-index:var(--z-cta);display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:999px;box-shadow:0 16px 40px -14px rgba(10,37,64,.42);padding:9px 20px 9px 10px;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
   .callcard:hover{transform:translateY(-3px);box-shadow:0 26px 54px -12px rgba(10,37,64,.55)}
   .callcard .ph{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;position:relative;flex:none}
   .callcard .ph svg{width:19px;height:19px;position:relative;z-index:1}
