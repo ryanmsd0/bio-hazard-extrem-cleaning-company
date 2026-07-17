@@ -131,7 +131,7 @@
 
   /* hero (service) */
   .shero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;padding:132px 0 70px}
-  .shero .photo{position:absolute;inset:0;background:#0a1a2b url('../img/biohazard-before.jpg') center/cover}
+  .shero .photo{position:absolute;inset:0;background:#0a1a2b url('../img/biohazard-before.jpg') center/cover;background-image:image-set(url('../img/biohazard-before-1600.avif') type("image/avif"),url('../img/biohazard-before-1600.webp') type("image/webp"),url('../img/biohazard-before.jpg') type("image/jpeg"))}
   .shero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,28,.95) 0%,rgba(6,16,28,.82) 40%,rgba(6,16,28,.55) 100%),linear-gradient(180deg,rgba(6,16,28,.7) 0%,transparent 30%)}
   .shero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
   @media(max-width:920px){.shero .wrap{grid-template-columns:1fr;gap:30px}}
@@ -433,7 +433,7 @@
         <a href="../index.html#services" class="rlink on">Services <i data-lucide="chevron-down" class="rchev"></i></a>
         <div class="rmega"><div class="rmega-inner">
           <a class="rmega-feature" href="biohazard-cleanup.html">
-            <span class="rmf-img"><img decode="async" src="../img/cat-biohazard.jpg" alt="Biohazard Cleanup" loading="lazy"></span>
+            <span class="rmf-img"><picture><source type="image/avif" srcset="../img/cat-biohazard-640.avif 640w, ../img/cat-biohazard-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/cat-biohazard-640.webp 640w, ../img/cat-biohazard-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" src="../img/cat-biohazard.jpg" alt="Biohazard Cleanup" loading="lazy"></picture></span>
             <span class="rmf-body">
               <b>Biohazard Cleanup</b>
               <span class="rmf-desc">Safe removal &amp; decontamination of hazardous materials from trauma and biohazard scenes.</span>
@@ -529,7 +529,7 @@
     <p style="font-size:16px;color:var(--ink2);margin-top:12px">Our crews handle the entire scene with care and discretion, so you and your family never have to face it alone.</p>
     <div style="margin-top:20px"><a class="btn bp" href="tel:+15625686032">Talk to us now <span class="c"><i data-lucide="phone-call"></i></span></a></div>
   </div>
-  <img decode="async" loading="lazy" class="imgblock reveal r-right rd1" src="../img/biohazard-before.jpg" alt="Biohazard contamination scene before professional cleanup">
+  <picture><source type="image/avif" srcset="../img/biohazard-before-640.avif 640w, ../img/biohazard-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/biohazard-before-640.webp 640w, ../img/biohazard-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="imgblock reveal r-right rd1" src="../img/biohazard-before.jpg" alt="Biohazard contamination scene before professional cleanup"></picture>
 </div></div></section>
 
 <!-- SITUATIONS -->
@@ -603,8 +603,8 @@
     <div class="show-left reveal r-left">
       <div class="car"><div class="car-view">
         <div class="ba-frame" data-ba>
-          <img decode="async" loading="lazy" class="ba-after" src="../img/biohazard-after.jpg" alt="After — decontaminated, restored space">
-          <img decode="async" loading="lazy" class="ba-before" src="../img/biohazard-before.jpg" alt="Before — biohazard contamination">
+          <picture><source type="image/avif" srcset="../img/biohazard-after-640.avif 640w, ../img/biohazard-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/biohazard-after-640.webp 640w, ../img/biohazard-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="ba-after" src="../img/biohazard-after.jpg" alt="After — decontaminated, restored space"></picture>
+          <picture><source type="image/avif" srcset="../img/biohazard-before-640.avif 640w, ../img/biohazard-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/biohazard-before-640.webp 640w, ../img/biohazard-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="ba-before" src="../img/biohazard-before.jpg" alt="Before — biohazard contamination"></picture>
           <span class="ba-tag b">Before</span><span class="ba-tag a">After</span>
           <div class="ba-handle"><span class="grip"><i data-lucide="chevrons-left-right"></i></span></div>
           <span class="slide-cap">Biohazard decontamination · Los Angeles</span>

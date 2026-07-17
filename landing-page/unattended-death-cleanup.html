@@ -131,7 +131,7 @@
 
   /* hero (service) */
   .shero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;min-height:100dvh;display:flex;align-items:center;padding:120px 0 72px}
-  .shero .photo{position:absolute;inset:0;background:#0a1a2b url('../img/unattended-death-before.jpg') center/cover}
+  .shero .photo{position:absolute;inset:0;background:#0a1a2b url('../img/unattended-death-before.jpg') center/cover;background-image:image-set(url('../img/unattended-death-before-1600.avif') type("image/avif"),url('../img/unattended-death-before-1600.webp') type("image/webp"),url('../img/unattended-death-before.jpg') type("image/jpeg"))}
   .shero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,28,.48) 0%,rgba(6,16,28,.41) 40%,rgba(6,16,28,.28) 100%),linear-gradient(180deg,rgba(6,16,28,.35) 0%,transparent 30%)}
   .shero .wrap{position:relative;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
   @media(max-width:920px){.shero .wrap{grid-template-columns:1fr;gap:30px}}
@@ -447,7 +447,7 @@
         <a href="../index.html#services" class="rlink on">Services <i data-lucide="chevron-down" class="rchev"></i></a>
         <div class="rmega"><div class="rmega-inner">
           <a class="rmega-feature" href="biohazard-cleanup.html">
-            <span class="rmf-img"><img decode="async" src="../img/cat-biohazard.jpg" alt="Biohazard Cleanup" loading="lazy"></span>
+            <span class="rmf-img"><picture><source type="image/avif" srcset="../img/cat-biohazard-640.avif 640w, ../img/cat-biohazard-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/cat-biohazard-640.webp 640w, ../img/cat-biohazard-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" src="../img/cat-biohazard.jpg" alt="Biohazard Cleanup" loading="lazy"></picture></span>
             <span class="rmf-body">
               <b>Biohazard Cleanup</b>
               <span class="rmf-desc">Safe removal &amp; decontamination of hazardous materials from trauma and biohazard scenes.</span>
@@ -543,7 +543,7 @@
     <p style="font-size:16px;color:var(--ink2);margin-top:12px">Our crews handle it discreetly and with compassion, reaching what has soaked below the surface and removing odor at its source.</p>
     <div style="margin-top:20px"><a class="btn bp" href="tel:+15625686032">Talk to us now <span class="c"><i data-lucide="phone-call"></i></span></a></div>
   </div>
-  <img decode="async" loading="lazy" class="imgblock reveal r-right rd1" src="../img/unattended-death-before.jpg" alt="Certified technician decontaminating a home after an unattended death">
+  <picture><source type="image/avif" srcset="../img/unattended-death-before-640.avif 640w, ../img/unattended-death-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/unattended-death-before-640.webp 640w, ../img/unattended-death-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="imgblock reveal r-right rd1" src="../img/unattended-death-before.jpg" alt="Certified technician decontaminating a home after an unattended death"></picture>
 </div></div></section>
 
 <!-- SITUATIONS -->
@@ -614,8 +614,8 @@
     <div class="show-left reveal r-left">
       <div class="car"><div class="car-view">
         <div class="ba-frame" data-ba>
-          <img decode="async" loading="lazy" class="ba-after" src="../img/unattended-death-after.jpg" alt="After — restored, safe space">
-          <img decode="async" loading="lazy" class="ba-before" src="../img/unattended-death-before.jpg" alt="Before — the situation on arrival">
+          <picture><source type="image/avif" srcset="../img/unattended-death-after-640.avif 640w, ../img/unattended-death-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/unattended-death-after-640.webp 640w, ../img/unattended-death-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="ba-after" src="../img/unattended-death-after.jpg" alt="After — restored, safe space"></picture>
+          <picture><source type="image/avif" srcset="../img/unattended-death-before-640.avif 640w, ../img/unattended-death-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/unattended-death-before-640.webp 640w, ../img/unattended-death-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="ba-before" src="../img/unattended-death-before.jpg" alt="Before — the situation on arrival"></picture>
           <span class="ba-tag b">Before</span><span class="ba-tag a">After</span>
           <div class="ba-handle"><span class="grip"><i data-lucide="chevrons-left-right"></i></span></div>
           <span class="slide-cap">Unattended death cleanup · Los Angeles</span>
