@@ -261,3 +261,6 @@
 /* ghost mark dans les heros service (.shero) : contenu au-dessus du calque */
 .shero>.wrap{position:relative;z-index:2}
 .shero .photo{z-index:0}
+
+.au-hero>.wrap,.wc-hero>.wrap,.co-hero>.wrap{position:relative;z-index:2}
+.au-hero-bg,.wc-hero-bg{z-index:0}
