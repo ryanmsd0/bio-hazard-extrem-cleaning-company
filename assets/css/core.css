@@ -1,0 +1,53 @@
+/* ============================================================================
+   CleanCore Decon — core.css  (ADDITIVE design-system layer)
+   Linked in <head> BEFORE each page's inline <style>. Introduces only NEW
+   token names (zero collision with the page :root) and new component/motion
+   classes. The page's existing --blue/--navy/--green/--ease/--z-* stay intact.
+   Palette values approved from the repo palette (contrast-verified):
+     blue #1288CE · blue-ink #0E6EA6 · blue-lift #4FB3ED
+     green #57B94A (AA on navy 6.25:1) · navy #0A2540 / deep #081A2E / 800 #123152
+   ========================================================================== */
+
+:root{
+  /* clair */
+  --paper:#F4F7FB;            /* fond de section claire — jamais #fff pur */
+
+  /* accents (les 3 bleus : graphisme / bouton-clair / sur-sombre) */
+  --blue-ink:#0E6EA6;         /* boutons pleins + petits liens sur clair (AA) */
+  --blue-lift:#4FB3ED;        /* TOUT ce qui est sur fond sombre (AA 6.66) */
+  --green-ink:#3C9A34;        /* vert sur clair (= --green-dark) */
+  --green-lift:#57B94A;       /* vert sur sombre (AA 6.25) — même teinte */
+
+  /* sombre (3 nuances pour la profondeur du rythme §2) */
+  --navy-band:#0A2540;        /* bande sombre standard (= --navy) */
+  --navy-deep:#081A2E;        /* strip, marquee, fond le plus profond */
+  --navy-800:#123152;         /* cartes sombres — se détachent de la bande */
+
+  /* lignes & texte */
+  --line-d:rgba(255,255,255,.10);
+  --line-l:#E2E8F0;
+  --txt-d:#AFC0D4;            /* texte courant sur sombre (AA 8.37) */
+
+  /* espacement — 3 valeurs, pas une de plus */
+  --sp-section:clamp(64px,9vw,120px);
+  --sp-block:clamp(28px,4vw,44px);
+  --sp-item:14px;
+
+  --wrap-w:1180px;
+  --r-card:14px;             /* rayon carte (le repo réserve --r:2px, d'où ce nom) */
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  /* --ease existe déjà dans la page : on le réutilise, on ne le redéfinit pas */
+}
+
+/* ---- typographie de rôle : la DONNÉE en mono (§1) --------------------------- */
+.kicker{font:600 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--blue-lift);display:inline-flex;align-items:center;gap:9px}
+.kicker::before{content:"";width:20px;height:1px;background:currentColor;opacity:.6}
+.band--light .kicker,.kicker--l{color:var(--blue-ink)}
+.data{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---- motion : reveal au scroll -------------------------------------------
+   Le système de reveal EXISTE DÉJÀ dans chaque page (classe .reveal + variantes
+   .r-up/.r-left/.r-right/.r-zoom, IntersectionObserver qui pose .in puis unobserve,
+   fallback prefers-reduced-motion). Les nouveaux composants RÉUTILISENT .reveal —
+   on n'ajoute pas de second système concurrent. Rien à définir ici.            */
