@@ -248,3 +248,16 @@
 .mq__i::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--blue)}
 @keyframes mqslide{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.mq__t{animation:none}}
+
+/* ---- comparatif : panneau sombre pour faire ressortir la colonne blanche (§4.7)
+   Contenu dans #why (partagé avec les sliders) -> on assombrit seulement le bloc
+   comparatif, pas la section. La carte .cmp2 (fond blanc) pop sur le sombre.     */
+#why .cmpwrap{background:var(--navy-band);border-radius:22px;position:relative;overflow:hidden;
+  padding:clamp(30px,5vw,58px) clamp(20px,4vw,46px);margin-top:var(--sp-block)}
+#why .cmpwrap .cmp-h h3{color:#fff}
+#why .cmpwrap .cmp-h p{color:var(--txt-d)}
+#why .cmpwrap .cmp2{box-shadow:0 30px 70px -30px rgba(0,0,0,.7);border-top:3px solid var(--blue)}
+
+/* ghost mark dans les heros service (.shero) : contenu au-dessus du calque */
+.shero>.wrap{position:relative;z-index:2}
+.shero .photo{z-index:0}
