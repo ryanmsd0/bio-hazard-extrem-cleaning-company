@@ -199,3 +199,52 @@
   .proc__l{position:static}
   .proc__num{font-size:76px}
 }
+
+/* ---- bento "What you get" (§4.4) — remplit la section la plus vide -------- */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(112px,auto);
+  gap:14px;margin-top:var(--sp-block)}
+.bx{background:var(--white);border:1px solid var(--line-l);border-radius:var(--r-card);padding:20px;
+  box-shadow:0 1px 2px rgba(15,42,74,.05);display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden}
+.bx--photo{grid-column:span 2;grid-row:span 2;padding:0;border-color:transparent}
+.bx--photo img,.bx--photo picture{width:100%;height:100%;display:block}
+.bx--photo img{object-fit:cover}
+.bx--stat{grid-column:span 2;background:var(--navy-band);border-color:transparent;color:#fff}
+.bx--wide{grid-column:span 2}
+.bx--dark{background:var(--navy-800);border-color:transparent;color:#fff}
+.bx__k{font:600 9px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#93A7BE}
+.big{font:800 clamp(40px,5vw,64px)/.86 'Plus Jakarta Sans',sans-serif;letter-spacing:-.045em;
+  font-variant-numeric:tabular-nums;background:linear-gradient(180deg,#7FC4F5,#1288CE);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.big small{font-size:.32em;font-weight:600;-webkit-text-fill-color:#93A7BE;letter-spacing:0}
+.bx__lab{font-size:12.5px;color:var(--txt-l);line-height:1.45}
+.bx--stat .bx__lab,.bx--dark .bx__lab{color:#A9BDD4}
+.bx__list{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.bx__list li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--txt-l);line-height:1.4}
+.bx__list li svg{width:16px;height:16px;color:var(--green-ink);flex:none;margin-top:1px}
+.bdg{font:600 9.5px/1 var(--mono);letter-spacing:.06em;padding:8px 10px;border-radius:6px;
+  background:rgba(87,185,74,.14);color:var(--green-lift);border:1px solid rgba(87,185,74,.3)}
+.bx__badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+@media(max-width:900px){
+  .bento{grid-template-columns:1fr 1fr}
+  .bx--photo{grid-column:span 2;grid-row:span 1;min-height:200px}
+  .bx--stat,.bx--wide{grid-column:span 2}
+}
+@media(max-width:560px){
+  .bento{grid-template-columns:1fr}
+  .bx--photo,.bx--stat,.bx--wide{grid-column:span 1}
+}
+
+/* ---- marquee certifications + engagements (§4.6) -------------------------- */
+.mq{background:var(--navy-deep);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);
+  padding:15px 0;overflow:hidden;position:relative;z-index:4}
+.mq::before,.mq::after{content:"";position:absolute;top:0;bottom:0;width:110px;z-index:2;pointer-events:none}
+.mq::before{left:0;background:linear-gradient(90deg,var(--navy-deep),transparent)}
+.mq::after{right:0;background:linear-gradient(270deg,var(--navy-deep),transparent)}
+.mq__t{display:flex;width:max-content;animation:mqslide 42s linear infinite}
+@media(hover:hover) and (pointer:fine){.mq:hover .mq__t{animation-play-state:paused}}
+.mq__i{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#7E95B0;
+  padding:0 26px;display:flex;align-items:center;gap:26px;white-space:nowrap}
+.mq__i::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--blue)}
+@keyframes mqslide{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mq__t{animation:none}}

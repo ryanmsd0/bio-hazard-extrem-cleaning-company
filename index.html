@@ -813,25 +813,54 @@
 </div></section>
 
 <!-- WHAT YOU GET -->
-<section class="bg-alt"><div class="wrap"><div class="two">
-  <div class="reveal r-left">
-    <span class="eyebrow">What you get</span>
-    <h2 style="font-size:clamp(26px,3.6vw,38px);font-weight:800;margin:10px 0 6px">Restoring Safe Spaces After Life’s Most Difficult Moments</h2>
-    <p style="font-size:16px;color:var(--ink2)">When something difficult happens, you shouldn’t have to handle it alone. Our certified crews arrive fast, work discreetly, and treat your home like our own family’s.</p>
-    <ul class="checklist">
-      <li><i data-lucide="check"></i> Rapid 24/7 response, day or night</li>
-      <li><i data-lucide="check"></i> We work directly with your insurance carrier whenever applicable</li>
-      <li><i data-lucide="check"></i> Discreet, unmarked vehicles available</li>
-      <li><i data-lucide="check"></i> Licensed, bonded &amp; fully insured crews</li>
-      <li><i data-lucide="check"></i> Compassionate, judgment-free service</li>
-    </ul>
-    <div style="margin-top:26px;display:inline-flex;align-items:center;gap:12px;padding:12px 18px;background:#fff;border:1px solid var(--hair);border-radius:var(--rs);box-shadow:var(--amb)">
-      <img decode="async" src="landing-page/IICRC-logo-grey.webp" alt="IICRC Certified" style="height:32px;width:auto;display:block">
-      <span style="font-family:'Plus Jakarta Sans';font-size:12.5px;font-weight:700;color:var(--ink2)">Certified firm — every technician trained to IICRC standards</span>
+<section class="band band--light" id="whatyouget">
+  <span class="ghost ghost--l ghost--br" data-par=".13" aria-hidden="true">CERTIFIED</span>
+  <div class="wrap">
+    <div class="reveal" style="max-width:64ch">
+      <span class="kicker kicker--l">What you get</span>
+      <h2 style="margin:14px 0 10px">Restoring Safe Spaces After Life’s Most Difficult Moments</h2>
+      <p style="color:var(--txt-l);max-width:60ch">When something difficult happens, you shouldn’t have to handle it alone. Our certified crews arrive fast, work discreetly, and treat your home like our own family’s.</p>
+    </div>
+    <div class="bento reveal">
+      <div class="bx bx--photo"><picture><source type="image/avif" srcset="img/cat-biohazard-640.avif 640w, img/cat-biohazard-1000.avif 1000w" sizes="(max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/cat-biohazard-640.webp 640w, img/cat-biohazard-1000.webp 1000w" sizes="(max-width:900px) 50vw, 560px"><img decode="async" src="img/cat-biohazard.jpg" alt="CleanCore Decon technician in PPE decontaminating a biohazard scene" loading="lazy"></picture></div>
+      <div class="bx bx--stat">
+        <div class="bx__k">Typical response</div>
+        <div><span class="big"><span class="cnt" data-to="90">90</span> <small>min</small></span></div>
+        <div class="bx__lab">Across LA County · call for ETA elsewhere</div>
+      </div>
+      <div class="bx">
+        <div class="bx__k">Availability</div>
+        <div class="big">24/7</div>
+        <div class="bx__lab">A real person answers</div>
+      </div>
+      <div class="bx">
+        <div class="bx__k">Services</div>
+        <div class="big"><span class="cnt" data-to="11">11</span></div>
+        <div class="bx__lab">Biohazard &amp; restoration</div>
+      </div>
+      <div class="bx bx--dark">
+        <div class="bx__k">Certifications</div>
+        <div class="bx__badges"><span class="bdg">IICRC</span><span class="bdg">OSHA</span><span class="bdg">EPA Lead-Safe</span><span class="bdg">CA TSW</span></div>
+      </div>
+      <div class="bx bx--wide">
+        <div class="bx__k">Every job includes</div>
+        <ul class="bx__list">
+          <li><i data-lucide="check"></i> We work directly with your insurance carrier whenever applicable</li>
+          <li><i data-lucide="check"></i> Discreet, unmarked vehicles available</li>
+          <li><i data-lucide="check"></i> Compassionate, judgment-free service</li>
+        </ul>
+      </div>
     </div>
   </div>
-  <picture><source type="image/avif" srcset="img/cat-biohazard-640.avif 640w, img/cat-biohazard-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/cat-biohazard-640.webp 640w, img/cat-biohazard-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="imgblock reveal r-right rd1" src="img/cat-biohazard.jpg" alt="CleanCore Decon technician in PPE decontaminating a biohazard scene" loading="lazy"></picture>
-</div></div></section>
+</section>
+<script>
+(function(){var els=document.querySelectorAll('#whatyouget .cnt');if(!els.length)return;
+var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
+  var el=e.target,to=+el.dataset.to,t0=null,D=1100;
+  function tick(t){if(!t0)t0=t;var p=Math.min((t-t0)/D,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);}
+  requestAnimationFrame(tick);cio.unobserve(el);});},{threshold:.6});
+els.forEach(function(el){cio.observe(el);});})();
+</script>
 
 <!-- WHY US + WHY CERTIFIED MATTERS -->
 <section id="why"><div class="wrap reveal">
@@ -973,6 +1002,11 @@
 
 
 <!-- AREAS — inline SVG California map -->
+<div class="mq" role="marquee" aria-label="Certifications and service commitments">
+  <div class="mq__t" id="mq"><span class="mq__i">IICRC Certified</span><span class="mq__i">OSHA Trained</span><span class="mq__i">EPA Lead-Safe</span><span class="mq__i">CA TSW Registered</span><span class="mq__i">24/7 Dispatch</span><span class="mq__i">Unmarked Vehicles</span><span class="mq__i">Insurance Billed Direct</span><span class="mq__i">Southern California</span></div>
+</div>
+<svg class="wave" style="background:#081A2E" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,50 C240,90 420,4 720,32 C1020,60 1200,86 1440,44 L1440,90 L0,90 Z" fill="#F4F7FB"/></svg>
+<script>(function(){var m=document.getElementById('mq');if(m)m.innerHTML+=m.innerHTML;})();</script>
 <section class="bg-alt" id="areas"><div class="wrap reveal">
   <div class="sec-h"><span class="eyebrow">Areas we serve</span><h2>Serving Southern California</h2><p>Dispatched 24/7 across Southern California. Tap a county on the map to see response times.</p></div>
   <div class="areawrap">
@@ -1223,5 +1257,6 @@
 (function(){var ds=[].slice.call(document.querySelectorAll(".rdrop")),tm=new Map();ds.forEach(function(d){d.addEventListener("mouseenter",function(){ds.forEach(function(o){if(o!==d){clearTimeout(tm.get(o));o.classList.remove("ropen");}});clearTimeout(tm.get(d));d.classList.add("ropen");});d.addEventListener("mouseleave",function(){tm.set(d,setTimeout(function(){d.classList.remove("ropen");},220));});});})();
 </script>
 <script>document.querySelectorAll(".ccyr").forEach(function(e){e.textContent=(new Date()).getFullYear();});</script>
+<script src="/assets/js/ghost.js" defer></script>
 </body>
 </html>
