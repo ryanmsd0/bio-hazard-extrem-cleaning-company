@@ -108,3 +108,23 @@
 @media (prefers-reduced-motion:reduce){
   .ghost,.gmark{transform:none!important}
 }
+
+/* ---- bande de données sous le hero (§4.1) --------------------------------
+   5 colonnes denses, fond le plus profond, ~64px. La donnée en mono verte.   */
+.strip{background:var(--navy-deep);border-top:1px solid var(--line-d);
+  border-bottom:1px solid var(--line-d);position:relative;z-index:4}
+.strip__in{display:grid;grid-template-columns:repeat(5,1fr);
+  max-width:var(--wrap-w);margin:0 auto}
+.strip__c{padding:18px 22px;border-right:1px solid var(--line-d)}
+.strip__c:last-child{border-right:0}
+.strip__k{font:600 9px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#6C819B}
+.strip__v{font:700 15px/1.25 'Plus Jakarta Sans',sans-serif;margin-top:7px;color:#fff}
+.strip__v b,.strip__v .hi{color:var(--green-lift);font-family:var(--mono);font-weight:700}
+.strip__v a{color:#fff;text-decoration:none}
+@media(hover:hover) and (pointer:fine){.strip__v a:hover{color:var(--green-lift)}}
+@media(max-width:900px){
+  .strip__in{grid-template-columns:1fr 1fr}
+  .strip__c{border-bottom:1px solid var(--line-d)}
+  .strip__c:nth-child(2n){border-right:0}
+  .strip__c:last-child{grid-column:span 2}
+}
