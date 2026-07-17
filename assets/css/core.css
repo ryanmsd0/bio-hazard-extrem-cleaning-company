@@ -128,3 +128,47 @@
   .strip__c:nth-child(2n){border-right:0}
   .strip__c:last-child{grid-column:span 2}
 }
+
+/* ---- BENTO services full-art (§4.2) --------------------------------------
+   Tout visible, la TAILLE encode la demande. grid-auto-flow:dense => changer
+   un data-size recompose la grille sans trou. overflow-x:clip obligatoire.   */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto);
+  gap:14px;grid-auto-flow:dense;overflow-x:clip;margin-top:var(--sp-block)}
+.svc__c{position:relative;border-radius:var(--r-card);overflow:hidden;display:block;
+  text-decoration:none;color:#fff;isolation:isolate;box-shadow:0 2px 6px rgba(15,42,74,.08);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.svc__c[data-size="lg"]{grid-column:span 2;grid-row:span 2}
+.svc__c[data-size="md"]{grid-column:span 2;grid-row:span 1}
+.svc__c[data-size="sm"]{grid-column:span 1;grid-row:span 1}
+.svc__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  transition:transform .6s var(--ease)}
+.svc__c::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(6,20,35,.94) 0%,rgba(6,20,35,.72) 34%,
+    rgba(6,20,35,.12) 72%,transparent 100%)}
+.svc__b{position:absolute;left:0;right:0;bottom:0;padding:18px;display:flex;
+  flex-direction:column;gap:6px}
+.svc__tag{font:600 8.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green-lift);margin-bottom:2px}
+.svc__t{font-weight:700;letter-spacing:-.02em;font-family:'Plus Jakarta Sans',sans-serif;color:#fff}
+.svc__c[data-size="lg"] .svc__t{font-size:24px}
+.svc__c[data-size="md"] .svc__t{font-size:17px}
+.svc__c[data-size="sm"] .svc__t{font-size:14.5px}
+.svc__d{font-size:13px;line-height:1.5;color:#C6D6E8;max-width:38ch}
+.svc__c[data-size="md"] .svc__d,.svc__c[data-size="sm"] .svc__d{display:none}
+@media(hover:hover) and (pointer:fine){
+  .svc__c:hover{transform:translateY(-6px);box-shadow:0 26px 50px -18px rgba(6,20,35,.6)}
+  .svc__c:hover .svc__img{transform:scale(1.06)}
+}
+.svc__c:active{transform:scale(.985)}
+.svc__c:focus-visible{outline:2px solid var(--blue-lift);outline-offset:3px}
+@media(max-width:900px){
+  .svc{grid-template-columns:repeat(2,1fr)}
+  .svc__c[data-size="lg"]{grid-column:span 2;grid-row:span 1;min-height:210px}
+  .svc__c[data-size="md"]{grid-column:span 2}
+  .svc__c[data-size="sm"]{grid-column:span 1}
+}
+@media(max-width:560px){
+  .svc{grid-template-columns:1fr}
+  .svc__c[data-size]{grid-column:span 1;grid-row:span 1;min-height:180px}
+  .svc__c[data-size="sm"] .svc__t{font-size:16px}
+}
