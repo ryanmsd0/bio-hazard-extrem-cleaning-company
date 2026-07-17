@@ -929,35 +929,45 @@
 </div></section>
 
 <!-- PROCESS -->
-<section class="bg-alt" id="process"><div class="wrap">
-  <div class="proc-intro reveal">
-    <span class="proc-eyebrow"><span class="pe-num">STEP 01–04</span><span class="pe-sep">·</span><span>How it works</span></span>
-    <h2>A proven process, <span class="grad">from the first call</span> to the final check.</h2>
-    <p>Four clear steps, validated with you at every stage. You always know exactly what happens next — no surprises, no waiting in the dark.</p>
-    <div class="proc-cta">
-      <a class="btn bp" href="tel:+15625686032">Call now <span class="c"><i data-lucide="phone-call"></i></span></a>
-      <a class="btn bo" href="#contact">Get a free estimate</a>
+<section class="band--dark proc-sec" id="process">
+  <div class="glines" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="reveal" style="max-width:64ch">
+      <span class="kicker">Step 01–04 · How it works</span>
+      <h2 style="margin:14px 0 12px">A proven process, from the first call to the final check.</h2>
+      <p>Four clear steps, validated with you at every stage. You always know exactly what happens next — no surprises, no waiting in the dark.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+        <a class="btn bp" href="tel:+15625686032">Call now <span class="c"><i data-lucide="phone-call"></i></span></a>
+        <a class="btn bo-light" href="#contact">Get a free estimate</a>
+      </div>
+    </div>
+    <div class="proc">
+      <div class="proc__l">
+        <div class="proc__num" id="pnum">01</div>
+        <div class="proc__label" id="plab">Right now · 24/7</div>
+      </div>
+      <div class="proc__steps">
+        <div class="step on" data-n="01" data-l="Right now · 24/7"><div class="step__n">01 · Right now · 24/7</div><div class="step__t">Call us</div><div class="step__d">A real person from our family answers, day or night, and dispatches a certified crew immediately. No call centers, no hold music.</div><span class="step__chip">Answered in seconds</span></div>
+        <div class="step" data-n="02" data-l="Fast · 24/7"><div class="step__n">02 · Fast · 24/7</div><div class="step__t">Free on-site assessment</div><div class="step__d">We evaluate the situation on the ground and hand you a clear, written plan and quote. No obligation, no pressure.</div><span class="step__chip">$0 · no obligation</span></div>
+        <div class="step" data-n="03" data-l="Same day"><div class="step__n">03 · Same day</div><div class="step__t">Containment &amp; decontamination</div><div class="step__d">We secure and isolate the area, then perform certified biohazard removal, hospital-grade disinfection and full odor neutralization.</div><span class="step__chip">IICRC-certified process</span></div>
+        <div class="step" data-n="04" data-l="Before we leave"><div class="step__n">04 · Before we leave</div><div class="step__t">Restored &amp; verified</div><div class="step__d">Final verification, then we handle the insurance paperwork for you. Your space is safe, clean and documented.</div><span class="step__chip">Insurance handled</span></div>
+      </div>
     </div>
   </div>
-  <div class="proc-steps" id="ptl">
-    <div class="pstep">
-      <div class="pnum-col"><span class="pnum">01</span><span class="prail"><span class="pfill"></span></span></div>
-      <div class="pbody"><span class="ptag"><span class="pdot"></span>Right now · 24/7</span><h3>Call us</h3><p>A real person from our family answers, day or night, and dispatches a certified crew immediately. No call centers, no hold music.</p><span class="pchip">Answered in seconds</span></div>
-    </div>
-    <div class="pstep">
-      <div class="pnum-col"><span class="pnum">02</span><span class="prail"><span class="pfill"></span></span></div>
-      <div class="pbody"><span class="ptag"><span class="pdot"></span>Fast &middot; 24/7</span><h3>Free on-site assessment</h3><p>We evaluate the situation on the ground and hand you a clear, written plan and quote. No obligation, no pressure.</p><span class="pchip">$0 · no obligation</span></div>
-    </div>
-    <div class="pstep">
-      <div class="pnum-col"><span class="pnum">03</span><span class="prail"><span class="pfill"></span></span></div>
-      <div class="pbody"><span class="ptag"><span class="pdot"></span>Same day</span><h3>Containment &amp; decontamination</h3><p>We secure and isolate the area, then perform certified biohazard removal, hospital-grade disinfection and full odor neutralization.</p><span class="pchip">IICRC-certified process</span></div>
-    </div>
-    <div class="pstep">
-      <div class="pnum-col"><span class="pnum">04</span><span class="prail"><span class="pfill"></span></span></div>
-      <div class="pbody"><span class="ptag"><span class="pdot"></span>Before we leave</span><h3>Restored &amp; verified</h3><p>Final verification, then we handle the insurance paperwork for you. Your space is safe, clean and documented.</p><span class="pchip">Insurance handled</span></div>
-    </div>
-  </div>
-</div></section>
+</section>
+<script>
+(function(){
+  var num=document.getElementById('pnum'),lab=document.getElementById('plab');
+  var steps=document.querySelectorAll('#process .step');
+  if(!num||!steps.length)return;
+  var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
+    for(var i=0;i<steps.length;i++)steps[i].classList.remove('on');
+    e.target.classList.add('on');
+    num.textContent=e.target.dataset.n; lab.textContent=e.target.dataset.l;});
+  },{threshold:.6,rootMargin:'-20% 0px -30% 0px'});
+  for(var i=0;i<steps.length;i++)sio.observe(steps[i]);
+})();
+</script>
 
 <!-- PROMISE + INSURANCE -->
 
