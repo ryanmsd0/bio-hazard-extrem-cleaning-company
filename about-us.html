@@ -220,6 +220,10 @@
   .hero .d4{animation-delay:.36s}.hero .d5{animation-delay:.46s}.hero .d6{animation-delay:.56s}
   @keyframes heroUp{to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:reduce){.hero .anim{animation:none;opacity:1;transform:none}.hero .photo{animation:none;transform:none}}
+  /* entrée au chargement du hero */
+  .au-hero .anim{opacity:0;transform:translateY(22px);animation:heroUp .9s var(--ease) forwards}
+  .au-hero .d1{animation-delay:.08s}.au-hero .d2{animation-delay:.16s}.au-hero .d3{animation-delay:.26s}.au-hero .d4{animation-delay:.36s}.au-hero .d5{animation-delay:.46s}
+  @media(prefers-reduced-motion:reduce){.au-hero .anim{animation:none;opacity:1;transform:none}}
   /* mobile: content is taller than the viewport — start below the fixed nav and let the section grow */
   @media(max-width:640px){
     .hero{align-items:flex-start;min-height:0}
@@ -497,16 +501,31 @@
   .form .upload{border:1.5px dashed #c3d3e6;border-radius:var(--r);padding:15px;text-align:center;color:var(--ink2);font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-top:5px}
   .form .upload svg{width:18px;height:18px;color:var(--blue)}
 
-  /* footer */
-  footer{background:var(--navy);color:#aebfd4;padding:56px 0 30px}
-  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
-  @media(max-width:800px){footer .cols{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){footer .cols{grid-template-columns:1fr}}
-  footer img{height:58px;margin-bottom:12px}
-  footer b{color:#fff;font-family:'Plus Jakarta Sans';display:block;margin-bottom:10px;font-size:14px}
-  footer a{color:#aebfd4;text-decoration:none;display:block;padding:4px 0;font-size:14px}
-  @media (hover:hover) and (pointer:fine){footer a:hover{color:#fff}}
-  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  /* footer — brand + link columns + oversized ghost wordmark */
+  footer{position:relative;overflow:clip;background:#06131f;color:#9fb2c9;padding:76px 0 0;min-height:600px;display:flex;flex-direction:column}
+  footer .fcols{position:relative;z-index:2;display:flex;align-items:flex-start;gap:40px}
+  footer .fbrand{flex:0 0 230px;max-width:230px}
+  footer .flinks{flex:1;display:flex;justify-content:center;gap:clamp(34px,5vw,78px)}
+  footer .flinks .fcol{flex:none}
+  @media(max-width:900px){
+    footer .fcols{flex-wrap:wrap;gap:34px}
+    footer .fbrand{flex:1 1 100%;max-width:none}
+    footer .flinks{flex:1 1 100%;justify-content:flex-start;flex-wrap:wrap;gap:34px 26px}
+    footer .flinks .fcol{flex:1 1 40%}
+  }
+  footer .flogo{display:flex;align-items:center;gap:13px}
+  footer .flogo-img{height:52px;width:auto;display:block}
+  footer .flogo-ic{width:46px;height:46px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+  footer .flogo-ic img{height:30px;width:auto;margin:0;display:block}
+  footer .flogo-tx{font-family:'Plus Jakarta Sans';font-weight:800;font-size:21px;color:#fff;letter-spacing:-.01em;white-space:nowrap}
+  footer .fcopy{margin:20px 0 0;font-size:14px;line-height:1.65;color:#6b7e96;max-width:34ch}
+  footer .fcol b{color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;display:block;margin-bottom:15px;font-size:16px}
+  footer .fcol a,footer .fcol span{color:#9fb2c9;text-decoration:none;display:block;padding:7px 0;font-size:15px;line-height:1.3}
+  footer .fcol a.femph{color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:16px}
+  @media (hover:hover) and (pointer:fine){footer .fcol a:hover{color:#fff}}
+  footer .fwm{left:0;right:0;bottom:34px;display:block;text-align:center;font-size:min(15vw,300px);white-space:nowrap;line-height:.9;
+    background:linear-gradient(180deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,.04) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
   /* floating 24/7 call card (fixed, always visible) */
   .callcard{position:fixed;right:20px;bottom:20px;z-index:var(--z-cta);display:flex;align-items:center;gap:14px;
@@ -528,14 +547,14 @@
   @media(prefers-reduced-motion:reduce){.callcard .ph::after,.callcard .lbl .dotpulse{animation:none}}
 
   /* reveal — directional scroll-in animations */
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease);transition-delay:var(--rd,0s)}
-  .reveal.r-up{transform:translateY(-30px)}      /* comes down from the top */
-  .reveal.r-left{transform:translateX(-46px)}     /* comes in from the left */
-  .reveal.r-right{transform:translateX(46px)}     /* comes in from the right */
-  .reveal.r-zoom{transform:scale(.94)}            /* eases up in scale */
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .72s var(--ease),transform .72s var(--ease);transition-delay:var(--rd,.05s)}
+  .reveal.r-up{transform:translateY(-50px)}       /* comes down from the top */
+  .reveal.r-left{transform:translateX(-68px)}     /* comes in from the left */
+  .reveal.r-right{transform:translateX(68px)}     /* comes in from the right */
+  .reveal.r-zoom{transform:scale(.9)}             /* eases up in scale */
   .reveal.in{opacity:1;transform:none}
   /* stagger helpers */
-  .rd1{--rd:.08s}.rd2{--rd:.16s}.rd3{--rd:.24s}.rd4{--rd:.32s}.rd5{--rd:.4s}
+  .rd1{--rd:.12s}.rd2{--rd:.22s}.rd3{--rd:.32s}.rd4{--rd:.42s}.rd5{--rd:.52s}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{transition:none!important}}
 
   /* sub-page hero — compact dark band the fixed navbar sits on */
@@ -664,25 +683,33 @@
   /* 1) hero */
   .au-hero{position:relative;overflow:hidden;color:#fff;background:#0A2540;min-height:100dvh;display:flex;align-items:center;padding:150px 0 84px}
   .au-hero-bg{position:absolute;inset:0;z-index:0;background:#0A2540 center/cover no-repeat;
-    background-image:url('img/about-hero.jpg');background-image:image-set(url('img/about-hero-1600.avif') type("image/avif"),url('img/about-hero-1600.webp') type("image/webp"),url('img/about-hero.jpg') type("image/jpeg"));
-    background-image:-webkit-image-set(url('img/about-hero.webp') type('image/webp'),url('img/about-hero.jpg') type('image/jpeg'));
-    background-image:image-set(url('img/about-hero.webp') type('image/webp'),url('img/about-hero.jpg') type('image/jpeg'))}
+    background-image:url('img/founder-story.jpg');background-image:image-set(url('img/founder-story-1000.avif') type("image/avif"),url('img/founder-story-1000.webp') type("image/webp"),url('img/founder-story.jpg') type("image/jpeg"));
+    background-image:-webkit-image-set(url('img/founder-story.webp') type('image/webp'),url('img/founder-story.jpg') type('image/jpeg'));
+    background-image:image-set(url('img/founder-story.webp') type('image/webp'),url('img/founder-story.jpg') type('image/jpeg'))}
   .au-hero-bg::after{content:"";position:absolute;inset:0;background:
     linear-gradient(90deg,rgba(6,16,28,.92) 0%,rgba(8,20,36,.72) 32%,rgba(8,20,36,.32) 60%,rgba(8,20,36,.1) 100%),
     linear-gradient(180deg,rgba(6,16,28,.45) 0%,transparent 26%,transparent 68%,rgba(6,16,28,.55) 100%)}
   .au-hero .wrap{position:relative;z-index:1;width:100%}
   .au-hero-copy{max-width:600px}
   .au-hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(38px,5vw,60px);line-height:1.05;letter-spacing:-.02em;color:#fff;margin:14px 0 0}
+  .au-hl{color:#8fd0ff}
+  .au-hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
   .au-hero p{margin-top:18px;color:#cdddee;font-size:17px;line-height:1.65;max-width:42ch}
   @media(max-width:900px){.au-hero{padding:120px 0 60px}}
   @media(max-width:720px){.au-hero{padding:110px 0 48px}.au-hero-bg::after{background:linear-gradient(180deg,rgba(6,16,28,.82) 0%,rgba(6,16,28,.66) 55%,rgba(6,16,28,.8) 100%)}}
 
   /* 2) founder story */
-  .au-founder-grid{display:grid;grid-template-columns:.6fr .9fr;gap:48px;align-items:center}
-  .au-founder-photo{width:100%;height:320px;object-fit:cover;border-radius:14px;box-shadow:var(--amb-lg)}
-  .au-founder-body p{color:var(--ink);font-size:16px;line-height:1.7;margin-top:16px}
-  .au-founder-body .au-eyebrow{margin-bottom:2px}
-  @media(max-width:820px){.au-founder-grid{grid-template-columns:1fr;gap:28px}}
+  /* Why we do this — copy left, LA photo right */
+  .au-story-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,64px);align-items:center}
+  .au-story-body .au-eyebrow{margin-bottom:6px}
+  .au-story-body .au-story-q{font-size:clamp(34px,6vw,60px);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--blue-ink);margin:0 0 20px}
+  .au-story-body p{color:var(--ink);font-size:16px;line-height:1.7}
+  .au-story-photo{position:relative;border-radius:16px;overflow:hidden;min-height:440px;box-shadow:var(--amb-lg);background:linear-gradient(160deg,#0A2540,#071a30)}
+  .au-story-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .au-story-photo .au-story-lbl{position:absolute;left:20px;bottom:18px;z-index:2;font:600 11px/1 var(--mono,ui-monospace);letter-spacing:.14em;text-transform:uppercase;color:#cdddee;text-shadow:0 1px 8px rgba(6,16,28,.7)}
+  /* placeholder look until img/la-skyline.jpg is added */
+  .au-story-photo.is-empty::after{content:"";position:absolute;inset:0;background:url('img/ca-map.svg') center/58% no-repeat;filter:brightness(0) invert(1);opacity:.07}
+  @media(max-width:820px){.au-story-grid{grid-template-columns:1fr;gap:28px}.au-story-photo{min-height:300px}}
 
   /* 3) timeline */
   .au-tl{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
@@ -713,7 +740,7 @@
   @media(max-width:560px){.au-values{grid-template-columns:1fr}}
 
   /* 6) team */
-  .au-team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .au-team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto}
   .au-mcard{text-align:center}
   .au-mphoto{aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#0A2540;border:1px solid var(--hair)}
   .au-mphoto img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
@@ -722,6 +749,69 @@
   .au-mcap .r{color:var(--ink2);font-size:13px;margin-top:2px}
   @media(max-width:820px){.au-team{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.au-team{grid-template-columns:1fr}}
+  /* about hero — certifications trust row (same as Why Choose Us) */
+  .wc-trust{display:flex;flex-wrap:nowrap;justify-content:space-between;gap:20px;width:100%;margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+  .wc-trust-item{display:flex;align-items:center;gap:12px}
+  .wc-logo-w{width:auto;display:block;filter:brightness(0) invert(1);opacity:.9}
+  .wc-logo-epa{opacity:.95}
+  .wc-trust-ic{width:32px;height:32px;color:#fff;opacity:.95}
+  .wc-trust-lbl{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;color:#dfeaf4;line-height:1.15}
+  @media(max-width:820px){.wc-trust{flex-wrap:wrap;justify-content:flex-start;gap:20px 34px}}
+  /* about — services cards + CTA (dark band) */
+  .au-svc-sec{position:relative;background:var(--navy-band,#0A2540);color:var(--txt-d,#AFC0D4);overflow:clip}
+  .au-svc-sec .wrap{position:relative;z-index:1;max-width:1440px}
+  /* LA street map in the background, for depth */
+  .au-svc-map{position:absolute;inset:0;z-index:0;pointer-events:none;user-select:none;overflow:hidden}
+  .au-svc-map img{width:100%;height:100%;object-fit:cover;opacity:.6}
+  .au-svc-sec::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(125% 95% at 50% 42%,transparent 38%,rgba(10,37,64,.6) 100%)}
+  .au-svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .au-svc{position:relative;display:block;aspect-ratio:1/1;border-radius:16px;overflow:hidden;text-decoration:none;isolation:isolate;box-shadow:0 16px 36px -18px rgba(0,0,0,.6);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .au-svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .55s var(--ease)}
+  .au-svc::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(6,16,28,.94) 0%,rgba(6,16,28,.62) 32%,rgba(6,16,28,.12) 62%,transparent 100%)}
+  .au-svc-b{position:absolute;left:0;right:0;bottom:0;padding:20px 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+  .au-svc-tx{display:flex;flex-direction:column;gap:6px;min-width:0}
+  .au-svc-t{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;line-height:1.15}
+  .au-svc-d{color:rgba(255,255,255,.82);font-size:13px;line-height:1.45;max-width:32ch}
+  .au-svc-ar{width:20px;height:20px;color:#fff;opacity:.85;flex:none;transition:transform .3s var(--ease)}
+  @media(hover:hover) and (pointer:fine){.au-svc:hover{transform:translateY(-5px);box-shadow:0 26px 50px -20px rgba(0,0,0,.7)}.au-svc:hover img{transform:scale(1.07)}.au-svc:hover .au-svc-ar{transform:translate(2px,-2px)}}
+  /* les cartes ont leur propre transition (hover) : on force le timing lent du reveal, mais le hover reste vif */
+  .au-svc.reveal{transition:transform .72s var(--ease),opacity .72s var(--ease),box-shadow .3s var(--ease);transition-delay:var(--rd,.05s)}
+  @media(hover:hover) and (pointer:fine){.au-svc.reveal:hover{transition:transform .3s var(--ease),box-shadow .3s var(--ease)}}
+  .au-svc-cta{position:relative;z-index:1;text-align:center;margin-top:var(--sp-block)}
+  @media(max-width:820px){.au-svc-grid{grid-template-columns:1fr 1fr}.au-svc-map{height:auto;width:140%;right:-20%}}
+  @media(max-width:480px){.au-svc-grid{grid-template-columns:1fr}}
+  /* crew — sticky, scroll-driven card stack (left) + synced bio (right) */
+  .crew-scroll{position:relative;height:300vh;background:var(--bg-alt)}
+  .crew-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+  .crew-layout{display:grid;grid-template-columns:510px 1fr;gap:clamp(56px,7vw,120px);align-items:center;width:100%}
+  .image-swiper{position:relative;width:480px;height:645px;justify-self:start;transform-style:preserve-3d}
+  .image-card{position:absolute;left:24px;top:35px;width:432px;height:576px;border:1px solid rgba(255,255,255,.55);border-radius:22px;background:#0A2540;
+    box-shadow:0 30px 64px -22px rgba(10,37,64,.62);overflow:hidden;will-change:transform;backface-visibility:hidden;
+    transition:transform .6s var(--ease),opacity .6s var(--ease)}
+  .image-card img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;user-select:none;pointer-events:none}
+  .crew-desc{max-width:640px}
+  .crew-desc .crew-name,.crew-desc .crew-role,.crew-desc .crew-quote{transition:opacity .25s var(--ease)}
+  .crew-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(42px,5.1vw,63px);font-weight:800;letter-spacing:-.02em;color:var(--navy);margin:18px 0 9px;line-height:1.04}
+  .crew-role{font:600 18px/1 var(--mono,ui-monospace);letter-spacing:.14em;text-transform:uppercase;color:var(--blue-ink)}
+  .crew-quote{margin:36px 0 0;font-size:clamp(27px,3.3vw,34px);line-height:1.5;color:var(--ink);border-left:4px solid var(--blue);padding-left:30px;font-style:italic}
+  .crew-quote:empty{display:none}
+  .crew-dots{display:flex;gap:12px;margin-top:44px}
+  .crew-dots i{width:12px;height:12px;border-radius:50%;background:var(--hair);transition:width .3s var(--ease),background .3s}
+  .crew-dots i.on{background:var(--blue);width:36px;border-radius:6px}
+  .crew-hint{display:inline-flex;align-items:center;gap:10px;margin-top:32px;font-size:18px;color:var(--muted,#8aa0b8);font-weight:600}
+  .crew-hint svg{width:22px;height:22px}
+  @media(max-width:820px){
+    .crew-scroll{height:auto}
+    .crew-sticky{position:static;height:auto;padding:44px 0}
+    .crew-layout{grid-template-columns:1fr;gap:34px;justify-items:center;text-align:center}
+    .image-swiper{justify-self:center}
+    .crew-desc{max-width:none}
+    .crew-quote{text-align:left}
+    .crew-dots{justify-content:center}
+    .crew-sticky{cursor:pointer}
+  }
+  @media(prefers-reduced-motion:reduce){.image-card{transition:opacity .2s}}
 
   /* 7) certifications */
   .au-certs{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:48px}
@@ -732,9 +822,13 @@
   .au-cert-label{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--navy);font-size:14px;line-height:1.25}
 
   /* 8) final cta band */
-  .au-cta-band{position:relative;overflow:hidden;border-radius:20px;padding:44px 40px;text-align:center;background:linear-gradient(135deg,#0A2540,#0C6AAB)}
-  .au-cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 82% at 88% 100%,rgba(87,185,74,.28),transparent 60%);pointer-events:none}
-  .au-cta-band h2{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;text-transform:uppercase;color:#fff;font-size:clamp(26px,3.5vw,38px);line-height:1.1}
+  .au-cta-band{position:relative;overflow:hidden;border-radius:20px;padding:44px 40px;text-align:center;background:#0A2540}
+  .au-cta-bg{position:absolute;inset:0;z-index:0;pointer-events:none;user-select:none}
+  .au-cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center 68%;display:block}
+  .au-cta-band::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(135deg,rgba(10,37,64,.93) 0%,rgba(11,52,108,.82) 46%,rgba(12,106,171,.6) 100%),radial-gradient(55% 82% at 88% 100%,rgba(87,185,74,.22),transparent 60%)}
+  .au-cta-band h2,.au-cta-band .au-cta-sub,.au-cta-band .au-cta-actions{position:relative;z-index:2}
+  .au-cta-band h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.02em;color:#fff;font-size:clamp(26px,3.5vw,38px);line-height:1.1}
   .au-cta-sub{position:relative;color:#cddcec;font-size:17px;margin-top:14px}
   .au-cta-actions{position:relative;display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin-top:26px}
   @media(max-width:560px){.au-mission-band,.au-cta-band{padding:38px 24px}}
@@ -816,104 +910,125 @@
 <!-- 1) HERO -->
 <section class="au-hero">
   <div class="au-hero-bg"></div>
-  <svg class="gmark gmark--d" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-par=".12" style="right:-9%;bottom:-14%"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /></svg>
   <div class="wrap">
     <div class="au-hero-copy">
-      <span class="au-eyebrow">Our Story</span>
-      <h1>Built on Compassion.<br>Driven by Purpose.</h1>
-      <p>CleanCore was founded in Los Angeles with a simple mission: to help people during their darkest moments with dignity, respect, and expert care.</p>
+      <span class="au-eyebrow anim d1">Our Story</span>
+      <h1 class="anim d2">Built on Compassion.<br><span class="au-hl">Driven by Purpose.</span></h1>
+      <p class="anim d3">CleanCore was founded in Los Angeles with a simple mission: to help people during their darkest moments with dignity, respect, and expert care.</p>
+      <div class="au-hero-cta anim d4">
+        <a class="btn au-bg" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
+        <a class="btn bo-light" href="contact.html">Get a free estimate</a>
+      </div>
+    </div>
+    <div class="wc-trust anim d5">
+      <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="img/IICRC-logo-grey.webp" alt="IICRC Certified Firm" style="height:36px"><span class="wc-trust-lbl">IICRC<br>Certified</span></div>
+      <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="img/OSHA-logo-grey.png" alt="OSHA Trained" style="height:34px"><span class="wc-trust-lbl">OSHA<br>Trained</span></div>
+      <div class="wc-trust-item"><img decode="async" class="wc-logo-epa" src="img/EPA-logo-white.svg" alt="EPA Lead-Safe" style="height:22px"><span class="wc-trust-lbl">EPA<br>Lead-Safe</span></div>
+      <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="img/ca-map.svg" alt="California Trauma Scene Waste" style="height:34px"><span class="wc-trust-lbl">CA Trauma Scene<br>Practitioner</span></div>
+      <div class="wc-trust-item"><i data-lucide="shield-check" class="wc-trust-ic"></i><span class="wc-trust-lbl">Licensed<br>&amp; Insured</span></div>
     </div>
   </div>
 </section>
 
-<!-- 2) OUR FOUNDER'S STORY -->
+
+<!-- 2) WHY WE DO THIS — copy left, LA photo right -->
 <section>
   <div class="wrap">
-    <div class="au-founder-grid">
-      <picture>
-        <source srcset="img/founder-story.webp" type="image/webp">
-        <img decode="async" class="au-founder-photo" src="img/founder-story.jpg" alt="CleanCore Decon technician at the branded service van in Los Angeles" loading="lazy">
-      </picture>
-      <div class="au-founder-body">
-        <span class="au-eyebrow">Our Founder's Story</span>
-        <p>After witnessing how families struggled to find truly compassionate and professional cleanup services, our founder, <strong>Alex</strong>, set out to build a company that combines industry-leading standards with genuine human care.</p>
-        <p>Today, CleanCore is trusted across Los Angeles for our fast response, discreet service, and unwavering commitment to doing what&rsquo;s right.</p>
+    <div class="au-story-grid">
+      <div class="au-story-body reveal r-left">
+        <span class="au-eyebrow">Why we do this</span>
+        <h2 style="font-size:clamp(24px,3.2vw,36px);font-weight:800;letter-spacing:-.02em;margin:10px 0 16px;color:var(--navy)">Ask our founder Alex why, and the answer is one word.</h2>
+        <p class="au-story-q">&ldquo;Family.&rdquo;</p>
+        <p>That&rsquo;s where this started &mdash; and it&rsquo;s still the whole point. CleanCore Decon is a small, certified crew in Los Angeles, and we treat every home the way we&rsquo;d want our own family&rsquo;s treated.</p>
+        <!-- PLACEHOLDER (A8) : "Family" est le mot exact d'Alex. Étoffer ici quand il précisera son histoire. Ne rien inventer. -->
+      </div>
+      <div class="au-story-photo is-empty reveal r-right">
+        <picture>
+          <source srcset="img/la-skyline.avif" type="image/avif">
+          <source srcset="img/la-skyline.webp" type="image/webp">
+          <img src="img/la-skyline.jpg" alt="Downtown Los Angeles skyline at golden hour" loading="lazy" decoding="async"
+               onload="this.closest('.au-story-photo').classList.remove('is-empty')"
+               onerror="this.style.display='none'">
+        </picture>
+        <span class="au-story-lbl">Los Angeles · California</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3) TIMELINE -->
-<!-- PLACEHOLDER: replace with real data -->
-<section>
-  <div class="wrap">
-    <div class="au-tl">
-      <div class="au-tl-step"><div class="au-tl-node"><i data-lucide="flag"></i></div><div class="au-tl-year">2009</div><div class="au-tl-title">The Beginning</div><div class="au-tl-desc">Alex starts CleanCore with a mission to help.</div></div>
-      <div class="au-tl-step"><div class="au-tl-node"><i data-lucide="award"></i></div><div class="au-tl-year">2012</div><div class="au-tl-title">IICRC Certified</div><div class="au-tl-desc">Official certification and team expansion.</div></div>
-      <div class="au-tl-step"><div class="au-tl-node"><i data-lucide="sprout"></i></div><div class="au-tl-year">2016</div><div class="au-tl-title">Growing Trust</div><div class="au-tl-desc">Thousands of families served in Los Angeles.</div></div>
-      <div class="au-tl-step"><div class="au-tl-node"><i data-lucide="clock"></i></div><div class="au-tl-year">2020</div><div class="au-tl-title">24/7 Operations</div><div class="au-tl-desc">Round-the-clock response team launched.</div></div>
-      <div class="au-tl-step"><div class="au-tl-node"><i data-lucide="trending-up"></i></div><div class="au-tl-year">Today</div><div class="au-tl-title">Stronger Than Ever</div><div class="au-tl-desc">More equipment, more team, same mission.</div></div>
+<!-- 3) TIMELINE — SUPPRIMÉE : dates (2009→2020) & "milliers servis" fabriqués.
+     L'entité légale est en cours de création, licences en attente (A10), équipe ~3 pers.
+     Une frise honnête ne pourra être ajoutée qu'avec de vraies dates données par Alex. -->
+
+<!-- 4) THE CREW — sticky, scroll-driven card stack + synced bio.
+     PLACEHOLDER : noms + citations à fournir par Alex (jamais inventer — règle A8). Postes = placeholders. -->
+<section class="crew-scroll" id="crewScroll">
+  <div class="crew-sticky">
+    <div class="wrap crew-layout">
+      <div class="image-swiper" id="crewSwiper" aria-hidden="true">
+        <article class="image-card"><picture><source srcset="img/team-1.webp" type="image/webp"><img src="img/team-1.jpg" alt="CleanCore Decon crew member in Los Angeles"></picture></article>
+        <article class="image-card"><picture><source srcset="img/team-2.webp" type="image/webp"><img src="img/team-2.jpg" alt="CleanCore Decon crew member in Los Angeles"></picture></article>
+        <article class="image-card"><picture><source srcset="img/team-3.webp" type="image/webp"><img src="img/team-3.jpg" alt="CleanCore Decon crew member in Los Angeles"></picture></article>
+      </div>
+      <div class="crew-desc">
+        <span class="au-eyebrow">The crew</span>
+        <h2 class="crew-name" id="crewName">A small, certified team</h2>
+        <div class="crew-role" id="crewRole">CleanCore Decon</div>
+        <blockquote class="crew-quote" id="crewQuote"></blockquote>
+        <div class="crew-dots" id="crewDots" aria-hidden="true"></div>
+        <div class="crew-hint"><i data-lucide="chevrons-down"></i> Scroll to meet the team</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 4) OUR MISSION -->
-<section>
+
+<!-- 6) OUR SERVICES — 4 cards + CTA to all services -->
+<section class="au-svc-sec" style="padding:var(--sp-section) 0">
+  <picture class="au-svc-map" aria-hidden="true">
+    <source srcset="img/mapprocess.avif" type="image/avif">
+    <source srcset="img/mapprocess.webp" type="image/webp">
+    <img src="img/mapprocess.png" alt="" loading="lazy" decoding="async">
+  </picture>
   <div class="wrap">
-    <div class="au-mission-band">
-      <span class="au-eyebrow">Our Mission</span>
-      <p>We restore safety, dignity, and peace of mind through expert cleanup and compassionate care.</p>
+    <div class="au-sec-head reveal r-up" style="text-align:center;max-width:640px;margin:0 auto var(--sp-block)">
+      <span class="au-eyebrow" style="color:var(--blue-lift)">Our services</span>
+      <h2 style="color:#fff">Specialized biohazard &amp; trauma cleanup</h2>
+    </div>
+    <div class="au-svc-grid">
+      <a class="au-svc reveal r-left rd1" href="landing-page/biohazard-cleanup.html">
+        <picture><source srcset="img/biohazard-before-640.avif" type="image/avif"><source srcset="img/biohazard-before-640.webp" type="image/webp"><img src="img/biohazard-before.jpg" alt="" loading="lazy" decoding="async"></picture>
+        <span class="au-svc-b"><span class="au-svc-tx"><span class="au-svc-t">Biohazard Cleanup</span><span class="au-svc-d">Safe removal &amp; decontamination of biohazardous materials.</span></span><i data-lucide="arrow-up-right" class="au-svc-ar"></i></span>
+      </a>
+      <a class="au-svc reveal r-right rd1" href="landing-page/crime-scene-cleanup.html">
+        <picture><source srcset="img/crime-scene-before-640.avif" type="image/avif"><source srcset="img/crime-scene-before-640.webp" type="image/webp"><img src="img/crime-scene-before.jpg" alt="" loading="lazy" decoding="async"></picture>
+        <span class="au-svc-b"><span class="au-svc-tx"><span class="au-svc-t">Crime Scene Cleanup</span><span class="au-svc-d">Discreet, compassionate restoration after a tragedy.</span></span><i data-lucide="arrow-up-right" class="au-svc-ar"></i></span>
+      </a>
+      <a class="au-svc reveal r-left rd2" href="landing-page/unattended-death-cleanup.html">
+        <picture><source srcset="img/unattended-death-before-640.avif" type="image/avif"><source srcset="img/unattended-death-before-640.webp" type="image/webp"><img src="img/unattended-death-before.jpg" alt="" loading="lazy" decoding="async"></picture>
+        <span class="au-svc-b"><span class="au-svc-tx"><span class="au-svc-t">Unattended Death Cleanup</span><span class="au-svc-d">Complete, safe cleanup and full odor removal.</span></span><i data-lucide="arrow-up-right" class="au-svc-ar"></i></span>
+      </a>
+      <a class="au-svc reveal r-right rd2" href="landing-page/hoarder-cleanup.html">
+        <picture><source srcset="img/hoarder-before-640.avif" type="image/avif"><source srcset="img/hoarder-before-640.webp" type="image/webp"><img src="img/hoarder-before.jpg" alt="" loading="lazy" decoding="async"></picture>
+        <span class="au-svc-b"><span class="au-svc-tx"><span class="au-svc-t">Hoarder Cleanup</span><span class="au-svc-d">Judgment-free, full property cleanout &amp; sanitizing.</span></span><i data-lucide="arrow-up-right" class="au-svc-ar"></i></span>
+      </a>
+    </div>
+    <div class="au-svc-cta reveal">
+      <a class="btn bp" href="/#services">View all services <span class="c"><i data-lucide="arrow-right"></i></span></a>
     </div>
   </div>
 </section>
 
-<!-- 5) OUR VALUES IN ACTION -->
-<section>
-  <div class="wrap">
-    <div class="au-sec-head">
-      <span class="au-eyebrow">Our Values in Action</span>
-      <h2>What we stand for</h2>
-    </div>
-    <div class="au-values">
-      <div class="au-vcard"><div class="au-vic"><i data-lucide="heart-handshake"></i></div><h3>Compassion</h3><p>We lead with empathy and understanding.</p></div>
-      <div class="au-vcard"><div class="au-vic"><i data-lucide="eye-off"></i></div><h3>Discretion</h3><p>Your privacy is always protected.</p></div>
-      <div class="au-vcard"><div class="au-vic"><i data-lucide="target"></i></div><h3>Precision</h3><p>We follow the highest standards of care.</p></div>
-      <div class="au-vcard"><div class="au-vic"><i data-lucide="shield-check"></i></div><h3>Accountability</h3><p>We do the right thing, every time.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 6) FAMILY-RUN (C7) -->
-<section>
-  <div class="wrap">
-    <div class="au-sec-head">
-      <span class="au-eyebrow">Family-run</span>
-      <h2>When you call, you reach our family</h2>
-    </div>
-    <p style="max-width:680px;margin:0 auto;text-align:center;color:var(--ink2);font-size:17px;line-height:1.7">CleanCore Decon is a small, family-run team in Los Angeles. Day or night, the person who answers isn&rsquo;t a call center &mdash; it&rsquo;s our family. We treat every home the way we&rsquo;d want our own treated: with speed, discretion, and zero judgment.</p>
-  </div>
-</section>
-
-<!-- 7) CERTIFICATIONS & CREDENTIALS -->
-<section class="bg-alt">
-  <div class="wrap">
-    <div class="au-sec-head">
-      <span class="au-eyebrow">Certifications &amp; Credentials</span>
-    </div>
-    <!-- A10: certification badge component. Labels per client's Website Notes. data-cert-id left empty — fill with real license/registration numbers when provided. Do not invent numbers. -->
-    <div class="au-certs">
-      <div class="au-cert" data-cert-id=""><img decode="async" src="landing-page/IICRC-logo-grey.webp" alt="IICRC Certified Firm" loading="lazy"><span class="au-cert-label">IICRC<br>Certified Firm</span></div>
-      <div class="au-cert" data-cert-id=""><span class="au-cert-icon"><i data-lucide="hard-hat"></i></span><span class="au-cert-label">OSHA<br>Trained</span></div>
-      <div class="au-cert" data-cert-id=""><span class="au-cert-icon"><i data-lucide="leaf"></i></span><span class="au-cert-label">EPA Lead&#8209;Safe<br>Certified Firm</span></div>
-      <div class="au-cert" data-cert-id=""><span class="au-cert-icon"><i data-lucide="award"></i></span><span class="au-cert-label">CA Trauma Scene Waste<br>Management Practitioner</span></div>
-    </div>
-  </div>
-</section>
 
 <!-- 8) FINAL CTA BAND -->
 <section>
   <div class="wrap">
-    <div class="au-cta-band">
+    <div class="au-cta-band reveal r-zoom">
+      <picture class="au-cta-bg">
+        <source srcset="img/la-skyline.avif" type="image/avif">
+        <source srcset="img/la-skyline.webp" type="image/webp">
+        <img src="img/la-skyline.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      </picture>
       <h2>We're Here for You, 24/7</h2>
       <p class="au-cta-sub">If you're in need of help, our team is ready.</p>
       <div class="au-cta-actions">
@@ -924,33 +1039,46 @@
   </div>
 </section>
 
-<footer><div class="wrap">
-  <div class="cols">
-    <div>
-      <img decode="async" src="logo-full.png" alt="CleanCore Decon">
-      <p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7, 365 days a year.</p>
-    </div>
-    <div>
-      <b>Services</b>
-      <a href="index.html#services">Biohazard Cleanup</a><a href="index.html#services">Crime Scene Cleanup</a><a href="index.html#services">Hoarder Cleanup</a><a href="index.html#services">Mold Remediation</a>
-    </div>
-    <div>
-      <b>Company</b>
-      <a href="why-choose-us.html">Why Choose Us</a><a href="index.html#process">Our Process</a><a href="index.html#areas">Service Areas</a><a href="contact.html">Contact</a>
-    </div>
-    <div>
-      <b>24/7 Emergency</b>
-      <a href="tel:+15625686032" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(562) 568-6032</a>
-      <a href="mailto:contact@purebiodecon.com">contact@purebiodecon.com</a>
-      <a>Los Angeles County, CA</a>
-      <a>Licensed · Bonded · Insured</a>
+<footer>
+  <span class="ghost ghost--d fwm" aria-hidden="true">CleanCore</span>
+  <div class="wrap">
+    <div class="fcols">
+      <div class="fbrand">
+        <div class="flogo"><img class="flogo-img" decode="async" src="/logo.png" alt="CleanCore Decon"></div>
+        <p class="fcopy">© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</p>
+      </div>
+      <div class="flinks">
+      <div class="fcol">
+        <b>Services</b>
+        <a href="/landing-page/biohazard-cleanup.html">Biohazard Cleanup</a>
+        <a href="/landing-page/crime-scene-cleanup.html">Crime Scene Cleanup</a>
+        <a href="/landing-page/hoarder-cleanup.html">Hoarder Cleanup</a>
+        <a href="/landing-page/mold-remediation.html">Mold Remediation</a>
+      </div>
+      <div class="fcol">
+        <b>Company</b>
+        <a href="/why-choose-us.html">Why Choose Us</a>
+        <a href="/about-us.html">About Us</a>
+        <a href="/#areas">Service Areas</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="fcol">
+        <b>Legal</b>
+        <a href="/legal.html#privacy">Privacy Policy</a>
+        <a href="/legal.html#terms">Terms of Service</a>
+        <a href="/legal.html#accessibility">Accessibility</a>
+      </div>
+      <div class="fcol">
+        <b>Contact</b>
+        <a class="femph" href="tel:+15625686032">(562)&nbsp;568-6032</a>
+        <a href="mailto:contact@purebiodecon.com">contact@purebiodecon.com</a>
+        <span>Los Angeles County · CA</span>
+        <span>Open 24/7 · 365 days</span>
+      </div>
+      </div>
     </div>
   </div>
-  <div class="bottom">
-    <span>© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</span>
-    <span><a href="/legal.html#privacy">Privacy</a> · <a href="/legal.html#terms">Terms</a> · <a href="/legal.html#accessibility">Accessibility</a></span><span>IICRC Certified · EPA compliant · Insured</span>
-  </div>
-</div></footer>
+</footer>
 
 <a class="callcard" href="tel:+15625686032" aria-label="Call 24/7 emergency line (562) 568-6032">
   <span class="ph"><i data-lucide="phone-call"></i></span>
@@ -982,7 +1110,8 @@
     rm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{rm.classList.remove('open'); rb.classList.remove('open');}));
   }
   // reveal
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  /* toggle : .in quand l'élément entre à l'écran, retiré quand il en sort -> l'anim se rejoue à l'inverse au scroll up */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{e.target.classList.toggle('in',e.isIntersecting);}),{threshold:.1,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // services tabs
   const stabs=[...document.querySelectorAll('.tab')], spanels=[...document.querySelectorAll('[data-panel]')];
@@ -1083,5 +1212,67 @@
 </script>
 <script>document.querySelectorAll(".ccyr").forEach(function(e){e.textContent=(new Date()).getFullYear();});</script>
 <script src="/assets/js/ghost.js" defer></script>
+
+<!-- crew — sticky scroll-driven card stack + synced bio -->
+<script>
+(function(){
+  var section=document.getElementById('crewScroll'); if(!section) return;
+  var swiper=document.getElementById('crewSwiper');
+  var nameEl=document.getElementById('crewName'), roleEl=document.getElementById('crewRole'),
+      quoteEl=document.getElementById('crewQuote'), dotsEl=document.getElementById('crewDots');
+  var cards=[].slice.call(swiper.querySelectorAll('.image-card'));
+  var N=cards.length, cur=-1;
+
+  /* ▼▼ À REMPLIR — vrais noms + citations fournis par Alex. Ne rien inventer. ▼▼ */
+  var DATA=[
+    { name:"Add a name", role:"Founder",             quote:"Add a short quote from this person." },
+    { name:"Add a name", role:"Co-founder",          quote:"Add a short quote from this person." },
+    { name:"Add a name", role:"Certified technician", quote:"Add a short quote from this person." }
+  ];
+  /* ▲▲ ------------------------------------------------------------------- ▲▲ */
+
+  for(var k=0;k<N;k++){ dotsEl.appendChild(document.createElement('i')); }
+  var dots=[].slice.call(dotsEl.children);
+  var bioEls=[nameEl,roleEl,quoteEl];
+
+  function setStack(idx){
+    cards.forEach(function(c,i){
+      var rel=i-idx;
+      if(rel<0){ c.style.transform='translateX(-570px) rotateY(-16deg) scale(.96)'; c.style.opacity='0'; c.style.zIndex='0'; }
+      else{ c.style.transform='perspective(1230px) translateZ('+(-24*rel)+'px) translateY('+(16*rel)+'px)';
+            c.style.opacity=(rel>3?'0':'1'); c.style.zIndex=String(50-rel); }
+    });
+  }
+  function setBio(idx){
+    var d=DATA[idx]||{};
+    bioEls.forEach(function(e){ e.style.opacity='0'; });
+    requestAnimationFrame(function(){
+      nameEl.textContent=d.name||''; roleEl.textContent=d.role||''; quoteEl.textContent=d.quote||'';
+      bioEls.forEach(function(e){ e.style.opacity='1'; });
+    });
+    dots.forEach(function(x,i){ x.classList.toggle('on',i===idx); });
+  }
+  function apply(idx){ if(idx<0)idx=0; if(idx>N-1)idx=N-1; if(idx===cur)return; cur=idx; setStack(idx); setBio(idx); }
+
+  function onScroll(){
+    var rect=section.getBoundingClientRect();
+    var dist=section.offsetHeight-window.innerHeight;
+    var p=dist>0?Math.max(0,Math.min(1,-rect.top/dist)):0;
+    apply(Math.min(N-1,Math.floor(p*N)));
+  }
+
+  var mobile=window.matchMedia('(max-width:820px)').matches;
+  if(mobile){
+    apply(0);
+    section.addEventListener('click',function(){ apply((cur+1)%N); });   // tap to advance on mobile
+  }else{
+    apply(0);
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
+    onScroll();
+  }
+})();
+</script>
+
 </body>
 </html>

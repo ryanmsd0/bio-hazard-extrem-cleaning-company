@@ -131,15 +131,21 @@
   .crumb{font-size:13px;color:#9fb5cd}.crumb a{color:#cfe0f2;text-decoration:none}@media (hover:hover) and (pointer:fine){.crumb a:hover{color:#fff}}
 
   /* hero (service) */
-  .shero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;padding:132px 0 70px}
+  .shero{position:relative;color:#fff;overflow:hidden;background:#0a1a2b;padding:120px 0 116px;min-height:100dvh;display:flex;align-items:center}
   .shero .photo{position:absolute;inset:0;background:#0a1a2b url('../img/biohazard-before.jpg') center/cover;background-image:image-set(url('../img/biohazard-before-1600.avif') type("image/avif"),url('../img/biohazard-before-1600.webp') type("image/webp"),url('../img/biohazard-before.jpg') type("image/jpeg"))}
-  .shero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,28,.95) 0%,rgba(6,16,28,.82) 40%,rgba(6,16,28,.55) 100%),linear-gradient(180deg,rgba(6,16,28,.7) 0%,transparent 30%)}
-  .shero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+  .shero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,28,.82) 0%,rgba(6,16,28,.66) 46%,rgba(6,16,28,.86) 100%)}
+  .shero .wrap{position:relative;width:100%;max-width:1080px;margin:0 auto;text-align:center}
   @media(max-width:920px){.shero .wrap{grid-template-columns:1fr;gap:30px}}
   .shero .eyebrow{color:#8fd0ff}
-  .shero h1{color:#fff;font-size:clamp(32px,4.6vw,50px);font-weight:800;letter-spacing:-.03em;margin:12px 0 16px}
-  .shero p.lead{font-size:18px;color:#cddcec;max-width:48ch;margin-bottom:26px}
-  .shero .trust{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px}
+  .shero h1{color:#fff;font-size:clamp(40px,5.8vw,66px);font-weight:800;letter-spacing:-.032em;margin:14px 0 18px}
+  .shero h1 .hl{color:#8fd0ff;display:block;margin-top:.24em}
+  .shero p.lead{font-size:clamp(18px,1.9vw,22px);color:#cddcec;max-width:54ch;margin:0 auto 28px}
+  .shero .trust{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+  /* entrée au chargement du hero */
+  .shero .anim{opacity:0;transform:translateY(22px);animation:heroUp .9s var(--ease) forwards}
+  .shero .d1{animation-delay:.08s}.shero .d2{animation-delay:.16s}.shero .d3{animation-delay:.26s}.shero .d4{animation-delay:.36s}.shero .d5{animation-delay:.46s}
+  @keyframes heroUp{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.shero .anim{animation:none;opacity:1;transform:none}}
   .shero .trust .t{display:flex;align-items:center;gap:8px;font-size:14px;color:#dbe6f2;font-weight:500}
   .shero .trust .t svg{width:18px;height:18px;color:var(--green)}
   /* hero form card */
@@ -237,19 +243,40 @@
   .q .a{padding:0 20px 18px;color:var(--ink2);font-size:14.5px}
 
   /* final cta */
-  .cta-final{background:var(--navy);color:#fff;border-radius:var(--rc);padding:44px;text-align:center}
+  .cta-final{position:relative;overflow:hidden;background:var(--navy);color:#fff;border-radius:var(--rc);padding:44px;text-align:center}
+  .cta-final__bg{position:absolute;inset:0;z-index:0;pointer-events:none;user-select:none}
+  .cta-final__bg img{width:100%;height:100%;object-fit:cover;object-position:center 68%;display:block}
+  .cta-final::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(135deg,rgba(10,37,64,.93) 0%,rgba(11,52,108,.82) 46%,rgba(12,106,171,.6) 100%),radial-gradient(55% 82% at 88% 100%,rgba(87,185,74,.22),transparent 60%)}
+  .cta-final h2,.cta-final p,.cta-final .btns{position:relative;z-index:2}
   .cta-final h2{color:#fff;font-size:clamp(24px,3.4vw,34px);font-weight:800;margin-bottom:10px}
   .cta-final p{color:#cddcec;font-size:16px;margin-bottom:22px}
   .cta-final .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
-  /* footer */
-  footer{background:var(--navy);color:#aebfd4;padding:56px 0 30px}
-  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
-  @media(max-width:800px){footer .cols{grid-template-columns:1fr 1fr}}@media(max-width:520px){footer .cols{grid-template-columns:1fr}}
-  footer img{height:58px;margin-bottom:12px}
-  footer b{color:#fff;font-family:'Plus Jakarta Sans';display:block;margin-bottom:10px;font-size:14px}
-  footer a{color:#aebfd4;text-decoration:none;display:block;padding:4px 0;font-size:14px}@media (hover:hover) and (pointer:fine){footer a:hover{color:#fff}}
-  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  /* footer — brand + link columns + oversized ghost wordmark */
+  footer{position:relative;overflow:clip;background:#06131f;color:#9fb2c9;padding:76px 0 0;min-height:600px;display:flex;flex-direction:column}
+  footer .fcols{position:relative;z-index:2;display:flex;align-items:flex-start;gap:40px}
+  footer .fbrand{flex:0 0 230px;max-width:230px}
+  footer .flinks{flex:1;display:flex;justify-content:center;gap:clamp(34px,5vw,78px)}
+  footer .flinks .fcol{flex:none}
+  @media(max-width:900px){
+    footer .fcols{flex-wrap:wrap;gap:34px}
+    footer .fbrand{flex:1 1 100%;max-width:none}
+    footer .flinks{flex:1 1 100%;justify-content:flex-start;flex-wrap:wrap;gap:34px 26px}
+    footer .flinks .fcol{flex:1 1 40%}
+  }
+  footer .flogo{display:flex;align-items:center;gap:13px}
+  footer .flogo-img{height:52px;width:auto;display:block}
+  footer .flogo-ic{width:46px;height:46px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+  footer .flogo-ic img{height:30px;width:auto;margin:0;display:block}
+  footer .flogo-tx{font-family:'Plus Jakarta Sans';font-weight:800;font-size:21px;color:#fff;letter-spacing:-.01em;white-space:nowrap}
+  footer .fcopy{margin:20px 0 0;font-size:14px;line-height:1.65;color:#6b7e96;max-width:34ch}
+  footer .fcol b{color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;display:block;margin-bottom:15px;font-size:16px}
+  footer .fcol a,footer .fcol span{color:#9fb2c9;text-decoration:none;display:block;padding:7px 0;font-size:15px;line-height:1.3}
+  footer .fcol a.femph{color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:16px}
+  @media (hover:hover) and (pointer:fine){footer .fcol a:hover{color:#fff}}
+  footer .fwm{left:0;right:0;bottom:34px;display:block;text-align:center;font-size:min(15vw,300px);white-space:nowrap;line-height:.9;
+    background:linear-gradient(180deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,.04) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
   /* floating call */
   .callcard{position:fixed;right:20px;bottom:20px;z-index:var(--z-cta);display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--hair);border-left:3px solid var(--green);border-radius:999px;box-shadow:0 16px 40px -14px rgba(10,37,64,.42);padding:9px 20px 9px 10px;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
@@ -345,10 +372,20 @@
   .areapanel .hint{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2);margin-top:14px}
   .areapanel .hint svg{width:16px;height:16px;color:var(--green)}
   @media(max-width:800px){#areas .areawrap{grid-template-columns:1fr;gap:26px}}
-  .shero .hcerts{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
-  .shero .hcerts .cl{font-family:'Plus Jakarta Sans';font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b9d0e6}
-  .shero .hcerts .chip{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 14px;background:#fff;border-radius:11px;box-shadow:0 8px 22px -10px rgba(0,0,0,.55)}
-  .shero .hcerts .chip img{width:auto;display:block}
+  .shero .hcerts{position:absolute;left:clamp(24px,5vw,76px);right:clamp(24px,5vw,76px);bottom:30px;z-index:2;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:left;gap:16px 34px;margin:0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+  .shero .hcerts .wc-trust-item{display:flex;align-items:center;gap:12px}
+  .shero .hcerts .wc-logo-w{width:auto;display:block;filter:brightness(0) invert(1);opacity:.9}
+  .shero .hcerts .wc-logo-epa{opacity:.95}
+  .shero .hcerts .wc-trust-ic{width:32px;height:32px;color:#fff;opacity:.95}
+  .shero .hcerts .wc-trust-lbl{font-family:'Plus Jakarta Sans';font-size:12px;font-weight:700;text-transform:uppercase;color:#dfeaf4;line-height:1.15}
+  /* mobile : hero sans formulaire, certifs centrées comme le hero de la home */
+  @media(max-width:640px){
+    .shero{padding-bottom:40px}
+    .shero .qcard{display:none}
+    .shero .hcerts{justify-content:center;margin-top:26px;gap:9px}
+    .shero .hcerts .cl{flex:1 1 100%;text-align:center;margin:0 0 5px;text-shadow:0 1px 8px rgba(6,16,28,.8)}
+    .shero .hcerts .chip{height:40px;padding:0 12px}
+  }
   /* process — conversation (chat) */
   .conv{padding:72px 0}
   .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1040px;margin:0 auto}
@@ -366,13 +403,45 @@
   .phead small i{width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block}
   .chat{padding:20px 18px 22px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,#FBFDFF,#F6F9FC)}
   .stamp{text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:8px 0 2px}
-  .msg{max-width:82%;padding:11px 15px;font-size:13.5px;line-height:1.5;border-radius:16px;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .msg{max-width:82%;padding:11px 15px;font-size:13.5px;line-height:1.5;border-radius:16px;opacity:0;transform:translateY(12px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
   .conv.in .msg{opacity:1;transform:none}
   .msg.them{align-self:flex-start;background:#fff;border:1px solid var(--hair);color:var(--ink);border-bottom-left-radius:5px}
   .msg.you{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:5px}
-  .conv.in .m1{transition-delay:.05s}.conv.in .m2{transition-delay:.3s}.conv.in .m3{transition-delay:.55s}
-  .conv.in .m4{transition-delay:.8s}.conv.in .m5{transition-delay:1.05s}.conv.in .m6{transition-delay:1.3s}
+  .conv.in .m1{transition-delay:.1s}.conv.in .m2{transition-delay:.65s}.conv.in .m3{transition-delay:1.2s}
+  .conv.in .m4{transition-delay:1.75s}.conv.in .m5{transition-delay:2.3s}.conv.in .m6{transition-delay:2.85s}
   @media(prefers-reduced-motion:reduce){.msg{opacity:1;transform:none;transition:none}}
+  /* iPhone device shell — conversation styled as an iMessage thread */
+  .phone{background:none;border:0;box-shadow:none;border-radius:0;overflow:visible;max-width:400px}
+  .phone .illus{font-size:11px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;text-align:center;padding:0 0 18px;font-weight:600}
+  .iph{position:relative;width:365px;max-width:100%;margin:0 auto;aspect-ratio:365/750;filter:drop-shadow(0 36px 56px rgba(10,37,64,.34))}
+  /* screen sits UNDER the frame and bleeds beneath the bezel so there is no gap */
+  .iph__screen{position:absolute;top:1%;left:2.6%;right:2.6%;bottom:.4%;z-index:1;background:#fff;border-radius:47px;overflow:hidden;display:flex;flex-direction:column}
+  .iph__frame{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;user-select:none}
+  .iph__sb{position:relative;z-index:2;flex:none;height:46px;display:flex;align-items:center;justify-content:space-between;padding:6px 26px 0 32px;font-family:-apple-system,'SF Pro Text','Inter',sans-serif;color:#0b0b0b}
+  .iph__sb .t{font-size:14px;font-weight:700;letter-spacing:.01em}
+  .iph__sb .r{display:flex;align-items:center;gap:6px}
+  .iph__sb .r svg{display:block}
+  .iph__top{flex:none;display:flex;flex-direction:column;align-items:center;gap:3px;padding:2px 10px 11px;border-bottom:1px solid #ECECEE;background:rgba(249,249,251,.92);position:relative}
+  .iph__top .back{position:absolute;left:13px;top:5px;color:#0A7CFF;display:flex}
+  .iph__top .back svg{width:19px;height:19px}
+  .iph__av{width:44px;height:44px;border-radius:50%;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .iph__av img{width:100%;height:100%;object-fit:cover;display:block}
+  .iph__top b{font-family:-apple-system,'SF Pro Text','Inter',sans-serif;font-size:12px;font-weight:600;color:#111;letter-spacing:-.01em}
+  .iph__top small{display:flex;align-items:center;gap:5px;font-size:9.5px;color:#8A8A8E;font-weight:500}
+  .iph__top small .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+  .iph .chat{flex:1;min-height:0;overflow-y:auto;padding:14px 13px 16px;gap:6px;background:#fff}
+  .iph .chat::-webkit-scrollbar{display:none}
+  .iph .chat{scrollbar-width:none}
+  .iph .stamp{font-size:9.5px;margin:6px 0 3px;color:#9A9AA0}
+  .iph .msg{max-width:77%;font-size:12px;line-height:1.42;padding:8px 12px;border-radius:18px;font-family:-apple-system,'SF Pro Text','Inter',sans-serif}
+  .iph .msg.them{background:#E9E9EB;border:0;color:#000;border-bottom-left-radius:6px}
+  .iph .msg.you{background:#0A7CFF;color:#fff;border-bottom-right-radius:6px}
+  .iph__compose{flex:none;display:flex;align-items:center;gap:8px;padding:8px 12px 6px}
+  .iph__compose .plus{width:26px;height:26px;flex:none;display:flex;align-items:center;justify-content:center;color:#8A8A8E}
+  .iph__compose .field{flex:1;border:1px solid #D6D6DB;border-radius:16px;padding:6px 12px;font-size:12px;color:#AEAEB4;font-family:-apple-system,'SF Pro Text','Inter',sans-serif}
+  .iph__compose .send{width:26px;height:26px;flex:none;border-radius:50%;background:#0A7CFF;color:#fff;display:flex;align-items:center;justify-content:center}
+  .iph__compose .send svg,.iph__compose .plus svg{width:15px;height:15px}
+  .iph__home{flex:none;width:36%;height:5px;margin:5px auto 8px;border-radius:999px;background:#0b0b0b;opacity:.9}
   /* mega dropdown — light, featured card + 3 themed columns */
   .rdrop>.rmega .rmega-inner{background:#fff;border:1px solid var(--hair);border-radius:22px;box-shadow:0 44px 90px -34px rgba(10,37,64,.5),0 8px 24px -12px rgba(10,37,64,.22);padding:16px;display:grid;grid-template-columns:252px 1fr;gap:16px;width:1000px;max-width:95vw}
   .rdrop:not(.rdrop-s)>.rmega{left:-200px}
@@ -420,6 +489,19 @@
 .rmega,.rmobile{overscroll-behavior:contain}
 .callcard{transition:opacity .3s ease,transform .3s ease}
 .callcard.cc-hide{opacity:0;pointer-events:none;transform:translateY(16px)}
+/* decorative blue/green blurred blobs behind the before/after slider */
+/* this section only: drop the band background + clip so the blobs bleed into the
+   sections above and below, turning the hard cut into a soft transition */
+#why{background:transparent;overflow:visible}
+#why .secglow{position:absolute;inset:0;z-index:0;pointer-events:none}
+#why .secglow .gl{position:absolute;border-radius:50%;filter:blur(85px)}
+#why .secglow .b{background:radial-gradient(circle,rgba(18,136,206,.42),transparent 68%)}
+#why .secglow .g{background:radial-gradient(circle,rgba(87,185,74,.38),transparent 68%)}
+#why .secglow .gl1{width:540px;height:540px;top:-150px;left:-130px}
+#why .secglow .gl2{width:460px;height:460px;top:-120px;right:-90px}
+#why .secglow .gl3{width:420px;height:420px;bottom:-150px;left:4%}
+#why .secglow .gl4{width:500px;height:500px;bottom:-170px;right:-70px}
+@media(max-width:640px){#why .secglow .gl{filter:blur(60px);opacity:.8}#why .secglow .gl1,#why .secglow .gl4{width:340px;height:340px}#why .secglow .gl2,#why .secglow .gl3{width:300px;height:300px}}
 </style>
 <script defer src="/i18n.js?v=2"></script>
 </head>
@@ -485,51 +567,30 @@
 <!-- HERO -->
 <section class="shero" id="top">
   <div class="photo"></div>
-  <svg class="gmark gmark--d" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-par=".12" style="right:-9%;bottom:-14%"><circle cx="12" cy="11.9" r="2" />
-  <path d="M6.7 3.4c-.9 2.5 0 5.2 2.2 6.7C6.5 9 3.7 9.6 2 11.6" />
-  <path d="m8.9 10.1 1.4.8" />
-  <path d="M17.3 3.4c.9 2.5 0 5.2-2.2 6.7 2.4-1.2 5.2-.6 6.9 1.5" />
-  <path d="m15.1 10.1-1.4.8" />
-  <path d="M16.7 20.8c-2.6-.4-4.6-2.6-4.7-5.3-.2 2.6-2.1 4.8-4.7 5.2" />
-  <path d="M12 13.9v1.6" />
-  <path d="M13.5 5.4c-1-.2-2-.2-3 0" />
-  <path d="M17 16.4c.7-.7 1.2-1.6 1.5-2.5" />
-  <path d="M5.5 13.9c.3.9.8 1.8 1.5 2.5" /></svg>
   <div class="wrap">
     <div>
-      <div class="crumb"><a href="../index.html">Home</a> › <a href="../index.html#services">Services</a> › Biohazard Cleanup</div>
-      <span class="eyebrow" style="margin-top:12px">Licensed · Bonded · Insured</span>
-      <h1>Biohazard Cleanup in Los Angeles</h1>
-      <p class="lead">Safe, discreet removal and decontamination of biohazardous materials. Certified crews on call 24/7. We handle your insurance claim.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <span class="eyebrow anim d1" style="margin-top:12px">Licensed · Bonded · Insured</span>
+      <h1 class="anim d2">Biohazard Cleanup <span class="hl">in Los Angeles</span></h1>
+      <p class="lead anim d3">Safe, discreet removal and decontamination of biohazardous materials. Certified crews on call 24/7. We handle your insurance claim.</p>
+      <div class="anim d4" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
         <a class="btn bp" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
         <a class="btn bo-light" href="#quote">Get a free estimate</a>
       </div>
-      <div class="trust">
+      <div class="trust anim d5">
         <span class="t"><i data-lucide="clock"></i> Available 24/7</span>
         <span class="t"><i data-lucide="timer"></i> Rapid 24/7 response</span>
       </div>
-      <div class="hcerts">
-        <span class="cl">Certified &amp; licensed</span>
-        <span class="chip"><img decode="async" src="IICRC-logo-grey.webp" alt="IICRC Certified" style="height:22px"></span>
-      </div>
     </div>
-    <form class="qcard" id="quote" onsubmit="return false">
-      <h3>Get a free estimate</h3>
-      <div class="sub">Call for an immediate response, or send your details.</div>
-      <div class="two">
-        <div><label>Full name</label><input placeholder="Your name"></div>
-        <div><label>Phone</label><input placeholder="(213) 000-0000"></div>
-      </div>
-      <label>Zip code</label><input placeholder="90001">
-      <label>Add a photo of the situation (optional)</label>
-      <label class="upload"><input type="file" accept="image/*" hidden><span class="up-ico"><i data-lucide="image-up"></i></span><span class="up-txt"><b>Upload a photo</b><small>JPG or PNG, optional</small></span></label>
-      <button class="btn bp">Request my free estimate <span class="c"><i data-lucide="arrow-right"></i></span></button>
-      <div class="fine">Prefer to talk? <a href="tel:+15625686032" style="color:var(--blue);font-weight:600">Call (562) 568-6032</a> — the fastest way to reach us.</div>
-    </form>
+  </div>
+  <div class="hcerts">
+    <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="/img/IICRC-logo-grey.webp" alt="IICRC Certified Firm" style="height:36px"><span class="wc-trust-lbl">IICRC<br>Certified</span></div>
+    <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="/img/OSHA-logo-grey.png" alt="OSHA Trained" style="height:34px"><span class="wc-trust-lbl">OSHA<br>Trained</span></div>
+    <div class="wc-trust-item"><img decode="async" class="wc-logo-epa" src="/img/EPA-logo-white.svg" alt="EPA Lead-Safe" style="height:22px"><span class="wc-trust-lbl">EPA<br>Lead-Safe</span></div>
+    <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="/img/ca-map.svg" alt="California Trauma Scene Waste" style="height:34px"><span class="wc-trust-lbl">CA Trauma Scene<br>Practitioner</span></div>
+    <div class="wc-trust-item"><i data-lucide="shield-check" class="wc-trust-ic"></i><span class="wc-trust-lbl">Licensed<br>&amp; Insured</span></div>
   </div>
 </section>
-<svg class="wave" style="background:#0a1a2b" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,50 C240,90 420,4 720,32 C1020,60 1200,86 1440,44 L1440,90 L0,90 Z" fill="#ffffff"/></svg>
+
 
 
 <!-- WHAT IT IS -->
@@ -545,17 +606,23 @@
 </div></div></section>
 
 <!-- SITUATIONS -->
-<section class="bg-alt"><div class="wrap reveal">
-  <div class="sec-h"><span class="eyebrow">When to call us</span><h2>Do you recognize one of these situations?</h2><p>If any of these sound familiar, we can help right now, with compassion and full discretion.</p></div>
-  <div class="sit">
-    <div class="it"><i data-lucide="check"></i> A serious injury or accident with blood in the home</div>
-    <div class="it"><i data-lucide="check"></i> A death that went unnoticed for some time</div>
-    <div class="it"><i data-lucide="check"></i> Blood or bodily fluids on floors, walls or belongings</div>
-    <div class="it"><i data-lucide="check"></i> Sharps, needles or medical waste to remove safely</div>
-    <div class="it"><i data-lucide="check"></i> A home exposed to an infectious disease</div>
-    <div class="it"><i data-lucide="check"></i> Sewage backup or contaminated water inside</div>
+<section class="duo secghost" id="situations">
+  <div class="wrap">
+    <div class="duo__grid">
+      <div class="duo__col reveal r-left">
+        <span class="duo__eyebrow">When to call us</span>
+        <h2 class="duo__title">Do you recognize<br>these situations?</h2>
+        <div class="duo__lead"><p>If any of these sound familiar, we can help right now — with compassion and full discretion.</p><span class="duo__rule"></span></div>
+        <div class="sitcards"><div class="sitcard"><div class="sitcard__top"><span class="sitcard__n">01</span><span class="sitcard__chk"><i data-lucide="check"></i></span></div><p>A serious injury or accident with blood in the home</p></div><div class="sitcard"><div class="sitcard__top"><span class="sitcard__n">02</span><span class="sitcard__chk"><i data-lucide="check"></i></span></div><p>A death that went unnoticed for some time</p></div><div class="sitcard"><div class="sitcard__top"><span class="sitcard__n">03</span><span class="sitcard__chk"><i data-lucide="check"></i></span></div><p>Blood or bodily fluids on floors, walls or belongings</p></div><div class="sitcard"><div class="sitcard__top"><span class="sitcard__n">04</span><span class="sitcard__chk"><i data-lucide="check"></i></span></div><p>Sharps, needles or medical waste to remove safely</p></div><div class="sitcard"><div class="sitcard__top"><span class="sitcard__n">05</span><span class="sitcard__chk"><i data-lucide="check"></i></span></div><p>A home exposed to an infectious disease</p></div><div class="sitcard"><div class="sitcard__top"><span class="sitcard__n">06</span><span class="sitcard__chk"><i data-lucide="check"></i></span></div><p>Sewage backup or contaminated water inside</p></div></div>
+      </div>
+      <div class="duo__col duo__col--r reveal r-right">
+        <span class="duo__eyebrow">What's included</span>
+        <h2 class="duo__title" style="font-size:clamp(30px,3.4vw,46px)">Everything handled,<br>start to finish.</h2>
+        <ol class="ptime"><li><span class="ptime__ico"><i data-lucide="clipboard-check"></i></span><span class="ptime__n">01</span><div class="ptime__b"><h3 class="ptime__t">Assessment &amp; containment</h3><p class="ptime__d">Full scene evaluation and a safe containment plan.</p></div></li><li><span class="ptime__ico"><i data-lucide="biohazard"></i></span><span class="ptime__n">02</span><div class="ptime__b"><h3 class="ptime__t">Regulated waste disposal</h3><p class="ptime__d">Removal and legal disposal of all biohazard materials.</p></div></li><li><span class="ptime__ico"><i data-lucide="sparkles"></i></span><span class="ptime__n">03</span><div class="ptime__b"><h3 class="ptime__t">Deep cleaning</h3><p class="ptime__d">Thorough cleaning of every affected surface and item.</p></div></li><li><span class="ptime__ico"><i data-lucide="shield-check"></i></span><span class="ptime__n">04</span><div class="ptime__b"><h3 class="ptime__t">Hospital-grade disinfection</h3><p class="ptime__d">EPA-registered disinfectants for total decontamination.</p></div></li><li><span class="ptime__ico"><i data-lucide="wind"></i></span><span class="ptime__n">05</span><div class="ptime__b"><h3 class="ptime__t">Odor &amp; air treatment</h3><p class="ptime__d">Molecular odor neutralization and air purification.</p></div></li><li><span class="ptime__ico"><i data-lucide="home"></i></span><span class="ptime__n">06</span><div class="ptime__b"><h3 class="ptime__t">Restoration</h3><p class="ptime__d">We return your space to a safe, livable condition.</p></div></li></ol>
+      </div>
+    </div>
   </div>
-</div></section>
+</section>
 
 <!-- PROCESS -->
 <section id="process" class="conv"><div class="wrap">
@@ -572,75 +639,79 @@
       <a class="btn bp" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
     </div>
     <div class="phone">
-      <div style="font-size:11px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;text-align:center;padding:0 0 10px;font-weight:600">Illustration — how a typical call unfolds</div>
-      <div class="phead">
-        <span class="av">CC</span>
-        <div><b>CleanCore Decon</b><small><i></i>Online now · 24/7</small></div>
-      </div>
-      <div class="chat">
-        <div class="stamp">Tonight · 2:14 AM</div>
-        <div class="msg you m1">There's been a biohazard situation at my home… I don't know who I'm supposed to call.</div>
-        <div class="msg them m2">You've reached the right people. We're dispatching a certified biohazard crew now.</div>
-        <div class="msg them m3">Please don't touch or clean the area yourself — it's a health risk. We handle everything safely, including your insurance claim.</div>
-        <div class="stamp">3:05 AM</div>
-        <div class="msg you m4">They just arrived. Thank you.</div>
-        <div class="stamp">Next day · 9:40 AM</div>
-        <div class="msg them m5">Your home is fully decontaminated and safe again. We've filed the claim with your insurer for you.</div>
-        <div class="msg you m6">I can't thank you enough.</div>
+      <div class="illus">Illustration — how a typical call unfolds</div>
+      <div class="iph">
+        <img class="iph__frame" src="../img/apple-iphone-15-pro-max-2023-medium_copy.png" alt="" aria-hidden="true" decoding="async">
+        <div class="iph__screen">
+          <div class="iph__sb">
+            <span class="t">2:14</span>
+            <span class="r">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="#0b0b0b" aria-hidden="true"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="#0b0b0b" aria-hidden="true"><path d="M8 2.2c2.6 0 5 1 6.8 2.7l-1.5 1.6A7.4 7.4 0 0 0 8 4.9 7.4 7.4 0 0 0 2.7 6.5L1.2 4.9A9.7 9.7 0 0 1 8 2.2Zm0 3.7c1.6 0 3 .6 4.1 1.6l-1.6 1.7A3.8 3.8 0 0 0 8 8.1c-.9 0-1.8.4-2.5 1.1L3.9 7.5A5.9 5.9 0 0 1 8 5.9Zm0 3.6c.7 0 1.3.3 1.8.8L8 11.9 6.2 10.3c.5-.5 1.1-.8 1.8-.8Z"/></svg>
+              <svg width="25" height="12" viewBox="0 0 25 12" fill="none" aria-hidden="true"><rect x="1" y="1" width="20" height="10" rx="3" stroke="#0b0b0b" stroke-opacity=".38"/><rect x="2.6" y="2.5" width="16.8" height="7" rx="1.6" fill="#0b0b0b"/><rect x="22.6" y="4" width="1.6" height="4" rx=".8" fill="#0b0b0b" fill-opacity=".38"/></svg>
+            </span>
+          </div>
+          <div class="iph__top">
+            <span class="back" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>
+            <span class="iph__av"><img src="../logo-icon.png" alt="CleanCore Decon" width="44" height="44" decoding="async"></span>
+            <b>CleanCore Decon</b>
+            <small><span class="dot"></span>Online now · 24/7</small>
+          </div>
+          <div class="chat">
+            <div class="stamp">Tonight · 2:14 AM</div>
+            <div class="msg you m1">There's been a biohazard situation at my home… I don't know who I'm supposed to call.</div>
+            <div class="msg them m2">You've reached the right people. We're dispatching a certified biohazard crew now.</div>
+            <div class="msg them m3">Please don't touch or clean the area yourself — it's a health risk. We handle everything safely, including your insurance claim.</div>
+            <div class="stamp">3:05 AM</div>
+            <div class="msg you m4">They just arrived. Thank you.</div>
+            <div class="stamp">Next day · 9:40 AM</div>
+            <div class="msg them m5">Your home is fully decontaminated and safe again. We've filed the claim with your insurer for you.</div>
+            <div class="msg you m6">I can't thank you enough.</div>
+          </div>
+          <div class="iph__compose">
+            <span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            <span class="field">iMessage</span>
+            <span class="send" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+          </div>
+          <div class="iph__home" aria-hidden="true"></div>
+        </div>
       </div>
     </div>
   </div>
 </div></section>
 
 <!-- WHAT'S INCLUDED -->
-<section class="bg-alt"><div class="wrap reveal">
-  <div class="sec-h"><span class="eyebrow">What's included</span><h2>Everything handled, start to finish</h2></div>
-  <div class="inc">
-    <div class="inccard"><div class="ic"><i data-lucide="clipboard-check"></i></div><h4>Assessment &amp; containment</h4><p>Full scene evaluation and a safe containment plan.</p></div>
-    <div class="inccard"><div class="ic"><i data-lucide="biohazard"></i></div><h4>Regulated waste disposal</h4><p>Removal and legal disposal of all biohazard materials.</p></div>
-    <div class="inccard"><div class="ic"><i data-lucide="sparkles"></i></div><h4>Deep cleaning</h4><p>Thorough cleaning of every affected surface and item.</p></div>
-    <div class="inccard"><div class="ic"><i data-lucide="shield-check"></i></div><h4>Hospital-grade disinfection</h4><p>EPA-registered disinfectants for total decontamination.</p></div>
-    <div class="inccard"><div class="ic"><i data-lucide="wind"></i></div><h4>Odor &amp; air treatment</h4><p>Molecular odor neutralization and air purification.</p></div>
-    <div class="inccard"><div class="ic"><i data-lucide="home"></i></div><h4>Restoration</h4><p>We return your space to a safe, livable condition.</p></div>
-  </div>
-</div></section>
+
 
 <!-- INSURANCE + GUARANTEE -->
 
 
 <!-- WHY US -->
-<section class="bg-alt" id="why"><div class="wrap">
-  <div class="sc-head reveal"><span class="eyebrow">Why choose us</span><h2>See the difference a certified crew makes</h2><p>Drag the slider to watch a biohazard scene go from crisis to fully decontaminated — and here's why LA families trust us.</p></div>
-  <div class="grid2">
-    <div class="show-left reveal r-left">
-      <div class="car"><div class="car-view">
-        <div class="ba-frame" data-ba>
-          <picture><source type="image/avif" srcset="../img/biohazard-after-640.avif 640w, ../img/biohazard-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/biohazard-after-640.webp 640w, ../img/biohazard-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="ba-after" src="../img/biohazard-after.jpg" alt="After — decontaminated, restored space"></picture>
-          <picture><source type="image/avif" srcset="../img/biohazard-before-640.avif 640w, ../img/biohazard-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/biohazard-before-640.webp 640w, ../img/biohazard-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="ba-before" src="../img/biohazard-before.jpg" alt="Before — biohazard contamination"></picture>
-          <span class="ba-tag b">Before</span><span class="ba-tag a">After</span>
-          <div class="ba-handle"><span class="grip"><i data-lucide="chevrons-left-right"></i></span></div>
-          <span class="slide-cap">Biohazard decontamination · Los Angeles</span>
-        </div>
-      </div></div>
-    </div>
-    <div class="show-right reveal r-right rd1">
-      <h3>Certified, discreet — 24/7 rapid response</h3>
-      <p>When something terrible happens, you need the right people — fast, trustworthy, and kind. That's all we do.</p>
-      <div class="feats">
-        <div class="feat"><span class="fi"><i data-lucide="timer"></i></span><div><h4>Rapid 24/7 response</h4><p>We answer 24/7 and dispatch a certified crew immediately across LA County.</p></div></div>
-        <div class="feat"><span class="fi"><i data-lucide="file-check"></i></span><div><h4>Your insurance, handled for you</h4><p>We bill your insurer directly, handle the paperwork.</p></div></div>
-        <div class="feat"><span class="fi"><i data-lucide="eye-off"></i></span><div><h4>Total discretion &amp; compassion</h4><p>Unmarked vehicles, full confidentiality, and zero judgment — ever.</p></div></div>
-        <div class="feat"><span class="fi"><i data-lucide="shield-check"></i></span><div><h4>Certified &amp; documented</h4><p>IICRC-certified, licensed &amp; insured — every job documented to protect your claim.</p></div></div>
+<section class="bg-alt secghost" id="why">
+  <span class="ghost ghost--l" style="top:.04em;left:1.5%" aria-hidden="true">RESTORED</span>
+  <div class="secglow" aria-hidden="true">
+    <span class="gl gl1 b"></span>
+    <span class="gl gl2 g"></span>
+    <span class="gl gl3 g"></span>
+    <span class="gl gl4 b"></span>
+  </div>
+  <div class="wrap">
+    <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">See the difference a certified crew makes</h2>
+    <div class="ba-full reveal r-zoom">
+      <div class="ba-frame" data-ba>
+        <picture><source type="image/avif" srcset="../img/biohazard-after-640.avif 640w, ../img/biohazard-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/biohazard-after-640.webp 640w, ../img/biohazard-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="ba-after" src="../img/biohazard-after.jpg" alt="After — decontaminated, restored space"></picture>
+        <picture><source type="image/avif" srcset="../img/biohazard-before-640.avif 640w, ../img/biohazard-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="../img/biohazard-before-640.webp 640w, ../img/biohazard-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" loading="lazy" class="ba-before" src="../img/biohazard-before.jpg" alt="Before — biohazard contamination"></picture>
+        <div class="ba-skull"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.5 17-.5-1-.5 1h1z" />
+  <path d="M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z" />
+  <circle cx="15" cy="12" r="1" />
+  <circle cx="9" cy="12" r="1" /></svg></div>
+        <span class="ba-tag b">Before</span><span class="ba-tag a">After</span>
+        <div class="ba-handle"><span class="grip"><i data-lucide="chevrons-left-right"></i></span></div>
+        <span class="slide-cap">Biohazard decontamination · Los Angeles</span>
       </div>
-      <div class="stats">
-        <div class="st"><div class="n">&lt;90<small>min</small></div><div class="l">Typical response</div></div>
-        <div class="st"><div class="n">24/7</div><div class="l">Live answer</div></div>
-        <div class="st"><div class="n">IICRC</div><div class="l">Certified crews</div></div>
-      </div>
-      <div class="scta"><a class="btn bp" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a></div>
     </div>
   </div>
-</div></section>
+</section>
 
 <!-- AREAS -->
 <section id="areas"><div class="wrap reveal">
@@ -682,6 +753,11 @@
 <!-- FINAL CTA -->
 <section><div class="wrap reveal">
   <div class="cta-final">
+    <picture class="cta-final__bg">
+      <source srcset="/img/la-skyline.avif" type="image/avif">
+      <source srcset="/img/la-skyline.webp" type="image/webp">
+      <img src="/img/la-skyline.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    </picture>
     <h2>Need biohazard cleanup now?</h2>
     <p>We are ready 24/7. Call for an immediate response, or request a free estimate.</p>
     <div class="btns">
@@ -692,15 +768,47 @@
 </div></section>
 
 <!-- FOOTER -->
-<footer><div class="wrap">
-  <div class="cols">
-    <div><img decode="async" src="../logo-full.png" alt="CleanCore Decon"><p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7, 365 days a year.</p></div>
-    <div><b>Services</b><a href="#">Biohazard Cleanup</a><a href="#">Crime Scene Cleanup</a><a href="#">Hoarder Cleanup</a></div>
-    <div><b>Company</b><a href="../why-choose-us.html">Why Choose Us</a><a href="../about-us.html">About Us</a><a href="../index.html#areas">Service Areas</a><a href="../contact.html">Contact</a></div>
-    <div><b>24/7 Emergency</b><a href="tel:+15625686032" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(562) 568-6032</a><a>Los Angeles County, CA</a><a>Licensed · Bonded · Insured</a></div>
+
+<footer>
+  <span class="ghost ghost--d fwm" aria-hidden="true">CleanCore</span>
+  <div class="wrap">
+    <div class="fcols">
+      <div class="fbrand">
+        <div class="flogo"><img class="flogo-img" decode="async" src="/logo.png" alt="CleanCore Decon"></div>
+        <p class="fcopy">© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</p>
+      </div>
+      <div class="flinks">
+      <div class="fcol">
+        <b>Services</b>
+        <a href="/landing-page/biohazard-cleanup.html">Biohazard Cleanup</a>
+        <a href="/landing-page/crime-scene-cleanup.html">Crime Scene Cleanup</a>
+        <a href="/landing-page/hoarder-cleanup.html">Hoarder Cleanup</a>
+        <a href="/landing-page/mold-remediation.html">Mold Remediation</a>
+      </div>
+      <div class="fcol">
+        <b>Company</b>
+        <a href="/why-choose-us.html">Why Choose Us</a>
+        <a href="/about-us.html">About Us</a>
+        <a href="/#areas">Service Areas</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="fcol">
+        <b>Legal</b>
+        <a href="/legal.html#privacy">Privacy Policy</a>
+        <a href="/legal.html#terms">Terms of Service</a>
+        <a href="/legal.html#accessibility">Accessibility</a>
+      </div>
+      <div class="fcol">
+        <b>Contact</b>
+        <a class="femph" href="tel:+15625686032">(562)&nbsp;568-6032</a>
+        <a href="mailto:contact@purebiodecon.com">contact@purebiodecon.com</a>
+        <span>Los Angeles County · CA</span>
+        <span>Open 24/7 · 365 days</span>
+      </div>
+      </div>
+    </div>
   </div>
-  <div class="bottom"><span>© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</span><span><a href="/legal.html#privacy">Privacy</a> · <a href="/legal.html#terms">Terms</a> · <a href="/legal.html#accessibility">Accessibility</a></span><span>IICRC Certified · EPA compliant</span></div>
-</div></footer>
+</footer>
 
 <a class="callcard" href="tel:+15625686032" aria-label="Call 24/7 emergency line (562) 568-6032">
   <span class="ph"><i data-lucide="phone-call"></i></span>
@@ -724,13 +832,15 @@
   window.addEventListener('scroll',()=>{if(rnav)rnav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
   const rb=document.getElementById('rburger'), rm=document.getElementById('rmobile');
   if(rb&&rm){rb.addEventListener('click',()=>{const o=rm.classList.toggle('open');rb.classList.toggle('open',o);});rm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{rm.classList.remove('open');rb.classList.remove('open');}));}
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  // reveal réversible : apparaît en entrant, disparaît en sortant — dans les 2 sens de scroll.
+  // bande de déclenchement inset (haut -8% / bas -12%) pour un in/out net sans flicker.
+  const io=new IntersectionObserver(es=>es.forEach(e=>{e.target.classList.toggle('in', e.isIntersecting);}),{rootMargin:'-8% 0px -24% 0px',threshold:0});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    (function(){var cv=document.getElementById('process'); if(!cv) return; var t=cv.querySelector('.phone')||cv.querySelector('.chat')||cv; var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){cv.classList.add('in');io.disconnect();}});},{threshold:.3}); io.observe(t);})();
+    (function(){var cv=document.getElementById('process'); if(!cv) return; var t=cv.querySelector('.phone')||cv.querySelector('.chat')||cv; var io=new IntersectionObserver(function(es){es.forEach(function(e){cv.classList.toggle('in', e.isIntersecting);});},{threshold:.35}); io.observe(t);})();
   // why showcase — before/after slider
   document.querySelectorAll('[data-ba]').forEach(function(frame){
-    var before=frame.querySelector('.ba-before'), handle=frame.querySelector('.ba-handle'), down=false;
-    function set(x){var r=frame.getBoundingClientRect();var p=Math.max(0,Math.min(100,((x-r.left)/r.width)*100));before.style.clipPath='inset(0 '+(100-p)+'% 0 0)';handle.style.left=p+'%';}
+    var before=frame.querySelector('.ba-before'), skull=frame.querySelector('.ba-skull'), handle=frame.querySelector('.ba-handle'), down=false;
+    function set(x){var r=frame.getBoundingClientRect();var p=Math.max(0,Math.min(100,((x-r.left)/r.width)*100));before.style.clipPath='inset(0 '+(100-p)+'% 0 0)';if(skull)skull.style.clipPath='inset(0 '+(100-p)+'% 0 0)';handle.style.left=p+'%';}
     frame.addEventListener('pointerdown',function(e){down=true;frame.setPointerCapture(e.pointerId);set(e.clientX);});
     frame.addEventListener('pointermove',function(e){if(down)set(e.clientX);});
     frame.addEventListener('pointerup',function(){down=false;});
@@ -739,7 +849,7 @@
   // service-area map — inline SVG reveal + county tooltip
   (function(){
     const map=document.getElementById('camap'); if(!map) return;
-    const mo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){map.classList.add('in');mo.disconnect();}});},{threshold:.3});
+    const mo=new IntersectionObserver(function(es){es.forEach(function(e){map.classList.toggle('in', e.isIntersecting);});},{threshold:.3});
     mo.observe(map);
     const tip=document.getElementById('camaptip'), box=map.parentElement;
     map.querySelectorAll('.served').forEach(function(p){

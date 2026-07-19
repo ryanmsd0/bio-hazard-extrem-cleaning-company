@@ -207,16 +207,15 @@
   .hero .cta-note b{color:#fff;font-weight:700}
   .hero .cta-note a{color:#8fd0ff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
   /* certification strip — credibility above the fold */
-  .hero .hcerts{position:absolute;left:clamp(24px,5vw,76px);bottom:34px;z-index:2;display:flex;align-items:center;justify-content:flex-start;gap:11px;flex-wrap:nowrap;margin:0;max-width:calc(100% - 2*clamp(24px,5vw,76px));overflow-x:auto;scrollbar-width:none}
-  .hero .hcerts::-webkit-scrollbar{display:none}
-  .hero .hcerts .cl,.hero .hcerts .chip{flex:none}
-  .hero .hcerts .cl{font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#b9d0e6;margin-right:1px;text-shadow:0 1px 8px rgba(6,16,28,.8)}
-  .hero .hcerts .chip{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:46px;padding:0 15px;background:#fff;
-    border-radius:5px;box-shadow:0 10px 24px -12px rgba(0,0,0,.5);font-family:'Plus Jakarta Sans';font-weight:800;font-size:12.5px;color:#5a6b82}
-  .hero .hcerts .chip img{width:auto;display:block}
-  .hero .hcerts .chip.txt{letter-spacing:.04em}
-  .hero .hcerts .chip.txt svg{width:16px;height:16px;color:var(--green-dark)}
-  @media(max-width:640px){.hero .hcerts{position:static;margin:20px auto 0;padding:0 22px 40px;max-width:none;gap:9px;justify-content:center;width:100%}.hero .hcerts .chip{height:42px;padding:0 13px}}
+  /* certifs hero — même traitement que le hero Why Choose Us (logos blancs + libellés) */
+  .hero .hcerts{position:absolute;left:clamp(24px,5vw,76px);right:clamp(24px,5vw,76px);bottom:30px;z-index:2;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px 40px;margin:0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+  @media(min-width:900px){.hero .hcerts{right:330px}}  /* réserve la zone du widget sticky bas-droite */
+  .hero .hcerts .wc-trust-item{display:flex;align-items:center;gap:12px}
+  .hero .hcerts .wc-logo-w{width:auto;display:block;filter:brightness(0) invert(1);opacity:.9}
+  .hero .hcerts .wc-logo-epa{opacity:.95}
+  .hero .hcerts .wc-trust-ic{width:32px;height:32px;color:#fff;opacity:.95}
+  .hero .hcerts .wc-trust-lbl{font-family:'Plus Jakarta Sans';font-size:12px;font-weight:700;text-transform:uppercase;color:#dfeaf4;line-height:1.15}
+  @media(max-width:640px){.hero .hcerts{position:static;left:auto;right:auto;bottom:auto;margin:22px auto 0;padding:22px 22px 34px;gap:16px 24px;border-top:none;max-width:none}}
   /* staggered entrance on load */
   .hero .anim{opacity:0;transform:translateY(22px);animation:heroUp .9s var(--ease) forwards}
   .hero .d1{animation-delay:.08s}.hero .d2{animation-delay:.16s}.hero .d3{animation-delay:.26s}
@@ -228,7 +227,7 @@
     .hero{flex-direction:column;align-items:stretch;min-height:0}
     .hero .wrap{padding:98px 22px 40px;display:block;width:100%}
     .hero .inner{transform:none;width:100%;max-width:none;margin:0 auto}
-    .hero h1{font-size:clamp(32px,9vw,38px)}
+    .hero h1{font-size:clamp(27px,7.5vw,38px)}
     .hero p.lead{font-size:16.5px;margin:0 auto 24px}
     .hero .cta{justify-content:center}
     .hero .cta .btn{flex:1 1 auto;justify-content:center;min-width:0}
@@ -482,13 +481,14 @@
   .founder .aside .n{display:flex;align-items:center;gap:7px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:19px;color:#fff}
   .founder .aside .n .vf{width:18px;height:18px;fill:#5ec8ff;flex:none}
   .founder .aside .role{position:relative;font-size:13.5px;color:#a9c3dc;margin-top:5px;line-height:1.45}
-  .founder .aside .cert{position:relative;margin-top:16px;align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:.03em;color:#dbe9f6;white-space:nowrap}
+  .founder .aside .certs{position:relative;margin-top:18px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+  .founder .aside .cert{display:inline-flex;align-items:center;gap:8px;max-width:100%;padding:7px 12px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-family:'Plus Jakarta Sans';font-size:10.5px;font-weight:700;letter-spacing:.02em;color:#dbe9f6;line-height:1.32;text-align:left}
   .founder .aside .cert svg{width:13px;height:13px;fill:var(--green);flex:none}
   .founder .main{position:relative;padding:48px 50px;display:flex;flex-direction:column;justify-content:center}
   .founder .main .qm{position:absolute;top:28px;right:40px;font-family:Georgia,'Times New Roman',serif;font-size:120px;line-height:1;color:var(--blue);opacity:.07;pointer-events:none;user-select:none}
   .founder .main .eyebrow{font-family:'Plus Jakarta Sans';font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
   .founder .main blockquote{font-family:'Plus Jakarta Sans';font-size:clamp(19px,2vw,23px);line-height:1.52;font-weight:600;color:#182338;letter-spacing:-.015em}
-  @media(max-width:720px){.founder{grid-template-columns:1fr}.founder .aside{flex-direction:row;align-items:center;gap:16px;padding:26px 28px}.founder .aside .av{margin-bottom:0;width:62px;height:62px}.founder .aside .av b{font-size:23px}.founder .aside .cert{display:none}.founder .main{padding:34px 26px}}
+  @media(max-width:720px){.founder{grid-template-columns:1fr}.founder .aside{flex-direction:row;align-items:center;gap:16px;padding:26px 28px}.founder .aside .av{margin-bottom:0;width:62px;height:62px}.founder .aside .av b{font-size:23px}.founder .aside .certs{display:none}.founder .main{padding:34px 26px}}
   @media(max-width:400px){.founder .aside{padding:22px 20px;gap:13px}.founder .aside .av{width:54px;height:54px}.founder .aside .av b{font-size:20px}.founder .aside .n{font-size:17px}.founder .main{padding:30px 22px}}
 
   /* faq */
@@ -516,16 +516,31 @@
   .form .upload{border:1.5px dashed #c3d3e6;border-radius:var(--r);padding:15px;text-align:center;color:var(--ink2);font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-top:5px}
   .form .upload svg{width:18px;height:18px;color:var(--blue)}
 
-  /* footer */
-  footer{background:var(--navy);color:#aebfd4;padding:56px 0 30px}
-  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
-  @media(max-width:800px){footer .cols{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){footer .cols{grid-template-columns:1fr}}
-  footer img{height:58px;margin-bottom:12px}
-  footer b{color:#fff;font-family:'Plus Jakarta Sans';display:block;margin-bottom:10px;font-size:14px}
-  footer a{color:#aebfd4;text-decoration:none;display:block;padding:4px 0;font-size:14px}
-  @media (hover:hover) and (pointer:fine){footer a:hover{color:#fff}}
-  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  /* footer — brand + link columns + oversized ghost wordmark */
+  footer{position:relative;overflow:clip;background:#06131f;color:#9fb2c9;padding:76px 0 0;min-height:600px;display:flex;flex-direction:column}
+  footer .fcols{position:relative;z-index:2;display:flex;align-items:flex-start;gap:40px}
+  footer .fbrand{flex:0 0 230px;max-width:230px}
+  footer .flinks{flex:1;display:flex;justify-content:center;gap:clamp(34px,5vw,78px)}
+  footer .flinks .fcol{flex:none}
+  @media(max-width:900px){
+    footer .fcols{flex-wrap:wrap;gap:34px}
+    footer .fbrand{flex:1 1 100%;max-width:none}
+    footer .flinks{flex:1 1 100%;justify-content:flex-start;flex-wrap:wrap;gap:34px 26px}
+    footer .flinks .fcol{flex:1 1 40%}
+  }
+  footer .flogo{display:flex;align-items:center;gap:13px}
+  footer .flogo-img{height:52px;width:auto;display:block}
+  footer .flogo-ic{width:46px;height:46px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+  footer .flogo-ic img{height:30px;width:auto;margin:0;display:block}
+  footer .flogo-tx{font-family:'Plus Jakarta Sans';font-weight:800;font-size:21px;color:#fff;letter-spacing:-.01em;white-space:nowrap}
+  footer .fcopy{margin:20px 0 0;font-size:14px;line-height:1.65;color:#6b7e96;max-width:34ch}
+  footer .fcol b{color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;display:block;margin-bottom:15px;font-size:16px}
+  footer .fcol a,footer .fcol span{color:#9fb2c9;text-decoration:none;display:block;padding:7px 0;font-size:15px;line-height:1.3}
+  footer .fcol a.femph{color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:16px}
+  @media (hover:hover) and (pointer:fine){footer .fcol a:hover{color:#fff}}
+  footer .fwm{left:0;right:0;bottom:34px;display:block;text-align:center;font-size:min(15vw,300px);white-space:nowrap;line-height:.9;
+    background:linear-gradient(180deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,.04) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
   /* floating 24/7 call card (fixed, always visible) */
   .callcard{position:fixed;right:20px;bottom:20px;z-index:var(--z-cta);display:flex;align-items:center;gap:14px;
@@ -555,6 +570,15 @@
   .reveal.in{opacity:1;transform:none}
   /* stagger helpers */
   .rd1{--rd:.08s}.rd2{--rd:.16s}.rd3{--rd:.24s}.rd4{--rd:.32s}.rd5{--rd:.4s}
+  /* bento services : cartes convergentes gauche/droite, jouées deux par deux */
+  .svc .svc__c:nth-child(3),.svc .svc__c:nth-child(4){--rd:.09s}
+  .svc .svc__c:nth-child(5),.svc .svc__c:nth-child(6){--rd:.18s}
+  .svc .svc__c:nth-child(7),.svc .svc__c:nth-child(8){--rd:.27s}
+  .svc .svc__c:nth-child(9),.svc .svc__c:nth-child(10){--rd:.36s}
+  .svc .svc__c:nth-child(11){--rd:.45s}
+  /* le reveal (transform:none) ne doit pas voler le hover/active des cartes */
+  @media(hover:hover) and (pointer:fine){.svc .svc__c.in:hover{transform:translateY(-6px)}}
+  .svc .svc__c.in:active{transform:scale(.985)}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{transition:none!important}}
 
   /* sub-page hero — compact dark band the fixed navbar sits on */
@@ -701,6 +725,55 @@
 .svc-col-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:1000px){.svc-all{grid-template-columns:1fr;gap:30px}}
 @media(max-width:520px){.svc-col-cards{grid-template-columns:1fr}}
+
+/* WHY US — fused split: transformation slider + certified-crew comparison in one component */
+#why{padding:clamp(56px,7vw,88px) 0}
+.wc-grid{grid-template-columns:1.05fr 1fr;gap:clamp(30px,4vw,54px);align-items:stretch}
+@media(max-width:900px){.wc-grid{grid-template-columns:1fr;gap:32px}}
+.wc-grid .show-left{flex-direction:column;gap:14px}
+.wc-grid .car{flex:1}
+.wc-repnote{font-size:12px;color:var(--muted);text-align:center}
+.wc-right{display:flex;flex-direction:column;justify-content:flex-start;gap:0}
+.wc-right .eyebrow{margin-bottom:14px}
+.wc-title{font-size:clamp(30px,3.5vw,45px);font-weight:800;letter-spacing:-.03em;line-height:1.04;margin-bottom:14px;max-width:16ch}
+.wc-sub{font-size:clamp(16px,1.5vw,19px);color:var(--ink2);margin-bottom:30px}
+/* 4 reassurance icons in a row (label only, like the screen) */
+.wc-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:26px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.wc-feat{display:flex;flex-direction:column;gap:12px}
+.wc-fi{width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+.wc-fi svg{width:26px;height:26px;color:var(--navy);stroke-width:1.6}
+.wc-feat span{font-family:'Plus Jakarta Sans';font-weight:700;font-size:13.5px;color:var(--navy);line-height:1.25}
+@media(max-width:520px){.wc-feats{grid-template-columns:1fr 1fr;gap:22px 16px}}
+/* stat cards */
+.wc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.wc-st{border:1px solid var(--hair);border-radius:var(--rc);background:#fff;padding:18px 16px;box-shadow:0 1px 2px rgba(10,37,64,.03)}
+.wc-st .n{font-family:'Plus Jakarta Sans';font-weight:800;font-size:clamp(22px,2.3vw,27px);color:var(--navy);letter-spacing:-.03em;line-height:1}
+.wc-st .n small{font-size:.5em;color:var(--blue);font-weight:800;margin-left:3px}
+.wc-st .l{font-size:12px;color:var(--ink2);margin-top:7px}
+/* compact comparison table nested in the column */
+.wc-mini{margin-top:30px;border:1px solid var(--hair);border-radius:var(--rc);background:#fff;overflow:hidden;box-shadow:0 18px 44px -30px rgba(10,37,64,.28)}
+.wc-mini-h{text-align:center;font-family:'Plus Jakarta Sans';font-weight:800;font-size:15px;color:var(--navy);padding:16px 18px 14px}
+.wc-thead,.wc-row{display:grid;grid-template-columns:1.5fr .9fr .9fr;align-items:center}
+.wc-thead{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.wc-row{border-bottom:1px solid var(--hair)}
+.wc-row:last-child{border-bottom:0}
+.wc-thead>div,.wc-row>div{padding:12px 14px}
+.wc-c-dim{font-size:13px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:9px}
+.wc-c-dim svg{width:16px;height:16px;color:var(--ink2);flex:none;stroke-width:1.7}
+.wc-c-us{background:rgba(18,136,206,.045)}
+.wc-thead .wc-c-us{box-shadow:inset 0 2px 0 var(--blue)}
+.wc-thead .wc-c-us,.wc-thead .wc-c-them{display:flex;flex-direction:column;gap:3px;text-align:center;align-items:center}
+.wc-thead .wc-c-us b,.wc-thead .wc-c-them b{font-family:'Plus Jakarta Sans';font-size:13px;font-weight:800;line-height:1.15}
+.wc-thead .wc-c-us b{color:var(--blue)}
+.wc-thead .wc-c-them b{color:var(--navy)}
+.wc-thead .wc-c-us span,.wc-thead .wc-c-them span{font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.wc-row .wc-c-us,.wc-row .wc-c-them{display:flex;justify-content:center;align-items:center}
+.wc-mk{display:flex;align-items:center;justify-content:center}
+.wc-mk.ok{color:var(--blue)}
+.wc-mk.ok svg{width:18px;height:18px;stroke-width:2.6}
+.wc-mk.no{color:var(--muted);font-weight:700;font-size:15px}
+/* full-width call button */
+.wc-call{margin-top:26px;width:100%;justify-content:center;border-radius:var(--rc);padding:16px 22px;font-size:16px}
 </style>
 </head>
 <body>
@@ -776,38 +849,36 @@
     </div>
     <div class="cta-note anim d5">
       <span class="assur"><i data-lucide="check"></i> Free on-site assessment · no obligation</span>
-      
+
     </div>
   </div></div>
+  <div class="hcerts">
+    <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="/img/IICRC-logo-grey.webp" alt="IICRC Certified Firm" style="height:36px"><span class="wc-trust-lbl">IICRC<br>Certified</span></div>
+    <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="/img/OSHA-logo-grey.png" alt="OSHA Trained" style="height:34px"><span class="wc-trust-lbl">OSHA<br>Trained</span></div>
+    <div class="wc-trust-item"><img decode="async" class="wc-logo-epa" src="/img/EPA-logo-white.svg" alt="EPA Lead-Safe" style="height:22px"><span class="wc-trust-lbl">EPA<br>Lead-Safe</span></div>
+    <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="/img/ca-map.svg" alt="California Trauma Scene Waste" style="height:34px"><span class="wc-trust-lbl">CA Trauma Scene<br>Practitioner</span></div>
+    <div class="wc-trust-item"><i data-lucide="shield-check" class="wc-trust-ic"></i><span class="wc-trust-lbl">Licensed<br>&amp; Insured</span></div>
+  </div>
 </section>
 
-<!-- §4.1 — bande de données (remplace le badge unique "Certified & licensed") -->
-<div class="strip" role="group" aria-label="CleanCore Decon at a glance">
-  <div class="strip__in">
-    <div class="strip__c"><div class="strip__k">Response</div><div class="strip__v"><b>90 min</b> · LA County</div></div>
-    <div class="strip__c"><div class="strip__k">Availability</div><div class="strip__v"><b>24/7</b> · live answer</div></div>
-    <div class="strip__c"><div class="strip__k">Certified</div><div class="strip__v data">IICRC · EPA</div></div>
-    <div class="strip__c"><div class="strip__k">Registered</div><div class="strip__v data">CA TSW</div></div>
-    <div class="strip__c"><div class="strip__k">Direct line</div><div class="strip__v"><a href="tel:+15625686032" class="data">(562)&nbsp;568-6032</a></div></div>
-  </div>
-</div>
 
-
-<!-- SERVICES — category tabs -->
-<section id="services"><div class="wrap">
+<!-- SERVICES -->
+<section class="secghost" id="services">
+  <span class="ghost ghost--l ghost--bl" data-par=".12" aria-hidden="true">SERVICES</span>
+  <div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Our services</span><h2>Our Specialized Biohazard Cleanup Services</h2><p>We provide certified biohazard cleanup, trauma scene cleanup, hoarding cleanup, odor removal, and environmental decontamination for residential, commercial, and government clients throughout Southern California.</p></div>
-  <div class="svc reveal">
-    <a class="svc__c" data-size="lg" href="biohazard-cleanup.html"><picture><source type="image/avif" srcset="img/biohazard-before-640.avif 640w, img/biohazard-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/biohazard-before-640.webp 640w, img/biohazard-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/biohazard-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Biohazard &amp; Trauma</div><div class="svc__t">Biohazard Cleanup</div><div class="svc__d">Safe removal &amp; decontamination of biohazardous materials.</div></div></a>
-    <a class="svc__c" data-size="lg" href="unattended-death-cleanup.html"><picture><source type="image/avif" srcset="img/unattended-death-before-640.avif 640w, img/unattended-death-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/unattended-death-before-640.webp 640w, img/unattended-death-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/unattended-death-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Specialty</div><div class="svc__t">Unattended Death Cleanup</div><div class="svc__d">Complete, safe cleanup and odor removal.</div></div></a>
-    <a class="svc__c" data-size="md" href="crime-scene-cleanup.html"><picture><source type="image/avif" srcset="img/crime-scene-before-640.avif 640w, img/crime-scene-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/crime-scene-before-640.webp 640w, img/crime-scene-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/crime-scene-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Biohazard &amp; Trauma</div><div class="svc__t">Crime Scene Cleanup</div><div class="svc__d">Discreet, compassionate restoration after a tragedy.</div></div></a>
-    <a class="svc__c" data-size="md" href="hoarder-cleanup.html"><picture><source type="image/avif" srcset="img/hoarder-before-640.avif 640w, img/hoarder-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/hoarder-before-640.webp 640w, img/hoarder-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/hoarder-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Specialty</div><div class="svc__t">Hoarder Cleanup</div><div class="svc__d">Judgment-free, full property cleanout &amp; sanitizing.</div></div></a>
-    <a class="svc__c" data-size="md" href="suicide-cleanup.html"><picture><source type="image/avif" srcset="img/suicide-before-640.avif 640w, img/suicide-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/suicide-before-640.webp 640w, img/suicide-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/suicide-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Biohazard &amp; Trauma</div><div class="svc__t">Suicide Cleanup</div><div class="svc__d">Respectful, careful remediation with the utmost dignity.</div></div></a>
-    <a class="svc__c" data-size="sm" href="blood-cleanup.html"><picture><source type="image/avif" srcset="img/blood-before-640.avif 640w, img/blood-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/blood-before-640.webp 640w, img/blood-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/blood-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Biohazard &amp; Trauma</div><div class="svc__t">Blood Cleanup</div><div class="svc__d">Thorough, professional blood spill remediation.</div></div></a>
-    <a class="svc__c" data-size="sm" href="odor-removal.html"><picture><source type="image/avif" srcset="img/odor-before-640.avif 640w, img/odor-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/odor-before-640.webp 640w, img/odor-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/odor-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Restoration</div><div class="svc__t">Odor Removal</div><div class="svc__d">Complete molecular-level odor neutralization.</div></div></a>
-    <a class="svc__c" data-size="sm" href="mold-remediation.html"><picture><source type="image/avif" srcset="img/mold-before-640.avif 640w, img/mold-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/mold-before-640.webp 640w, img/mold-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/mold-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Restoration</div><div class="svc__t">Mold Remediation</div><div class="svc__d">Inspection, containment &amp; safe mold removal.</div></div></a>
-    <a class="svc__c" data-size="sm" href="rodent-biohazard-cleanup.html"><picture><source type="image/avif" srcset="img/rodent-before-640.avif 640w, img/rodent-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/rodent-before-640.webp 640w, img/rodent-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/rodent-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Specialty</div><div class="svc__t">Rodent Biohazard Cleanup</div><div class="svc__d">Droppings removal, decontamination &amp; deodorizing.</div></div></a>
-    <a class="svc__c" data-size="sm" href="drug-lab-cleanup.html"><picture><source type="image/avif" srcset="img/drug-lab-before-640.avif 640w, img/drug-lab-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/drug-lab-before-640.webp 640w, img/drug-lab-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/drug-lab-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Specialty</div><div class="svc__t">Drug Lab Cleanup</div><div class="svc__d">Certified chemical decontamination &amp; disposal.</div></div></a>
-    <a class="svc__c" data-size="sm" href="fire-damage-restoration.html"><picture><source type="image/avif" srcset="img/fire-before-640.avif 640w, img/fire-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/fire-before-640.webp 640w, img/fire-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/fire-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Restoration</div><div class="svc__t">Fire Damage Restoration</div><div class="svc__d">Soot, smoke &amp; structural cleanup after a fire.</div></div></a>
+  <div class="svc">
+    <a class="svc__c reveal r-left" data-size="lg" href="biohazard-cleanup.html"><picture><source type="image/avif" srcset="img/biohazard-before-640.avif 640w, img/biohazard-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/biohazard-before-640.webp 640w, img/biohazard-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/biohazard-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Biohazard &amp; Trauma</div><div class="svc__t">Biohazard Cleanup</div><div class="svc__d">Safe removal &amp; decontamination of biohazardous materials.</div></div></a>
+    <a class="svc__c reveal r-right" data-size="lg" href="unattended-death-cleanup.html"><picture><source type="image/avif" srcset="img/unattended-death-before-640.avif 640w, img/unattended-death-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/unattended-death-before-640.webp 640w, img/unattended-death-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/unattended-death-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Specialty</div><div class="svc__t">Unattended Death Cleanup</div><div class="svc__d">Complete, safe cleanup and odor removal.</div></div></a>
+    <a class="svc__c reveal r-left" data-size="md" href="crime-scene-cleanup.html"><picture><source type="image/avif" srcset="img/crime-scene-before-640.avif 640w, img/crime-scene-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/crime-scene-before-640.webp 640w, img/crime-scene-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/crime-scene-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Biohazard &amp; Trauma</div><div class="svc__t">Crime Scene Cleanup</div><div class="svc__d">Discreet, compassionate restoration after a tragedy.</div></div></a>
+    <a class="svc__c reveal r-right" data-size="md" href="hoarder-cleanup.html"><picture><source type="image/avif" srcset="img/hoarder-before-640.avif 640w, img/hoarder-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/hoarder-before-640.webp 640w, img/hoarder-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/hoarder-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Specialty</div><div class="svc__t">Hoarder Cleanup</div><div class="svc__d">Judgment-free, full property cleanout &amp; sanitizing.</div></div></a>
+    <a class="svc__c reveal r-left" data-size="md" href="suicide-cleanup.html"><picture><source type="image/avif" srcset="img/suicide-before-640.avif 640w, img/suicide-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/suicide-before-640.webp 640w, img/suicide-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/suicide-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Biohazard &amp; Trauma</div><div class="svc__t">Suicide Cleanup</div><div class="svc__d">Respectful, careful remediation with the utmost dignity.</div></div></a>
+    <a class="svc__c reveal r-right" data-size="sm" href="blood-cleanup.html"><picture><source type="image/avif" srcset="img/blood-before-640.avif 640w, img/blood-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/blood-before-640.webp 640w, img/blood-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/blood-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Biohazard &amp; Trauma</div><div class="svc__t">Blood Cleanup</div><div class="svc__d">Thorough, professional blood spill remediation.</div></div></a>
+    <a class="svc__c reveal r-left" data-size="sm" href="odor-removal.html"><picture><source type="image/avif" srcset="img/odor-before-640.avif 640w, img/odor-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/odor-before-640.webp 640w, img/odor-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/odor-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Restoration</div><div class="svc__t">Odor Removal</div><div class="svc__d">Complete molecular-level odor neutralization.</div></div></a>
+    <a class="svc__c reveal r-right" data-size="sm" href="mold-remediation.html"><picture><source type="image/avif" srcset="img/mold-before-640.avif 640w, img/mold-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/mold-before-640.webp 640w, img/mold-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/mold-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Restoration</div><div class="svc__t">Mold Remediation</div><div class="svc__d">Inspection, containment &amp; safe mold removal.</div></div></a>
+    <a class="svc__c reveal r-left" data-size="sm" href="rodent-biohazard-cleanup.html"><picture><source type="image/avif" srcset="img/rodent-before-640.avif 640w, img/rodent-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/rodent-before-640.webp 640w, img/rodent-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/rodent-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Specialty</div><div class="svc__t">Rodent Biohazard Cleanup</div><div class="svc__d">Droppings removal, decontamination &amp; deodorizing.</div></div></a>
+    <a class="svc__c reveal r-right" data-size="sm" href="drug-lab-cleanup.html"><picture><source type="image/avif" srcset="img/drug-lab-before-640.avif 640w, img/drug-lab-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/drug-lab-before-640.webp 640w, img/drug-lab-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/drug-lab-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Specialty</div><div class="svc__t">Drug Lab Cleanup</div><div class="svc__d">Certified chemical decontamination &amp; disposal.</div></div></a>
+    <a class="svc__c reveal r-left" data-size="sm" href="fire-damage-restoration.html"><picture><source type="image/avif" srcset="img/fire-before-640.avif 640w, img/fire-before-1000.avif 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/fire-before-640.webp 640w, img/fire-before-1000.webp 1000w" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 560px"><img class="svc__img" decode="async" src="img/fire-before.jpg" alt="" loading="lazy"></picture><div class="svc__b"><div class="svc__tag">Restoration</div><div class="svc__t">Fire Damage Restoration</div><div class="svc__d">Soot, smoke &amp; structural cleanup after a fire.</div></div></a>
   </div>
   <p style="text-align:center;margin-top:30px;font-size:15px;color:var(--ink2)">Not sure what your situation needs? <a href="tel:+15625686032" style="color:var(--blue);font-weight:700;text-decoration:none">Call us</a> — we’ll tell you honestly, for free.</p>
 </div></section>
@@ -824,25 +895,24 @@
     <div class="bento reveal">
       <div class="bx bx--photo"><picture><source type="image/avif" srcset="img/cat-biohazard-640.avif 640w, img/cat-biohazard-1000.avif 1000w" sizes="(max-width:900px) 50vw, 560px"><source type="image/webp" srcset="img/cat-biohazard-640.webp 640w, img/cat-biohazard-1000.webp 1000w" sizes="(max-width:900px) 50vw, 560px"><img decode="async" src="img/cat-biohazard.jpg" alt="CleanCore Decon technician in PPE decontaminating a biohazard scene" loading="lazy"></picture></div>
       <div class="bx bx--stat">
+        <span class="bx__map" aria-hidden="true"><picture><source type="image/avif" srcset="img/mapprocess.avif"><source type="image/webp" srcset="img/mapprocess.webp"><img src="img/mapprocess.png" alt="" loading="lazy" decoding="async" width="1811" height="868"></picture></span>
         <div class="bx__k">Typical response</div>
         <div><span class="big"><span class="cnt" data-to="90">90</span> <small>min</small></span></div>
         <div class="bx__lab">Across LA County · call for ETA elsewhere</div>
       </div>
-      <div class="bx">
+      <div class="bx bx--icon">
+        <span class="bx__ghost" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
         <div class="bx__k">Availability</div>
         <div class="big">24/7</div>
         <div class="bx__lab">A real person answers</div>
       </div>
-      <div class="bx">
+      <div class="bx bx--icon">
+        <span class="bx__ghost" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 6h4M2 10h4M2 14h4M2 18h4"/><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M16 2v20"/></svg></span>
         <div class="bx__k">Services</div>
         <div class="big"><span class="cnt" data-to="11">11</span></div>
         <div class="bx__lab">Biohazard &amp; restoration</div>
       </div>
-      <div class="bx bx--dark">
-        <div class="bx__k">Certifications</div>
-        <div class="bx__badges"><span class="bdg">IICRC</span><span class="bdg">OSHA</span><span class="bdg">EPA Lead-Safe</span><span class="bdg">CA TSW</span></div>
-      </div>
-      <div class="bx bx--wide">
+      <div class="bx bx--wide bx--full">
         <div class="bx__k">Every job includes</div>
         <ul class="bx__list">
           <li><i data-lucide="check"></i> We work directly with your insurance carrier whenever applicable</li>
@@ -851,6 +921,43 @@
         </ul>
       </div>
     </div>
+  </div>
+
+  <!-- CERTIFICATIONS — full-width marquee band, kept INSIDE the section so the CERTIFIED ghost spans behind it too -->
+  <div class="certband" aria-label="Certifications: IICRC, OSHA, EPA Lead-Safe, California Trauma Scene Waste">
+  <div class="certband__lead">Certified &amp; registered</div>
+  <div class="certband__mq">
+    <div class="certband__t">
+      <div class="certband__g">
+        <img class="certband__l" src="img/IICRC-logo-grey.webp" alt="IICRC certified" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/OSHA-logo-grey.png" alt="OSHA trained" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/EPA-logo-grey.png" alt="EPA Lead-Safe certified" loading="lazy" decoding="async">
+        <span class="certband__ct"><img class="certband__ctmap" src="img/ca-map.svg" alt="">CA&nbsp;TSW</span>
+        <img class="certband__l" src="img/IICRC-logo-grey.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/OSHA-logo-grey.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/EPA-logo-grey.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <span class="certband__ct" aria-hidden="true"><img class="certband__ctmap" src="img/ca-map.svg" alt="">CA&nbsp;TSW</span>
+        <img class="certband__l" src="img/IICRC-logo-grey.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/OSHA-logo-grey.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/EPA-logo-grey.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <span class="certband__ct" aria-hidden="true"><img class="certband__ctmap" src="img/ca-map.svg" alt="">CA&nbsp;TSW</span>
+      </div>
+      <div class="certband__g" aria-hidden="true">
+        <img class="certband__l" src="img/IICRC-logo-grey.webp" alt="" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/OSHA-logo-grey.png" alt="" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/EPA-logo-grey.png" alt="" loading="lazy" decoding="async">
+        <span class="certband__ct"><img class="certband__ctmap" src="img/ca-map.svg" alt="">CA&nbsp;TSW</span>
+        <img class="certband__l" src="img/IICRC-logo-grey.webp" alt="" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/OSHA-logo-grey.png" alt="" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/EPA-logo-grey.png" alt="" loading="lazy" decoding="async">
+        <span class="certband__ct"><img class="certband__ctmap" src="img/ca-map.svg" alt="">CA&nbsp;TSW</span>
+        <img class="certband__l" src="img/IICRC-logo-grey.webp" alt="" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/OSHA-logo-grey.png" alt="" loading="lazy" decoding="async">
+        <img class="certband__l" src="img/EPA-logo-grey.png" alt="" loading="lazy" decoding="async">
+        <span class="certband__ct"><img class="certband__ctmap" src="img/ca-map.svg" alt="">CA&nbsp;TSW</span>
+      </div>
+    </div>
+  </div>
   </div>
 </section>
 <script>
@@ -863,9 +970,9 @@ els.forEach(function(el){cio.observe(el);});})();
 </script>
 
 <!-- WHY US + WHY CERTIFIED MATTERS -->
-<section id="why"><div class="wrap reveal">
-  <div class="sc-head"><span class="eyebrow">Why choose us</span><h2>The transformation a certified crew delivers</h2><p>Drag any photo to see the transformation — and here's why people pick us.</p><p style="font-size:12px;color:var(--muted);margin-top:6px">Representative images.</p></div>
-  <div class="grid2">
+<section class="secghost" id="why">
+  <span class="ghost ghost--l ghost--br" data-par=".12" aria-hidden="true">RESULTS</span><div class="wrap reveal">
+  <div class="grid2 wc-grid">
     <div class="show-left reveal r-left">
       <div class="car">
         <div class="car-view">
@@ -894,82 +1001,80 @@ els.forEach(function(el){cio.observe(el);});})();
           </div>
         </div>
       </div>
+      <p class="wc-repnote">Representative images.</p>
     </div>
-    <div class="show-right reveal r-right rd1">
-      <h3>Certified. Compassionate. Available 24/7.</h3>
-      <p>When something terrible happens, you need the right people — fast, trustworthy, and kind. That's all we do.</p>
-      <div class="feats">
-        <div class="feat"><span class="fi"><i data-lucide="timer"></i></span><div><h4>Rapid 24/7 response</h4><p>We answer 24/7 and dispatch a certified crew immediately across LA County.</p></div></div>
-        <div class="feat"><span class="fi"><i data-lucide="file-check"></i></span><div><h4>Your insurance, handled for you</h4><p>We bill your insurer directly, handle the paperwork.</p></div></div>
-        <div class="feat"><span class="fi"><i data-lucide="eye-off"></i></span><div><h4>Total discretion &amp; compassion</h4><p>Unmarked vehicles, full confidentiality, and zero judgment — ever.</p></div></div>
-        <div class="feat"><span class="fi"><i data-lucide="shield-check"></i></span><div><h4>Certified &amp; documented</h4><p>IICRC-certified, licensed &amp; insured — every job documented to protect your claim.</p></div></div>
-      </div>
-      <div class="stats">
-        <div class="st"><div class="n">&lt;90<small>min</small></div><div class="l">Typical &middot; LA County</div></div>
-        <div class="st"><div class="n">Free</div><div class="l">On-site estimate</div></div>
-        <div class="st"><div class="n">24/7</div><div class="l">Live answer</div></div>
-      </div>
-      <div class="scta"><a class="btn bp" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a></div>
-    </div>
-  </div>
 
-  <div class="cmpwrap">
-    <div class="cmp-h">
-      <h3>Why hiring a certified crew matters</h3>
-      <p>After a traumatic event, anyone with a mop can call themselves a cleaner. Here’s what’s actually at stake.</p>
-    </div>
-    <div class="cmp2 reveal r-up">
-      <div class="cmp2-head">
-        <div class="c-dim"></div>
-        <div class="c-us"><span class="c-ttl">CleanCore Decon</span><span class="c-badge ok">IICRC certified</span></div>
-        <div class="c-them"><span class="c-ttl">Uncertified cleaner</span><span class="c-badge no">No credentials</span></div>
+    <div class="show-right wc-right reveal r-right rd1">
+      <span class="eyebrow">Why choose us</span>
+      <h2 class="wc-title">The transformation a certified crew delivers.</h2>
+      <p class="wc-sub">Certified. Compassionate. Available 24/7.</p>
+
+      <div class="wc-feats">
+        <div class="wc-feat"><span class="wc-fi"><i data-lucide="timer"></i></span><span>Rapid 24/7 response</span></div>
+        <div class="wc-feat"><span class="wc-fi"><i data-lucide="file-check"></i></span><span>Insurance handled for you</span></div>
+        <div class="wc-feat"><span class="wc-fi"><i data-lucide="eye-off"></i></span><span>Total discretion &amp; compassion</span></div>
+        <div class="wc-feat"><span class="wc-fi"><i data-lucide="shield-check"></i></span><span>Certified &amp; documented</span></div>
       </div>
-    <div class="cmp2-row">
-      <div class="c-dim">Crew &amp; protection</div>
-      <div class="c-us"><span class="mk ok"><i data-lucide="check"></i></span><span><b>Bloodborne-pathogen trained</b> — full PPE on every job</span></div>
-      <div class="c-them"><span class="mk no"><i data-lucide="x"></i></span><span>Rarely trained or protected — cross-contamination risk</span></div>
-    </div>
-    <div class="cmp2-row">
-      <div class="c-dim">Waste disposal</div>
-      <div class="c-us"><span class="mk ok"><i data-lucide="check"></i></span><span><b>Legal biohazard disposal</b> — transported &amp; documented</span></div>
-      <div class="c-them"><span class="mk no"><i data-lucide="x"></i></span><span>Illegal dumping — and you stay liable for it</span></div>
-    </div>
-    <div class="cmp2-row">
-      <div class="c-dim">Disinfection</div>
-      <div class="c-us"><span class="mk ok"><i data-lucide="check"></i></span><span><b>Hospital-grade disinfection</b> — verified after the job</span></div>
-      <div class="c-them"><span class="mk no"><i data-lucide="x"></i></span><span>Surface cleaning only, nothing verified</span></div>
-    </div>
-    <div class="cmp2-row">
-      <div class="c-dim">Insurance &amp; payment</div>
-      <div class="c-us"><span class="mk ok"><i data-lucide="check"></i></span><span><b>Insurance handled for you</b> — the paperwork is on us</span></div>
-      <div class="c-them"><span class="mk no"><i data-lucide="x"></i></span><span>You pay cash up front</span></div>
-    </div>
-    <div class="cmp2-row">
-      <div class="c-dim">Licensing</div>
-      <div class="c-us"><span class="mk ok"><i data-lucide="check"></i></span><span><b>Licensed &amp; fully documented</b> — your claim protected</span></div>
-      <div class="c-them"><span class="mk no"><i data-lucide="x"></i></span><span>Unlicensed work can void your insurance claim</span></div>
-    </div>
-      <div class="cmp2-foot">
-        <a class="btn bp" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
-        <div class="dnote">Anyone with a mop can put "biohazard cleaning" on a flyer.</div>
+
+      <div class="wc-mini reveal r-up">
+        <div class="wc-mini-h">Why hiring a certified crew matters</div>
+        <div class="wc-thead">
+          <div class="wc-c-dim"></div>
+          <div class="wc-c-us"><b>CleanCore Decon</b><span>IICRC certified</span></div>
+          <div class="wc-c-them"><b>Uncertified cleaner</b><span>No credentials</span></div>
+        </div>
+        <div class="wc-row">
+          <div class="wc-c-dim"><i data-lucide="shield-check"></i>Crew &amp; protection</div>
+          <div class="wc-c-us"><span class="wc-mk ok"><i data-lucide="check"></i></span></div>
+          <div class="wc-c-them"><span class="wc-mk no">—</span></div>
+        </div>
+        <div class="wc-row">
+          <div class="wc-c-dim"><i data-lucide="trash-2"></i>Waste disposal</div>
+          <div class="wc-c-us"><span class="wc-mk ok"><i data-lucide="check"></i></span></div>
+          <div class="wc-c-them"><span class="wc-mk no">—</span></div>
+        </div>
+        <div class="wc-row">
+          <div class="wc-c-dim"><i data-lucide="droplet"></i>Disinfection</div>
+          <div class="wc-c-us"><span class="wc-mk ok"><i data-lucide="check"></i></span></div>
+          <div class="wc-c-them"><span class="wc-mk no">—</span></div>
+        </div>
+        <div class="wc-row">
+          <div class="wc-c-dim"><i data-lucide="file-text"></i>Insurance &amp; payment</div>
+          <div class="wc-c-us"><span class="wc-mk ok"><i data-lucide="check"></i></span></div>
+          <div class="wc-c-them"><span class="wc-mk no">—</span></div>
+        </div>
+        <div class="wc-row">
+          <div class="wc-c-dim"><i data-lucide="badge-check"></i>Licensing</div>
+          <div class="wc-c-us"><span class="wc-mk ok"><i data-lucide="check"></i></span></div>
+          <div class="wc-c-them"><span class="wc-mk no">—</span></div>
+        </div>
       </div>
+
+      <a class="btn bp wc-call" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
     </div>
   </div>
 </div></section>
 
 <!-- PROCESS -->
 <section class="band--dark proc-sec" id="process">
+  <div class="proc-bg" aria-hidden="true">
+    <picture>
+      <source type="image/avif" srcset="img/mapprocess.avif">
+      <source type="image/webp" srcset="img/mapprocess.webp">
+      <img src="img/mapprocess.png" alt="" decoding="async" loading="lazy" width="1811" height="868">
+    </picture>
+  </div>
   <div class="glines" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="reveal" style="max-width:64ch">
-      <span class="kicker">Step 01–04 · How it works</span>
-      <h2 style="margin:14px 0 12px">A proven process, from the first call to the final check.</h2>
-      <p>Four clear steps, validated with you at every stage. You always know exactly what happens next — no surprises, no waiting in the dark.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
-        <a class="btn bp" href="tel:+15625686032">Call now <span class="c"><i data-lucide="phone-call"></i></span></a>
-        <a class="btn bo-light" href="#contact">Get a free estimate</a>
-      </div>
+  <div class="wrap proc-lead reveal">
+    <span class="kicker">Step 01–04 · How it works</span>
+    <h2>A proven process, from the first call to the final check.</h2>
+    <p>Four clear steps, validated with you at every stage — no surprises, no waiting in the dark.</p>
+    <div class="proc-lead__cta">
+      <a class="btn bp" href="tel:+15625686032">Call now <span class="c"><i data-lucide="phone-call"></i></span></a>
+      <a class="btn bo-light" href="#contact">Get a free estimate</a>
     </div>
+  </div>
+  <div class="wrap">
     <div class="proc">
       <div class="proc__l">
         <div class="proc__num" id="pnum">01</div>
@@ -980,21 +1085,44 @@ els.forEach(function(el){cio.observe(el);});})();
         <div class="step" data-n="02" data-l="Fast · 24/7"><div class="step__n">02 · Fast · 24/7</div><div class="step__t">Free on-site assessment</div><div class="step__d">We evaluate the situation on the ground and hand you a clear, written plan and quote. No obligation, no pressure.</div><span class="step__chip">$0 · no obligation</span></div>
         <div class="step" data-n="03" data-l="Same day"><div class="step__n">03 · Same day</div><div class="step__t">Containment &amp; decontamination</div><div class="step__d">We secure and isolate the area, then perform certified biohazard removal, hospital-grade disinfection and full odor neutralization.</div><span class="step__chip">IICRC-certified process</span></div>
         <div class="step" data-n="04" data-l="Before we leave"><div class="step__n">04 · Before we leave</div><div class="step__t">Restored &amp; verified</div><div class="step__d">Final verification, then we handle the insurance paperwork for you. Your space is safe, clean and documented.</div><span class="step__chip">Insurance handled</span></div>
+        <div class="step step--end" data-n="" data-l="" aria-hidden="true"></div>
       </div>
     </div>
   </div>
 </section>
 <script>
 (function(){
-  var num=document.getElementById('pnum'),lab=document.getElementById('plab');
-  var steps=document.querySelectorAll('#process .step');
-  if(!num||!steps.length)return;
-  var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
-    for(var i=0;i<steps.length;i++)steps[i].classList.remove('on');
-    e.target.classList.add('on');
-    num.textContent=e.target.dataset.n; lab.textContent=e.target.dataset.l;});
-  },{threshold:.6,rootMargin:'-20% 0px -30% 0px'});
-  for(var i=0;i<steps.length;i++)sio.observe(steps[i]);
+  var sec=document.getElementById('process'); if(!sec)return;
+  var num=document.getElementById('pnum'), lab=document.getElementById('plab');
+  var lcol=sec.querySelector('.proc__l'), proc=sec.querySelector('.proc');
+  var stepsEl=sec.querySelector('.proc__steps');
+  var steps=[].slice.call(sec.querySelectorAll('.step'));
+  if(!steps.length||!stepsEl)return;
+  var real=steps.filter(function(s){ return s.getAttribute('data-n'); });   // vraies étapes (sans le fantôme)
+  function flip(node){ node.classList.remove('flip'); void node.offsetWidth; node.classList.add('flip'); }
+  var cur=-99;
+  function apply(idx){
+    if(idx===cur) return;
+    var up=idx<cur; cur=idx;
+    if(proc) proc.classList.toggle('rev', up);                 // sens du scroll -> sens de l'animation (rewind en marche arrière)
+    var el=(idx>=0 && idx<real.length) ? real[idx] : null;     // null = hors zone / fantôme de fin -> fade out
+    for(var k=0;k<steps.length;k++) steps[k].classList.toggle('on', steps[k]===el);
+    if(el){
+      if(lcol) lcol.classList.remove('is-out');
+      var nv=el.getAttribute('data-n'), lv=el.getAttribute('data-l');
+      if(num && num.textContent!==nv){ num.textContent=nv; flip(num); }
+      if(lab && lab.textContent!==lv){ lab.textContent=lv; flip(lab); }
+    } else if(lcol){ lcol.classList.add('is-out'); }
+  }
+  var ticking=false;
+  function onScroll(){ if(ticking) return; ticking=true;
+    requestAnimationFrame(function(){ ticking=false;
+      var vh=window.innerHeight, r=stepsEl.getBoundingClientRect();
+      apply(Math.floor((vh/2 - r.top)/vh));                    // quelle étape le centre de l'écran traverse (déterministe, 2 sens)
+    }); }
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll,{passive:true});
+  onScroll();
 })();
 </script>
 
@@ -1002,12 +1130,9 @@ els.forEach(function(el){cio.observe(el);});})();
 
 
 <!-- AREAS — inline SVG California map -->
-<div class="mq" role="marquee" aria-label="Certifications and service commitments">
-  <div class="mq__t" id="mq"><span class="mq__i">IICRC Certified</span><span class="mq__i">OSHA Trained</span><span class="mq__i">EPA Lead-Safe</span><span class="mq__i">CA TSW Registered</span><span class="mq__i">24/7 Dispatch</span><span class="mq__i">Unmarked Vehicles</span><span class="mq__i">Insurance Billed Direct</span><span class="mq__i">Southern California</span></div>
-</div>
-<svg class="wave" style="background:#081A2E" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,50 C240,90 420,4 720,32 C1020,60 1200,86 1440,44 L1440,90 L0,90 Z" fill="#F4F7FB"/></svg>
-<script>(function(){var m=document.getElementById('mq');if(m)m.innerHTML+=m.innerHTML;})();</script>
-<section class="bg-alt" id="areas"><div class="wrap reveal">
+<section class="bg-alt secghost" id="areas">
+  <span class="ghost ghost--l ghost--tl" data-par=".12" aria-hidden="true">SOCAL</span>
+  <div class="wrap reveal">
   <div class="sec-h"><span class="eyebrow">Areas we serve</span><h2>Serving Southern California</h2><p>Dispatched 24/7 across Southern California. Tap a county on the map to see response times.</p></div>
   <div class="areawrap">
     <div class="mapfig reveal r-left"><svg class="camap" id="camap" viewBox="360 734 625 402" role="img" aria-label="Map of California with CleanCore Decon service counties highlighted">
@@ -1032,23 +1157,36 @@ els.forEach(function(el){cio.observe(el);});})();
 </div></section>
 
 <!-- WHO WE WORK WITH (C5) -->
-<section class="bg-alt"><div class="wrap">
-  <div class="sec-h reveal"><span class="eyebrow">Who we work with</span><h2>Trusted by families, businesses &amp; government</h2><p>Recurring partners get priority scheduling, direct insurance billing, and documentation on every job.</p></div>
-  <div style="display:flex;flex-wrap:wrap;gap:22px;margin-top:8px">
-    <div class="reveal" style="flex:1 1 320px;background:#fff;border:1px solid var(--hair);border-radius:var(--rc);padding:30px;box-shadow:var(--amb)">
-      <span style="display:inline-flex;width:46px;height:46px;border-radius:12px;background:rgba(18,136,206,.1);color:var(--blue);align-items:center;justify-content:center;margin-bottom:14px"><i data-lucide="building-2"></i></span>
-      <h3 style="font-family:'Plus Jakarta Sans';font-size:21px;font-weight:800;color:var(--navy);margin:0 0 8px">For Property Managers</h3>
-      <p style="color:var(--ink2);font-size:15.5px;line-height:1.6;margin:0 0 18px">Fast, discreet turnarounds that keep units rent-ready. We bill insurance directly, document every job for your records, and answer 24/7 &mdash; so one call handles it.</p>
-      <a class="btn bp" href="tel:+15625686032">Call (562) 568-6032 <span class="c"><i data-lucide="phone-call"></i></span></a>
-    </div>
-    <div class="reveal" style="flex:1 1 320px;background:#fff;border:1px solid var(--hair);border-radius:var(--rc);padding:30px;box-shadow:var(--amb)">
-      <span style="display:inline-flex;width:46px;height:46px;border-radius:12px;background:rgba(87,185,74,.12);color:var(--green-dark);align-items:center;justify-content:center;margin-bottom:14px"><i data-lucide="landmark"></i></span>
-      <h3 style="font-family:'Plus Jakarta Sans';font-size:21px;font-weight:800;color:var(--navy);margin:0 0 8px">Government &amp; FEMA contracts</h3>
-      <p style="color:var(--ink2);font-size:15.5px;line-height:1.6;margin:0 0 18px">We take on government and FEMA-contracted decontamination across Southern California &mdash; with compliant disposal, full documentation, and 24/7 mobilization.</p>
-      <a href="#contact" style="display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-weight:700;font-size:15px;text-decoration:none">Discuss a contract <i data-lucide="arrow-right"></i></a>
-    </div>
+<section id="partners" class="split">
+  <div class="split__half split__half--dark reveal r-left" style="--bg:image-set(url('/img/partners-pm.avif') type('image/avif'),url('/img/partners-pm.webp') type('image/webp'),url('/img/partners-pm.jpg') type('image/jpeg'))">
+    <span class="split__icon"><i data-lucide="building-2"></i></span>
+    <span class="split__k">For Property Managers</span>
+    <h2 class="split__h">Protect properties.<br>Protect value.</h2>
+    <p class="split__p">Fast, discreet turnarounds that keep units rent-ready and operations running smoothly.</p>
+    <a class="split__btn" href="tel:+15625686032">Call (562) 568-6032 <i data-lucide="phone-call"></i></a>
+    <ul class="split__list">
+      <li><i data-lucide="check-circle-2"></i> Minimize downtime</li>
+      <li><i data-lucide="check-circle-2"></i> Resident safety first</li>
+      <li><i data-lucide="check-circle-2"></i> Insurance billed direct</li>
+      <li><i data-lucide="check-circle-2"></i> Documented every job</li>
+    </ul>
+    <div class="split__foot"><i data-lucide="map-pin"></i> Los Angeles County &amp; surrounding areas</div>
   </div>
-</div></section>
+  <div class="split__half split__half--light reveal r-right" style="--bg:image-set(url('/img/partners-gov.avif') type('image/avif'),url('/img/partners-gov.webp') type('image/webp'),url('/img/partners-gov.jpg') type('image/jpeg'))">
+    <span class="split__icon"><i data-lucide="landmark"></i></span>
+    <span class="split__k">Government &amp; FEMA contracts</span>
+    <h2 class="split__h">Mission-ready.<br>Fully documented.</h2>
+    <p class="split__p">Trusted partner for government agencies and FEMA contractors on critical incidents across Southern California.</p>
+    <a class="split__btn" href="#contact">Discuss a contract <i data-lucide="arrow-right"></i></a>
+    <ul class="split__list">
+      <li><i data-lucide="check-circle-2"></i> FEMA-contracted work</li>
+      <li><i data-lucide="check-circle-2"></i> Compliant disposal</li>
+      <li><i data-lucide="check-circle-2"></i> Chain of custody</li>
+      <li><i data-lucide="check-circle-2"></i> 24/7 mobilization</li>
+    </ul>
+    <div class="split__foot"><i data-lucide="shield-check"></i> Compliant · Documented · Discreet</div>
+  </div>
+</section>
 
 <!-- FOUNDER NOTE (until first Google reviews come in) -->
 <section id="about"><div class="wrap reveal">
@@ -1060,7 +1198,12 @@ els.forEach(function(el){cio.observe(el);});})();
       <div class="info">
         <div class="n">Alex <svg class="vf" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.2.9 3 2.6 1.8-1.2 3 1.2 3-2.6 1.8-.9 3-3.2-.2L12 22l-2.4-2.1-3.2.2-.9-3L2.9 15l1.2-3-1.2-3 2.6-1.8.9-3 3.2.2z"/><path fill="#0c2c48" d="M10.6 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3-3 1.1 1.1z"/></svg></div>
         <div class="role">Founder, CleanCore Decon · Los Angeles</div>
-        <span class="cert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.2.9 3 2.6 1.8-1.2 3 1.2 3-2.6 1.8-.9 3-3.2-.2L12 22l-2.4-2.1-3.2.2-.9-3L2.9 15l1.2-3-1.2-3 2.6-1.8.9-3 3.2.2z"/><path fill="#0c2c48" d="M10.6 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3-3 1.1 1.1z"/></svg> IICRC-CERTIFIED</span>
+        <div class="certs">
+          <span class="cert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.2.9 3 2.6 1.8-1.2 3 1.2 3-2.6 1.8-.9 3-3.2-.2L12 22l-2.4-2.1-3.2.2-.9-3L2.9 15l1.2-3-1.2-3 2.6-1.8.9-3 3.2.2z"/><path fill="#0c2c48" d="M10.6 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3-3 1.1 1.1z"/></svg> IICRC Certified Firm</span>
+          <span class="cert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.2.9 3 2.6 1.8-1.2 3 1.2 3-2.6 1.8-.9 3-3.2-.2L12 22l-2.4-2.1-3.2.2-.9-3L2.9 15l1.2-3-1.2-3 2.6-1.8.9-3 3.2.2z"/><path fill="#0c2c48" d="M10.6 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3-3 1.1 1.1z"/></svg> OSHA Trained</span>
+          <span class="cert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.2.9 3 2.6 1.8-1.2 3 1.2 3-2.6 1.8-.9 3-3.2-.2L12 22l-2.4-2.1-3.2.2-.9-3L2.9 15l1.2-3-1.2-3 2.6-1.8.9-3 3.2.2z"/><path fill="#0c2c48" d="M10.6 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3-3 1.1 1.1z"/></svg> EPA Lead-Safe Certified Firm</span>
+          <span class="cert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.2.9 3 2.6 1.8-1.2 3 1.2 3-2.6 1.8-.9 3-3.2-.2L12 22l-2.4-2.1-3.2.2-.9-3L2.9 15l1.2-3-1.2-3 2.6-1.8.9-3 3.2.2z"/><path fill="#0c2c48" d="M10.6 14.6l-2.3-2.3 1.1-1.1 1.2 1.2 3-3 1.1 1.1z"/></svg> California Trauma Scene Waste Management Practitioner</span>
+        </div>
       </div>
     </div>
     <div class="main">
@@ -1072,7 +1215,8 @@ els.forEach(function(el){cio.observe(el);});})();
 </div></section>
 
 <!-- FAQ -->
-<section class="bg-alt" id="faq"><div class="wrap reveal">
+<section class="secghost bg-alt" id="faq">
+  <span class="ghost ghost--l ghost--tl" data-par=".12" aria-hidden="true">FAQ</span><div class="wrap reveal">
   <div class="sec-h"><span class="eyebrow">FAQ</span><h2>What people ask us most</h2></div>
   <div class="faq">
     <details class="q" open><summary>How much does biohazard cleanup cost? <span class="c"><i data-lucide="plus"></i></span></summary><div class="a">In most cases, homeowner and commercial insurance policies usually cover biohazard and trauma cleanup, and we bill your insurer directly. If your situation isn’t covered, you get a free estimate — on-site or remote, within our service area — before any work begins, and we accept cash or card. No surprises.</div></details>
@@ -1086,7 +1230,8 @@ els.forEach(function(el){cio.observe(el);});})();
 </div></section>
 
 <!-- CONTACT / QUOTE -->
-<section id="contact"><div class="wrap reveal"><div class="quote">
+<section class="secghost" id="contact">
+  <span class="ghost ghost--l ghost--br" data-par=".12" aria-hidden="true">READY</span><div class="wrap reveal"><div class="quote">
   <div>
     <span class="eyebrow">Get help now</span>
     <h2 style="font-size:clamp(26px,3.6vw,36px);font-weight:800;margin:12px 0 10px">Free estimate. We’re ready 24/7.</h2>
@@ -1117,33 +1262,46 @@ els.forEach(function(el){cio.observe(el);});})();
 </div></div></section>
 
 <!-- FOOTER -->
-<footer><div class="wrap">
-  <div class="cols">
-    <div>
-      <img decode="async" src="logo-full.png" alt="CleanCore Decon">
-      <p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7, 365 days a year.</p>
-    </div>
-    <div>
-      <b>Services</b>
-      <a href="#services">Biohazard Cleanup</a><a href="#services">Crime Scene Cleanup</a><a href="#services">Hoarder Cleanup</a><a href="#services">Mold Remediation</a>
-    </div>
-    <div>
-      <b>Company</b>
-      <a href="#why">Why Choose Us</a><a href="#process">Our Process</a><a href="#areas">Service Areas</a><a href="#contact">Contact</a>
-    </div>
-    <div>
-      <b>24/7 Emergency</b>
-      <a href="tel:+15625686032" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(562) 568-6032</a>
-      <a href="mailto:contact@purebiodecon.com">contact@purebiodecon.com</a>
-      <a>Los Angeles County, CA</a>
-      <a>Licensed · Bonded · Insured</a>
+<footer>
+  <span class="ghost ghost--d fwm" aria-hidden="true">CleanCore</span>
+  <div class="wrap">
+    <div class="fcols">
+      <div class="fbrand">
+        <div class="flogo"><img class="flogo-img" decode="async" src="logo.png" alt="CleanCore Decon"></div>
+        <p class="fcopy">© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</p>
+      </div>
+      <div class="flinks">
+      <div class="fcol">
+        <b>Services</b>
+        <a href="landing-page/biohazard-cleanup.html">Biohazard Cleanup</a>
+        <a href="landing-page/crime-scene-cleanup.html">Crime Scene Cleanup</a>
+        <a href="landing-page/hoarder-cleanup.html">Hoarder Cleanup</a>
+        <a href="landing-page/mold-remediation.html">Mold Remediation</a>
+      </div>
+      <div class="fcol">
+        <b>Company</b>
+        <a href="why-choose-us.html">Why Choose Us</a>
+        <a href="about-us.html">About Us</a>
+        <a href="#areas">Service Areas</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol">
+        <b>Legal</b>
+        <a href="/legal.html#privacy">Privacy Policy</a>
+        <a href="/legal.html#terms">Terms of Service</a>
+        <a href="/legal.html#accessibility">Accessibility</a>
+      </div>
+      <div class="fcol">
+        <b>Contact</b>
+        <a class="femph" href="tel:+15625686032">(562)&nbsp;568-6032</a>
+        <a href="mailto:contact@purebiodecon.com">contact@purebiodecon.com</a>
+        <span>Los Angeles County · CA</span>
+        <span>Open 24/7 · 365 days</span>
+      </div>
+      </div>
     </div>
   </div>
-  <div class="bottom">
-    <span>© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</span>
-    <span><a href="/legal.html#privacy">Privacy</a> · <a href="/legal.html#terms">Terms</a> · <a href="/legal.html#accessibility">Accessibility</a></span><span>IICRC Certified · EPA compliant · Insured</span>
-  </div>
-</div></footer>
+</footer>
 
 <a class="callcard" href="tel:+15625686032" aria-label="Call 24/7 emergency line (562) 568-6032">
   <span class="ph"><i data-lucide="phone-call"></i></span>
@@ -1173,9 +1331,12 @@ els.forEach(function(el){cio.observe(el);});})();
     rb.addEventListener('click',()=>{const o=rm.classList.toggle('open'); rb.classList.toggle('open',o);});
     rm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{rm.classList.remove('open'); rb.classList.remove('open');}));
   }
-  // reveal
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // reveal réversible : apparaît en entrant, disparaît en sortant — dans les 2 sens de scroll.
+  // bande de déclenchement inset (haut -8% / bas -24%) -> se lance quand l'élément est bien dans le champ.
+  const revToggle=es=>es.forEach(e=>{e.target.classList.toggle('in', e.isIntersecting);});
+  const io=new IntersectionObserver(revToggle,{rootMargin:'-8% 0px -32% 0px',threshold:0});       // toute la home : tard
+  const ioEarly=new IntersectionObserver(revToggle,{rootMargin:'-8% 0px -12% 0px',threshold:0});  // bento services : plus tôt
+  document.querySelectorAll('.reveal').forEach(el=>{(el.matches('.svc .svc__c')?ioEarly:io).observe(el);});
   // count up
   function countUp(el){const to=+el.dataset.to;let s=null;function step(t){if(!s)s=t;const p=Math.min((t-s)/1100,1);el.textContent=Math.round(p*to);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
   const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}}),{threshold:.6});
@@ -1201,7 +1362,7 @@ els.forEach(function(el){cio.observe(el);});})();
   // service-area map — inline SVG reveal + county tooltip
   (function(){
     const map=document.getElementById('camap'); if(!map) return;
-    const mo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){map.classList.add('in');mo.disconnect();}});},{threshold:.3});
+    const mo=new IntersectionObserver(function(es){es.forEach(function(e){map.classList.toggle('in', e.isIntersecting);});},{threshold:.3});
     mo.observe(map);
     const tip=document.getElementById('camaptip'), box=map.parentElement;
     map.querySelectorAll('.served').forEach(function(p){

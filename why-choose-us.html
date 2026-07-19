@@ -220,6 +220,10 @@
   .hero .d4{animation-delay:.36s}.hero .d5{animation-delay:.46s}.hero .d6{animation-delay:.56s}
   @keyframes heroUp{to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:reduce){.hero .anim{animation:none;opacity:1;transform:none}.hero .photo{animation:none;transform:none}}
+  /* entrée au chargement du hero */
+  .wc-hero .anim{opacity:0;transform:translateY(22px);animation:heroUp .9s var(--ease) forwards}
+  .wc-hero .d1{animation-delay:.08s}.wc-hero .d2{animation-delay:.16s}.wc-hero .d3{animation-delay:.26s}.wc-hero .d4{animation-delay:.36s}.wc-hero .d5{animation-delay:.46s}
+  @media(prefers-reduced-motion:reduce){.wc-hero .anim{animation:none;opacity:1;transform:none}}
   /* mobile: content is taller than the viewport — start below the fixed nav and let the section grow */
   @media(max-width:640px){
     .hero{align-items:flex-start;min-height:0}
@@ -489,16 +493,31 @@
   .form .upload{border:1.5px dashed #c3d3e6;border-radius:var(--r);padding:15px;text-align:center;color:var(--ink2);font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-top:5px}
   .form .upload svg{width:18px;height:18px;color:var(--blue)}
 
-  /* footer */
-  footer{background:var(--navy);color:#aebfd4;padding:56px 0 30px}
-  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
-  @media(max-width:800px){footer .cols{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){footer .cols{grid-template-columns:1fr}}
-  footer img{height:58px;margin-bottom:12px}
-  footer b{color:#fff;font-family:'Plus Jakarta Sans';display:block;margin-bottom:10px;font-size:14px}
-  footer a{color:#aebfd4;text-decoration:none;display:block;padding:4px 0;font-size:14px}
-  @media (hover:hover) and (pointer:fine){footer a:hover{color:#fff}}
-  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:12.5px;color:#7f92aa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  /* footer — brand + link columns + oversized ghost wordmark */
+  footer{position:relative;overflow:clip;background:#06131f;color:#9fb2c9;padding:76px 0 0;min-height:600px;display:flex;flex-direction:column}
+  footer .fcols{position:relative;z-index:2;display:flex;align-items:flex-start;gap:40px}
+  footer .fbrand{flex:0 0 230px;max-width:230px}
+  footer .flinks{flex:1;display:flex;justify-content:center;gap:clamp(34px,5vw,78px)}
+  footer .flinks .fcol{flex:none}
+  @media(max-width:900px){
+    footer .fcols{flex-wrap:wrap;gap:34px}
+    footer .fbrand{flex:1 1 100%;max-width:none}
+    footer .flinks{flex:1 1 100%;justify-content:flex-start;flex-wrap:wrap;gap:34px 26px}
+    footer .flinks .fcol{flex:1 1 40%}
+  }
+  footer .flogo{display:flex;align-items:center;gap:13px}
+  footer .flogo-img{height:52px;width:auto;display:block}
+  footer .flogo-ic{width:46px;height:46px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+  footer .flogo-ic img{height:30px;width:auto;margin:0;display:block}
+  footer .flogo-tx{font-family:'Plus Jakarta Sans';font-weight:800;font-size:21px;color:#fff;letter-spacing:-.01em;white-space:nowrap}
+  footer .fcopy{margin:20px 0 0;font-size:14px;line-height:1.65;color:#6b7e96;max-width:34ch}
+  footer .fcol b{color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;display:block;margin-bottom:15px;font-size:16px}
+  footer .fcol a,footer .fcol span{color:#9fb2c9;text-decoration:none;display:block;padding:7px 0;font-size:15px;line-height:1.3}
+  footer .fcol a.femph{color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:16px}
+  @media (hover:hover) and (pointer:fine){footer .fcol a:hover{color:#fff}}
+  footer .fwm{left:0;right:0;bottom:34px;display:block;text-align:center;font-size:min(15vw,300px);white-space:nowrap;line-height:.9;
+    background:linear-gradient(180deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,.04) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
   /* floating 24/7 call card (fixed, always visible) */
   .callcard{position:fixed;right:20px;bottom:20px;z-index:var(--z-cta);display:flex;align-items:center;gap:14px;
@@ -520,14 +539,16 @@
   @media(prefers-reduced-motion:reduce){.callcard .ph::after,.callcard .lbl .dotpulse{animation:none}}
 
   /* reveal — directional scroll-in animations */
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease);transition-delay:var(--rd,0s)}
-  .reveal.r-up{transform:translateY(-30px)}      /* comes down from the top */
-  .reveal.r-left{transform:translateX(-46px)}     /* comes in from the left */
-  .reveal.r-right{transform:translateX(46px)}     /* comes in from the right */
-  .reveal.r-zoom{transform:scale(.94)}            /* eases up in scale */
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .72s var(--ease),transform .72s var(--ease);transition-delay:var(--rd,.05s)}
+  .reveal.r-up{transform:translateY(-50px)}       /* comes down from the top */
+  .reveal.r-left{transform:translateX(-68px)}     /* comes in from the left */
+  .reveal.r-right{transform:translateX(68px)}     /* comes in from the right */
+  .reveal.r-zoom{transform:scale(.9)}             /* eases up in scale */
   .reveal.in{opacity:1;transform:none}
   /* stagger helpers */
-  .rd1{--rd:.08s}.rd2{--rd:.16s}.rd3{--rd:.24s}.rd4{--rd:.32s}.rd5{--rd:.4s}
+  .rd1{--rd:.12s}.rd2{--rd:.22s}.rd3{--rd:.32s}.rd4{--rd:.42s}.rd5{--rd:.52s}
+  /* stagger auto de la rangée de certifs (droite->gauche décalé) */
+  .wc-certs-row .wc-cert:nth-child(2){--rd:.12s}.wc-certs-row .wc-cert:nth-child(3){--rd:.22s}.wc-certs-row .wc-cert:nth-child(4){--rd:.32s}.wc-certs-row .wc-cert:nth-child(5){--rd:.42s}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{transition:none!important}}
 
   /* sub-page hero — compact dark band the fixed navbar sits on */
@@ -646,8 +667,9 @@
   .wc-hero .wrap{position:relative;z-index:1;width:100%}
   .wc-hero-copy{max-width:620px}
   .wc-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-  .wc-h1{font-family:'Plus Jakarta Sans';font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:-.02em;font-size:clamp(40px,6vw,72px);margin:16px 0 20px;color:#fff}
-  .wc-h1 .wc-blue{color:var(--blue)}
+  .wc-h1{font-family:'Plus Jakarta Sans';font-weight:800;line-height:1.08;letter-spacing:-.032em;font-size:clamp(40px,5.4vw,68px);margin:16px 0 20px;color:#fff;text-wrap:balance}
+  .wc-h1 .wc-blue{color:#8fd0ff}
+  .wc-hero .wc-eyebrow{color:#8fd0ff}
   .wc-hero-p{max-width:46ch;color:#cdddee;font-size:clamp(16px,1.4vw,18px);line-height:1.6;margin:0 0 30px}
   .wc-hero-cta{display:flex;flex-wrap:wrap;gap:14px}
   .wc-hero-media img{width:100%;height:460px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
@@ -656,6 +678,8 @@
   .wc-logo-w{width:auto;display:block;filter:brightness(0) invert(1);opacity:.9}
   .wc-trust-ic{width:32px;height:32px;color:#fff;opacity:.95}
   .wc-trust-lbl{font-family:'Plus Jakarta Sans';font-size:12px;font-weight:700;text-transform:uppercase;color:#dfeaf4;line-height:1.15}
+  /* logo EPA officiel monochrome (SVG blanc détouré) — même format que les autres */
+  .wc-logo-epa{opacity:.95}
 
   /* 2) STATS BAR */
   .wc-stats{background:#fff;padding:48px 0}
@@ -702,21 +726,74 @@
   .wc-step p{font-size:14.5px;color:var(--ink2);line-height:1.55;max-width:24ch;margin:0 auto}
   @media(prefers-reduced-motion:reduce){.wc-step .node{transition:none}}
 
-  /* 5) THE CLEANCORE DIFFERENCE */
-  .wc-diff{background:#fff;padding:20px 0 80px}
-  .wc-diff-card{max-width:980px;margin:0 auto;background:linear-gradient(180deg,#0A2540,#08203a);border-radius:18px;padding:12px;box-shadow:0 30px 60px -30px rgba(10,37,64,.5)}
-  .wc-diff-head{text-align:center;padding:22px}
-  .wc-diff-table{display:block}
-  .wc-diff-hrow,.wc-diff-row{display:grid;grid-template-columns:1fr 1fr}
-  .wc-diff-hrow{background:rgba(255,255,255,.04)}
-  .wc-diff-hl,.wc-diff-hr{padding:14px 20px;font-family:'Plus Jakarta Sans';font-weight:700;font-size:14px;text-align:center}
-  .wc-diff-hl{color:#9fb3cc}
-  .wc-diff-hr{color:var(--green)}
-  .wc-diff-row{border-bottom:1px solid rgba(255,255,255,.08)}
-  .wc-diff-row:last-child{border-bottom:none}
-  .wc-diff-l{padding:16px 20px;color:#8ea6c2;font-size:14.5px;text-align:center;display:flex;align-items:center;justify-content:center}
-  .wc-diff-r{padding:16px 20px;color:#fff;font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:10px}
-  .wc-check{flex:none;width:20px;height:20px;color:var(--green)}
+  /* 4b) CERTIFICATIONS / TRUST BAR — replaces the process section */
+  .wc-certs{background:var(--navy-band,#0A2540);padding:clamp(56px,7vw,84px) 0;position:relative;overflow:clip}
+  .wc-certs>.wrap{position:relative;z-index:2;max-width:1340px}
+  /* fond photo PPE — assombri/flouté sous voile navy pour garder les logos lisibles (image remplaçable) */
+  .wc-certs-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .wc-certs-bg img{width:100%;height:100%;object-fit:cover;object-position:center 28%;
+    filter:blur(2px) brightness(.62) grayscale(.25);opacity:.38;transform:scale(1.06)}
+  .wc-certs-bg::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(180deg,rgba(10,37,64,.82),rgba(8,22,40,.66) 50%,rgba(10,37,64,.9))}
+  .wc-certs-head{display:block;text-align:center;font-family:'Plus Jakarta Sans';font-size:15px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-lift,#4FB3ED);margin:0 0 clamp(38px,4.5vw,60px)}
+  .wc-certs-row{display:flex;flex-wrap:wrap;justify-content:center;max-width:1340px;margin:0 auto}
+  .wc-cert{flex:1 1 210px;max-width:290px;text-align:center;padding:8px clamp(18px,2.2vw,44px);position:relative}
+  .wc-cert + .wc-cert::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:1px;background:var(--line-d,rgba(255,255,255,.1))}
+  .wc-certs .wc-cert-ic{display:flex;align-items:flex-end;justify-content:center;width:auto;height:66px;margin-bottom:24px}
+  .wc-certs .wc-cert-ic img{height:48px;width:auto;filter:brightness(0) invert(1);opacity:.92}
+  .wc-certs .wc-cert-ic svg{width:48px;height:48px;color:#fff;opacity:.92}
+  .wc-cert h3{font-family:'Plus Jakarta Sans';font-size:15.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#fff;margin:0 0 13px}
+  .wc-cert p{font-size:15px;line-height:1.6;color:var(--txt-d,#AFC0D4);max-width:24ch;margin:0 auto}
+  @media(max-width:760px){
+    .wc-certs-row{gap:36px 8px}
+    .wc-cert{flex-basis:40%}
+    .wc-cert::before{display:none}
+  }
+  @media(max-width:440px){ .wc-cert{flex-basis:100%} }
+
+  /* 5) SEE THE DIFFERENCE — interactive certified vs uncertified */
+  .wc-diff2{background:#fff;padding:clamp(56px,7vw,88px) 0 clamp(46px,6vw,72px)}
+  .wc-diff2 .wc-sec-head{margin-bottom:28px}
+  .d2-toggle{display:flex;width:max-content;margin:0 auto 30px;padding:5px;background:var(--bg-soft,#eef3f9);border:1px solid var(--hair,#e2e8f0);border-radius:100px}
+  .d2-tab{appearance:none;border:0;background:transparent;cursor:pointer;font-family:'Plus Jakarta Sans';font-weight:700;font-size:15px;color:var(--ink2,#5b6b7f);padding:12px 30px;border-radius:100px;transition:color .25s var(--ease),background .35s var(--ease),box-shadow .35s var(--ease)}
+  .d2-tab.is-on{color:#fff;background:var(--blue,#1288CE);box-shadow:0 8px 18px -8px rgba(18,136,206,.7)}
+  @media (hover:hover){.d2-tab:not(.is-on):hover{color:var(--navy)}}
+  .d2-tab--logo{display:inline-flex;align-items:center;padding-top:5px;padding-bottom:5px}
+  .d2-tab--logo .d2-logo{height:50px;width:auto;display:block}
+  .d2-tab--logo.is-on .d2-logo{filter:brightness(0) invert(1)}
+  .d2-stage{position:relative;max-width:1000px;margin:0 auto}
+  .d2-card{position:relative;z-index:2;width:min(720px,100%);margin:0 auto;background:#fff;border:1px solid #eef2f7;border-radius:22px;box-shadow:0 40px 80px -40px rgba(10,37,64,.32);padding:6px clamp(16px,2.4vw,30px);transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+  .d2-row{display:grid;grid-template-columns:38px minmax(138px,1fr) minmax(150px,1.25fr) 30px;align-items:center;gap:0 18px;padding:22px 6px;border-bottom:1px solid #eef2f7}
+  .d2-row:last-child{border-bottom:0}
+  .d2-check{width:34px;height:34px;border-radius:50%;background:var(--green,#3C9A34);color:#fff;display:flex;align-items:center;justify-content:center}
+  .d2-check svg{width:18px;height:18px;stroke-width:3}
+  .d2-title{font-family:'Plus Jakarta Sans';font-weight:800;font-size:16px;color:var(--navy);letter-spacing:-.01em;margin:0}
+  .d2-desc{font-size:13.5px;line-height:1.5;color:var(--ink2,#5b6b7f);margin:0;border-left:1px solid #e7edf4;padding-left:20px}
+  .d2-ic{color:var(--blue,#1288CE);display:flex;justify-content:center}
+  .d2-ic svg{width:23px;height:23px}
+  .d2-dark{position:absolute;top:6px;bottom:6px;right:0;width:294px;z-index:1;background:linear-gradient(180deg,#0e2136,#0a1a2b);border:1px solid rgba(255,255,255,.06);border-radius:22px;display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateX(26px);pointer-events:none;transition:opacity .45s var(--ease),transform .6s cubic-bezier(.22,.61,.36,1);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+  .d2-drow{flex:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px 0 30px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .d2-drow:last-child{border-bottom:0}
+  .d2-dtxt{font-size:14px;line-height:1.35;color:#93a6bd;max-width:15ch}
+  .d2-x{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(229,84,78,.45);color:#e57b78;display:flex;align-items:center;justify-content:center}
+  .d2-x svg{width:15px;height:15px;stroke-width:2.5}
+  .d2-stage[data-view="uncertified"] .d2-card{transform:translateX(-138px)}
+  .d2-stage[data-view="uncertified"] .d2-dark{opacity:1;transform:translateX(0);pointer-events:auto}
+  .d2-cta{text-align:center;margin-top:clamp(32px,5vw,52px)}
+  .d2-cta .btn{font-size:17px;padding:16px 36px}
+  @media(prefers-reduced-motion:reduce){.d2-card,.d2-dark{transition:none}}
+  @media(max-width:860px){
+    .d2-stage{max-width:560px}
+    .d2-card{width:100%;transform:none!important}
+    .d2-dark{position:static;width:auto;transform:none!important;opacity:1;pointer-events:auto;margin-top:14px;display:none}
+    .d2-stage[data-view="uncertified"] .d2-card{display:none}
+    .d2-stage[data-view="uncertified"] .d2-dark{display:flex}
+    .d2-drow{min-height:66px;padding:16px 22px}
+  }
+  @media(max-width:520px){
+    .d2-row{grid-template-columns:32px 1fr;gap:0 12px;padding:16px 2px}
+    .d2-desc,.d2-ic{display:none}
+  }
 
   /* 6) TESTIMONIAL + CERTIFICATIONS */
   .wc-tc{background:var(--bg-alt);padding:72px 0}
@@ -754,8 +831,12 @@
   .wc-final{background:#fff;padding:20px 0 80px}
   .wc-final-band{position:relative;overflow:hidden;border-radius:20px;padding:44px;text-align:center;color:#fff;background:linear-gradient(135deg,#0A2540,#0C6AAB)}
   .wc-final-band::before{content:"";position:absolute;top:-120px;right:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 68%);pointer-events:none}
+  /* fond skyline LA — désaturé/assombri sous voile bleu pour garder le texte lisible */
+  .wc-final-band>.wc-final-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .wc-final-bg img{width:100%;height:100%;object-fit:cover;object-position:center 58%;filter:saturate(.3) brightness(.72) contrast(1.03);opacity:.62}
+  .wc-final-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,37,64,.8),rgba(10,37,64,.32) 52%,rgba(9,26,46,.62)),linear-gradient(120deg,rgba(12,106,171,.5),rgba(10,37,64,.14))}
   .wc-final-band>*{position:relative;z-index:1}
-  .wc-final-h{font-family:'Plus Jakarta Sans';font-weight:800;text-transform:uppercase;font-size:clamp(26px,3.5vw,38px);margin:0 0 12px;color:#fff}
+  .wc-final-h{font-family:'Plus Jakarta Sans';font-weight:800;letter-spacing:-.02em;font-size:clamp(26px,3.5vw,38px);margin:0 0 12px;color:#fff}
   .wc-final-sub{color:#cddcec;font-size:17px;margin:0 0 28px}
   .wc-final-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:22px}
   .wc-final-tel{display:inline-flex;align-items:center;gap:12px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:clamp(24px,3vw,32px);color:#fff;text-decoration:none}
@@ -823,6 +904,26 @@
 .rmega,.rmobile{overscroll-behavior:contain}
 .callcard{transition:opacity .3s ease,transform .3s ease}
 .callcard.cc-hide{opacity:0;pointer-events:none;transform:translateY(16px)}
+   /* ---- rythme sombre/clair : sections passées en navy (mêmes tokens qu'index) ---- */
+   .wc-process.wc-dark, .wc-ba-sec.wc-dark{background:var(--navy-band,#0A2540)}
+   .wc-dark .wc-sec-head h2{color:#fff}
+   .wc-dark .wc-sec-head p{color:var(--txt-d,#AFC0D4)}
+   .wc-dark .wc-eyebrow{color:var(--blue-lift,#4FB3ED)}
+   /* process sur navy : connecteur, nodes, texte */
+   .wc-process.wc-dark .wc-process-row::before{background:linear-gradient(90deg,rgba(79,179,237,.12),rgba(79,179,237,.42) 50%,rgba(79,179,237,.12))}
+   .wc-process.wc-dark .wc-step .node{background:#0F2A44;border-color:rgba(255,255,255,.14);color:var(--blue-lift,#4FB3ED)}
+   .wc-process.wc-dark .wc-step h3{color:#fff}
+   .wc-process.wc-dark .wc-step p{color:var(--txt-d,#AFC0D4)}
+   @media (hover:hover) and (pointer:fine){.wc-process.wc-dark .wc-step:hover .node{box-shadow:0 0 0 8px var(--navy-band,#0A2540),0 16px 30px -10px rgba(18,136,206,.55),0 0 40px -6px rgba(79,179,237,.4)}}
+   /* before/after : tuiles sur navy */
+   .wc-ba-sec.wc-dark .wc-ba{border-color:rgba(255,255,255,.09);box-shadow:0 18px 40px -24px rgba(0,0,0,.7)}
+   /* ghost titles : containment sur les sections sombres, contenu au-dessus */
+   .wc-process.wc-dark,.wc-ba-sec.wc-dark{position:relative;overflow:clip}
+   .wc-process.wc-dark>.wrap,.wc-ba-sec.wc-dark>.wrap{position:relative;z-index:2}
+   /* numéros éditoriaux (DA03) sur les cartes "what sets us apart" */
+   .wc-apart-grid{counter-reset:feat}
+   .wc-feat{counter-increment:feat}
+   .wc-feat::after{content:counter(feat,decimal-leading-zero);position:absolute;top:22px;right:24px;font:700 12px/1 var(--mono,ui-monospace,monospace);letter-spacing:.06em;color:var(--blue-ink,#0E6EA6);opacity:.42}
 </style>
 <script defer src="/i18n.js?v=2"></script>
 </head>
@@ -890,132 +991,207 @@
 <!-- 1) HERO -->
 <section class="wc-hero">
   <div class="wc-hero-bg"></div>
-  <svg class="gmark gmark--d" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-par=".12" style="right:-9%;bottom:-14%"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg>
   <div class="wrap">
     <div class="wc-hero-copy">
-      <span class="wc-eyebrow">Trusted. Certified. Available 24/7.</span>
-      <h1 class="wc-h1">Why Choose<br><span class="wc-blue">CleanCore</span></h1>
-      <p class="wc-hero-p">Discreet, compassionate, and proven biohazard cleanup services for Los Angeles and surrounding communities. We restore more than property—we restore peace of mind.</p>
-      <div class="wc-hero-cta">
+      <span class="wc-eyebrow anim d1">Trusted. Certified. Available 24/7.</span>
+      <h1 class="wc-h1 anim d2">Why Choose<br><span class="wc-blue">CleanCore</span></h1>
+      <p class="wc-hero-p anim d3">Discreet, compassionate, and proven biohazard cleanup services for Los Angeles and surrounding communities. We restore more than property—we restore peace of mind.</p>
+      <div class="wc-hero-cta anim d4">
         <a class="btn wc-bg" href="contact.html">Get Help Now</a>
         <a class="btn bo-light" href="tel:+15625686032">Call 24/7 <span class="c"><i data-lucide="phone-call"></i></span></a>
       </div>
     </div>
-    <div class="wc-trust">
-      <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="landing-page/IICRC-logo-grey.webp" alt="IICRC Certified" style="height:36px"><span class="wc-trust-lbl">IICRC<br>Certified</span></div>
+    <div class="wc-trust anim d5">
+      <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="landing-page/IICRC-logo-grey.webp" alt="IICRC Certified Firm" style="height:36px"><span class="wc-trust-lbl">IICRC<br>Certified</span></div>
+      <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="img/OSHA-logo-grey.png" alt="OSHA Trained" style="height:34px"><span class="wc-trust-lbl">OSHA<br>Trained</span></div>
+      <div class="wc-trust-item"><img decode="async" class="wc-logo-epa" src="img/EPA-logo-white.svg" alt="EPA Lead-Safe" style="height:22px"><span class="wc-trust-lbl">EPA<br>Lead-Safe</span></div>
+      <div class="wc-trust-item"><img decode="async" class="wc-logo-w" src="img/ca-map.svg" alt="California Trauma Scene Waste" style="height:34px"><span class="wc-trust-lbl">CA Trauma Scene<br>Practitioner</span></div>
       <div class="wc-trust-item"><i data-lucide="shield-check" class="wc-trust-ic"></i><span class="wc-trust-lbl">Licensed<br>&amp; Insured</span></div>
     </div>
   </div>
 </section>
 
+
 <!-- 2) STATS BAR -->
-<!-- 3) WHAT SETS US APART -->
-<section class="wc-apart">
-  <div class="wrap">
-    <div class="wc-sec-head">
-      <span class="wc-eyebrow">Why choose us</span>
-      <h2>What sets us apart</h2>
-      <p>Six reasons families and property managers across LA trust a certified CleanCore crew with the hardest jobs.</p>
+<!-- 3) WHAT SETS US APART (prod timeline component + original differentiator content) -->
+<section class="bg-alt" id="why-apart"><div class="wrap">
+  <div class="proc-intro reveal r-left">
+    <span class="proc-eyebrow"><span class="pe-num">6 REASONS</span><span class="pe-sep">·</span><span>Why choose us</span></span>
+    <h2>What <span class="grad">sets us apart</span></h2>
+    <p>Six reasons families and property managers across LA trust a certified CleanCore crew with the hardest jobs.</p>
+  </div>
+  <div class="proc-steps" id="ptl">
+    <div class="pstep">
+      <div class="pnum-col"><span class="pnum">01</span><span class="prail"><span class="pfill"></span></span></div>
+      <div class="pbody"><h3>Rapid Response</h3><p>We arrive fast when you need us most.</p></div>
     </div>
-    <div class="wc-apart-grid">
-      <div class="wc-feat"><span class="ic"><i data-lucide="phone-call"></i></span><h3>Rapid Response</h3><p>We arrive fast when you need us most.</p></div>
-      <div class="wc-feat"><span class="ic"><i data-lucide="eye-off"></i></span><h3>Discrete &amp; Respectful</h3><p>Your privacy is always our priority.</p></div>
-      <div class="wc-feat"><span class="ic"><i data-lucide="shield-check"></i></span><h3>Certified Experts</h3><p>IICRC-certified and continuously trained.</p></div>
-      <div class="wc-feat"><span class="ic"><i data-lucide="wrench"></i></span><h3>Advanced Equipment</h3><p>Industry-leading tools for safer results.</p></div>
-      <div class="wc-feat"><span class="ic"><i data-lucide="home"></i></span><h3>Complete Restoration</h3><p>From cleanup to full property restoration.</p></div>
-      <div class="wc-feat"><span class="ic"><i data-lucide="file-check"></i></span><h3>Insurance Support</h3><p>We work directly with your insurance provider.</p></div>
+    <div class="pstep">
+      <div class="pnum-col"><span class="pnum">02</span><span class="prail"><span class="pfill"></span></span></div>
+      <div class="pbody"><h3>Discrete &amp; Respectful</h3><p>Your privacy is always our priority.</p></div>
+    </div>
+    <div class="pstep">
+      <div class="pnum-col"><span class="pnum">03</span><span class="prail"><span class="pfill"></span></span></div>
+      <div class="pbody"><h3>Certified Experts</h3><p>IICRC-certified and continuously trained.</p></div>
+    </div>
+    <div class="pstep">
+      <div class="pnum-col"><span class="pnum">04</span><span class="prail"><span class="pfill"></span></span></div>
+      <div class="pbody"><h3>Advanced Equipment</h3><p>Industry-leading tools for safer results.</p></div>
+    </div>
+    <div class="pstep">
+      <div class="pnum-col"><span class="pnum">05</span><span class="prail"><span class="pfill"></span></span></div>
+      <div class="pbody"><h3>Complete Restoration</h3><p>From cleanup to full property restoration.</p></div>
+    </div>
+    <div class="pstep">
+      <div class="pnum-col"><span class="pnum">06</span><span class="prail"><span class="pfill"></span></span></div>
+      <div class="pbody"><h3>Insurance Support</h3><p>We work directly with your insurance provider.</p></div>
+    </div>
+  </div>
+</div></section>
+<script>
+(function(){
+  const ptl=document.getElementById('ptl'); if(!ptl) return;
+  const steps=[...ptl.querySelectorAll('.pstep')];
+  function upd(){
+    const line=window.innerHeight*0.62;            // ligne active un peu sous le centre du viewport
+    steps.forEach(function(s){
+      const num=s.querySelector('.pnum').getBoundingClientRect();
+      s.classList.toggle('in', line >= num.top + num.height*0.5);
+      const rail=s.querySelector('.prail'), fill=s.querySelector('.pfill');
+      if(!rail||!fill) return;
+      const r=rail.getBoundingClientRect();
+      let p=(line-r.top)/r.height; p=Math.max(0,Math.min(1,p));
+      fill.style.height=(p*100)+'%';
+    });
+  }
+  window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); upd();
+})();
+</script>
+
+<!-- 4) CERTIFICATIONS / TRUST BAR (replaces the process section) -->
+<section class="wc-certs">
+  <!-- fond : image PPE placeholder (repo). Remplacer le src par un visuel dédié quand dispo. -->
+  <div class="wc-certs-bg" aria-hidden="true">
+    <picture>
+      <source type="image/avif" srcset="img/cat-biohazard-1000.avif">
+      <source type="image/webp" srcset="img/cat-biohazard-1000.webp">
+      <img src="img/cat-biohazard.jpg" alt="" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <div class="wrap">
+    <span class="wc-certs-head">Certified. Compliant. Trusted.</span>
+    <div class="wc-certs-row">
+      <div class="wc-cert reveal">
+        <span class="wc-cert-ic"><img decode="async" src="img/IICRC-logo-grey.webp" alt="IICRC Certified" style="height:52px"></span>
+        <h3>IICRC Certified</h3>
+        <p>Our crews are IICRC-trained in biohazard, trauma, and crime scene cleanup.</p>
+      </div>
+      <div class="wc-cert reveal">
+        <span class="wc-cert-ic"><img decode="async" src="img/OSHA-logo-grey.png" alt="OSHA Trained" style="height:40px"></span>
+        <h3>OSHA Trained</h3>
+        <p>We follow strict OSHA safety guidelines on every job.</p>
+      </div>
+      <div class="wc-cert reveal">
+        <span class="wc-cert-ic"><img decode="async" src="img/EPA-logo-white.svg" alt="EPA Lead-Safe" style="height:32px"></span>
+        <h3>EPA Lead-Safe</h3>
+        <p>We use EPA-registered disinfectants and follow EPA disposal standards.</p>
+      </div>
+      <div class="wc-cert reveal">
+        <span class="wc-cert-ic"><img decode="async" src="img/ca-map.svg" alt="California Trauma Scene Waste" style="height:58px"></span>
+        <h3>CA Trauma Scene</h3>
+        <p>Trained to handle and dispose of trauma-scene waste to California state standards.</p>
+      </div>
+      <div class="wc-cert reveal">
+        <span class="wc-cert-ic"><i data-lucide="shield-check"></i></span>
+        <h3>Licensed &amp; Insured</h3>
+        <p>Fully licensed and insured for your complete peace of mind.</p>
+      </div>
+      <!-- BBB retiré : absent du hero et jamais confirmé par Alex (règle n°1 / A10). Ne pas ajouter sans preuve d'accréditation. -->
     </div>
   </div>
 </section>
 
-<!-- 4) OUR PROVEN PROCESS -->
-<section class="wc-process">
+<!-- 5) SEE THE DIFFERENCE — interactive certified vs uncertified -->
+<section class="wc-diff2">
   <div class="wrap">
-    <div class="wc-sec-head">
-      <span class="wc-eyebrow">How it works</span>
-      <h2>Our proven process</h2>
-      <p>From the first call to the final check, you always know exactly what happens next.</p>
+    <div class="wc-sec-head reveal r-up">
+      <h2>See the difference certification makes</h2>
+      <p>Certified biohazard &amp; extreme cleaning protects your health, property, and peace of mind.</p>
     </div>
-    <div class="wc-process-row">
-      <div class="wc-step"><span class="node"><i data-lucide="phone-call"></i></span><h3>Call Us</h3><p>24/7 support, no judgment.</p></div>
-      <div class="wc-step"><span class="node"><i data-lucide="clipboard-check"></i></span><h3>Assess</h3><p>We evaluate the situation and create a plan.</p></div>
-      <div class="wc-step"><span class="node"><i data-lucide="biohazard"></i></span><h3>Decontaminate</h3><p>Industry-standard cleanup and sanitization.</p></div>
-      <div class="wc-step"><span class="node"><i data-lucide="sparkles"></i></span><h3>Restore</h3><p>We restore your space and your peace of mind.</p></div>
+    <div class="d2-toggle reveal" role="tablist" aria-label="Compare certified vs uncertified crew">
+      <button type="button" class="d2-tab d2-tab--logo is-on" data-view="certified" aria-pressed="true" aria-label="Certified CleanCore crew"><img class="d2-logo" src="/logo.png" alt="CleanCore Decon" decoding="async"></button>
+      <button type="button" class="d2-tab" data-view="uncertified" aria-pressed="false">Uncertified cleaner</button>
     </div>
-  </div>
-</section>
-
-<!-- 5) THE CLEANCORE DIFFERENCE -->
-<section class="wc-diff">
-  <div class="wrap">
-    <div class="wc-diff-card">
-      <div class="wc-diff-head"><span class="wc-eyebrow wc-eyebrow-lg">The CleanCore Difference</span></div>
-      <div class="wc-diff-table">
-        <div class="wc-diff-hrow">
-          <div class="wc-diff-hl">Standard Cleanup</div>
-          <div class="wc-diff-hr">The CleanCore Approach</div>
+    <div class="d2-stage reveal" data-view="certified">
+      <aside class="d2-dark" aria-hidden="true">
+        <div class="d2-drow"><span class="d2-dtxt">Limited or no PPE</span><span class="d2-x"><i data-lucide="x"></i></span></div>
+        <div class="d2-drow"><span class="d2-dtxt">Improper or illegal disposal</span><span class="d2-x"><i data-lucide="x"></i></span></div>
+        <div class="d2-drow"><span class="d2-dtxt">Basic cleaning, not disinfected</span><span class="d2-x"><i data-lucide="x"></i></span></div>
+        <div class="d2-drow"><span class="d2-dtxt">You handle everything</span><span class="d2-x"><i data-lucide="x"></i></span></div>
+        <div class="d2-drow"><span class="d2-dtxt">Unlicensed &amp; undocumented</span><span class="d2-x"><i data-lucide="x"></i></span></div>
+      </aside>
+      <div class="d2-card">
+        <div class="d2-row">
+          <span class="d2-check"><i data-lucide="check"></i></span>
+          <h3 class="d2-title">Full PPE on every job</h3>
+          <p class="d2-desc">Our crew arrives in full protective gear to keep you safe.</p>
+          <span class="d2-ic"><i data-lucide="shield-check"></i></span>
         </div>
-        <div class="wc-diff-row"><div class="wc-diff-l">Limited Availability</div><div class="wc-diff-r"><i data-lucide="check-circle" class="wc-check"></i><span>24/7 Emergency Response</span></div></div>
-        <div class="wc-diff-row"><div class="wc-diff-l">Basic Cleaning</div><div class="wc-diff-r"><i data-lucide="check-circle" class="wc-check"></i><span>Industry-Leading Decontamination</span></div></div>
-        <div class="wc-diff-row"><div class="wc-diff-l">Outsourced Services</div><div class="wc-diff-r"><i data-lucide="check-circle" class="wc-check"></i><span>In-House Certified Specialists</span></div></div>
-        <div class="wc-diff-row"><div class="wc-diff-l">Minimal Communication</div><div class="wc-diff-r"><i data-lucide="check-circle" class="wc-check"></i><span>Compassionate, Clear Communication</span></div></div>
-        <div class="wc-diff-row"><div class="wc-diff-l">No Follow-Up</div><div class="wc-diff-r"><i data-lucide="check-circle" class="wc-check"></i><span>Ongoing Support &amp; Documentation</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5b) BEFORE & AFTER -->
-<section class="wc-ba-sec">
-  <div class="wrap">
-    <div class="wc-sec-head">
-      <span class="wc-eyebrow">Real results</span>
-      <h2>Before &amp; after</h2>
-      <p>Real jobs across Los Angeles. Each photo shows the scene we walked into — hover (or tap on mobile) to reveal the after.</p>
-    </div>
-    <div class="wc-ba-grid">
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/biohazard-after-640.avif 640w, img/biohazard-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/biohazard-after-640.webp 640w, img/biohazard-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/biohazard-after.jpg" alt="Biohazard cleanup — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/biohazard-before-640.avif 640w, img/biohazard-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/biohazard-before-640.webp 640w, img/biohazard-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/biohazard-before.jpg" alt="Biohazard cleanup — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Biohazard Cleanup</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/fire-after-640.avif 640w, img/fire-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/fire-after-640.webp 640w, img/fire-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/fire-after.jpg" alt="Fire damage — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/fire-before-640.avif 640w, img/fire-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/fire-before-640.webp 640w, img/fire-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/fire-before.jpg" alt="Fire damage — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Fire Damage</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/mold-after-640.avif 640w, img/mold-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/mold-after-640.webp 640w, img/mold-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/mold-after.jpg" alt="Mold remediation — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/mold-before-640.avif 640w, img/mold-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/mold-before-640.webp 640w, img/mold-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/mold-before.jpg" alt="Mold remediation — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Mold Remediation</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/water-after-640.avif 640w, img/water-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/water-after-640.webp 640w, img/water-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/water-after.jpg" alt="Water damage — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/water-before-640.avif 640w, img/water-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/water-before-640.webp 640w, img/water-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/water-before.jpg" alt="Water damage — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Water Damage</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/blood-after-640.avif 640w, img/blood-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/blood-after-640.webp 640w, img/blood-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/blood-after.jpg" alt="Blood cleanup — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/blood-before-640.avif 640w, img/blood-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/blood-before-640.webp 640w, img/blood-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/blood-before.jpg" alt="Blood cleanup — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Blood Cleanup</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/crime-scene-after-640.avif 640w, img/crime-scene-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/crime-scene-after-640.webp 640w, img/crime-scene-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/crime-scene-after.jpg" alt="Crime scene cleanup — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/crime-scene-before-640.avif 640w, img/crime-scene-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/crime-scene-before-640.webp 640w, img/crime-scene-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/crime-scene-before.jpg" alt="Crime scene cleanup — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Crime Scene</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/hoarder-after-640.avif 640w, img/hoarder-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/hoarder-after-640.webp 640w, img/hoarder-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/hoarder-after.jpg" alt="Hoarding cleanup — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/hoarder-before-640.avif 640w, img/hoarder-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/hoarder-before-640.webp 640w, img/hoarder-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/hoarder-before.jpg" alt="Hoarding cleanup — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Hoarding Cleanup</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/odor-after-640.avif 640w, img/odor-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/odor-after-640.webp 640w, img/odor-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/odor-after.jpg" alt="Odor removal — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/odor-before-640.avif 640w, img/odor-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/odor-before-640.webp 640w, img/odor-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/odor-before.jpg" alt="Odor removal — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Odor Removal</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/rodent-after-640.avif 640w, img/rodent-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/rodent-after-640.webp 640w, img/rodent-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/rodent-after.jpg" alt="Rodent biohazard — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/rodent-before-640.avif 640w, img/rodent-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/rodent-before-640.webp 640w, img/rodent-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/rodent-before.jpg" alt="Rodent biohazard — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Rodent Biohazard</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/drug-lab-after-640.avif 640w, img/drug-lab-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/drug-lab-after-640.webp 640w, img/drug-lab-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/drug-lab-after.jpg" alt="Drug lab cleanup — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/drug-lab-before-640.avif 640w, img/drug-lab-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/drug-lab-before-640.webp 640w, img/drug-lab-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/drug-lab-before.jpg" alt="Drug lab cleanup — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Drug Lab Cleanup</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/suicide-after-640.avif 640w, img/suicide-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/suicide-after-640.webp 640w, img/suicide-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/suicide-after.jpg" alt="Suicide cleanup — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/suicide-before-640.avif 640w, img/suicide-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/suicide-before-640.webp 640w, img/suicide-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/suicide-before.jpg" alt="Suicide cleanup — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Suicide Cleanup</figcaption></figure>
-      <figure class="wc-ba" tabindex="0"><picture><source type="image/avif" srcset="img/unattended-death-after-640.avif 640w, img/unattended-death-after-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/unattended-death-after-640.webp 640w, img/unattended-death-after-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-a" src="img/unattended-death-after.jpg" alt="Unattended death cleanup — after" loading="lazy"></picture><picture><source type="image/avif" srcset="img/unattended-death-before-640.avif 640w, img/unattended-death-before-1000.avif 1000w" sizes="(max-width:900px) 90vw, 560px"><source type="image/webp" srcset="img/unattended-death-before-640.webp 640w, img/unattended-death-before-1000.webp 1000w" sizes="(max-width:900px) 90vw, 560px"><img decode="async" class="wc-ba-b" src="img/unattended-death-before.jpg" alt="Unattended death cleanup — before" loading="lazy"></picture><span class="wc-ba-tag"><span class="a">After</span><span class="b">Before</span></span><figcaption>Unattended Death</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- 6) TESTIMONIAL + CERTIFICATIONS -->
-<section class="wc-tc">
-  <div class="wrap">
-    <div class="wc-tc-grid">
-      <div class="wc-card wc-tc-quote">
-        <span class="wc-eyebrow">What Our Clients Say</span>
-        <span class="wc-qmark" aria-hidden="true">&ldquo;</span>
-        <p class="wc-quote-tx">They treated us with so much respect and kindness during one of the hardest times in our lives. The team was professional, discreet, and incredibly thorough. We can&rsquo;t thank them enough.</p>
-        <div class="wc-quote-auth"><b>&mdash; Sarah M.</b><span>Los Angeles, CA</span></div>
-      </div>
-      <div class="wc-card wc-tc-cert">
-        <span class="wc-eyebrow">Certified &amp; insured</span>
-        <div class="wc-cert-solo">
-          <img decode="async" src="landing-page/IICRC-logo-grey.webp" alt="IICRC Certified">
-          <p>Our crews are certified by the <b>IICRC</b> — the Institute of Inspection, Cleaning and Restoration Certification — the industry's independent standard for safe, thorough decontamination and restoration.</p>
-          <span class="li"><i data-lucide="shield-check"></i> Licensed &amp; Insured</span>
+        <div class="d2-row">
+          <span class="d2-check"><i data-lucide="check"></i></span>
+          <h3 class="d2-title">Legal waste disposal</h3>
+          <p class="d2-desc">All biohazard waste is packaged, labeled, and disposed of legally.</p>
+          <span class="d2-ic"><i data-lucide="trash-2"></i></span>
+        </div>
+        <div class="d2-row">
+          <span class="d2-check"><i data-lucide="check"></i></span>
+          <h3 class="d2-title">Hospital-grade disinfection</h3>
+          <p class="d2-desc">EPA-registered, hospital-grade products kill pathogens at the source.</p>
+          <span class="d2-ic"><i data-lucide="sparkles"></i></span>
+        </div>
+        <div class="d2-row">
+          <span class="d2-check"><i data-lucide="check"></i></span>
+          <h3 class="d2-title">Insurance paperwork handled</h3>
+          <p class="d2-desc">We work with your insurance and handle the paperwork for you.</p>
+          <span class="d2-ic"><i data-lucide="file-check-2"></i></span>
+        </div>
+        <div class="d2-row">
+          <span class="d2-check"><i data-lucide="check"></i></span>
+          <h3 class="d2-title">Licensed &amp; documented</h3>
+          <p class="d2-desc">Fully licensed, trained, and documented for your protection and ours.</p>
+          <span class="d2-ic"><i data-lucide="award"></i></span>
         </div>
       </div>
     </div>
+    <div class="d2-cta reveal r-right">
+      <a class="btn bp" href="tel:+15625686032"><span class="c"><i data-lucide="phone-call"></i></span>Call (562) 568-6032</a>
+    </div>
   </div>
 </section>
+<script>
+(function(){
+  var stage=document.querySelector('.d2-stage'); if(!stage) return;
+  var tabs=[].slice.call(document.querySelectorAll('.d2-tab'));
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var v=t.getAttribute('data-view');
+      tabs.forEach(function(x){var on=x===t;x.classList.toggle('is-on',on);x.setAttribute('aria-pressed',on);});
+      stage.setAttribute('data-view',v);
+    });
+  });
+})();
+</script>
 
 <!-- 7) FINAL CTA BAND -->
 <section class="wc-final">
   <div class="wrap">
-    <div class="wc-final-band">
+    <div class="wc-final-band reveal r-zoom">
+      <div class="wc-final-bg" aria-hidden="true">
+        <picture>
+          <source type="image/avif" srcset="img/la-skyline.avif">
+          <source type="image/webp" srcset="img/la-skyline.webp">
+          <img src="img/la-skyline.jpg" alt="" loading="lazy" decoding="async">
+        </picture>
+      </div>
       <h2 class="wc-final-h">We&rsquo;re Here When You Need Us Most</h2>
       <p class="wc-final-sub">One call. 24/7. Compassionate help is always available.</p>
       <div class="wc-final-cta">
@@ -1026,34 +1202,46 @@
   </div>
 </section>
 
-
-<footer><div class="wrap">
-  <div class="cols">
-    <div>
-      <img decode="async" src="logo-full.png" alt="CleanCore Decon">
-      <p style="font-size:14px;max-width:34ch">Biohazard &amp; extreme cleaning across Los Angeles. Discreet, compassionate, and available 24/7, 365 days a year.</p>
-    </div>
-    <div>
-      <b>Services</b>
-      <a href="index.html#services">Biohazard Cleanup</a><a href="index.html#services">Crime Scene Cleanup</a><a href="index.html#services">Hoarder Cleanup</a><a href="index.html#services">Mold Remediation</a>
-    </div>
-    <div>
-      <b>Company</b>
-      <a href="why-choose-us.html">Why Choose Us</a><a href="index.html#process">Our Process</a><a href="index.html#areas">Service Areas</a><a href="contact.html">Contact</a>
-    </div>
-    <div>
-      <b>24/7 Emergency</b>
-      <a href="tel:+15625686032" style="color:#fff;font-weight:700;font-family:'Plus Jakarta Sans';font-size:17px">(562) 568-6032</a>
-      <a href="mailto:contact@purebiodecon.com">contact@purebiodecon.com</a>
-      <a>Los Angeles County, CA</a>
-      <a>Licensed · Bonded · Insured</a>
+<footer>
+  <span class="ghost ghost--d fwm" aria-hidden="true">CleanCore</span>
+  <div class="wrap">
+    <div class="fcols">
+      <div class="fbrand">
+        <div class="flogo"><img class="flogo-img" decode="async" src="/logo.png" alt="CleanCore Decon"></div>
+        <p class="fcopy">© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</p>
+      </div>
+      <div class="flinks">
+      <div class="fcol">
+        <b>Services</b>
+        <a href="/landing-page/biohazard-cleanup.html">Biohazard Cleanup</a>
+        <a href="/landing-page/crime-scene-cleanup.html">Crime Scene Cleanup</a>
+        <a href="/landing-page/hoarder-cleanup.html">Hoarder Cleanup</a>
+        <a href="/landing-page/mold-remediation.html">Mold Remediation</a>
+      </div>
+      <div class="fcol">
+        <b>Company</b>
+        <a href="/why-choose-us.html">Why Choose Us</a>
+        <a href="/about-us.html">About Us</a>
+        <a href="/#areas">Service Areas</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="fcol">
+        <b>Legal</b>
+        <a href="/legal.html#privacy">Privacy Policy</a>
+        <a href="/legal.html#terms">Terms of Service</a>
+        <a href="/legal.html#accessibility">Accessibility</a>
+      </div>
+      <div class="fcol">
+        <b>Contact</b>
+        <a class="femph" href="tel:+15625686032">(562)&nbsp;568-6032</a>
+        <a href="mailto:contact@purebiodecon.com">contact@purebiodecon.com</a>
+        <span>Los Angeles County · CA</span>
+        <span>Open 24/7 · 365 days</span>
+      </div>
+      </div>
     </div>
   </div>
-  <div class="bottom">
-    <span>© <span class="ccyr">2026</span> CleanCore Decon, a brand of PureBio Decon Corp. All rights reserved.</span>
-    <span><a href="/legal.html#privacy">Privacy</a> · <a href="/legal.html#terms">Terms</a> · <a href="/legal.html#accessibility">Accessibility</a></span><span>IICRC Certified · EPA compliant · Insured</span>
-  </div>
-</div></footer>
+</footer>
 
 <a class="callcard" href="tel:+15625686032" aria-label="Call 24/7 emergency line (562) 568-6032">
   <span class="ph"><i data-lucide="phone-call"></i></span>
@@ -1086,7 +1274,8 @@
     rm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{rm.classList.remove('open'); rb.classList.remove('open');}));
   }
   // reveal
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  /* toggle : .in quand l'élément entre à l'écran, retiré quand il en sort -> l'anim se rejoue à l'inverse au scroll up */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{e.target.classList.toggle('in',e.isIntersecting);}),{threshold:.1,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // services tabs
   const stabs=[...document.querySelectorAll('.tab')], spanels=[...document.querySelectorAll('[data-panel]')];
@@ -1176,5 +1365,21 @@
 </script>
 <script>document.querySelectorAll(".ccyr").forEach(function(e){e.textContent=(new Date()).getFullYear();});</script>
 <script src="/assets/js/ghost.js" defer></script>
+<script>
+  /* reveal au scroll (stagger par groupe) — la classe .reveal est posée par JS :
+     si JS off ou reduced-motion, le contenu reste visible (pas d'opacity:0). */
+  (function(){
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var sel='.wc-apart-grid .wc-feat, .wc-process-row .wc-step, .wc-ba-grid .wc-ba, .wc-tc-grid .wc-card, .wc-final-band';
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll(sel).forEach(function(el){
+      el.classList.add('reveal');
+      var idx=0,p=el.previousElementSibling;
+      while(p){idx++;p=p.previousElementSibling;}
+      el.style.setProperty('--rd',(Math.min(idx,5)*0.07)+'s');
+      io.observe(el);
+    });
+  })();
+</script>
 </body>
 </html>
