@@ -36,6 +36,16 @@ fire-*.jpeg
 _sup_*.json
 _sup2_*.json
 _remaining.txt
+_es_dict.json
 _build_apply.py
 _make_locale.py
 _verify_locale.py
+_gen_es.py
+_gen_locale.py
+_hero_certs.py
+_move_certbar.py
+_propagate_footer.py
+_cta_skyline.py
+
+# Design exploration mockups (not part of the deployed site)
+mockups/
