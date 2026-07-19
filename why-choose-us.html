@@ -783,12 +783,12 @@
   .d2-cta .btn{font-size:17px;padding:16px 36px}
   @media(prefers-reduced-motion:reduce){.d2-card,.d2-dark{transition:none}}
   @media(max-width:860px){
-    .d2-stage{max-width:560px}
-    .d2-card{width:100%;transform:none!important}
-    .d2-dark{position:static;width:auto;transform:none!important;opacity:1;pointer-events:auto;margin-top:14px;display:none}
-    .d2-stage[data-view="uncertified"] .d2-card{display:none}
-    .d2-stage[data-view="uncertified"] .d2-dark{display:flex}
-    .d2-drow{min-height:66px;padding:16px 22px}
+    .d2-stage{max-width:560px;display:flex;flex-direction:column}
+    .d2-card{order:1;width:100%;transform:none!important}
+    /* mobile : la carte reste au-dessus, le panneau sombre glisse EN BAS au clic sur "uncertified" */
+    .d2-dark{order:2;position:static;width:auto;transform:none!important;display:flex;opacity:0;pointer-events:none;margin-top:0;max-height:0;overflow:hidden;transition:max-height .5s var(--ease),opacity .4s var(--ease),margin-top .45s var(--ease)}
+    .d2-stage[data-view="uncertified"] .d2-dark{opacity:1;pointer-events:auto;max-height:640px;margin-top:14px}
+    .d2-drow{flex:none;min-height:64px;padding:16px 22px}
   }
   @media(max-width:520px){
     .d2-row{grid-template-columns:32px 1fr;gap:0 12px;padding:16px 2px}
@@ -875,7 +875,7 @@
     .wc-hero-bg::after{background:linear-gradient(180deg,rgba(6,16,28,.82) 0%,rgba(6,16,28,.66) 55%,rgba(6,16,28,.8) 100%)}
     .wc-hero-media{display:none}
     .wc-ba-grid{grid-template-columns:1fr 1fr;gap:12px}
-    .wc-trust{gap:18px 24px}
+    .wc-trust{gap:18px 24px;justify-content:center}
     .wc-diff-hl,.wc-diff-l{padding-left:14px;padding-right:14px}
     .wc-diff-hr,.wc-diff-r{padding-left:14px;padding-right:14px}
   }

@@ -709,6 +709,15 @@
   .au-story-photo .au-story-lbl{position:absolute;left:20px;bottom:18px;z-index:2;font:600 11px/1 var(--mono,ui-monospace);letter-spacing:.14em;text-transform:uppercase;color:#cdddee;text-shadow:0 1px 8px rgba(6,16,28,.7)}
   /* placeholder look until img/la-skyline.jpg is added */
   .au-story-photo.is-empty::after{content:"";position:absolute;inset:0;background:url('img/ca-map.svg') center/58% no-repeat;filter:brightness(0) invert(1);opacity:.07}
+  /* mappemonde pointillée — dots masqués par la silhouette du monde + pin sur Los Angeles */
+  .au-story-photo .wmap{position:absolute;top:47%;left:50%;transform:translate(-50%,-50%);width:100%;aspect-ratio:2/1}
+  .wmap-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(143,208,255,.55) 1px,transparent 1.6px);background-size:7px 7px;-webkit-mask:url(/img/world-equirect.svg) center/contain no-repeat;mask:url(/img/world-equirect.svg) center/contain no-repeat}
+  .wmap-pin{position:absolute;left:17.2%;top:31.1%;width:11px;height:11px;transform:translate(-50%,-50%);z-index:3}
+  .wmap-pin::before{content:"";position:absolute;inset:0;border-radius:50%;background:#4FB3ED;box-shadow:0 0 0 4px rgba(79,179,237,.22),0 0 16px 3px rgba(79,179,237,.85)}
+  .wmap-pin::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(79,179,237,.6);animation:wmapPulse 2.4s ease-out infinite}
+  @keyframes wmapPulse{0%{transform:scale(.5);opacity:.9}100%{transform:scale(3.2);opacity:0}}
+  .wmap-beam{position:absolute;left:17.2%;top:calc(31.1% - 38px);width:1px;height:38px;transform:translateX(-50%);background:linear-gradient(to top,rgba(79,179,237,.85),transparent);z-index:3}
+  .wmap-lbl{position:absolute;left:17.2%;top:calc(31.1% - 70px);transform:translateX(-50%);white-space:nowrap;background:#0e2338;border:1px solid rgba(255,255,255,.12);color:#dfeaf4;font-family:'Plus Jakarta Sans';font-weight:700;font-size:11.5px;padding:6px 11px;border-radius:8px;box-shadow:0 12px 26px -12px rgba(0,0,0,.7);z-index:4}
   @media(max-width:820px){.au-story-grid{grid-template-columns:1fr;gap:28px}.au-story-photo{min-height:300px}}
 
   /* 3) timeline */
@@ -756,7 +765,7 @@
   .wc-logo-epa{opacity:.95}
   .wc-trust-ic{width:32px;height:32px;color:#fff;opacity:.95}
   .wc-trust-lbl{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;color:#dfeaf4;line-height:1.15}
-  @media(max-width:820px){.wc-trust{flex-wrap:wrap;justify-content:flex-start;gap:20px 34px}}
+  @media(max-width:820px){.wc-trust{flex-wrap:wrap;justify-content:center;gap:20px 34px}}
   /* about — services cards + CTA (dark band) */
   .au-svc-sec{position:relative;background:var(--navy-band,#0A2540);color:var(--txt-d,#AFC0D4);overflow:clip}
   .au-svc-sec .wrap{position:relative;z-index:1;max-width:1440px}
@@ -802,14 +811,17 @@
   .crew-hint{display:inline-flex;align-items:center;gap:10px;margin-top:32px;font-size:18px;color:var(--muted,#8aa0b8);font-weight:600}
   .crew-hint svg{width:22px;height:22px}
   @media(max-width:820px){
-    .crew-scroll{height:auto}
-    .crew-sticky{position:static;height:auto;padding:44px 0}
-    .crew-layout{grid-template-columns:1fr;gap:34px;justify-items:center;text-align:center}
-    .image-swiper{justify-self:center}
-    .crew-desc{max-width:none}
-    .crew-quote{text-align:left}
-    .crew-dots{justify-content:center}
-    .crew-sticky{cursor:pointer}
+    /* same sticky scroll-driven behaviour, stacked: card on top, bio below */
+    .crew-sticky{justify-content:center}
+    .crew-layout{display:block;width:100%;min-width:0;max-width:100%;text-align:center}
+    .image-swiper{width:min(300px,82vw);height:min(400px,110vw);margin:0 auto}
+    .image-card{left:0;right:0;margin:0 auto;top:14px;width:min(270px,74vw);height:min(360px,99vw)}
+    .crew-desc{max-width:min(440px,92vw);margin:24px auto 0}
+    .crew-name{font-size:clamp(26px,7vw,34px)}
+    .crew-role{font-size:11px}
+    .crew-quote{text-align:left;font-size:clamp(17px,4.4vw,21px);border-left-width:3px;padding-left:16px;margin-top:18px}
+    .crew-dots{justify-content:center;margin-top:22px}
+    .crew-hint{display:none}
   }
   @media(prefers-reduced-motion:reduce){.image-card{transition:opacity .2s}}
 
@@ -1261,16 +1273,10 @@
     apply(Math.min(N-1,Math.floor(p*N)));
   }
 
-  var mobile=window.matchMedia('(max-width:820px)').matches;
-  if(mobile){
-    apply(0);
-    section.addEventListener('click',function(){ apply((cur+1)%N); });   // tap to advance on mobile
-  }else{
-    apply(0);
-    window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('resize',onScroll,{passive:true});
-    onScroll();
-  }
+  apply(0);
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  onScroll();
 })();
 </script>
 
