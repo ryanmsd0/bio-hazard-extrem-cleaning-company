@@ -777,6 +777,16 @@
   .co-submit{width:100%;justify-content:center;margin-top:6px}
   .co-form .co-fine{text-align:center;color:#7f93aa;font-size:12.5px;margin:6px 0 0}
   @media(max-width:520px){.co-left h1{font-size:clamp(38px,11vw,52px)}.co-map{width:78%}}
+  /* mappemonde pointillée — dots masqués par la silhouette du monde + pin sur Los Angeles */
+  .co-wmap{position:relative;width:min(1000px,150%);aspect-ratio:612/364;margin-top:-26px;margin-left:-110px;--lax:18.5%;--lay:37.5%;transform:perspective(1100px) rotateX(34deg);transform-origin:center 55%}
+  @media(max-width:900px){.co-wmap{width:min(520px,120%);margin-left:-26px;margin-top:14px}}
+  .co-wmap .wmap-map{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+  .co-wmap .wmap-pin{position:absolute;left:var(--lax);top:var(--lay);width:11px;height:11px;transform:translate(-50%,-50%);z-index:3}
+  .co-wmap .wmap-pin::before{content:"";position:absolute;inset:0;border-radius:50%;background:#4FB3ED;box-shadow:0 0 0 4px rgba(79,179,237,.22),0 0 16px 3px rgba(79,179,237,.85)}
+  .co-wmap .wmap-pin::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(79,179,237,.6);animation:wmapPulse 2.4s ease-out infinite}
+  @keyframes wmapPulse{0%{transform:scale(.5);opacity:.9}100%{transform:scale(3.2);opacity:0}}
+  .co-wmap .wmap-beam{position:absolute;left:var(--lax);top:calc(var(--lay) - 38px);width:1px;height:38px;transform:translateX(-50%);background:linear-gradient(to top,rgba(79,179,237,.85),transparent);z-index:3}
+  .co-wmap .wmap-lbl{position:absolute;left:var(--lax);top:calc(var(--lay) - 70px);transform:translateX(-50%);white-space:nowrap;background:#0e2338;border:1px solid rgba(255,255,255,.12);color:#dfeaf4;font-family:'Plus Jakarta Sans';font-weight:700;font-size:11.5px;padding:6px 11px;border-radius:8px;box-shadow:0 12px 26px -12px rgba(0,0,0,.7);z-index:4}
 </style>
 <script defer src="/i18n.js?v=2"></script>
 </head>
@@ -853,6 +863,12 @@
           <a href="tel:+15625686032">(562) 568-6032</a>
           <span class="dot"></span>
           <span>Available 24/7 &middot; 365 days</span>
+        </div>
+        <div class="co-wmap" aria-hidden="true">
+          <img class="wmap-map" decode="async" src="/img/world-map.svg" alt="">
+          <span class="wmap-lbl">We are here &middot; Los Angeles</span>
+          <span class="wmap-beam"></span>
+          <span class="wmap-pin"></span>
         </div>
       </div>
       <form class="co-form reveal r-right" onsubmit="return textEstimate(this)">
