@@ -715,7 +715,7 @@
 
 <!-- AREAS -->
 <section id="areas"><div class="wrap reveal">
-  <div class="sec-h"><span class="eyebrow">Areas we serve</span><h2>Fire damage restoration across Los Angeles</h2><p>Nine counties, dispatched 24/7. Tap a county on the map to see the cities we cover.</p></div>
+  <div class="sec-h"><span class="eyebrow">Areas we serve</span><h2>Fire damage restoration across Los Angeles</h2><p>Dispatched 24/7 across Southern California. Tap a county on the map to see response times.</p></div>
   <div class="areawrap">
     <div class="mapfig reveal r-left"><svg class="camap" id="camap" viewBox="360 734 625 402" role="img" aria-label="Map of California with CleanCore Decon service counties highlighted">
         <defs>
@@ -730,10 +730,10 @@
     <aside class="areapanel reveal r-right rd1">
       <span class="peyebrow">Selected county</span>
       <h3 id="pname">Los Angeles County</h3>
-      <div class="pcount" id="pcount">15 cities served</div>
+      <div class="pcount" id="presp">Typical response within 90 minutes</div>
       <div class="pcities" id="pcities"></div>
       <a class="btn bp" href="tel:+15625686032">Call for your area <span class="c"><i data-lucide="phone-call"></i></span></a>
-      <div class="hint"><i data-lucide="timer"></i> 24/7 emergency dispatch across all nine counties.</div>
+      <div class="hint"><i data-lucide="timer"></i> 24/7 emergency dispatch across Southern California.</div>
     </aside>
   </div>
 </div></section>
@@ -865,12 +865,12 @@
     // county click -> update panel + highlight
     var CITIES={"Los Angeles": ["Los Angeles", "Long Beach", "Glendale", "Pasadena", "Santa Monica", "Burbank", "Inglewood", "Hollywood", "Beverly Hills", "Culver City", "Torrance", "Pomona", "Downey", "El Monte", "Norwalk"], "Orange": ["Anaheim", "Santa Ana", "Irvine", "Huntington Beach", "Garden Grove", "Fullerton", "Costa Mesa", "Mission Viejo", "Newport Beach", "Orange", "Yorba Linda"], "Riverside": ["Riverside", "Moreno Valley", "Corona", "Temecula", "Murrieta", "Jurupa Valley", "Menifee", "Hemet", "Indio", "Palm Springs", "Perris"], "San Bernardino": ["San Bernardino", "Fontana", "Rancho Cucamonga", "Ontario", "Victorville", "Rialto", "Hesperia", "Chino", "Chino Hills", "Upland", "Redlands"], "San Diego": ["San Diego", "Chula Vista", "Oceanside", "Escondido", "Carlsbad", "El Cajon", "Vista", "San Marcos", "Encinitas", "National City"], "Ventura": ["Oxnard", "Thousand Oaks", "Simi Valley", "Ventura", "Camarillo", "Moorpark", "Santa Paula", "Port Hueneme", "Fillmore"], "Santa Barbara": ["Santa Barbara", "Santa Maria", "Lompoc", "Goleta", "Carpinteria", "Guadalupe", "Buellton"], "Kern": ["Bakersfield", "Delano", "Ridgecrest", "Wasco", "Shafter", "Tehachapi", "California City", "Arvin"], "Imperial": ["El Centro", "Calexico", "Brawley", "Imperial", "Calipatria", "Holtville", "Westmorland"]};
     var served2=[].slice.call(map.querySelectorAll('.served'));
-    var pn=document.getElementById('pname'), pc=document.getElementById('pcount'), pcs=document.getElementById('pcities');
+    var pn=document.getElementById('pname'), pr=document.getElementById('presp'), pcs=document.getElementById('pcities');
     function selCounty(name){
       served2.forEach(function(pp){pp.classList.toggle('hi',pp.getAttribute('data-name')===name);});
       var arr=CITIES[name]||[];
       if(pn)pn.textContent=name+' County';
-      if(pc)pc.textContent=arr.length+' cities served';
+      if(pr)pr.textContent=(name==='Los Angeles')?'Typical response within 90 minutes':'24/7 dispatch — call for ETA';
       if(pcs)pcs.innerHTML=arr.map(function(c){return '<span>'+c+'</span>';}).join('');
     }
     served2.forEach(function(pp){pp.addEventListener('click',function(){selCounty(pp.getAttribute('data-name'));});});
